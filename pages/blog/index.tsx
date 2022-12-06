@@ -1,7 +1,8 @@
 import { NextPage } from "next";
 
 interface Post {
-    title: string
+    title: string,
+    id: string
 }
 
 interface Props{
@@ -12,7 +13,7 @@ const Blog: NextPage<Props> = ({ posts }) => {
     return (
         <ul>
             {posts.map((post: Post) => (
-                <li>{post.title}</li>
+                <li key={post.id}>{post.title}</li>
             ))}
         </ul>
     )
@@ -21,7 +22,7 @@ const Blog: NextPage<Props> = ({ posts }) => {
 const getStaticProps = async () => {
     // const res = await fetch('https://.../posts')
     // const posts = await res.json()
-    const posts: Post[] = [{title:'hi'}, {title:'why'}]
+    const posts: Post[] = [{title:'hi', id:'1'}, {title:'why', id:'2'}]
     return {
         props: {
             posts,
