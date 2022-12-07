@@ -1,11 +1,9 @@
-import type { FC, ReactNode, ReactElement } from 'react'
-
 interface Props {
     color: string
-    children: ReactNode
+    children: React.ReactNode
 }
 
-const EmptyComponents: FC<Props> = ({ color }) => {
+const EmptyComponents: React.FC<Props> = ({ color }) => {
     console.log(color);
 
     return <div>hi</div>

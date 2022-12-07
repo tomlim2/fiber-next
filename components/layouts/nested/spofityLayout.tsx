@@ -1,10 +1,8 @@
-import type { FC, ReactNode } from 'react'
-
 interface Props {
-  children: ReactNode
+  children: React.ReactNode
 }
 
-const SpotifyLayout: FC<Props> = ({ children }) => {
+const SpotifyLayout: React.FC<Props> = ({ children }) => {
   return (
     <>
         spotify!

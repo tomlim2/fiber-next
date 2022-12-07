@@ -1,13 +1,11 @@
 import Navbar from '@/components/layouts/navbar'
 import Footer from '@/components/layouts/footer'
 
-import type { FC, ReactElement } from 'react'
-
 interface Props {
-  children: ReactElement
+  children: React.ReactElement
 }
 
-const Layout: FC<Props> = ({ children }) => {
+const Layout: React.FC<Props> = ({ children }) => {
   return (
     <>
       <Navbar />

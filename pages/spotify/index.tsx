@@ -1,16 +1,16 @@
 import Layout from 'components/layouts/layout'
 import SpotifyLayout from 'components/layouts/nested/spofityLayout'
-import NextImage from 'components/images/NextImage'
-import styles from 'styles/pages/spotify.scss'
+import ImageLocal from '@/components/images/imageLocal'
+import ImageBasic from '@/components/images/ImageBasic'
+import styles from 'styles/pages/spotify.module.scss'
 
 import type { ReactElement } from 'react'
 
 const Spotify = () => {
     return (
         <div>
-            <div className=''>
-                <NextImage src={'/assets/images/img_never.jpeg'} />
-            </div>
+            <ImageLocal src='/assets/images/img-never.jpeg' />
+            <ImageBasic src='https://picsum.photos/id/237/200/300' />
         </div>
     )
 }

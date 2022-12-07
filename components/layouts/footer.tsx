@@ -1,6 +1,4 @@
-import type { FC } from 'react'
-
-const Footer: FC = () => {
+const Footer: React.FC = () => {
     return <div>footer</div>
 }
 

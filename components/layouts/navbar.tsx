@@ -1,6 +1,4 @@
-import type { FC } from 'react'
-
-const Navbar: FC = () => {
+const Navbar: React.FC = () => {
     return <div>nav</div>
 }
 
