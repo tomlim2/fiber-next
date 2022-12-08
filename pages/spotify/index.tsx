@@ -1,10 +1,7 @@
-import Layout from 'components/layouts/layout'
-import SpotifyLayout from 'components/layouts/nested/spofityLayout'
+import Layout from 'layouts/layout'
+import SpotifyLayout from 'layouts/nested/spofityLayout'
 import ImageLocal from '@/components/images/imageLocal'
 import ImageBasic from '@/components/images/ImageBasic'
-import styles from 'styles/pages/spotify.module.scss'
-
-import type { ReactElement } from 'react'
 
 const Spotify = () => {
     return (
@@ -17,7 +14,7 @@ const Spotify = () => {
 
 export default Spotify
 
-Spotify.getLayout = function getLayout(page: ReactElement) {
+Spotify.getLayout = function getLayout(page: React.ReactElement) {
     return (
         <Layout>
             <SpotifyLayout>{page}</SpotifyLayout>

@@ -1,14 +1,18 @@
-import Layout from '@/components/layouts/layout'
+import SectionExpLog from '@/components/sections/home/sectionExpLog'
+
+import Layout from 'layouts/layout'
 
 import type { ReactElement } from 'react'
 
 const Home = () => {
   return (
     <>
-    home
+    <SectionExpLog />
     </>
   )
 }
+
+export default Home
 
 Home.getLayout = function getLayout(page: ReactElement) {
   return (
@@ -17,5 +21,3 @@ Home.getLayout = function getLayout(page: ReactElement) {
       </Layout>
   )
 }
-
-export default Home

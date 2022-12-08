@@ -1,5 +1,5 @@
-import Navbar from '@/components/layouts/navbar'
-import Footer from '@/components/layouts/footer'
+import Header from 'components/pages/header'
+import Footer from 'components/pages/footer'
 
 interface Props {
   children: React.ReactElement
@@ -8,7 +8,7 @@ interface Props {
 const Layout: React.FC<Props> = ({ children }) => {
   return (
     <>
-      <Navbar />
+      <Header />
       <main>{children}</main>
       <Footer />
     </>

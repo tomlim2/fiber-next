@@ -12,9 +12,6 @@ interface Props {
     size?: size
 }
 
-const FALLBACK_IMAGE =
-  "https://www.kindacode.com/wp-content/uploads/2021/08/oops.png";
-
 const ImageBasic: React.FC<Props> = ({ src = undefined, alt = 'image', size = { width: '400px', height: '400px' } }) => {
 
 
@@ -29,7 +26,6 @@ const ImageBasic: React.FC<Props> = ({ src = undefined, alt = 'image', size = { 
       const imageOnErrorHandler = (
         event: React.SyntheticEvent<HTMLImageElement, Event>
       ) => {
-        event.currentTarget.src = FALLBACK_IMAGE;
         event.currentTarget.className = "error";
       };
 

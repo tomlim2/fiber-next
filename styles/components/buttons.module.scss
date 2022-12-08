@@ -1,0 +1,12 @@
+@import "styles/variable.scss";
+
+.button {
+    padding: 4px 8px;
+    background-color: $black-100;
+    color: $white-100;
+}
+
+.link {
+    font-size: .85rem;
+    color: $white-0;
+}
