@@ -6,9 +6,9 @@ import type { ReactElement } from 'react'
 
 const Home = () => {
   return (
-    <>
-    <SectionExpLog />
-    </>
+    <main>
+      <SectionExpLog />
+    </main>
   )
 }
 
@@ -16,8 +16,8 @@ export default Home
 
 Home.getLayout = function getLayout(page: ReactElement) {
   return (
-      <Layout>
-          {page}
-      </Layout>
+    <Layout>
+      {page}
+    </Layout>
   )
 }

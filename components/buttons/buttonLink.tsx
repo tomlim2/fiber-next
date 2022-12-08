@@ -3,11 +3,17 @@ import styles from 'styles/components/buttons.module.scss'
 
 interface Props {
     to?: string
-    children: React.ReactNode
+    backgroundColor?: string
+    color?: string
+    children: React.ReactNode | string
 }
 
-const ButtonLink: React.FC<Props> = ({ children, to = '/' }) => {
-    return <Link className={styles.link} href={to}>{children}</Link>
+const ButtonLink: React.FC<Props> = ({ children, to = '/', backgroundColor, color }) => {
+    const style = {
+        backgroundColor,
+        color
+    }
+    return <Link className={styles.link} style={style} href={to}>{children}</Link>
 }
 
 export default ButtonLink;

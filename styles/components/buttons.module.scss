@@ -1,4 +1,4 @@
-@import "styles/variable.scss";
+@import "styles/variables.module.scss";
 
 .button {
     padding: 4px 8px;
@@ -7,6 +7,8 @@
 }
 
 .link {
+    padding: 4px 8px;
     font-size: .85rem;
-    color: $white-0;
+    background-color: $black-100;
+    color: $white-100;
 }
