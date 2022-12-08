@@ -22,7 +22,7 @@ const TextLink: React.FC<Props> = ({ linkType = 'internal', children, to = '/' }
         email: <a className={styles.link} href={`mailto:${to}`}>{children}</a>
     }
     
-    return linkType ? linkTypes[linkType as keyof LinkType] : <><span className={styles.link}>{children}</span></>
+    return linkType ? linkTypes[linkType as keyof LinkType] : <span className={styles.link}>{children}</span>
 }
 
 export default TextLink;
