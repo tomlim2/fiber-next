@@ -13,6 +13,7 @@ const ButtonLink: React.FC<Props> = ({ children, to = '/', backgroundColor, colo
         backgroundColor,
         color
     }
+
     return <Link className={styles.link} style={style} href={to}>{children}</Link>
 }
 

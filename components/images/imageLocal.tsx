@@ -1,6 +1,6 @@
 import Image from 'next/image'
 import Skeleton from 'components/skeleton'
-import styles from 'styles/components/images.module.scss'
+import styles from 'styles/components/images/images.module.scss'
 
 interface size {
     width: string 

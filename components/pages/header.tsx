@@ -1,5 +1,5 @@
 import TextLink from "components/texts/textLink"
-import styles from 'styles/components/pages/header.module.scss'
+import styles from 'styles/components/header.module.scss'
 
 const Header: React.FC = () => {
     return (

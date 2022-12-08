@@ -1,6 +1,5 @@
-import SectionExpLog from '@/components/sections/home/sectionExpLog'
-
 import Layout from 'layouts/layout'
+import SectionExpLog from 'components/sections/home/sectionExpLog'
 
 import type { ReactElement } from 'react'
 

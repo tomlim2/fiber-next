@@ -1,12 +1,15 @@
-import styles from 'styles/components/skeleton.module.scss'
+import styles from 'styles/components/skeletons.module.scss'
 
 interface Props {
-    color?: string
-    children?: React.ReactNode
+    backgroundColor?: string
 }
 
-const Skeleton: React.FC<Props> = ({ color }) => {
-    return <div className={styles.skeleton}></div>
+const Skeleton: React.FC<Props> = ({ backgroundColor }) => {
+    const style: any = {
+        backgroundColor,
+    }
+
+    return <div className={styles.skeleton} style={style} />
 }
 
 export default Skeleton

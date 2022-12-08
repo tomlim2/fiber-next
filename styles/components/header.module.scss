@@ -11,4 +11,5 @@
 .menus {
     display: grid;
     grid-template-columns: repeat(3, 1fr);
+    font-size: $font-size-nav;
 }

@@ -11,4 +11,9 @@
     font-size: .85rem;
     background-color: $black-100;
     color: $white-100;
+    transition: 150ms ease-in-out opacity;
+
+    &:hover{
+        opacity: .75;
+    }
 }
