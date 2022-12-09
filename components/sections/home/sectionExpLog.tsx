@@ -1,17 +1,17 @@
-import ButtonLink from "@/components/buttons/buttonLink"
+import ButtonBasic from "@/components/buttons/buttonBasic"
 import Title from "@/components/texts/title"
 
-import styles from 'styles/components/sections/sectionExpLog.module.scss'
 import variables from 'styles/variables.module.scss'
+import styles from 'styles/components/sections/sectionHome.module.scss'
 
 const SectionExpLog = () => {
     return (
         <>
             <section className={styles.section}>
-                <Title>exp</Title>
-                <div className="">
-                    <ButtonLink backgroundColor={variables.spotify} color={variables.black100} to='exp/spotify'>Spotify</ButtonLink>
-                    <ButtonLink to='exp/images'>Image</ButtonLink>
+                <Title>exp-front</Title>
+                <div className={styles.content}>
+                    <ButtonBasic backgroundColor={variables.spotify} color={variables.black100} to='exp/spotify'>Spotify</ButtonBasic>
+                    <ButtonBasic to='exp/images'>Image</ButtonBasic>
                 </div>
 
             </section>

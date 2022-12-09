@@ -8,3 +8,14 @@ body {
 	font-family: 'Barlow', sans-serif;
 	line-height: 1;
 }
+
+::-moz-selection {
+	/* Code for Firefox */
+	color: #252525;
+	background: #dcdcdc;
+}
+
+::selection {
+	color: #252525;
+	background: #dcdcdc;
+}

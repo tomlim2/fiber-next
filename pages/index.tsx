@@ -1,11 +1,11 @@
 import Layout from 'layouts/layout'
+import SectionSummary from 'components/sections/home/sectionSummary'
 import SectionExpLog from 'components/sections/home/sectionExpLog'
-
-import type { ReactElement } from 'react'
 
 const Home = () => {
   return (
     <main>
+      <SectionSummary />
       <SectionExpLog />
     </main>
   )
@@ -13,7 +13,7 @@ const Home = () => {
 
 export default Home
 
-Home.getLayout = function getLayout(page: ReactElement) {
+Home.getLayout = function getLayout(page: React.ReactElement) {
   return (
     <Layout>
       {page}
