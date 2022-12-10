@@ -11,7 +11,7 @@ const SectionExpLog = () => {
                 <Title>exp-front</Title>
                 <div className={styles.content}>
                     <ButtonBasic backgroundColor={variables.spotify} color={variables.black100} to='exp/spotify'>Spotify</ButtonBasic>
-                    <ButtonBasic to='exp/images'>Image</ButtonBasic>
+                    <ButtonBasic to='exp/components'>Components</ButtonBasic>
                 </div>
 
             </section>

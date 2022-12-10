@@ -4,8 +4,20 @@ import ButtonBasic from "@/components/buttons/buttonBasic"
 import variables from 'styles/variables.module.scss'
 import styles from 'styles/components/sections/sectionSpotify.module.scss'
 
+import useModel from "models"
+
 const SectionSpotify = () => {
+    const model = useModel()
     const onClick = (id: string) => {
+        switch (id) {
+            case 'login':
+                model.spotify.login()
+                
+                break;
+
+            default:
+                break;
+        }
         console.log(id);
     }
 
@@ -15,8 +27,8 @@ const SectionSpotify = () => {
                 <div className={styles.content}>
                     <Title>Login to Spotify</Title>
                     <div className={styles.buttons}>
-                        <ButtonBasic backgroundColor={variables.spotify} color={variables.black100} onClick={()=>onClick('login')}>Login</ButtonBasic>
-                        <ButtonBasic onClick={()=>onClick('logout')} disabled={true}>Logout</ButtonBasic>
+                        <ButtonBasic backgroundColor={variables.spotify} color={variables.black100} onClick={() => onClick('login')}>Login</ButtonBasic>
+                        <ButtonBasic onClick={() => onClick('logout')} disabled={true}>Logout</ButtonBasic>
                     </div>
                 </div>
 
