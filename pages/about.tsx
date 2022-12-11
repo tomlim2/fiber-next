@@ -1,7 +1,8 @@
 import Layout from 'layouts/layout'
+import SectionAbout from 'components/sections/about/sectionAbout'
 
 const About = () => {
-    return <div>about</div>
+    return <main><SectionAbout/></main>
 }
 
 export default About

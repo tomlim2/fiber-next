@@ -54,3 +54,17 @@
         transform: scale(0, 1);
     }
 }
+
+.icon {
+    position: relative;
+    overflow: hidden;
+    padding: 4px 8px;
+    background-color: $black-100;
+    color: $white-100;
+    cursor: pointer;
+
+    &:disabled {
+        opacity: .5;
+        pointer-events: none;
+    }
+}
