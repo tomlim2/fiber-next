@@ -1,11 +1,22 @@
-export interface WidgetItem {
+export interface InterfaceWidgetItem {
     name: string
     widgetUid: number | string
     type: string
     apiUrl: string
 }
 
-export interface Widgets {
-    list: WidgetItem[]
-    user: WidgetItem[]
+export interface InterfaceWidgets {
+    list: InterfaceWidgetItem[]
+    user: InterfaceWidgetItem[]
+}
+
+export interface InterfaceTodoDetail{
+    task: string
+    isCompeleted: boolean
+}
+
+export interface InterfaceTodo{
+    title: string
+    isCompeleted: boolean
+    details: InterfaceTodoDetail[]
 }

@@ -1,8 +1,8 @@
-interface Keys {
+interface InterfaceKeys {
     spotifyAccessTokenKey: string
 }
 
-const keys: Keys = {
+const keys: InterfaceKeys = {
     spotifyAccessTokenKey: 'spotify/accessToken'
 }
 
