@@ -12,11 +12,12 @@ export interface InterfaceWidgets {
 
 export interface InterfaceTodoDetail{
     task: string
-    isCompeleted: boolean
+    isCompleted: boolean
 }
 
 export interface InterfaceTodo{
     title: string
-    isCompeleted: boolean
+    to: string
+    isCompleted: boolean
     details: InterfaceTodoDetail[]
 }
