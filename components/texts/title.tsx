@@ -1,32 +1,59 @@
+import styled, { css } from 'styled-components'
 import styles from 'styles/components/texts.module.scss'
 
 interface Props {
-    titleType?: string
+    usage?: UsageType
     children: React.ReactNode
 }
 
-interface Titles {
-    h1: React.ReactNode
-    title: React.ReactNode
-    subTitle: React.ReactNode
-    h4: React.ReactNode
-    h5: React.ReactNode
-    default: React.ReactNode
+type UsageType = 'page' | 'about' | 'main' | 'title' | 'subTitle' | 'default';
+
+const Title: React.FC<Props> = ({ usage = 'default', children }) => {
+    return <Text usage={usage}>{children}</Text>
 }
 
-type TitleType  = 'h1' | 'title' | 'subTitle' | 'h4' | 'h5' | 'default' | undefined;
-
-const Title: React.FC<Props> = ({ titleType = 'default', children }) => {
-    const texts: Titles = {
-        h1: <h1 className={styles.h1}>{children}</h1>,
-        title: <h2 className={styles.title}>{children}</h2>,
-        subTitle: <h3 className={styles.subTitle}>{children}</h3>,
-        h4: <h4 className={styles.h4}>{children}</h4>,
-        h5: <h5 className={styles.h5}>{children}</h5>,
-        default: <div className={styles.name}>{children}</div>
-    }
-    
-    return titleType ? texts[titleType  as keyof TitleType] : <div className={styles.name}>{children}</div>
-}
 
 export default Title;
+
+export const Text = styled.p<InterfaceText>`
+    ${props => styleUsage[props.usage]}
+`
+
+interface InterfaceText {
+    usage: UsageType
+}
+
+const styleAbout = css`
+    background: palevioletred;
+    color: white;
+    font-size: 1rem;
+`
+
+const styleDefault = css`
+    color: blue;
+`
+
+const stylePage = css`
+    font-size: 1.75rem;
+`
+
+const styleMain = css`
+    font-size: 1.75rem;
+`
+
+const styleTitle = css`
+    font-size: 1.25rem;
+`
+
+const styleSubTitle = css`
+`
+
+const styleUsage = {
+    page: stylePage,
+    main: styleMain,
+    title: styleTitle,
+    subTitle: styleSubTitle,
+    about: styleAbout,
+    default: styleDefault
+}
+

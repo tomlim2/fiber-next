@@ -2,7 +2,7 @@ export const todos = [
     {
         title: 'Vue2',
         isCompleted: false,
-        to:'/',
+        to: '/',
         details: [
             { task: 'Set up todos', isCompleted: true },
             { task: 'Page transition', isCompleted: true },
@@ -13,7 +13,7 @@ export const todos = [
     {
         title: 'Widget',
         isCompleted: false,
-        to:'/widget',
+        to: '/widget',
         details: [
             { task: 'GET 데이터 전역화', isCompleted: true },
             { task: 'POST 저장 값 백으로 보내기 전역화', isCompleted: false },
@@ -23,7 +23,7 @@ export const todos = [
     {
         title: 'Outfocus Save',
         isCompleted: false,
-        to:'/listener-checker',
+        to: '/listener-checker',
         details: [
             { task: 'Layout', isCompleted: false },
             { task: 'Backend set', isCompleted: false },
@@ -32,10 +32,27 @@ export const todos = [
     },
     {
         title: 'Popcorn effects',
-        to:'/popcorn',
+        to: '/popcorn',
         isCompleted: false,
         details: [
             { task: 'Miragete twojs', isCompleted: false },
+        ]
+    },
+    {
+        title: 'Lottie Files Compoenont',
+        to: '/lottie',
+        isCompleted: false,
+        details: [
+            { task: '컴포넌트 제작', isCompleted: false },
+            { task: 'Check play puase loop', isCompleted: false },
+        ]
+    },
+    {
+        title: 'Image Crop',
+        to: '/image-crop',
+        isCompleted: true,
+        details: [
+            { task: 'vue-advanced-cropper', isCompleted: true },
         ]
     },
 ]

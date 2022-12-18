@@ -1,22 +1,42 @@
-import styles from 'styles/components/texts.module.scss'
+import styled, { css } from 'styled-components'
 
 interface Props {
-    textElement?: string
+    usage?: UsageType
     children: React.ReactNode
 }
 
-interface Paragraphs {
-    default: React.ReactNode
-}
+type UsageType = 'page' | 'about' | 'default';
 
-type TitleType  = 'h1' | 'h2' | 'h3' | 'h4' | 'h5' | 'default' | undefined;
-
-const Paragraph: React.FC<Props> = ({ textElement = 'default', children }) => {
-    const Paragraphs: Paragraphs = {
-        default: <p className={styles.paragraph}>{children}</p>
-    }
-    
-    return textElement ? Paragraphs[textElement  as keyof TitleType] : <div className={styles.title}>{children}</div>
+const Paragraph: React.FC<Props> = ({ usage = 'default', children }) => {
+    return <Text usage={usage}>{children}</Text>
 }
 
 export default Paragraph;
+
+interface TextInterface {
+    usage: UsageType
+}
+
+const styleAbout = css`
+    background: palevioletred;
+    color: white;
+    font-size: 1rem;
+`
+
+const styleDefault = css`
+    color: blue;
+`
+
+const stylePage = css`
+    color: green;
+`
+
+const styleUsage = {
+    page: stylePage,
+    about: styleAbout,
+    default: styleDefault
+}
+
+export const Text = styled.p<TextInterface>`
+    ${props => styleUsage[props.usage]}
+`

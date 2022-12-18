@@ -12,7 +12,7 @@ export const widgets = [
         apiUrl: '/hey'
     },
     {
-        name: 'widget type C',
+        name: 'widget Hey',
         type: 'typeC',
         widgetUid: 3333,
         apiUrl: '/hey'
@@ -36,6 +36,12 @@ export const widgetsUser = [
     {
         name: 'widget type D',
         type: 'typeD',
+        widgetUid: 4444,
+        apiUrl: '/hey'
+    },
+    {
+        name: 'Hey type C',
+        type: 'typeC',
         widgetUid: 4444,
         apiUrl: '/hey'
     }
