@@ -6,7 +6,7 @@ const SectionSummary = () => {
     return (
         <>
             <section className={`${styles.section} ${styles.summary}`}>
-                <Title>@Exp-Playground #Explore #Experiment #Experience</Title>
+                <Title usage="page">Playground #Explore #Experiment #Experience</Title>
             </section>
         </>
     )

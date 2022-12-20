@@ -1,20 +1,24 @@
-import Title from "@/components/texts/title"
-import ButtonIcon from "@/components/buttons/buttonIcon"
+import styled from 'styled-components'
 
-import styles from 'styles/components/sections/sectionHome.module.scss'
+import TextLink from 'components/texts/textLink'
 import Paragraph from "@/components/texts/paragraph"
 
 const SectionAbout = () => {
     return (
         <>
-            <section className={`${styles.section} ${styles.summary}`}>
-                <Title usage="title">임연수</Title>
-                <Title usage="subTitle">프론트 엔드 개발자 & 디자이너</Title>
-                <Title usage="subTitle">서울, 한국</Title>
-                <Paragraph usage='about'>hi</Paragraph>
-            </section>
+            <Section>
+                <Paragraph usage='about'>임연수<br /> 서울, 한국</Paragraph>
+                <Paragraph usage='about'><TextLink to='tomandlim@gmail.com' usage='email'>tomandlim@gmail.com</TextLink></Paragraph>
+            </Section>
         </>
     )
 }
 
 export default SectionAbout
+
+export const Section = styled.section`
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    margin-top: 36px;
+    padding: 0 12px;
+`

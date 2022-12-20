@@ -1,5 +1,4 @@
 import styled, { css } from 'styled-components'
-import styles from 'styles/components/texts.module.scss'
 
 interface Props {
     usage?: UsageType
@@ -12,22 +11,15 @@ const Title: React.FC<Props> = ({ usage = 'default', children }) => {
     return <Text usage={usage}>{children}</Text>
 }
 
-
 export default Title;
 
-export const Text = styled.p<InterfaceText>`
+export const Text = styled.p<IText>`
     ${props => styleUsage[props.usage]}
 `
 
-interface InterfaceText {
+interface IText {
     usage: UsageType
 }
-
-const styleAbout = css`
-    background: palevioletred;
-    color: white;
-    font-size: 1rem;
-`
 
 const styleDefault = css`
     color: blue;
@@ -35,10 +27,17 @@ const styleDefault = css`
 
 const stylePage = css`
     font-size: 1.75rem;
+    font-weight: 600;
 `
 
 const styleMain = css`
     font-size: 1.75rem;
+`
+
+const styleAbout = css`
+    background: palevioletred;
+    color: white;
+    font-size: 1rem;
 `
 
 const styleTitle = css`

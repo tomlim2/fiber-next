@@ -1,28 +1,67 @@
-import Link from 'next/link'
-import styles from 'styles/components/texts.module.scss'
+import { useRouter } from 'next/router';
+import styled, { css } from 'styled-components'
 
 interface Props {
-    linkType?: string
+    usage?: UsageType
     to?: string
     children: any
 }
 
-interface Links {
-    internal: React.ReactNode
-    external: React.ReactNode
-    email: React.ReactNode
-}
+type UsageType = 'internal' | 'external' | 'email';
 
-type LinkType  = 'internal' | 'external' | 'email' | undefined;
+const TextLink: React.FC<Props> = ({ usage = 'internal', children, to = '/' }) => {
+    const router = useRouter()
+    const navigateTo = (to: string) => {
+        switch (usage) {
+            case 'internal':
+                router.push(to)
+                break;
 
-const TextLink: React.FC<Props> = ({ linkType = 'internal', children, to = '/' }) => {
-    const linkTypes: Links = {
-        internal: <Link className={styles.link} href={to}>{children}</Link>,
-        external: <a className={styles.link} href={to}>{children}</a>,
-        email: <a className={styles.link} href={`mailto:${to}`}>{children}</a>
+            case 'external':
+                window.open(`${to}`);
+                break;
+
+            case 'email':
+                window.open(`mailto:${to}`);
+                break;
+
+            default:
+                break;
+        }
     }
-    
-    return linkType ? linkTypes[linkType as keyof LinkType] : <span className={styles.link}>{children}</span>
+    return <Link usage={usage} onClick={() => navigateTo(to)}>{children}</Link>
 }
 
 export default TextLink;
+
+interface ILink {
+    usage: UsageType
+}
+
+export const Link = styled.a<ILink>`
+    ${props => styleUsage[props.usage]}
+    color: #252525;
+    cursor: pointer;
+
+    &:hover{
+        color: blue;
+    }
+`
+
+const styleInternal = css`
+    
+`
+
+const styleExternal = css`
+    
+`
+
+const styleEmail = css`
+    
+`
+
+const styleUsage = {
+    internal: styleInternal,
+    external: styleExternal,
+    email: styleEmail
+}

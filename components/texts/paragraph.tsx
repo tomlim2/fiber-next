@@ -17,18 +17,22 @@ interface TextInterface {
     usage: UsageType
 }
 
-const styleAbout = css`
-    background: palevioletred;
-    color: white;
-    font-size: 1rem;
-`
-
-const styleDefault = css`
-    color: blue;
+export const Text = styled.p<TextInterface>`
+    ${props => styleUsage[props.usage]}
 `
 
 const stylePage = css`
     color: green;
+`
+
+const styleAbout = css`
+    color: #252525;
+    font-size: 1.25rem;
+    line-height: 1.35;   
+`
+
+const styleDefault = css`
+    color: blue;
 `
 
 const styleUsage = {
@@ -37,6 +41,3 @@ const styleUsage = {
     default: styleDefault
 }
 
-export const Text = styled.p<TextInterface>`
-    ${props => styleUsage[props.usage]}
-`
