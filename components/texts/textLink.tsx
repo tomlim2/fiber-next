@@ -48,16 +48,13 @@ export const Link = styled.a<ILink>`
     }
 `
 
-const styleInternal = css`
-    
+const styleInternal = css`   
 `
 
 const styleExternal = css`
-    
 `
 
 const styleEmail = css`
-    
 `
 
 const styleUsage = {

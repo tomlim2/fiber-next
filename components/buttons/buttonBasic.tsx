@@ -1,9 +1,11 @@
 import { useRouter } from 'next/router'
 import { useState } from 'react'
+import styled, { css } from 'styled-components'
 
-import styles from 'styles/components/buttons.module.scss'
+type UsageType = 'default';
 
 interface Props {
+    usage?: UsageType
     to?: string | undefined
     children: React.ReactNode
     onClick?: Function
@@ -13,7 +15,7 @@ interface Props {
     pushButtonColor?: string
 }
 
-const ButtonBasic: React.FC<Props> = ({ to, onClick, disabled, children, backgroundColor, color, pushButtonColor }) => {
+const ButtonBasic: React.FC<Props> = ({ usage = 'default', to, onClick, disabled, children, backgroundColor, color, pushButtonColor }) => {
     const [pushed, setPushed] = useState(false);
     const router = useRouter()
     const buttonStyles = {
@@ -22,28 +24,52 @@ const ButtonBasic: React.FC<Props> = ({ to, onClick, disabled, children, backgro
     }
 
     const clickButton = () => {
-        if(onClick){
+        if (onClick) {
             return onClick()
-        } 
-        if(to){
+        }
+        if (to) {
             return router.push(to)
         }
     }
 
     return (
-        <button
+        <Button
             onClick={() => {
                 clickButton();
                 setPushed(true);
             }}
             style={buttonStyles}
-            className={styles.button}
             disabled={disabled}
+            usage={usage}
         >
-            <span className={styles.name}>{children}</span>
-            <span style={{ backgroundColor: pushButtonColor ?? '#fff' }} className={`${pushed ? styles.push : ''}`} onAnimationEnd={() => setPushed(false)}></span>
-        </button>
+            {children}
+        </Button>
     )
 }
 
 export default ButtonBasic;
+
+interface IButton {
+    usage: UsageType
+}
+
+export const Button = styled.button<IButton>`
+    ${props => styleUsage[props.usage]}
+    color: #252525;
+    cursor: pointer;
+
+    &:disabled{
+        opacity: .75;
+        pointer-events: none;
+    }
+
+    &:hover{
+        color: blue;
+    }
+`
+
+const styleDefault = css`   
+`
+const styleUsage = {
+    default: styleDefault,
+}
