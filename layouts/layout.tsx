@@ -1,5 +1,4 @@
-import Header from 'components/pages/header'
-import Footer from 'components/pages/footer'
+import RightGlobalHeader from 'components/pages/RightGlobalHeader'
 
 interface Props {
   children: React.ReactElement
@@ -8,9 +7,9 @@ interface Props {
 const Layout: React.FC<Props> = ({ children }) => {
   return (
     <>
-      <Header />
+      <RightGlobalHeader />
       {children}
-      <Footer />
+      
     </>
   )
 }

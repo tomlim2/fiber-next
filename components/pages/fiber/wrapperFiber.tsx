@@ -2,7 +2,7 @@ import styled from "styled-components";
 import Title from "@/components/texts/title";
 
 interface Props {
-  children: React.ReactNode;
+  children: any;
   title?: string;
 }
 
@@ -13,13 +13,22 @@ const WapperFiber: React.FC<Props> = ({
 
   return (
     <Wrapper>
-      <div>{children}</div>
-      <div></div>
-      <Title>{title}</Title>
+      <div className="canvas-wrapper">{children}</div>
+      <div className="infos"><Title>{title}</Title></div>
     </Wrapper>
   );
 };
 
 export default WapperFiber;
 
-export const Wrapper = styled.div``;
+export const Wrapper = styled.div`
+    display: grid;
+    grid-template-columns: 2fr 1fr;
+
+    .canvas-wrapper{
+        
+    }
+    .infos{
+        
+    }
+`;
