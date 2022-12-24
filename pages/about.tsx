@@ -1,5 +1,5 @@
 import Layout from 'layouts/layout'
-import SectionAbout from 'components/sections/about/sectionAbout'
+import SectionAbout from '@/components/pages/about/sectionAbout'
 
 const About = () => {
     return <main><SectionAbout/></main>

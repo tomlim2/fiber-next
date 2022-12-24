@@ -6,7 +6,7 @@ const Header: React.FC = () => {
         <header className={styles.header}>
             <nav className={styles.nav}>
                 <ul className={styles.menus}>
-                    <li className={styles.menu}><TextLink to='/'>yslim</TextLink></li>
+                    <li className={styles.menu}><TextLink to='/'>exxxxx</TextLink></li>
                     <li className={styles.menu}><TextLink to='/fiber'>fiber</TextLink></li>
                     <li className={styles.menu}><TextLink to='/about'>about</TextLink></li>
                 </ul>

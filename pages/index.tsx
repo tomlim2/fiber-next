@@ -1,12 +1,14 @@
 import Layout from 'layouts/layout'
-import SectionSummary from 'components/sections/home/sectionSummary'
-import SectionExpLog from 'components/sections/home/sectionExpLog'
+import SectionSummary from '@/components/pages/home/sectionSummary'
+import SectionExpLog from '@/components/pages/home/sectionExpLog'
+import SectionFramer from '@/components/pages/home/sectionFramer'
 
 const Home = () => {
   return (
     <main>
       <SectionSummary />
       <SectionExpLog />
+      <SectionFramer />
     </main>
   )
 }

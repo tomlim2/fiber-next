@@ -6,6 +6,14 @@ const nextConfig = {
     // Enables the styled-components SWC transform
     styledComponents: true,
   },
-}
+  experimental: {
+    urlImports: [
+      "https://framer.com/m/",
+      "https://framerusercontent.com/",
+      "https://ga.jspm.io/",
+      "https://jspm.dev/",
+    ],
+  },
+};
 
-module.exports = nextConfig
+module.exports = nextConfig;

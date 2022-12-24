@@ -1,6 +1,6 @@
 import styles from 'styles/pages/exp.module.scss'
 import Layout from 'layouts/layout'
-import SectionSpotify from '@/components/sections/exp/sectionSpotify'
+import SectionSpotify from '@/components/pages/exp/sectionSpotify'
 
 const Spotify = () => {
     const size = {
