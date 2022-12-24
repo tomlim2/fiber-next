@@ -1,4 +1,4 @@
-import RightGlobalHeader from 'components/pages/RightGlobalHeader'
+import GlobalHeader from '@/components/pages/globalHeader'
 
 interface Props {
   children: React.ReactElement
@@ -7,7 +7,7 @@ interface Props {
 const Layout: React.FC<Props> = ({ children }) => {
   return (
     <>
-      <RightGlobalHeader />
+      <GlobalHeader />
       {children}
       
     </>

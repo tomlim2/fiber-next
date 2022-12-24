@@ -3,7 +3,7 @@ import TextLink from "components/texts/textLink";
 import styled from "styled-components";
 import ButtonBasic from "../buttons/buttonBasic";
 
-const RightGlobalHeader: React.FC = () => {
+const GlobalHeader: React.FC = () => {
   return (
     <GlobalNav>
       <div className="">
@@ -35,7 +35,7 @@ const RightGlobalHeader: React.FC = () => {
   );
 };
 
-export default RightGlobalHeader;
+export default GlobalHeader;
 
 export const GlobalNav = styled.div`
   position: fixed;
