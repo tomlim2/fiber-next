@@ -1,24 +1,30 @@
-import Layout from 'layouts/layout'
-import SectionSummary from '@/components/pages/home/sectionSummary'
-import SectionExpLog from '@/components/pages/home/sectionExpLog'
-import SectionFramer from '@/components/pages/home/sectionFramer'
+import DefaultLayout from "layouts/layoutDefault";
+import SectionSummary from "@/components/pages/home/sectionSummary";
+import SectionExpLog from "@/components/pages/home/sectionExpLog";
+import SectionFramer from "@/components/pages/home/sectionFramer";
+import SectionWorks from "@/components/pages/home/sectionWorks";
 
-const Home = () => {
+import styled from "styled-components";
+
+const PageHome = () => {
   return (
-    <main>
+    <Home>
       <SectionSummary />
       <SectionExpLog />
       <SectionFramer />
-    </main>
-  )
-}
+      <SectionWorks />
+    </Home>
+  );
+};
 
-export default Home
+export default PageHome;
 
-Home.getLayout = function getLayout(page: React.ReactElement) {
-  return (
-    <Layout>
-      {page}
-    </Layout>
-  )
-}
+PageHome.getLayout = function getLayout(page: React.ReactElement) {
+  return <DefaultLayout>{page}</DefaultLayout>;
+};
+
+export const Home = styled.div`
+  display: flex;
+  flex-direction: column;
+  gap: 24px;
+`;

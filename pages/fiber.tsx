@@ -1,16 +1,16 @@
-import Layout from "layouts/layout";
+import LayoutDefault from "layouts/layoutDefault";
 import SectionFiber from "@/components/pages/fiber/sectionFiber";
 
 const Fiber = () => {
   return (
-    <main>
+    <div>
       <SectionFiber />
-    </main>
+    </div>
   );
 };
 
 export default Fiber;
 
 Fiber.getLayout = function getLayout(page: React.ReactElement) {
-  return <Layout>{page}</Layout>;
+  return <LayoutDefault>{page}</LayoutDefault>;
 };

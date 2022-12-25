@@ -1,12 +1,11 @@
-@import url('https://fonts.googleapis.com/css2?family=Barlow:wght@300;400;600&display=swap');
 @import "styles/reset.scss";
 
 body {
 	min-height: 100vh;
-	background-color: #fff;
 	font-size: 16px;
-	font-family: 'Barlow', sans-serif;
+	font-family: monospace;
 	line-height: 1;
+	background-color: #fefefe;
 }
 
 ::-moz-selection {

@@ -5,7 +5,7 @@ import styles from 'styles/components/sections/sectionHome.module.scss'
 const SectionSummary = () => {
     return (
         <>
-            <section className={`${styles.section} ${styles.summary}`}>
+            <section>
                 <Title usage="page">Playground #Explore #Experiment #Experience</Title>
             </section>
         </>

@@ -20,7 +20,7 @@ const SectionFramer = () => {
   }, []);
 
   return (
-    <section className={`${styles.section} ${styles.summary}`}>
+    <section>
       <Title usage="section">Framer</Title>
 
       <Footer variant={variant} />

@@ -1,57 +1,87 @@
-import Footer from "components/pages/footer";
+import { useState } from "react";
 import TextLink from "components/texts/textLink";
 import styled from "styled-components";
-import ButtonBasic from "../buttons/buttonBasic";
 
 const GlobalHeader: React.FC = () => {
+  const [isNavOpen, setIsNavOpen] = useState(false);
+  const toggleNav = () => {
+    setIsNavOpen((val) => !val);
+  };
   return (
-    <GlobalNav>
-      <div className="">
-        <ButtonBasic>Open</ButtonBasic>
+    <Header>
+      <div className="nav-trigger" onClick={() => toggleNav()}>
+        {!isNavOpen ? "open" : "close"}
       </div>
-      <nav className="">
-        <ul className="menus">
-          <li className="menu">
-            <TextLink to="/">exxxxx</TextLink>
-          </li>
-          <li className="menu">
-            <TextLink to="/fiber">fiber</TextLink>
-          </li>
-          <li className="menu">
-            <TextLink to="/about">about</TextLink>
-          </li>
-        </ul>
-        <ul className="footer">
-          <li>Copyright, Tom Lim. All rights reserved</li>
-          <li>
-            <TextLink to="tomandlim@gmail.com" usage="email">
-              tomandlim@gmail.com
-            </TextLink>
-          </li>
-          <li>Seoul, South Korea</li>
-        </ul>
-      </nav>
-    </GlobalNav>
+      {isNavOpen && <GlobalNav />}
+    </Header>
   );
 };
 
 export default GlobalHeader;
 
-export const GlobalNav = styled.div`
+export const GlobalNav = () => {
+  return (
+    <Nav className="nav">
+      <ul className="menus">
+        <li className="menu">
+          <TextLink to="/">home</TextLink>
+        </li>
+        <li className="menu">
+          <TextLink to="/about">about</TextLink>
+        </li>
+        <li className="menu">
+          <TextLink to="/exp">exps</TextLink>
+        </li>
+      </ul>
+      <ul className="footer">
+        <li>
+          <TextLink to="tomandlim@gmail.com" usage="email">
+            tomandlim@gmail.com
+          </TextLink>
+        </li>
+        <li>Seoul, South Korea</li>
+        <li>Copyright, Tom Lim. All rights reserved</li>
+      </ul>
+    </Nav>
+  );
+};
+
+export const Header = styled.div`
+  .nav-trigger {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    position: fixed;
+    right: 24px;
+    top: 24px;
+    z-index: 999;
+    cursor: pointer;
+    transition: 300ms background-color ease-in-out;
+
+    &:hover {
+      color: blue;
+    }
+  }
+`;
+
+export const Nav = styled.div`
   position: fixed;
+  top: 0;
   right: 0;
   width: 300px;
   height: 100vh;
-  padding: 16px;
+  padding: 24px;
   background-color: #fcfcfc;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  z-index: 998;
 
-  nav {
-    ul {
-      display: flex;
-      flex-direction: column;
-      gap: 24px;
-      li {
-      }
+  ul {
+    display: flex;
+    flex-direction: column;
+    gap: 24px;
+    li {
     }
   }
 `;

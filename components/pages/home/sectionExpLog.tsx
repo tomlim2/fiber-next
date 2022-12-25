@@ -7,7 +7,7 @@ import styles from 'styles/components/sections/sectionHome.module.scss'
 const SectionExpLog = () => {
     return (
         <>
-            <section className={styles.section}>
+            <section>
                 <Title>exp-front</Title>
                 <div className={styles.content}>
                     <ButtonBasic backgroundColor={variables.spotify} color={variables.black100} to='exp/spotify'>Spotify</ButtonBasic>
