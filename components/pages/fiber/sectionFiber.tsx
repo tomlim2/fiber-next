@@ -1,9 +1,9 @@
-import VariantFiber1 from "components/pages/fiber/variants/variantFiber1";
+import ProjectGLSL from "@/components/pages/fiber/projects/projectGlsl";
 
 const SectionFiber = () => {
   return (
     <section>
-      <VariantFiber1 />
+      <ProjectGLSL />
     </section>
   );
 };

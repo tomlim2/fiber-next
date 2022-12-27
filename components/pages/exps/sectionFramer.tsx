@@ -1,6 +1,5 @@
 import Title from "@/components/texts/title";
 
-import styles from "styles/components/sections/sectionHome.module.scss";
 import Footer from "https://framer.com/m/Footer-lT70.js@xa2iNPv4qQPapK7RgOgQ";
 import { useEffect, useState } from "react";
 

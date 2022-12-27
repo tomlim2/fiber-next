@@ -30,7 +30,7 @@ export const GlobalNav = () => {
           <TextLink to="/about">about</TextLink>
         </li>
         <li className="menu">
-          <TextLink to="/exp">exps</TextLink>
+          <TextLink to="/exps">exps</TextLink>
         </li>
       </ul>
       <ul className="footer">
@@ -50,7 +50,7 @@ export const Header = styled.div`
   .nav-trigger {
     display: flex;
     align-items: center;
-    justify-content: center;
+    justify-content: flex-end;
     position: fixed;
     right: 24px;
     top: 24px;

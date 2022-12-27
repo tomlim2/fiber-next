@@ -1,18 +1,18 @@
 import { Canvas } from "@react-three/fiber";
-import WapperFiber from "components/pages/fiber/wrapperFiber";
+import ProjectFramer from "@/components/pages/fiber/projects/projectFramer";
 import { useRef } from "react";
 import type { Ref } from "react";
 import type { Group, Mesh, BufferGeometry, Material } from "three";
 
 interface Props {}
 
-const VariantFiber1: React.FC<Props> = () => {
+const ProjectGlsl: React.FC<Props> = () => {
   const groupRef = useRef() as Ref<Group> | undefined;
   const cubeRef = useRef() as
     | Ref<Mesh<BufferGeometry, Material | Material[]>>
     | undefined;
   return (
-    <WapperFiber title="fiber1">
+    <ProjectFramer title="GLSL">
       <Canvas>
         <group ref={groupRef}>
           <mesh position-x={-2}>
@@ -35,8 +35,8 @@ const VariantFiber1: React.FC<Props> = () => {
           <meshStandardMaterial color={"#333"} />
         </mesh>
       </Canvas>
-    </WapperFiber>
+    </ProjectFramer>
   );
 };
 
-export default VariantFiber1;
+export default ProjectGlsl;

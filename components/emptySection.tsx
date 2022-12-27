@@ -16,6 +16,6 @@ interface ISection {
 export const Section = styled.section<ISection>`
   padding: 24px;
   background-color: ${(props) =>
-    props.sectionStyles.backgroundColor ?? "#fafafa"};
-  color: ${(props) => props.sectionStyles.color ?? "#fafafa"};
+    props.sectionStyles.backgroundColor ?? "#fefefe"};
+  color: ${(props) => props.sectionStyles.color ?? "#252525"};
 `;

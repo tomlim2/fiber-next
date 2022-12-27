@@ -1,8 +1,8 @@
 import DefaultLayout from "layouts/layoutDefault";
 import SectionSummary from "@/components/pages/home/sectionSummary";
-import SectionExpLog from "@/components/pages/home/sectionExpLog";
-import SectionFramer from "@/components/pages/home/sectionFramer";
 import SectionWorks from "@/components/pages/home/sectionWorks";
+import SectionExpLog from "@/components/pages/exps/sectionExpLog";
+import SectionFramer from "@/components/pages/exps/sectionFramer";
 
 import styled from "styled-components";
 
@@ -10,9 +10,9 @@ const PageHome = () => {
   return (
     <Home>
       <SectionSummary />
+      <SectionWorks />
       <SectionExpLog />
       <SectionFramer />
-      <SectionWorks />
     </Home>
   );
 };
@@ -26,5 +26,6 @@ PageHome.getLayout = function getLayout(page: React.ReactElement) {
 export const Home = styled.div`
   display: flex;
   flex-direction: column;
+
   gap: 24px;
 `;

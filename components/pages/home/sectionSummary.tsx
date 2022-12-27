@@ -1,7 +1,5 @@
 import Title from "@/components/texts/title"
 
-import styles from 'styles/components/sections/sectionHome.module.scss'
-
 const SectionSummary = () => {
     return (
         <>

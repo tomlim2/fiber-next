@@ -1,12 +1,16 @@
 import SpotifyModel from "./spotifyModel";
+import ExpsModel from "./expsModel";
 
-class modelManager {
-    spotify: SpotifyModel
-    constructor(){
-        this.spotify = new SpotifyModel()
-    }
+export class modelManager {
+  spotify: SpotifyModel;
+  exps: ExpsModel;
+
+  constructor() {
+    this.exps = new ExpsModel();
+    this.spotify = new SpotifyModel("https://api.spotify.com/v1/");
+  }
 }
 
-const useModel = () => new modelManager
+const useModel = () => new modelManager();
 
-export default useModel
+export default useModel;
