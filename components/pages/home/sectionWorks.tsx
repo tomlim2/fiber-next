@@ -1,3 +1,4 @@
+import TextLink from "@/components/texts/textLink";
 import styled from "styled-components";
 import type { ISectionProps } from "types/app";
 
@@ -7,8 +8,12 @@ const SectionWorks: React.FC<ISectionProps> = ({ backgroundColor, color }) => {
   return (
     <Section sectionStyles={sectionStyles}>
       <ul className="works">
-        <li className="work">Fibers</li>
-        <li className="work">Designs</li>
+        <li className="work">
+          <TextLink to="/fiber">Fiber</TextLink>
+        </li>
+        <li className="work">
+          <TextLink to="/design">Designs</TextLink>
+        </li>
       </ul>
     </Section>
   );
@@ -30,8 +35,7 @@ export const Section = styled.section<ISection>`
     grid-template-columns: repeat(3, 1fr);
     gap: 24px;
 
-    .work{
-        
+    .work {
     }
   }
 `;

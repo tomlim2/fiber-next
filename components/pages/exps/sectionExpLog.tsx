@@ -2,6 +2,7 @@ import ButtonBasic from "@/components/buttons/buttonBasic";
 import Title from "@/components/texts/title";
 import useModel, { modelManager } from "models";
 import { useEffect, useState } from "react";
+import styled from "styled-components";
 
 import type { IWorkLogFlfi } from "types/api";
 
@@ -21,19 +22,32 @@ const SectionExpLog = () => {
 
   return (
     <>
-      <section>
+      <Section>
         <Title>exp-front</Title>
-        <ul>
+        <ul className="logs">
           {flfi.map((log: IWorkLogFlfi, index: number) => (
             <li key={index}>
               <Title>{log.name}</Title>
+              <div>{log.description}</div>
               <div>{log.type}</div>
             </li>
           ))}
         </ul>
-      </section>
+      </Section>
     </>
   );
 };
 
 export default SectionExpLog;
+
+export const Section = styled.section`
+  .logs {
+    display: flex;
+    flex-direction: column;
+    gap: 16px;
+    margin-top: 24px;
+
+    .li {
+    }
+  }
+`;

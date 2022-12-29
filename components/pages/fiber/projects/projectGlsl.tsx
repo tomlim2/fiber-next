@@ -11,9 +11,13 @@ const ProjectGlsl: React.FC<Props> = () => {
   const cubeRef = useRef() as
     | Ref<Mesh<BufferGeometry, Material | Material[]>>
     | undefined;
+  const created = (state: any) => {
+    state.gl.setClearColor("#252525");
+    console.log(state);
+  };
   return (
     <ProjectFramer title="GLSL">
-      <Canvas>
+      <Canvas onCreated={created}>
         <group ref={groupRef}>
           <mesh position-x={-2}>
             <sphereGeometry />

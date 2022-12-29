@@ -1,9 +1,10 @@
 export interface IWorkLogFlfi {
   name: string;
+  description: string;
   type: string;
   tasks: string[];
-  description: string;
   duration: string;
+  advantures: string[];
   techStack: string[];
 }
 
