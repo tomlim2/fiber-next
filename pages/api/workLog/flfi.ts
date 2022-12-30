@@ -8,5 +8,6 @@ export default function handler(
   req: NextApiRequest,
   res: NextApiResponse<IWorkLogFlfi[]>
 ) {
+  //@ts-ignore
   res.status(200).json(flfi);
 }
