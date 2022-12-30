@@ -9,39 +9,19 @@ import type { Group, Mesh, BufferGeometry, Material } from "three";
 interface Props {}
 
 const ProjectGlsl: React.FC<Props> = () => {
-  console.log(testVertexShader);
-  console.log(testFragmentShader);
-
   const groupRef = useRef() as Ref<Group> | undefined;
   const cubeRef = useRef() as
     | Ref<Mesh<BufferGeometry, Material | Material[]>>
     | undefined;
   const created = (state: any) => {
     state.gl.setClearColor("#252525");
-    console.log(state);
   };
   return (
     <ProjectFramer title="GLSL">
       <Canvas onCreated={created}>
-        <group ref={groupRef}>
-          <mesh position-x={-2}>
-            <sphereGeometry />
-            <meshStandardMaterial color={"#777"} />
-          </mesh>
-          <mesh
-            ref={cubeRef}
-            rotation-y={Math.PI * 0.25}
-            position-x={2}
-            scale={1.5}
-          >
-            <boxGeometry />
-            <meshStandardMaterial color={"#555"} />
-          </mesh>
-        </group>
-
-        <mesh position-y={-1} rotation-x={-Math.PI * 0.5} scale={10}>
+        <mesh scale={6}>
           <planeGeometry />
-          <meshStandardMaterial color={"#333"} />
+          <meshBasicMaterial color={"#f0f"}/>
         </mesh>
       </Canvas>
     </ProjectFramer>

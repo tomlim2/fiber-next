@@ -6,15 +6,6 @@ const nextConfig = {
     // Enables the styled-components SWC transform
     styledComponents: true,
   },
-  module: {
-    rules: [
-      {
-        test: /\.(glsl|vs|fs|vert|frag)$/,
-        exclude: /node_modules/,
-        use: ["raw-loader", "glslify-loader"],
-      },
-    ],
-  },
   experimental: {
     urlImports: [
       "https://framer.com/m/",
