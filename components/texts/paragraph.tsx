@@ -1,43 +1,44 @@
-import styled, { css } from 'styled-components'
+import styled, { css } from "styled-components";
 
 interface Props {
-    usage?: UsageType
-    children: React.ReactNode
+  usage?: UsageType;
+  children: React.ReactNode;
 }
 
-type UsageType = 'page' | 'about' | 'default';
+type UsageType = "page" | "about" | "default";
 
-const Paragraph: React.FC<Props> = ({ usage = 'default', children }) => {
-    return <Text usage={usage}>{children}</Text>
-}
+const Paragraph: React.FC<Props> = ({ usage = "default", children }) => {
+  return <Text usage={usage}>{children}</Text>;
+};
 
 export default Paragraph;
 
 interface TextInterface {
-    usage: UsageType
+  usage: UsageType;
 }
 
 export const Text = styled.p<TextInterface>`
-    ${props => styleUsage[props.usage]}
-`
+  ${(props) => styleUsage[props.usage]}
+`;
 
 const stylePage = css`
-    color: green;
-`
+  color: green;
+`;
 
 const styleAbout = css`
-    color: #252525;
-    font-size: 1.25rem;
-    line-height: 1.35;   
-`
+  color: #252525;
+  font-size: 1.25rem;
+  line-height: 1.35;
+`;
 
 const styleDefault = css`
-    color: blue;
-`
+  color: #252525;
+  font-size: 1rem;
+  line-height: 1.25;
+`;
 
 const styleUsage = {
-    page: stylePage,
-    about: styleAbout,
-    default: styleDefault
-}
-
+  page: stylePage,
+  about: styleAbout,
+  default: styleDefault,
+};

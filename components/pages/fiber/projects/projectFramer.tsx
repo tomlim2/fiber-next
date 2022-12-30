@@ -1,5 +1,4 @@
 import styled from "styled-components";
-import Title from "@/components/texts/title";
 
 interface Props {
   children: any;
@@ -9,10 +8,7 @@ interface Props {
 const ProjectFramer: React.FC<Props> = ({ children, title = "pattern" }) => {
   return (
     <Framer>
-      <div className="canvas-framer">{children}</div>
-      <div className="infos">
-        <Title>{title}</Title>
-      </div>
+      {children}
     </Framer>
   );
 };
@@ -28,5 +24,8 @@ export const Framer = styled.div`
   .canvas-framer {
   }
   .infos {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
   }
 `;
