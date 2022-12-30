@@ -1,4 +1,4 @@
-import ProjectGLSL from "@/components/pages/fiber/projects/projectGlsl";
+import ProjectGLSL from "@/components/pages/fiber/projects/projectGlsl/projectGlsl";
 
 const SectionFiber = () => {
   return (
