@@ -12,7 +12,7 @@ export const flfi = [
       "vue2에서 vue3로 코드 마이그레이션, gltf 형식의 3d 모델링 및 애니메이션 최적화",
     ],
     todo: [
-      "3d 모델링 최적화, 및 텍스처링 등의 최적화",
+      "3d 모델링 최적화, 및 텍스처링 등의 이해 및 최적화",
       "베이킹 프로세스의 필요성",
       "프레임워크의 숙련도",
     ],
@@ -20,18 +20,45 @@ export const flfi = [
     techStack: ["vuejs", "threejs", "cinema4d"],
   },
   {
-    name: "OG community",
-    description: "크립토 커뮤니티 프로젝트",
-    type: "cummunity",
+    name: "OG studio",
+    description: "NFT 런칭 패드 및 일정 관리 서비스",
+    type: "nft",
     tasks: ["프론트 페이지 개발"],
+    advantures: [
+      "web3(Matamask)를 통한 address varification 구현",
+      "드롭 다운",
+      "유저 페이지, 위젯, 로그인/회원가입",
+    ],
+    todo: [],
+    duration: "in progress",
+    techStack: ["vuejs", "draggable", "momentjs"],
+  },
+  {
+    name: "Fellaz",
+    description: "Web3 x Entertainment 커뮤니티, 티켓팅 서비스",
+    type: "Entertainment",
+    tasks: ["댓글", "UMF, Strike 광고 제작"],
+    advantures: [
+      "web3(Matamask)를 통한 address varification 구현",
+      "드롭 다운",
+      "유저 페이지, 위젯, 로그인/회원가입",
+    ],
+    todo: [],
+    duration: "in progress",
+    techStack: ["vuejs", "draggable", "momentjs"],
+  },
+
+  {
+    name: "OG community",
+    description: "크립토 커뮤니티 서비스",
+    type: "cummunity",
+    tasks: ["프론트 mvp 알파 개발"],
     advantures: [
       "vue2 환경에서 Google GIS으로 로그인 구현",
       "draggable와 store를 활용한 위젯 리스트 관리 (생성, 수정 및 삭제)",
       "유저 페이지, 위젯, 로그인/회원가입",
     ],
-    todo: [
-
-    ],
+    todo: [],
     duration: "in progress",
     techStack: ["vuejs", "draggable", "momentjs"],
   },

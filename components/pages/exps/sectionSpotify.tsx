@@ -1,8 +1,6 @@
 import Title from "@/components/texts/title";
 import ButtonBasic from "@/components/buttons/buttonBasic";
 
-import variables from "styles/variables.module.scss";
-
 import useModel from "models";
 
 const SectionSpotify = () => {
@@ -27,8 +25,6 @@ const SectionSpotify = () => {
           <Title>Login to Spotify</Title>
           <div>
             <ButtonBasic
-              backgroundColor={variables.spotify}
-              color={variables.black100}
               onClick={() => onClick("login")}
             >
               Login

@@ -20,12 +20,4 @@ export const Framer = styled.div`
   gap: 24px;
   grid-template-columns: calc(100vh - 48px) 1fr;
   height: calc(100vh - 48px);
-
-  .canvas-framer {
-  }
-  .infos {
-    display: flex;
-    flex-direction: column;
-    justify-content: space-between;
-  }
 `;
