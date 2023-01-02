@@ -27,10 +27,17 @@ const ProjectGlsl: React.FC<Props> = () => {
         <Canvas onCreated={created}>
           <mesh scale={6}>
             <planeGeometry />
-            <shaderMaterial
-              fragmentShader={shaderMap[shaderNumber].fragment}
-              vertexShader={shaderMap[shaderNumber].vertex}
-            />
+            {shaderMap.map((shader: ShaderMap, index: number) => {
+              if (shaderNumber == index) {
+                return (
+                  <shaderMaterial
+                    fragmentShader={shaderMap[shaderNumber].fragment}
+                    vertexShader={shaderMap[shaderNumber].vertex}
+                    key={index}
+                  />
+                );
+              }
+            })}
           </mesh>
         </Canvas>
       </div>
