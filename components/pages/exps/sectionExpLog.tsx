@@ -1,5 +1,5 @@
 import ButtonBasic from "@/components/buttons/buttonBasic";
-import Title from "@/components/texts/title";
+import { Title } from "@/components/texts/text";
 import useModel, { modelManager } from "models";
 import { useEffect, useState } from "react";
 import styled from "styled-components";

@@ -2,7 +2,7 @@ import { shaderMap } from "@/components/pages/fiber/projects/glsl/shader/shaderM
 import type { ShaderMap } from "@/components/pages/fiber/projects/glsl/shader/shaderMap";
 import { Canvas } from "@react-three/fiber";
 import ProjectFramer from "@/components/pages/fiber/projects/projectFramer";
-import Title from "@/components/texts/title";
+import { Title } from "@/components/texts/text";
 import { useRef, useState } from "react";
 import type { Ref } from "react";
 import type { Group, Mesh, BufferGeometry, Material } from "three";

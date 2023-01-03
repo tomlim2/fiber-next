@@ -14,18 +14,12 @@ type UsageType =
   | "subTitle"
   | "default";
 
-const Title: React.FC<Props> = ({ usage = "default", children }) => {
-  return <Text usage={usage}>{children}</Text>;
-};
-
-export default Title;
-
-export const Text = styled.p<IText>`
-  ${(props) => styleUsage[props.usage]}
+export const Title = styled.p<IText>`
+  ${(props) => (props.usage ? styleUsage[props.usage] : styleUsage["default"])}
 `;
 
 interface IText {
-  usage: UsageType;
+  usage?: UsageType;
 }
 
 const styleDefault = css`

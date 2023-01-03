@@ -1,4 +1,4 @@
-import Title from "@/components/texts/title"
+import Title from "@/components/texts/text"
 
 const SectionSummary = () => {
     return (
