@@ -14,11 +14,11 @@ import styled from "styled-components";
 interface Props {}
 
 const ProjectGlsl: React.FC<Props> = () => {
-  const [shaderNumber, setShaderNumber] = useState(1);
+  const [shaderNumber, setShaderNumber] = useState(0);
   const created = (state: any) => {
     state.gl.setClearColor("#252525");
   };
-  const onClick = (index: number) => {
+  const onMouseEnter = (index: number) => {
     setShaderNumber(index);
   };
   return (
@@ -50,7 +50,7 @@ const ProjectGlsl: React.FC<Props> = () => {
               <ButtonBasic
                 key={index}
                 usage={"border"}
-                onClick={() => onClick(index)}
+                onMouseEnter={() => onMouseEnter(index)}
                 disabled={shaderNumber == index}
               >
                 PATTERN - {index}

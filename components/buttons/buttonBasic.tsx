@@ -9,6 +9,7 @@ interface Props {
   to?: string | undefined;
   children: React.ReactNode;
   onClick?: Function;
+  onMouseEnter?: Function;
   disabled?: boolean;
   backgroundColor?: string;
   color?: string;
@@ -19,6 +20,7 @@ const ButtonBasic: React.FC<Props> = ({
   usage,
   to,
   onClick,
+  onMouseEnter,
   disabled,
   children,
   backgroundColor,
@@ -41,11 +43,19 @@ const ButtonBasic: React.FC<Props> = ({
     }
   };
 
+  const hoverOnButton = () => {
+    if (onMouseEnter) {
+      return onMouseEnter();
+    }
+  };
+
   return (
     <Button
       onClick={() => {
         clickButton();
-        setPushed(true);
+      }}
+      onMouseEnter={() => {
+        hoverOnButton();
       }}
       style={buttonStyles}
       disabled={disabled}
