@@ -24,7 +24,7 @@ export default GlobalHeader;
 
 export const GlobalNav = () => {
   return (
-    <Nav className="nav">
+    <Nav>
       <ul className="menus">
         <li className="menu">
           <TextLink to="/">home</TextLink>
@@ -68,6 +68,8 @@ export const Header = styled.div`
 `;
 
 export const Nav = styled.div`
+  display: grid;
+  grid-template-rows: 1fr auto;
   position: fixed;
   top: 0;
   right: 0;
@@ -75,17 +77,19 @@ export const Nav = styled.div`
   height: 100vh;
   padding: 24px;
   background-color: #fcfcfc;
-  display: flex;
-  flex-direction: column;
-  justify-content: space-between;
   z-index: 998;
 
-  ul {
+  .menus {
     display: flex;
     flex-direction: column;
     gap: 24px;
     li {
     }
+  }
+  .footer {
+    display: flex;
+    flex-direction: column;
+    gap: 24px;
   }
 `;
 
