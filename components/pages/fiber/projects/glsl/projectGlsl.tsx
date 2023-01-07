@@ -16,7 +16,10 @@ const ProjectGlsl: React.FC<Props> = () => {
     state.gl.setClearColor("#252525");
   };
   const onMouseEnter = (index: number) => {
-    setShaderNumber(index);
+    if (index !== shaderNumber) setShaderNumber(index);
+  };
+  const onClick = (index: number) => {
+    if (index !== shaderNumber) setShaderNumber(index);
   };
   return (
     <ProjectFramer>
@@ -47,10 +50,11 @@ const ProjectGlsl: React.FC<Props> = () => {
               <ButtonBasic
                 key={index}
                 usage={"border"}
+                onClick={() => onClick(index)}
                 onMouseEnter={() => onMouseEnter(index)}
                 disabled={shaderNumber == index}
               >
-                PATTERN - {index}
+                PATTERN - {index + 1}
               </ButtonBasic>
             ))}
           </div>

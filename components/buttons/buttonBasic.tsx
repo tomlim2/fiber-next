@@ -27,7 +27,6 @@ const ButtonBasic: React.FC<Props> = ({
   color,
   pushButtonColor,
 }) => {
-  const [pushed, setPushed] = useState(false);
   const router = useRouter();
   const buttonStyles = {
     backgroundColor: backgroundColor,
