@@ -3,6 +3,7 @@ import type { NextPage } from "next";
 import type { AppProps } from "next/app";
 import { RecoilRoot } from "recoil";
 import GlobalStyle from "styles/globalStyles";
+import Head from "next/head";
 
 export type NextPageWithLayout<P = {}, IP = P> = NextPage<P, IP> & {
   getLayout?: (page: ReactElement) => ReactNode;
@@ -17,6 +18,11 @@ export default function App({ Component, pageProps }: AppPropsWithLayout) {
 
   return (
     <RecoilRoot>
+      <Head>
+        <title>yslim</title>
+        <meta name="description" content="Welcome!" />
+        <meta name="viewport" content="initial-scale=1.0, width=device-width" />
+      </Head>
       <GlobalStyle />
       {getLayout(<Component {...pageProps} />)}
     </RecoilRoot>
