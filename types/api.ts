@@ -6,6 +6,7 @@ export interface IWorkLogFlfi {
   duration: string;
   advantures: string[];
   techStack: string[];
+  needTodos: string[]
 }
 
 export interface InterfaceWidgetItem {

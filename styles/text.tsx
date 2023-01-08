@@ -3,6 +3,7 @@ import styled, { css } from "styled-components";
 type UsageType =
   | "page"
   | "section"
+  | "content"
   | "about"
   | "main"
   | "title"
@@ -45,11 +46,19 @@ const styleTitle = css`
 const styleSection = css`
   font-weight: 600;
   font-size: 1.5rem;
+  padding-bottom: 0.5rem;
+`;
+
+const styleContent = css`
+  font-weight: 600;
+  font-size: 1.25rem;
+  padding-bottom: 0.25rem;
 `;
 
 const styleList = css`
-  font-weight: 600;
-  font-size: 1rem;
+  font-weight: 400;
+  font-size: 1.25rem;
+  padding-bottom: 0.25rem;
 `;
 
 const styleSubTitle = css``;
@@ -60,6 +69,7 @@ const styleUsage = {
   section: styleSection,
   title: styleTitle,
   subTitle: styleSubTitle,
+  content: styleContent,
   list: styleList,
   about: styleAbout,
   default: styleDefault,

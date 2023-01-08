@@ -1,12 +1,24 @@
+import { useEffect, useState } from "react";
 import styled from "styled-components";
-import type { ISectionProps } from "types/app";
-import { Title } from "../../styles/text";
-import { InputBox } from "styles/form";
-import { useState } from "react";
 import axios from "axios";
+
 import ButtonBasic from "../buttons/buttonBasic";
 
-const SectionForm: React.FC<ISectionProps> = ({ backgroundColor, color }) => {
+import { Title } from "../../styles/text";
+import { InputBox } from "styles/form";
+import { Section } from "styles/section";
+
+import type { ISectionProps } from "types/app";
+
+interface ISectionPropsExtend extends ISectionProps {
+  data: any;
+}
+
+const SectionForm: React.FC<ISectionPropsExtend> = ({
+  backgroundColor,
+  color,
+  data,
+}) => {
   const sectionStyles = { backgroundColor, color };
   const [inputEmail, setInputEmail] = useState("");
   const [inputFeedback, setInputFeedback] = useState("");
@@ -19,7 +31,7 @@ const SectionForm: React.FC<ISectionProps> = ({ backgroundColor, color }) => {
 
     const body = {
       email: enteredEmail,
-      feedback: enteredFeedback,
+      text: enteredFeedback,
     };
 
     // axios.post("/api/feedback", body);
@@ -32,10 +44,10 @@ const SectionForm: React.FC<ISectionProps> = ({ backgroundColor, color }) => {
       .then((response) => response.json())
       .then((data) => console.log(data));
   };
-
+  
   return (
-    <Section sectionStyles={sectionStyles}>
-      <Title>Form</Title>
+    <SectionExtend sectionStyles={sectionStyles}>
+      <Title usage="section">Form</Title>
       <form onSubmit={(event) => submitFormHandler(event)}>
         <InputBox>
           <label htmlFor="email">Your email address</label>
@@ -59,22 +71,21 @@ const SectionForm: React.FC<ISectionProps> = ({ backgroundColor, color }) => {
         </InputBox>
         <ButtonBasic usage="border">Send Feedback</ButtonBasic>
       </form>
-    </Section>
+      <Title usage="section">Get</Title>
+      <div>
+        <ul>
+          {data.map((item: any) => (
+            <li key={item.id}>{item.email}</li>
+          ))}
+        </ul>
+      </div>
+    </SectionExtend>
   );
 };
 
 export default SectionForm;
 
-interface ISection {
-  sectionStyles: ISectionProps;
-}
-
-export const Section = styled.section<ISection>`
-  padding: 24px;
-  background-color: ${(props) =>
-    props.sectionStyles.backgroundColor ?? "#fefefe"};
-  color: ${(props) => props.sectionStyles.color ?? "#252525"};
-
+export const SectionExtend = styled(Section)`
   form {
     display: flex;
     flex-direction: column;

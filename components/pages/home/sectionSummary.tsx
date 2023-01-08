@@ -1,13 +1,14 @@
-import {Title} from "styles/text"
+import { Title } from "styles/text";
+import { Section } from "styles/section";
 
 const SectionSummary = () => {
-    return (
-        <>
-            <section>
-                <Title usage="page">Playground #Explore #Experiment #Experience</Title>
-            </section>
-        </>
-    )
-}
+  return (
+    <>
+      <Section>
+        <Title usage="page">Playground #Explore #Experiment #Experience</Title>
+      </Section>
+    </>
+  );
+};
 
-export default SectionSummary
+export default SectionSummary;

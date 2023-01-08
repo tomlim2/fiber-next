@@ -1,6 +1,6 @@
-import {Title} from "styles/text";
-
 import Footer from "https://framer.com/m/Footer-lT70.js@xa2iNPv4qQPapK7RgOgQ";
+
+import {Title} from "styles/text";
 import { useEffect, useState } from "react";
 
 const SectionFramer = () => {

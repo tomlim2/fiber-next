@@ -1,5 +1,6 @@
 import { useRouter } from "next/router";
 import { useState } from "react";
+import { styleColor } from "styles/color";
 import styled, { css } from "styled-components";
 
 type UsageType = "default" | "border";
@@ -80,7 +81,7 @@ export const Button = styled.button<IButton>`
 `;
 
 const styleDefault = css`
-  color: #252525;
+  color: ${styleColor.black100};
 
   &:hover {
     color: blue;
@@ -89,23 +90,23 @@ const styleDefault = css`
 
 const styleBorder = css`
   padding: 4px 8px;
-  border: 1px solid #888;
-  background-color: #fefefe;
-  color: #888;
+  border: 1px solid ${styleColor.black200};
+  background-color: ${styleColor.white0};
+  color: ${styleColor.black200};
   font-family: "SourceCodePro", monospace;
   font-weight: 600;
   font-style: normal;
 
   &:hover {
-    border: 1px solid #252525;
-    background-color: #fefefe;
-    color: #252525;
+    border: 1px solid ${styleColor.black100};
+    background-color: ${styleColor.white0};
+    color: ${styleColor.black100};
   }
 
   &:disabled {
-    border: 1px solid #000;
-    background-color: #fefefe;
-    color: #000;
+    border: 1px solid ${styleColor.black100};
+    background-color: ${styleColor.white0};
+    color: ${styleColor.black100};
   }
 `;
 const styleUsage = {

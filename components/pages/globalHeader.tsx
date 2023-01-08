@@ -1,6 +1,10 @@
 import { useState } from "react";
-import TextLink from "components/texts/textLink";
 import styled from "styled-components";
+
+import SvgLogo from "../svg/svgLogo";
+import TextLink from "components/texts/textLink";
+
+import { styleColor } from "styles/color";
 
 const GlobalHeader: React.FC = () => {
   const [isNavOpen, setIsNavOpen] = useState(false);
@@ -11,7 +15,7 @@ const GlobalHeader: React.FC = () => {
     <>
       <Header>
         <div className="nav-trigger" onClick={() => toggleNav()}>
-          {!isNavOpen ? "open" : "close"}
+          {!isNavOpen ? <SvgLogo color={styleColor.negative} /> : <SvgLogo color={styleColor.black100} />}
         </div>
         {isNavOpen && <GlobalNav />}
       </Header>
@@ -55,15 +59,11 @@ export const Header = styled.div`
     align-items: center;
     justify-content: flex-end;
     position: fixed;
-    right: 24px;
-    top: 24px;
+    right: 1.75rem;
+    top: 1.75rem;
     z-index: 999;
     cursor: pointer;
     transition: 300ms background-color ease-in-out;
-
-    &:hover {
-      color: blue;
-    }
   }
 `;
 
@@ -75,7 +75,7 @@ export const Nav = styled.div`
   right: 0;
   width: 300px;
   height: 100vh;
-  padding: 24px;
+  padding: 5rem 1.5rem 1.5rem 1.5rem;
   background-color: #fcfcfc;
   z-index: 998;
 

@@ -1,5 +1,5 @@
 import type { NextApiRequest, NextApiResponse } from "next";
-import { flfi } from "data/workLog/flfi";
+import { flfi } from "data/workLog";
 
 import type { IWorkLogFlfi } from "types/api";
 
