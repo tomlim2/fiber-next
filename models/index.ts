@@ -1,7 +1,7 @@
 import SpotifyModel from "./spotifyModel";
 import ExpsModel from "./expsModel";
 
-export class modelManager {
+export class models {
   spotify: SpotifyModel;
   exps: ExpsModel;
 
@@ -11,6 +11,6 @@ export class modelManager {
   }
 }
 
-const useModel = () => new modelManager();
+const modelManager = () => new models();
 
-export default useModel;
+export default modelManager;

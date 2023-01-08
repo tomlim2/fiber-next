@@ -13,7 +13,6 @@ interface Props {
   disabled?: boolean;
   backgroundColor?: string;
   color?: string;
-  pushButtonColor?: string;
 }
 
 const ButtonBasic: React.FC<Props> = ({
@@ -25,7 +24,6 @@ const ButtonBasic: React.FC<Props> = ({
   children,
   backgroundColor,
   color,
-  pushButtonColor,
 }) => {
   const router = useRouter();
   const buttonStyles = {

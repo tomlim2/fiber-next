@@ -1,10 +1,5 @@
 import styled, { css } from "styled-components";
 
-interface Props {
-  usage?: UsageType;
-  children: React.ReactNode;
-}
-
 type UsageType =
   | "page"
   | "section"
@@ -12,9 +7,10 @@ type UsageType =
   | "main"
   | "title"
   | "subTitle"
+  | "list"
   | "default";
 
-export const Title = styled.p<IText>`
+export const Title = styled.div<IText>`
   ${(props) => (props.usage ? styleUsage[props.usage] : styleUsage["default"])}
 `;
 
@@ -51,6 +47,11 @@ const styleSection = css`
   font-size: 1.5rem;
 `;
 
+const styleList = css`
+  font-weight: 600;
+  font-size: 1rem;
+`;
+
 const styleSubTitle = css``;
 
 const styleUsage = {
@@ -59,6 +60,7 @@ const styleUsage = {
   section: styleSection,
   title: styleTitle,
   subTitle: styleSubTitle,
+  list: styleList,
   about: styleAbout,
   default: styleDefault,
 };

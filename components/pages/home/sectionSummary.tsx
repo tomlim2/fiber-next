@@ -1,4 +1,4 @@
-import {Title} from "@/components/texts/text"
+import {Title} from "styles/text"
 
 const SectionSummary = () => {
     return (

@@ -1,4 +1,4 @@
-import {Title} from "@/components/texts/text";
+import {Title} from "styles/text";
 
 import Footer from "https://framer.com/m/Footer-lT70.js@xa2iNPv4qQPapK7RgOgQ";
 import { useEffect, useState } from "react";
