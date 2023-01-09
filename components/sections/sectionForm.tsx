@@ -14,6 +14,12 @@ interface ISectionPropsExtend extends ISectionProps {
   data: any;
 }
 
+interface Ifeedback {
+  id: string;
+  email: string;
+  text: string;
+}
+
 const SectionForm: React.FC<ISectionPropsExtend> = ({
   backgroundColor,
   color,
@@ -44,7 +50,20 @@ const SectionForm: React.FC<ISectionPropsExtend> = ({
       .then((response) => response.json())
       .then((data) => console.log(data));
   };
-  
+
+  const [feedbackData, setFeedbackData] = useState<Ifeedback>();
+  const loadFeedbackHandler = (id: string) => {
+    console.log(id);
+
+    fetch(`/api/feedback/${id}`)
+      .then((response) => response.json())
+      .then((data) => {
+        console.log(data, "data");
+
+        setFeedbackData(data.feedback);
+      });
+  };
+
   return (
     <SectionExtend sectionStyles={sectionStyles}>
       <Title usage="section">Form</Title>
@@ -73,9 +92,13 @@ const SectionForm: React.FC<ISectionPropsExtend> = ({
       </form>
       <Title usage="section">Get</Title>
       <div>
+        {feedbackData && <p>{feedbackData.text}</p>}
         <ul>
           {data.map((item: any) => (
-            <li key={item.id}>{item.email}</li>
+            <li key={item.id} onClick={() => loadFeedbackHandler(item.id)}>
+              email: {item.email} <br />
+              feedback: {item.text}
+            </li>
           ))}
         </ul>
       </div>

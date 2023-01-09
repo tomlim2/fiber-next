@@ -1,6 +1,3 @@
-import modelManager from "models";
-import { useEffect, useState } from "react";
-
 import styled from "styled-components";
 import { Title } from "styles/text";
 import { Section } from "styles/section";
