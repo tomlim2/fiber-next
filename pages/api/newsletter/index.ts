@@ -12,5 +12,8 @@ export default function handler(req: NextApiRequest, res: NextApiResponse) {
     if (!userEmail || !userEmail.include("@")) {
       res.status(422).json({ message: "Invalid email address." });
     }
+
+    console.log(userEmail);
+    res.status(201).json({ message: "Signed up!" });
   }
 }
