@@ -1,6 +1,5 @@
-import { useEffect, useState } from "react";
+import { useState } from "react";
 import styled from "styled-components";
-import axios from "axios";
 
 import ButtonBasic from "../buttons/buttonBasic";
 
@@ -39,8 +38,6 @@ const SectionForm: React.FC<ISectionPropsExtend> = ({
       email: enteredEmail,
       text: enteredFeedback,
     };
-
-    // axios.post("/api/feedback", body);
 
     fetch("/api/feedback", {
       method: "POST",
