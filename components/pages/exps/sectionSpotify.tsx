@@ -1,4 +1,4 @@
-import ButtonBasic from "@/components/buttons/buttonBasic";
+import ButtonBasic from "@/components/ui/buttonBasic";
 import useModel from "models";
 
 import { Title } from "styles/text";

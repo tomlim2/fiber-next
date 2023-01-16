@@ -20,6 +20,16 @@ import Pattern10Fragment from "raw-loader!glslify-loader!./pattern10/fragment.gl
 import Pattern10Vertex from "raw-loader!glslify-loader!./pattern10/vertex.glsl";
 import Pattern11Fragment from "raw-loader!glslify-loader!./pattern11/fragment.glsl";
 import Pattern11Vertex from "raw-loader!glslify-loader!./pattern11/vertex.glsl";
+import Pattern12Fragment from "raw-loader!glslify-loader!./pattern12/fragment.glsl";
+import Pattern12Vertex from "raw-loader!glslify-loader!./pattern12/vertex.glsl";
+import Pattern13Fragment from "raw-loader!glslify-loader!./pattern13/fragment.glsl";
+import Pattern13Vertex from "raw-loader!glslify-loader!./pattern13/vertex.glsl";
+import Pattern14Fragment from "raw-loader!glslify-loader!./pattern14/fragment.glsl";
+import Pattern14Vertex from "raw-loader!glslify-loader!./pattern14/vertex.glsl";
+import Pattern15Fragment from "raw-loader!glslify-loader!./pattern15/fragment.glsl";
+import Pattern15Vertex from "raw-loader!glslify-loader!./pattern15/vertex.glsl";
+import Pattern16Fragment from "raw-loader!glslify-loader!./pattern16/fragment.glsl";
+import Pattern16Vertex from "raw-loader!glslify-loader!./pattern16/vertex.glsl";
 
 export const shaderMap: ShaderMap[] = [
   { fragment: Pattern1Fragment, vertex: Pattern1Vertex },
@@ -33,6 +43,11 @@ export const shaderMap: ShaderMap[] = [
   { fragment: Pattern9Fragment, vertex: Pattern9Vertex },
   { fragment: Pattern10Fragment, vertex: Pattern10Vertex },
   { fragment: Pattern11Fragment, vertex: Pattern11Vertex },
+  { fragment: Pattern12Fragment, vertex: Pattern12Vertex },
+  { fragment: Pattern13Fragment, vertex: Pattern13Vertex },
+  { fragment: Pattern14Fragment, vertex: Pattern14Vertex },
+  { fragment: Pattern15Fragment, vertex: Pattern15Vertex },
+  { fragment: Pattern16Fragment, vertex: Pattern16Vertex },
 ];
 
 export interface ShaderMap {

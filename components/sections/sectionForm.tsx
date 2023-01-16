@@ -1,10 +1,10 @@
 import { useState } from "react";
 import styled from "styled-components";
 
-import ButtonBasic from "../buttons/buttonBasic";
+import ButtonBasic from "../ui/buttonBasic";
 
 import { Title } from "../../styles/text";
-import { InputBox } from "styles/form";
+import { ControlInput } from "styles/form";
 import { Section } from "styles/section";
 
 import type { ISectionProps } from "types/app";
@@ -65,7 +65,7 @@ const SectionForm: React.FC<ISectionPropsExtend> = ({
     <SectionExtend sectionStyles={sectionStyles}>
       <Title usage="section">Form</Title>
       <form onSubmit={(event) => submitFormHandler(event)}>
-        <InputBox>
+        <ControlInput>
           <label htmlFor="email">Your email address</label>
           <input
             type="email"
@@ -74,8 +74,8 @@ const SectionForm: React.FC<ISectionPropsExtend> = ({
             onChange={(event) => setInputEmail(event.target.value)}
           />
           <p className="error-message">Error message</p>
-        </InputBox>
-        <InputBox>
+        </ControlInput>
+        <ControlInput>
           <label htmlFor="feedback">Your feedback</label>
           <textarea
             id="feedback"
@@ -84,8 +84,8 @@ const SectionForm: React.FC<ISectionPropsExtend> = ({
             onChange={(event) => setInputFeedback(event.target.value)}
           />
           <p className="error-message">Error message</p>
-        </InputBox>
-        <ButtonBasic usage="border">Send Feedback</ButtonBasic>
+        </ControlInput>
+        <ButtonBasic>Send Feedback</ButtonBasic>
       </form>
       <Title usage="section">Get</Title>
       <div>

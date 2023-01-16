@@ -1,5 +1,4 @@
 import { useRouter } from "next/router";
-import { useState } from "react";
 import { styleColor } from "styles/color";
 import styled, { css } from "styled-components";
 
@@ -7,11 +6,12 @@ type UsageType = "default" | "border";
 
 interface Props {
   usage?: UsageType;
-  to?: string | undefined;
+  to?: string;
   children: React.ReactNode;
   onClick?: Function;
   onMouseEnter?: Function;
   disabled?: boolean;
+  activated?: boolean;
   backgroundColor?: string;
   color?: string;
 }
@@ -22,6 +22,7 @@ const ButtonBasic: React.FC<Props> = ({
   onClick,
   onMouseEnter,
   disabled,
+  activated,
   children,
   backgroundColor,
   color,
@@ -57,6 +58,7 @@ const ButtonBasic: React.FC<Props> = ({
       }}
       style={buttonStyles}
       disabled={disabled}
+      className={`${activated ? "activated" : ""}`}
       usage={usage ?? "default"}
     >
       {children}
@@ -74,6 +76,11 @@ export const Button = styled.button<IButton>`
   ${(props) => styleUsage[props.usage]}
   cursor: pointer;
 
+  &.activated {
+    background-color: ${styleColor.black0};
+  color: ${styleColor.white0};
+  }
+
   &:disabled {
     opacity: 0.75;
     pointer-events: none;
@@ -81,10 +88,16 @@ export const Button = styled.button<IButton>`
 `;
 
 const styleDefault = css`
-  color: ${styleColor.black100};
+  padding: 6px 8px;
+  background-color: ${styleColor.black200};
+  color: ${styleColor.white200};
+  border: none;
+
+  transition: 120ms background-color ease-in-out, 120ms color ease-in-out;
 
   &:hover {
-    color: blue;
+    color: ${styleColor.white0};
+    background-color: ${styleColor.black0};
   }
 `;
 
@@ -93,9 +106,6 @@ const styleBorder = css`
   border: 1px solid ${styleColor.black200};
   background-color: ${styleColor.white0};
   color: ${styleColor.black200};
-  font-family: "SourceCodePro", monospace;
-  font-weight: 600;
-  font-style: normal;
 
   &:hover {
     border: 1px solid ${styleColor.black100};

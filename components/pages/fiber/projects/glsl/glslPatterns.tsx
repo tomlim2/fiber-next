@@ -5,7 +5,7 @@ import { Canvas } from "@react-three/fiber";
 import { Title } from "styles/text";
 import ProjectFramer from "@/components/pages/fiber/projects/projectFramer";
 import Paragraph from "@/components/texts/paragraph";
-import ButtonBasic from "@/components/buttons/buttonBasic";
+import ButtonBasic from "@/components/ui/buttonBasic";
 import styled from "styled-components";
 
 interface Props {}
@@ -49,10 +49,9 @@ const ProjectGlsl: React.FC<Props> = () => {
             {shaderMap.map((shader: ShaderMap, index: number) => (
               <ButtonBasic
                 key={index}
-                usage={"border"}
                 onClick={() => onClick(index)}
                 onMouseEnter={() => onMouseEnter(index)}
-                disabled={shaderNumber == index}
+                activated={shaderNumber == index}
               >
                 PATTERN - {index + 1}
               </ButtonBasic>

@@ -1,7 +1,7 @@
 import styled from "styled-components";
 import { styleColor } from "styles/color";
 
-export const InputBox = styled.div`
+export const ControlInput = styled.div`
   display: flex;
   flex-direction: column;
 

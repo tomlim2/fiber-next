@@ -5,17 +5,19 @@ import SvgLogo from "../svg/svgLogo";
 import TextLink from "components/texts/textLink";
 
 import { styleColor } from "styles/color";
+import { useRouter } from "next/router";
 
 const GlobalHeader: React.FC = () => {
   const [isNavOpen, setIsNavOpen] = useState(false);
   const toggleNav = () => {
     setIsNavOpen((val) => !val);
   };
+  
   return (
     <>
       <Header>
         <div className="nav-trigger" onClick={() => toggleNav()}>
-          {!isNavOpen ? <SvgLogo color={styleColor.negative} /> : <SvgLogo color={styleColor.black100} />}
+          {!isNavOpen ? <SvgLogo /> : <SvgLogo color={styleColor.black100} />}
         </div>
         {isNavOpen && <GlobalNav />}
       </Header>
