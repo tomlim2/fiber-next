@@ -30,6 +30,10 @@ import Pattern15Fragment from "raw-loader!glslify-loader!./pattern15/fragment.gl
 import Pattern15Vertex from "raw-loader!glslify-loader!./pattern15/vertex.glsl";
 import Pattern16Fragment from "raw-loader!glslify-loader!./pattern16/fragment.glsl";
 import Pattern16Vertex from "raw-loader!glslify-loader!./pattern16/vertex.glsl";
+import Pattern17Fragment from "raw-loader!glslify-loader!./pattern17/fragment.glsl";
+import Pattern17Vertex from "raw-loader!glslify-loader!./pattern17/vertex.glsl";
+import Pattern18Fragment from "raw-loader!glslify-loader!./pattern18/fragment.glsl";
+import Pattern18Vertex from "raw-loader!glslify-loader!./pattern18/vertex.glsl";
 
 export const shaderMap: ShaderMap[] = [
   { fragment: Pattern1Fragment, vertex: Pattern1Vertex },
@@ -48,6 +52,8 @@ export const shaderMap: ShaderMap[] = [
   { fragment: Pattern14Fragment, vertex: Pattern14Vertex },
   { fragment: Pattern15Fragment, vertex: Pattern15Vertex },
   { fragment: Pattern16Fragment, vertex: Pattern16Vertex },
+  { fragment: Pattern17Fragment, vertex: Pattern17Vertex },
+  { fragment: Pattern18Fragment, vertex: Pattern18Vertex },
 ];
 
 export interface ShaderMap {
