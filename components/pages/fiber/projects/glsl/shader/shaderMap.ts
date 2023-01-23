@@ -42,6 +42,18 @@ import Pattern21Fragment from "raw-loader!glslify-loader!./pattern21/fragment.gl
 import Pattern21Vertex from "raw-loader!glslify-loader!./pattern21/vertex.glsl";
 import Pattern22Fragment from "raw-loader!glslify-loader!./pattern22/fragment.glsl";
 import Pattern22Vertex from "raw-loader!glslify-loader!./pattern22/vertex.glsl";
+import Pattern23Fragment from "raw-loader!glslify-loader!./pattern23/fragment.glsl";
+import Pattern23Vertex from "raw-loader!glslify-loader!./pattern23/vertex.glsl";
+import Pattern24Fragment from "raw-loader!glslify-loader!./pattern24/fragment.glsl";
+import Pattern24Vertex from "raw-loader!glslify-loader!./pattern24/vertex.glsl";
+import Pattern25Fragment from "raw-loader!glslify-loader!./pattern25/fragment.glsl";
+import Pattern25Vertex from "raw-loader!glslify-loader!./pattern25/vertex.glsl";
+import Pattern26Fragment from "raw-loader!glslify-loader!./pattern26/fragment.glsl";
+import Pattern26Vertex from "raw-loader!glslify-loader!./pattern26/vertex.glsl";
+import Pattern27Fragment from "raw-loader!glslify-loader!./pattern27/fragment.glsl";
+import Pattern27Vertex from "raw-loader!glslify-loader!./pattern27/vertex.glsl";
+import Pattern28Fragment from "raw-loader!glslify-loader!./pattern28/fragment.glsl";
+import Pattern28Vertex from "raw-loader!glslify-loader!./pattern28/vertex.glsl";
 
 export const shaderMap: ShaderMap[] = [
   { fragment: Pattern1Fragment, vertex: Pattern1Vertex },
@@ -66,6 +78,12 @@ export const shaderMap: ShaderMap[] = [
   { fragment: Pattern20Fragment, vertex: Pattern20Vertex },
   { fragment: Pattern21Fragment, vertex: Pattern21Vertex },
   { fragment: Pattern22Fragment, vertex: Pattern22Vertex },
+  { fragment: Pattern23Fragment, vertex: Pattern23Vertex },
+  { fragment: Pattern24Fragment, vertex: Pattern24Vertex },
+  { fragment: Pattern25Fragment, vertex: Pattern25Vertex },
+  { fragment: Pattern26Fragment, vertex: Pattern26Vertex },
+  { fragment: Pattern27Fragment, vertex: Pattern27Vertex },
+  { fragment: Pattern28Fragment, vertex: Pattern28Vertex },
 ];
 
 export interface ShaderMap {

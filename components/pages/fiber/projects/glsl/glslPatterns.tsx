@@ -43,8 +43,7 @@ const ProjectGlsl: React.FC<Props> = () => {
       </div>
       <Info>
         <div>
-          <Title usage="title">GLSL</Title>
-          <Paragraph>Setup references</Paragraph>
+          <Paragraph>Shader patterns</Paragraph>
           <div className="buttons">
             {shaderMap.map((shader: ShaderMap, index: number) => (
               <ButtonBasic
