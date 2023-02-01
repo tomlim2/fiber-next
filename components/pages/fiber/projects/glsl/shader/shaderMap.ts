@@ -54,6 +54,20 @@ import Pattern27Fragment from "raw-loader!glslify-loader!./pattern27/fragment.gl
 import Pattern27Vertex from "raw-loader!glslify-loader!./pattern27/vertex.glsl";
 import Pattern28Fragment from "raw-loader!glslify-loader!./pattern28/fragment.glsl";
 import Pattern28Vertex from "raw-loader!glslify-loader!./pattern28/vertex.glsl";
+import Pattern29Fragment from "raw-loader!glslify-loader!./pattern29/fragment.glsl";
+import Pattern29Vertex from "raw-loader!glslify-loader!./pattern29/vertex.glsl";
+import Pattern30Fragment from "raw-loader!glslify-loader!./pattern30/fragment.glsl";
+import Pattern30Vertex from "raw-loader!glslify-loader!./pattern30/vertex.glsl";
+import Pattern31Fragment from "raw-loader!glslify-loader!./pattern31/fragment.glsl";
+import Pattern31Vertex from "raw-loader!glslify-loader!./pattern31/vertex.glsl";
+import Pattern32Fragment from "raw-loader!glslify-loader!./pattern32/fragment.glsl";
+import Pattern32Vertex from "raw-loader!glslify-loader!./pattern32/vertex.glsl";
+import Pattern33Fragment from "raw-loader!glslify-loader!./pattern33/fragment.glsl";
+import Pattern33Vertex from "raw-loader!glslify-loader!./pattern33/vertex.glsl";
+import Pattern34Fragment from "raw-loader!glslify-loader!./pattern34/fragment.glsl";
+import Pattern34Vertex from "raw-loader!glslify-loader!./pattern34/vertex.glsl";
+import Pattern35Fragment from "raw-loader!glslify-loader!./pattern35/fragment.glsl";
+import Pattern35Vertex from "raw-loader!glslify-loader!./pattern35/vertex.glsl";
 
 export const shaderMap: ShaderMap[] = [
   { fragment: Pattern1Fragment, vertex: Pattern1Vertex },
@@ -84,6 +98,13 @@ export const shaderMap: ShaderMap[] = [
   { fragment: Pattern26Fragment, vertex: Pattern26Vertex },
   { fragment: Pattern27Fragment, vertex: Pattern27Vertex },
   { fragment: Pattern28Fragment, vertex: Pattern28Vertex },
+  { fragment: Pattern29Fragment, vertex: Pattern29Vertex },
+  { fragment: Pattern30Fragment, vertex: Pattern30Vertex },
+  { fragment: Pattern31Fragment, vertex: Pattern31Vertex },
+  { fragment: Pattern32Fragment, vertex: Pattern32Vertex },
+  { fragment: Pattern33Fragment, vertex: Pattern33Vertex },
+  { fragment: Pattern34Fragment, vertex: Pattern34Vertex },
+  { fragment: Pattern35Fragment, vertex: Pattern35Vertex },
 ];
 
 export interface ShaderMap {
