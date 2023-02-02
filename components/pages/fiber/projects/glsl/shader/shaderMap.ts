@@ -68,6 +68,8 @@ import Pattern34Fragment from "raw-loader!glslify-loader!./pattern34/fragment.gl
 import Pattern34Vertex from "raw-loader!glslify-loader!./pattern34/vertex.glsl";
 import Pattern35Fragment from "raw-loader!glslify-loader!./pattern35/fragment.glsl";
 import Pattern35Vertex from "raw-loader!glslify-loader!./pattern35/vertex.glsl";
+import Pattern36Fragment from "raw-loader!glslify-loader!./pattern36/fragment.glsl";
+import Pattern36Vertex from "raw-loader!glslify-loader!./pattern36/vertex.glsl";
 
 export const shaderMap: ShaderMap[] = [
   { fragment: Pattern1Fragment, vertex: Pattern1Vertex },
@@ -105,6 +107,7 @@ export const shaderMap: ShaderMap[] = [
   { fragment: Pattern33Fragment, vertex: Pattern33Vertex },
   { fragment: Pattern34Fragment, vertex: Pattern34Vertex },
   { fragment: Pattern35Fragment, vertex: Pattern35Vertex },
+  { fragment: Pattern36Fragment, vertex: Pattern36Vertex },
 ];
 
 export interface ShaderMap {
