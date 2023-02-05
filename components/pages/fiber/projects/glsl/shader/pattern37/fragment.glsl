@@ -1,7 +1,5 @@
 varying vec2 vUv;
 
-
-
 void main() {
   vec2 wavedUv = vec2(
       vUv.x, 
