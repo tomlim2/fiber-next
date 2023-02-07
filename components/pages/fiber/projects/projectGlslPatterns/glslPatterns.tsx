@@ -1,6 +1,6 @@
 import { useState } from "react";
-import { shaderMap } from "@/components/pages/fiber/projects/glsl/shader/shaderMap";
-import type { ShaderMap } from "@/components/pages/fiber/projects/glsl/shader/shaderMap";
+import { shaderMap } from "@/components/pages/fiber/projects/projectGlslPatterns/shader/shaderMap";
+import type { ShaderMap } from "@/components/pages/fiber/projects/projectGlslPatterns/shader/shaderMap";
 import { Canvas } from "@react-three/fiber";
 import { Title } from "styles/text";
 import ProjectFramer from "@/components/pages/fiber/projects/projectFramer";

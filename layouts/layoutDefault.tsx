@@ -17,5 +17,5 @@ const LayoutDefault: React.FC<Props> = ({ children }) => {
 export default LayoutDefault;
 
 export const Page = styled.main`
-  padding: 24px;
+  
 `;

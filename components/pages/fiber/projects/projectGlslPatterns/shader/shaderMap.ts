@@ -92,6 +92,12 @@ import Pattern46Fragment from "raw-loader!glslify-loader!./pattern46/fragment.gl
 import Pattern46Vertex from "raw-loader!glslify-loader!./pattern46/vertex.glsl";
 import Pattern47Fragment from "raw-loader!glslify-loader!./pattern47/fragment.glsl";
 import Pattern47Vertex from "raw-loader!glslify-loader!./pattern47/vertex.glsl";
+import Pattern48Fragment from "raw-loader!glslify-loader!./pattern48/fragment.glsl";
+import Pattern48Vertex from "raw-loader!glslify-loader!./pattern48/vertex.glsl";
+import Pattern49Fragment from "raw-loader!glslify-loader!./pattern49/fragment.glsl";
+import Pattern49Vertex from "raw-loader!glslify-loader!./pattern49/vertex.glsl";
+import Pattern50Fragment from "raw-loader!glslify-loader!./pattern50/fragment.glsl";
+import Pattern50Vertex from "raw-loader!glslify-loader!./pattern50/vertex.glsl";
 
 export const shaderMap: ShaderMap[] = [
   { fragment: Pattern1Fragment, vertex: Pattern1Vertex },
@@ -141,6 +147,9 @@ export const shaderMap: ShaderMap[] = [
   { fragment: Pattern45Fragment, vertex: Pattern45Vertex },
   { fragment: Pattern46Fragment, vertex: Pattern46Vertex },
   { fragment: Pattern47Fragment, vertex: Pattern47Vertex },
+  { fragment: Pattern48Fragment, vertex: Pattern48Vertex },
+  { fragment: Pattern49Fragment, vertex: Pattern49Vertex },
+  { fragment: Pattern50Fragment, vertex: Pattern50Vertex },
 ];
 
 export interface ShaderMap {
