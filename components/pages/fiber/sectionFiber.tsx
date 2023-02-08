@@ -3,10 +3,10 @@ import ProjectBookOfShaders from "@/components/pages/fiber/projects/projectBookO
 
 const SectionFiber = () => {
   return (
-    <section>
+    <div>
       <ProjectGlslPatterns />
       <ProjectBookOfShaders />
-    </section>
+    </div>
   );
 };
 
