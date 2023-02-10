@@ -1,9 +1,7 @@
 import { useState } from "react";
-import { shaderMap } from "@/components/pages/fiber/projects/projectGlslPatterns/shader/shaderMap";
-import type { ShaderMap } from "@/components/pages/fiber/projects/projectGlslPatterns/shader/shaderMap";
+import { shaderMap } from "@/components/pages/fiber/projects/projectBookOfShaders/shader/shaderMap";
+import type { ShaderMap } from "@/components/pages/fiber/projects/projectBookOfShaders/shader/shaderMap";
 import { Canvas } from "@react-three/fiber";
-import { Title } from "styles/text";
-import ProjectFramer from "@/components/pages/fiber/projects/projectFramer";
 import Paragraph from "@/components/texts/paragraph";
 import ButtonBasic from "@/components/ui/buttonBasic";
 import styled from "styled-components";
@@ -22,8 +20,8 @@ const ProjectGlsl: React.FC<Props> = () => {
     if (index !== shaderNumber) setShaderNumber(index);
   };
   return (
-    <ProjectFramer>
-      <div>
+    <>
+      <CanvasWrapper>
         <Canvas onCreated={created}>
           <mesh scale={6}>
             <planeGeometry />
@@ -40,7 +38,7 @@ const ProjectGlsl: React.FC<Props> = () => {
             })}
           </mesh>
         </Canvas>
-      </div>
+      </CanvasWrapper>
       <Info>
         <div>
           <Paragraph>Book of shaders</Paragraph>
@@ -58,11 +56,17 @@ const ProjectGlsl: React.FC<Props> = () => {
           </div>
         </div>
       </Info>
-    </ProjectFramer>
+    </>
   );
 };
 
 export default ProjectGlsl;
+
+export const CanvasWrapper = styled.div`
+  width: 100%;
+  height: 100%;
+  background-color: #252525;
+`;
 
 export const Info = styled.div`
   display: flex;
