@@ -1,4 +1,9 @@
 varying vec2 vUv;
+uniform vec2 uResolution;
+uniform vec2 uDimension;
+uniform float uWidth;
+uniform float uHeight;
+uniform float uScale;
 
 float random (vec2 st) {
     return fract(sin(dot(st.xy,
@@ -7,10 +12,10 @@ float random (vec2 st) {
 }
 
 void main() {
-    vec2 st = gl_FragCoord.xy;
+    vec2 strength = vUv;
 
-    st *= .1; // Scale the coordinate system by 10
-    vec2 ipos = floor(st);  // get the integer coords
+    strength *= 10.; // Scale the coordinate system by 10
+    vec2 ipos = floor(strength);  // get the integer coords
 
     // Assign a random value based on the integer coord
     vec3 color = vec3(random( ipos ));

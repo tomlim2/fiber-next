@@ -36,7 +36,7 @@ const ProjectFramer: React.FC<Props> = ({
 
   return (
     <Framer ref={refFramer} isCurrentSection={isCurrentSection}>
-      {isCurrentSection && children}
+      {isCurrentSection ? children : <><div className="skeleton-canvas"></div><div className="skeleton-info"></div></>}
     </Framer>
   );
 };
@@ -53,4 +53,11 @@ export const Framer = styled.section<FramerInterface>`
   grid-template-columns: calc(100vh - 24px) 1fr;
   height: 100vh;
   padding: 24px;
+
+  .skeleton-canvas{
+    background-color: #252525;
+  }
+  .skeleton-info{
+
+  }
 `;

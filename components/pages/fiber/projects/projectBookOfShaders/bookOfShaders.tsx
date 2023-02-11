@@ -1,15 +1,21 @@
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import { shaderMap } from "@/components/pages/fiber/projects/projectBookOfShaders/shader/shaderMap";
 import type { ShaderMap } from "@/components/pages/fiber/projects/projectBookOfShaders/shader/shaderMap";
 import { Canvas } from "@react-three/fiber";
 import Paragraph from "@/components/texts/paragraph";
 import ButtonBasic from "@/components/ui/buttonBasic";
 import styled from "styled-components";
+import { Vector2 } from "three";
 
 interface Props {}
+interface Resolution {
+  x: number;
+  y: number;
+}
 
 const ProjectGlsl: React.FC<Props> = () => {
   const [shaderNumber, setShaderNumber] = useState(0);
+  const [resolution, setResolution] = useState<Resolution>();
   const created = (state: any) => {
     state.gl.setClearColor("#252525");
   };
@@ -19,16 +25,28 @@ const ProjectGlsl: React.FC<Props> = () => {
   const onClick = (index: number) => {
     if (index !== shaderNumber) setShaderNumber(index);
   };
+  useEffect(() => {
+    window.addEventListener("resize", function () {
+      setResolution({ x: window.innerWidth, y: window.innerHeight });
+    });
+  });
   return (
     <>
       <CanvasWrapper>
         <Canvas onCreated={created}>
-          <mesh scale={6}>
-            <planeGeometry />
+          <mesh>
+            <planeGeometry args={[6, 6]} />
             {shaderMap.map((shader: ShaderMap, index: number) => {
               if (shaderNumber == index) {
                 return (
                   <shaderMaterial
+                    uniforms={{
+                      uResolution: { value: new Vector2 },
+                      uDimension: { value: new Vector2(6, 6) },
+                      uWidth: { value: 6 },
+                      uHeight: { value: 6 },
+                      uScale: { value: 6 },
+                    }}
                     fragmentShader={shaderMap[shaderNumber].fragment}
                     vertexShader={shaderMap[shaderNumber].vertex}
                     key={index}
@@ -50,7 +68,7 @@ const ProjectGlsl: React.FC<Props> = () => {
                 onMouseEnter={() => onMouseEnter(index)}
                 activated={shaderNumber == index}
               >
-                PATTERN - {index + 1}
+                {shader.name}
               </ButtonBasic>
             ))}
           </div>
