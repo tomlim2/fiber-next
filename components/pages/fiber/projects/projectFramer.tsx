@@ -34,9 +34,19 @@ const ProjectFramer: React.FC<Props> = ({
     }
   }
 
+  const Skeleton = (
+    <>
+      <div className="skeleton-canvas"></div>
+      <div className="skeleton-info">
+        <div className="skeleton-info-title"></div>
+        <div className="skeleton-info-button"></div>
+      </div>
+    </>
+  );
+
   return (
     <Framer ref={refFramer} isCurrentSection={isCurrentSection}>
-      {isCurrentSection ? children : <><div className="skeleton-canvas"></div><div className="skeleton-info"></div></>}
+      {isCurrentSection ? children : Skeleton}
     </Framer>
   );
 };
@@ -54,10 +64,20 @@ export const Framer = styled.section<FramerInterface>`
   height: 100vh;
   padding: 24px;
 
-  .skeleton-canvas{
+  .skeleton-canvas {
     background-color: #252525;
   }
-  .skeleton-info{
-
+  .skeleton-info {
+    &-title{
+      width: 180px;
+      height: 24px;
+      background-color: #252525;
+    }
+    &-button{
+      width: 400px;
+      height: 32px;
+      margin-top: 12px;
+      background-color: #252525;
+    }
   }
 `;

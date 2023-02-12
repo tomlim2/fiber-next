@@ -8,28 +8,42 @@ import styled from "styled-components";
 import { Vector2 } from "three";
 
 interface Props {}
-interface Resolution {
+interface IFVector2 {
   x: number;
   y: number;
 }
 
 const ProjectGlsl: React.FC<Props> = () => {
   const [shaderNumber, setShaderNumber] = useState(0);
-  const [resolution, setResolution] = useState<Resolution>();
+  const [resolution, setResolution] = useState<IFVector2>();
+  const [mousePos, setMousePos] = useState<IFVector2>();
+
   const created = (state: any) => {
     state.gl.setClearColor("#252525");
   };
+
   const onMouseEnter = (index: number) => {
     if (index !== shaderNumber) setShaderNumber(index);
   };
+
   const onClick = (index: number) => {
     if (index !== shaderNumber) setShaderNumber(index);
   };
+
+  const checkResolution = () => {
+    setResolution({ x: window.innerWidth, y: window.innerHeight });
+  };
+
   useEffect(() => {
-    window.addEventListener("resize", function () {
-      setResolution({ x: window.innerWidth, y: window.innerHeight });
-    });
+    window.addEventListener("resize", checkResolution);
+    document.onmousemove = function (e) {
+      setMousePos({ x: e.pageX, y: e.pageY });
+    };
+    return () => {
+      window.removeEventListener("resize", checkResolution);
+    };
   });
+
   return (
     <>
       <CanvasWrapper>
@@ -41,11 +55,9 @@ const ProjectGlsl: React.FC<Props> = () => {
                 return (
                   <shaderMaterial
                     uniforms={{
-                      uResolution: { value: new Vector2 },
-                      uDimension: { value: new Vector2(6, 6) },
-                      uWidth: { value: 6 },
-                      uHeight: { value: 6 },
-                      uScale: { value: 6 },
+                      uResolution: { value: new Vector2() },
+                      uTime: { value: new Vector2(6, 6) },
+                      uMouse: { value: mousePos },
                     }}
                     fragmentShader={shaderMap[shaderNumber].fragment}
                     vertexShader={shaderMap[shaderNumber].vertex}
