@@ -10,14 +10,20 @@ import Pattern5Fragment from "raw-loader!glslify-loader!./pattern5/fragment.glsl
 import Pattern5Vertex from "raw-loader!glslify-loader!./pattern5/vertex.glsl";
 import Pattern6Fragment from "raw-loader!glslify-loader!./pattern6/fragment.glsl";
 import Pattern6Vertex from "raw-loader!glslify-loader!./pattern6/vertex.glsl";
+import Pattern7Fragment from "raw-loader!glslify-loader!./pattern7/fragment.glsl";
+import Pattern7Vertex from "raw-loader!glslify-loader!./pattern7/vertex.glsl";
+import Pattern8Fragment from "raw-loader!glslify-loader!./pattern8/fragment.glsl";
+import Pattern8Vertex from "raw-loader!glslify-loader!./pattern8/vertex.glsl";
 
 export const shaderMap: ShaderMap[] = [
   { fragment: Pattern1Fragment, vertex: Pattern1Vertex, name: '2D random'},
   { fragment: Pattern2Fragment, vertex: Pattern2Vertex, name: 'Mosaic' },
-  { fragment: Pattern3Fragment, vertex: Pattern3Vertex, name: 'Algorithmic drawing UV'},
-  { fragment: Pattern4Fragment, vertex: Pattern4Vertex, name: 'Algorithmic drawing Pow'},
-  { fragment: Pattern5Fragment, vertex: Pattern5Vertex, name: 'Algorithmic drawing Step'},
-  { fragment: Pattern6Fragment, vertex: Pattern6Vertex, name: 'Algorithmic drawing Smoothstep'},
+  { fragment: Pattern3Fragment, vertex: Pattern3Vertex, name: 'UV'},
+  { fragment: Pattern4Fragment, vertex: Pattern4Vertex, name: 'Pow'},
+  { fragment: Pattern5Fragment, vertex: Pattern5Vertex, name: 'Step'},
+  { fragment: Pattern6Fragment, vertex: Pattern6Vertex, name: 'Smoothstep'},
+  { fragment: Pattern7Fragment, vertex: Pattern7Vertex, name: 'Blinn-Wyvill Approximation to the Raised Inverted Cosine'},
+  { fragment: Pattern8Fragment, vertex: Pattern8Vertex, name: 'Blinn-Wyvill Approximation to the Raised Inverted Cosine'},
 ];
 
 export interface ShaderMap {
