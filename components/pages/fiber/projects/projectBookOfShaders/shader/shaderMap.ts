@@ -14,6 +14,10 @@ import Pattern7Fragment from "raw-loader!glslify-loader!./pattern7/fragment.glsl
 import Pattern7Vertex from "raw-loader!glslify-loader!./pattern7/vertex.glsl";
 import Pattern8Fragment from "raw-loader!glslify-loader!./pattern8/fragment.glsl";
 import Pattern8Vertex from "raw-loader!glslify-loader!./pattern8/vertex.glsl";
+import Pattern9Fragment from "raw-loader!glslify-loader!./pattern9/fragment.glsl";
+import Pattern9Vertex from "raw-loader!glslify-loader!./pattern9/vertex.glsl";
+import Pattern10Fragment from "raw-loader!glslify-loader!./pattern10/fragment.glsl";
+import Pattern10Vertex from "raw-loader!glslify-loader!./pattern10/vertex.glsl";
 
 export const shaderMap: ShaderMap[] = [
   { fragment: Pattern1Fragment, vertex: Pattern1Vertex, name: '2D random'},
@@ -23,7 +27,9 @@ export const shaderMap: ShaderMap[] = [
   { fragment: Pattern5Fragment, vertex: Pattern5Vertex, name: 'Step'},
   { fragment: Pattern6Fragment, vertex: Pattern6Vertex, name: 'Smoothstep'},
   { fragment: Pattern7Fragment, vertex: Pattern7Vertex, name: 'Blinn-Wyvill Approximation to the Raised Inverted Cosine'},
-  { fragment: Pattern8Fragment, vertex: Pattern8Vertex, name: 'Blinn-Wyvill Approximation to the Raised Inverted Cosine'},
+  { fragment: Pattern8Fragment, vertex: Pattern8Vertex, name: 'Cubic Bezier'},
+  { fragment: Pattern9Fragment, vertex: Pattern9Vertex, name: 'Cubic Puls'},
+  { fragment: Pattern10Fragment, vertex: Pattern10Vertex, name: 'Circular EaseIn'},
 ];
 
 export interface ShaderMap {
