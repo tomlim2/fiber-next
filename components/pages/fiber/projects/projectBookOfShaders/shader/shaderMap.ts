@@ -18,8 +18,10 @@ import Pattern9Fragment from "raw-loader!glslify-loader!./pattern9/fragment.glsl
 import Pattern9Vertex from "raw-loader!glslify-loader!./pattern9/vertex.glsl";
 import Pattern10Fragment from "raw-loader!glslify-loader!./pattern10/fragment.glsl";
 import Pattern10Vertex from "raw-loader!glslify-loader!./pattern10/vertex.glsl";
+import Pattern11Fragment from "raw-loader!glslify-loader!./pattern11/fragment.glsl";
+import Pattern11Vertex from "raw-loader!glslify-loader!./pattern11/vertex.glsl";
 
-export const shaderMap: ShaderMap[] = [
+export const shaderMap: ShaderSet[] = [
   { fragment: Pattern1Fragment, vertex: Pattern1Vertex, name: '2D random'},
   { fragment: Pattern2Fragment, vertex: Pattern2Vertex, name: 'Mosaic' },
   { fragment: Pattern3Fragment, vertex: Pattern3Vertex, name: 'UV'},
@@ -30,9 +32,10 @@ export const shaderMap: ShaderMap[] = [
   { fragment: Pattern8Fragment, vertex: Pattern8Vertex, name: 'Cubic Bezier'},
   { fragment: Pattern9Fragment, vertex: Pattern9Vertex, name: 'Cubic Puls'},
   { fragment: Pattern10Fragment, vertex: Pattern10Vertex, name: 'Circular EaseIn'},
+  { fragment: Pattern11Fragment, vertex: Pattern11Vertex, name: 'patriciogv'},
 ];
 
-export interface ShaderMap {
+export interface ShaderSet {
   fragment: string;
   vertex: string;
   name: string;

@@ -1,14 +1,15 @@
 import { useEffect, useState } from "react";
 import { shaderMap } from "@/components/pages/fiber/projects/projectBookOfShaders/shader/shaderMap";
-import type { ShaderMap } from "@/components/pages/fiber/projects/projectBookOfShaders/shader/shaderMap";
+import type { ShaderSet } from "@/components/pages/fiber/projects/projectBookOfShaders/shader/shaderMap";
 import { Canvas } from "@react-three/fiber";
 import Paragraph from "@/components/texts/paragraph";
 import ButtonBasic from "@/components/ui/buttonBasic";
 import styled from "styled-components";
 import { Vector2 } from "three";
+import MeshForShader from "@/components/pages/fiber/projects/projectBookOfShaders/meshForShader";
 
 interface Props {}
-interface IFVector2 {
+export interface IFVector2 {
   x: number;
   y: number;
 }
@@ -16,7 +17,7 @@ interface IFVector2 {
 const ProjectGlsl: React.FC<Props> = () => {
   const [shaderNumber, setShaderNumber] = useState(0);
   const [resolution, setResolution] = useState<IFVector2>();
-  const [mousePos, setMousePos] = useState<IFVector2>();
+  const [mousePos, setMousePos] = useState<IFVector2 | undefined>();
 
   const created = (state: any) => {
     state.gl.setClearColor("#252525");
@@ -48,32 +49,24 @@ const ProjectGlsl: React.FC<Props> = () => {
     <>
       <CanvasWrapper>
         <Canvas onCreated={created}>
-          <mesh>
-            <planeGeometry args={[6, 6]} />
-            {shaderMap.map((shader: ShaderMap, index: number) => {
-              if (shaderNumber == index) {
-                return (
-                  <shaderMaterial
-                    uniforms={{
-                      uResolution: { value: new Vector2() },
-                      uTime: { value: new Vector2(6, 6) },
-                      uMouse: { value: mousePos },
-                    }}
-                    fragmentShader={shaderMap[shaderNumber].fragment}
-                    vertexShader={shaderMap[shaderNumber].vertex}
-                    key={index}
-                  />
-                );
-              }
-            })}
-          </mesh>
+          {shaderMap.map((shader: ShaderSet, index: number) => {
+            if (shaderNumber === index) {
+              return (
+                <MeshForShader
+                  key={index}
+                  shader={shader}
+                  mousePos={mousePos}
+                />
+              );
+            }
+          })}
         </Canvas>
       </CanvasWrapper>
       <Info>
         <div>
           <Paragraph>Book of shaders</Paragraph>
           <div className="buttons">
-            {shaderMap.map((shader: ShaderMap, index: number) => (
+            {shaderMap.map((shader: ShaderSet, index: number) => (
               <ButtonBasic
                 key={index}
                 onClick={() => onClick(index)}

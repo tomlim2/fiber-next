@@ -1,9 +1,5 @@
 varying vec2 vUv;
-uniform vec2 uResolution;
-uniform vec2 uDimension;
-uniform float uWidth;
-uniform float uHeight;
-uniform float uScale;
+uniform float uTime;
 
 float random (vec2 st) {
     return fract(sin(dot(st.xy,
