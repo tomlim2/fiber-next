@@ -38,8 +38,10 @@ const ProjectFramer: React.FC<Props> = ({
     <>
       <div className="skeleton-canvas"></div>
       <div className="skeleton-info">
-        <div className="skeleton-info-title"></div>
-        <div className="skeleton-info-button"></div>
+        <div>
+          <div className="skeleton-info-title"></div>
+          <div className="skeleton-info-button"></div>
+        </div>
       </div>
     </>
   );
@@ -68,12 +70,14 @@ export const Framer = styled.section<FramerInterface>`
     background-color: #252525;
   }
   .skeleton-info {
-    &-title{
+    display:flex;
+    align-items:center;
+    &-title {
       width: 180px;
       height: 24px;
       background-color: #252525;
     }
-    &-button{
+    &-button {
       width: 400px;
       height: 32px;
       margin-top: 12px;

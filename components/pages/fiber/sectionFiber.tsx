@@ -1,7 +1,9 @@
 import ProjectFramer from "@/components/pages/fiber/projects/projectFramer";
-import ProjectGlslPatterns from "@/components/pages/fiber/projects/projectGlslPatterns/glslPatterns";
-import ProjectBookOfShaders from "@/components/pages/fiber/projects/projectBookOfShaders/bookOfShaders";
-import ProjectBookOfShadersAnimation from "@/components/pages/fiber/projects/projectBookOfShadersAnimation/bookOfShadersAnimation";
+import ProjectGlslPatterns from "@/components/pages/fiber/projects/GlslPatterns/glslPatterns";
+import ProjectBookOfShaders from "@/components/pages/fiber/projects/BOS/bookOfShaders";
+import ProjectBookOfShadersAnimationA from "@/components/pages/fiber/projects/BOSAniA/bookOfShadersAnimationA";
+import ProjectBookOfShadersAnimationB from "@/components/pages/fiber/projects/BOSAniB/bookOfShadersAnimationB";
+import BOSAniC from "@/components/pages/fiber/projects/BOSAniC/BOSAniC";
 
 const SectionFiber = () => {
   return (
@@ -13,7 +15,13 @@ const SectionFiber = () => {
         <ProjectBookOfShaders />
       </ProjectFramer>
       <ProjectFramer framerIndex={2}>
-        <ProjectBookOfShadersAnimation />
+        <ProjectBookOfShadersAnimationA />
+      </ProjectFramer>
+      <ProjectFramer framerIndex={3}>
+        <ProjectBookOfShadersAnimationB />
+      </ProjectFramer>
+      <ProjectFramer framerIndex={4}>
+        <BOSAniC />
       </ProjectFramer>
     </div>
   );

@@ -1,6 +1,6 @@
 import { useState } from "react";
-import { shaderMap } from "@/components/pages/fiber/projects/projectGlslPatterns/shader/shaderMap";
-import type { ShaderMap } from "@/components/pages/fiber/projects/projectGlslPatterns/shader/shaderMap";
+import { shaderMap } from "@/components/pages/fiber/projects/GlslPatterns/shader/shaderMap";
+import type { ShaderMap } from "@/components/pages/fiber/projects/GlslPatterns/shader/shaderMap";
 import { Canvas } from "@react-three/fiber";
 import Paragraph from "@/components/texts/paragraph";
 import ButtonBasic from "@/components/ui/buttonBasic";
@@ -71,7 +71,7 @@ export const CanvasWrapper = styled.div`
 export const Info = styled.div`
   display: flex;
   flex-direction: column;
-  justify-content: space-between;
+  justify-content: center;
 
   .buttons {
     display: grid;

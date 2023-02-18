@@ -1,7 +1,5 @@
-import { shaderMap } from "@/components/pages/fiber/projects/projectBookOfShadersAnimation/shader/shaderMap";
-import type { ShaderSet } from "@/components/pages/fiber/projects/projectBookOfShaders/shader/shaderMap";
+import { shaderMap } from "./shader/shaderMap";
 import { IUniform, Vector2 } from "three";
-import type { IFVector2 } from "./bookOfShadersAnimation";
 import { useFrame } from "@react-three/fiber";
 import { useRef } from "react";
 

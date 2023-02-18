@@ -1,20 +1,18 @@
-import { shaderMap } from "@/components/pages/fiber/projects/projectBookOfShaders/shader/shaderMap";
-import type { ShaderSet } from "@/components/pages/fiber/projects/projectBookOfShaders/shader/shaderMap";
+import { shaderMap } from "@/components/pages/fiber/projects/BOSAniA/shader/shaderMap";
+import type { ShaderSet } from "@/components/pages/fiber/projects/BOS/shader/shaderMap";
 import { IUniform, Vector2 } from "three";
-import type { IFVector2 } from "./bookOfShaders";
+import type { IFVector2 } from "./bookOfShadersAnimationA";
 import { useFrame } from "@react-three/fiber";
 import { useRef } from "react";
 
 interface Props {
-  shader: ShaderSet;
-  mousePos: IFVector2 | undefined;
 }
 
 interface Uniforms {
   [uniform: string]: IUniform<number>;
 }
 
-const MeshForShader: React.FC<Props> = ({ shader, mousePos }) => {
+const MeshForShader: React.FC = () => {
   const meshRef = useRef() as any;
   const materialRef = useRef() as any;
 
@@ -32,8 +30,8 @@ const MeshForShader: React.FC<Props> = ({ shader, mousePos }) => {
         <shaderMaterial
           ref={materialRef}
           uniforms={{ uTime: { value: 0 } }}
-          fragmentShader={shader.fragment}
-          vertexShader={shader.vertex}
+          fragmentShader={shaderMap[0].fragment}
+          vertexShader={shaderMap[0].vertex}
         />
       </mesh>
     </>

@@ -1,12 +1,12 @@
 import { useEffect, useState } from "react";
-import { shaderMap } from "@/components/pages/fiber/projects/projectBookOfShaders/shader/shaderMap";
-import type { ShaderSet } from "@/components/pages/fiber/projects/projectBookOfShaders/shader/shaderMap";
+import { shaderMap } from "@/components/pages/fiber/projects/BOS/shader/shaderMap";
+import type { ShaderSet } from "@/components/pages/fiber/projects/BOS/shader/shaderMap";
 import { Canvas } from "@react-three/fiber";
 import Paragraph from "@/components/texts/paragraph";
 import ButtonBasic from "@/components/ui/buttonBasic";
 import styled from "styled-components";
 import { Vector2 } from "three";
-import MeshForShader from "@/components/pages/fiber/projects/projectBookOfShaders/meshForShader";
+import MeshForShader from "@/components/pages/fiber/projects/BOS/meshForShader";
 
 interface Props {}
 export interface IFVector2 {
@@ -14,7 +14,7 @@ export interface IFVector2 {
   y: number;
 }
 
-const ProjectGlsl: React.FC<Props> = () => {
+const BookOfShaders: React.FC<Props> = () => {
   const [shaderNumber, setShaderNumber] = useState(0);
   const [resolution, setResolution] = useState<IFVector2>();
   const [mousePos, setMousePos] = useState<IFVector2 | undefined>();
@@ -83,7 +83,7 @@ const ProjectGlsl: React.FC<Props> = () => {
   );
 };
 
-export default ProjectGlsl;
+export default BookOfShaders;
 
 export const CanvasWrapper = styled.div`
   width: 100%;
@@ -93,8 +93,7 @@ export const CanvasWrapper = styled.div`
 
 export const Info = styled.div`
   display: flex;
-  flex-direction: column;
-  justify-content: space-between;
+  align-items: center;
 
   .buttons {
     display: grid;
