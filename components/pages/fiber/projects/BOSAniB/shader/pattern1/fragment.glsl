@@ -28,7 +28,7 @@ void main() {
     // move space from the center to the vec2(0.0)
     strength -= vec2(0.5);
     // rotate the space
-    strength = rotate2d( sin(uTime) * PI ) * strength;
+    strength = rotate2d( floor(sin(uTime) * 20.)/20.  * PI ) * strength;
     // move it back to the original place
     strength += vec2(0.5);
 

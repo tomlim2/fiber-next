@@ -20,6 +20,12 @@ import Pattern10Fragment from "raw-loader!glslify-loader!./pattern10/fragment.gl
 import Pattern10Vertex from "raw-loader!glslify-loader!./pattern10/vertex.glsl";
 import Pattern11Fragment from "raw-loader!glslify-loader!./pattern11/fragment.glsl";
 import Pattern11Vertex from "raw-loader!glslify-loader!./pattern11/vertex.glsl";
+import Pattern12Fragment from "raw-loader!glslify-loader!./pattern12/fragment.glsl";
+import Pattern12Vertex from "raw-loader!glslify-loader!./pattern12/vertex.glsl";
+import Pattern13Fragment from "raw-loader!glslify-loader!./pattern13/fragment.glsl";
+import Pattern13Vertex from "raw-loader!glslify-loader!./pattern13/vertex.glsl";
+import Pattern14Fragment from "raw-loader!glslify-loader!./pattern14/fragment.glsl";
+import Pattern14Vertex from "raw-loader!glslify-loader!./pattern14/vertex.glsl";
 
 export const shaderMap: ShaderSet[] = [
   { fragment: Pattern1Fragment, vertex: Pattern1Vertex, name: '2D random'},
@@ -33,6 +39,9 @@ export const shaderMap: ShaderSet[] = [
   { fragment: Pattern9Fragment, vertex: Pattern9Vertex, name: 'Cubic Puls'},
   { fragment: Pattern10Fragment, vertex: Pattern10Vertex, name: 'Circular EaseIn'},
   { fragment: Pattern11Fragment, vertex: Pattern11Vertex, name: 'patriciogv'},
+  { fragment: Pattern12Fragment, vertex: Pattern12Vertex, name: 'normalized'},
+  { fragment: Pattern13Fragment, vertex: Pattern13Vertex, name: 'Apply matrices'},
+  { fragment: Pattern14Fragment, vertex: Pattern14Vertex, name: 'Offset patterns'},
 ];
 
 export interface ShaderSet {
