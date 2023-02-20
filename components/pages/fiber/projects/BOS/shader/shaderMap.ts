@@ -26,6 +26,8 @@ import Pattern13Fragment from "raw-loader!glslify-loader!./pattern13/fragment.gl
 import Pattern13Vertex from "raw-loader!glslify-loader!./pattern13/vertex.glsl";
 import Pattern14Fragment from "raw-loader!glslify-loader!./pattern14/fragment.glsl";
 import Pattern14Vertex from "raw-loader!glslify-loader!./pattern14/vertex.glsl";
+import Pattern15Fragment from "raw-loader!glslify-loader!./pattern15/fragment.glsl";
+import Pattern15Vertex from "raw-loader!glslify-loader!./pattern15/vertex.glsl";
 
 export const shaderMap: ShaderSet[] = [
   { fragment: Pattern1Fragment, vertex: Pattern1Vertex, name: '2D random'},
@@ -42,6 +44,7 @@ export const shaderMap: ShaderSet[] = [
   { fragment: Pattern12Fragment, vertex: Pattern12Vertex, name: 'normalized'},
   { fragment: Pattern13Fragment, vertex: Pattern13Vertex, name: 'Apply matrices'},
   { fragment: Pattern14Fragment, vertex: Pattern14Vertex, name: 'Offset patterns'},
+  { fragment: Pattern15Fragment, vertex: Pattern15Vertex, name: 'Truchet Tiles'},
 ];
 
 export interface ShaderSet {

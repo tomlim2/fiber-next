@@ -4,6 +4,8 @@ import ProjectBookOfShaders from "@/components/pages/fiber/projects/BOS/bookOfSh
 import ProjectBookOfShadersAnimationA from "@/components/pages/fiber/projects/BOSAniA/bookOfShadersAnimationA";
 import ProjectBookOfShadersAnimationB from "@/components/pages/fiber/projects/BOSAniB/bookOfShadersAnimationB";
 import BOSAniC from "@/components/pages/fiber/projects/BOSAniC/BOSAniC";
+import BOSAniD from "@/components/pages/fiber/projects/BOSAniD/BOSAniD";
+import BOSAniE from "@/components/pages/fiber/projects/BOSAniE/BOSAniE";
 
 const SectionFiber = () => {
   return (
@@ -22,6 +24,12 @@ const SectionFiber = () => {
       </ProjectFramer>
       <ProjectFramer framerIndex={4}>
         <BOSAniC />
+      </ProjectFramer>
+      <ProjectFramer framerIndex={5}>
+        <BOSAniD />
+      </ProjectFramer>
+      <ProjectFramer framerIndex={6}>
+        <BOSAniE />
       </ProjectFramer>
     </div>
   );
