@@ -23,7 +23,7 @@ const BOSAniE: React.FC<Props> = () => {
       </CanvasWrapper>
       <Info>
         <div>
-          <Paragraph>Truchet Tiles</Paragraph>
+          <Paragraph>AniE</Paragraph>
         </div>
       </Info>
     </>
