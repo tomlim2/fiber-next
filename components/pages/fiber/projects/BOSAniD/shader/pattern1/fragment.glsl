@@ -57,13 +57,13 @@ void main (void) {
     vec2 st = vUv;
 
     st = tile(st,3.0);
-    st = rotateTilePattern(st);
+    // st = rotateTilePattern(st);
 
     // Make more interesting combinations
     // st = tile(st,2.0);
     // st = rotate2D(st,-PI*uTime*0.25);
     // st = rotateTilePattern(st*2.);
-    st = rotate2D(st,PI*uTime*0.25);
+    // st = rotate2D(st,PI*uTime*0.25);
 
     // step(st.x,st.y) just makes a b&w triangles
     // but you can use whatever design you want.

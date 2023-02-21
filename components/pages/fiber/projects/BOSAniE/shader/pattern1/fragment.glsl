@@ -3,69 +3,28 @@
 varying vec2 vUv;
 uniform float uTime;
 
-vec2 rotate2D (vec2 _st, float _angle) {
-    _st -= 0.5;
-    _st =  mat2(cos(_angle),-sin(_angle),
-                sin(_angle),cos(_angle)) * _st;
-    _st += 0.5;
-    return _st;
-}
-
-vec2 tile (vec2 _st, float _zoom) {
-    _st *= _zoom;
-    return fract(_st);
-}
-
-vec2 rotateTilePattern(vec2 _st){
-
-    //  Scale the coordinate system by 2x2
-    _st *= 2.0;
-
-    //  Give each cell an index number
-    //  according to its position
-    float index = 0.0;
-    index += step(1., mod(_st.x,2.0));
-    index += step(1., mod(_st.y,2.0))*2.0;
-
-    //      |
-    //  2   |   3
-    //      |
-    //--------------
-    //      |
-    //  0   |   1
-    //      |
-
-    // Make each cell between 0.0 - 1.0
-    _st = fract(_st);
-
-    // Rotate each cell according to the index
-    if(index == 1.0){
-        //  Rotate cell 1 by 90 degrees
-        _st = rotate2D(_st,PI*0.5);
-    } else if(index == 2.0){
-        //  Rotate cell 2 by -90 degrees
-        _st = rotate2D(_st,PI*-0.5);
-    } else if(index == 3.0){
-        //  Rotate cell 3 by 180 degrees
-        _st = rotate2D(_st,PI);
-    }
-
-    return _st;
+float circle(in vec2 _st, in float _radius){
+    vec2 l = _st-vec2(0.5);
+    
+    return smoothstep(_radius-(_radius*0.01),
+                         _radius+(_radius*0.01),
+                         dot(l,l)*4.0);
 }
 
 void main (void) {
     vec2 st = vUv;
+    vec3 color = vec3(0.0);
 
-    st = tile(st,3.0);
-    st = rotateTilePattern(st);
+    st *= 10.;      // Scale up the space by 3
+    // st.x += step(1., mod(st.y,2.0)) * uTime;
+    st.y += step(1., mod(st.x,2.)) * (floor(uTime*5.0)/5.0);
+    // st.y += step(1., mod(st.x,2.0)) * 0.5 * uTime;
+    st = fract(st); // Wrap around 1.0
+    // st = mod(st,1.0); // Wrap around 1.0
 
-    // Make more interesting combinations
-    // st = tile(st,2.0);
-    // st = rotate2D(st,-PI*uTime*0.25);
-    // st = rotateTilePattern(st*2.);
-    st = rotate2D(st,PI*uTime*0.25);
+    // Now we have 9 spaces that go from 0-1
+    // color = vec3(st,0.0);
+    color = vec3(circle(st,0.2));
 
-    // step(st.x,st.y) just makes a b&w triangles
-    // but you can use whatever design you want.
-    gl_FragColor = vec4(vec3(step(st.x,st.y)),1.0);
+	gl_FragColor = vec4(color,1.0);
 }
