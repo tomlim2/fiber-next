@@ -6,10 +6,14 @@ import ProjectBookOfShadersAnimationB from "@/components/pages/fiber/projects/BO
 import BOSAniC from "@/components/pages/fiber/projects/BOSAniC/BOSAniC";
 import BOSAniD from "@/components/pages/fiber/projects/BOSAniD/BOSAniD";
 import BOSAniE from "@/components/pages/fiber/projects/BOSAniE/BOSAniE";
+import BOSAniF from "@/components/pages/fiber/projects/BOSAniF/BOSAniF";
 import styled from "styled-components";
 import { useRef, useState, RefObject, useEffect } from "react";
 
 const componentList = [
+  {
+    component: <BOSAniF />,
+  },
   {
     component: <BOSAniE />,
   },
