@@ -25,7 +25,7 @@ void main (void) {
     float timeOffsetY = mod(currentSecond, 2.0) == 1.0 ? 0.0 : floor(uTime*10.)/10.;
 
     mod(row, 2.0) == 0.0 ? st.x += timeOffsetX : st.x += 1.0 - timeOffsetX;
-    mod(column, 2.) == 0.0 ? st.y += timeOffsetY : st.y += 1.0 - timeOffsetY;
+    mod(column, 2.0) == 0.0 ? st.y += timeOffsetY : st.y += 1.0 - timeOffsetY;
 
     st = fract(st);
     color = vec3(circle(st,0.1));
