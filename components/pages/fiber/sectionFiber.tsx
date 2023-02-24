@@ -8,10 +8,14 @@ import BOSAniD from "@/components/pages/fiber/projects/BOSAniD/BOSAniD";
 import BOSAniE from "@/components/pages/fiber/projects/BOSAniE/BOSAniE";
 import BOSAniF from "@/components/pages/fiber/projects/BOSAniF/BOSAniF";
 import BOSAniG from "@/components/pages/fiber/projects/BOSAniG/BOSAniG";
+import BOSAniH from "@/components/pages/fiber/projects/BOSAniH/BOSAniH";
 import styled from "styled-components";
 import { useRef, useState, RefObject, useEffect } from "react";
 
 const componentList = [
+  {
+    component: <BOSAniH />,
+  },
   {
     component: <BOSAniG />,
   },
