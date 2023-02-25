@@ -11,18 +11,19 @@ float random (vec2 st) {
 
 void main() {
     vec2 st = vUv;
-    st *= vec2(80.,1.0); // Scale the coordinate system by 10
+    st *= vec2(40.,1.0); // Scale the coordinate system by 10
     float row = floor(st.y * 2.);
     float speed = 20.0;
-    float timeOffsetX = floor(((uTime * 1.5 + sin(uTime*1.9) * cos(uTime)))*10.) / 10.;
+    
+    float timeOffsetX = floor(((uTime * 1.5 + sin(uTime*1.911) * cos(uTime)))*10.) / 10.;
     row == 0.0 ? st.x += timeOffsetX * speed : st.x += 1.0 - timeOffsetX * speed;
     vec2 ipos = floor(st);  // get the integer coords
     vec2 fpos = fract(st);  // get the fractional coords
 
     // Assign a random value based on the integer coord
     
-
-    vec3 color = vec3(random( ipos ));
+    float generatedShape = random( ipos );
+    vec3 color = vec3(generatedShape);
     color = step(.2,color);
     // Uncomment to see the subdivided grid
     // color = vec3(fpos,0.0);
