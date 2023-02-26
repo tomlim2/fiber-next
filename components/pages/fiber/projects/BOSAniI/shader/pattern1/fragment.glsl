@@ -11,17 +11,16 @@ void main() {
     vec2 st = vUv;
     float uTimeWithOffset = uTime + 10.;
     float timing = uTimeWithOffset;
-    float uTimeLayeredA = fract(sin(timing));
-    float uTimeLayeredB = sin(timing)*cos(timing);
+    float uTimeLayeredA = fract(sin(timing)*cos(timing));
     float speed =  10.;
-    float scaleU = 10.+ 60.*floor(uTimeLayeredB/100.);
-    float stepRate = 0.2 + .1;
+    float scaleU = 50.+1.*floor(uTimeLayeredA);
+    float stepRate = 0.1;
 
     vec2 scaleUv = vec2(scaleU,1.);
 
     st *= scaleUv;
 
-    float framerate = 1.;
+    float framerate = 2.;
     float timeOffsetX = floor((timing + uTimeLayeredA) * speed / framerate) * framerate;
     float row = floor(st.y*2.);
 
