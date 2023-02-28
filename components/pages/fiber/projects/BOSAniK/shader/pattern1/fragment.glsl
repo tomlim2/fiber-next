@@ -7,6 +7,9 @@ float random (in float x) {
     return fract(sin(x)*1e4);
 }
 
+float random (in vec2 st) {
+    return fract(sin(dot(st.xy, vec2(12.9898,78.233)))* 43758.5453123);
+}
 
 float randomSerie(float x, float freq, float t) {
     return step(.8,random( floor(x*freq)-floor(t) ));
