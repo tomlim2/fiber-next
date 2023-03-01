@@ -1,4 +1,4 @@
-import ProjectFramer from "@/components/pages/fiber/projects/projectFramer";
+import ProjectFramer from "@/components/pages/fiber/projectFramer";
 import ProjectGlslPatterns from "@/components/pages/fiber/projects/GlslPatterns/glslPatterns";
 import ProjectBookOfShaders from "@/components/pages/fiber/projects/BOS/bookOfShaders";
 import ProjectBookOfShadersAnimationA from "@/components/pages/fiber/projects/BOSAniA/bookOfShadersAnimationA";
@@ -13,10 +13,14 @@ import BOSAniI from "@/components/pages/fiber/projects/BOSAniI/BOSAniI";
 import BOSAniJ from "@/components/pages/fiber/projects/BOSAniJ/BOSAniJ";
 import BOSAniK from "@/components/pages/fiber/projects/BOSAniK/BOSAniK";
 import BOSAniL from "@/components/pages/fiber/projects/BOSAniL/BOSAniL";
+import BOSAniM from "@/components/pages/fiber/projects/BOSAniM/BOSAniM";
 import styled from "styled-components";
 import { useRef, useState, RefObject, useEffect } from "react";
 
 const componentList = [
+  {
+    component: <BOSAniM />,
+  },
   {
     component: <BOSAniL />,
   },

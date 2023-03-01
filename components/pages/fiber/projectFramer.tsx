@@ -1,4 +1,3 @@
-import { useEffect, useRef, useState, RefObject } from "react";
 import styled from "styled-components";
 
 interface Props {
@@ -12,7 +11,6 @@ const ProjectFramer: React.FC<Props> = ({
   title = "pattern",
   isOn,
 }) => {
-
   const Skeleton = (
     <>
       <div className="skeleton-canvas"></div>
@@ -25,18 +23,12 @@ const ProjectFramer: React.FC<Props> = ({
     </>
   );
 
-  return (
-    <Framer>
-      {isOn ? children : Skeleton}
-    </Framer>
-  );
+  return <Framer>{isOn ? children : Skeleton}</Framer>;
 };
 
 export default ProjectFramer;
 
-interface FramerInterface {
-  
-}
+interface FramerInterface {}
 
 export const Framer = styled.section<FramerInterface>`
   display: grid;
@@ -63,5 +55,9 @@ export const Framer = styled.section<FramerInterface>`
       margin-top: 12px;
       background-color: #252525;
     }
+  }
+  @media only screen and (max-width: 600px) {
+    grid-template-columns: auto;
+    grid-template-rows: calc(100vw - 48px) 1fr;
   }
 `;
