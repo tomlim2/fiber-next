@@ -60,24 +60,24 @@ const BookOfShaders: React.FC<Props> = () => {
             }
           })}
         </Canvas>
-      </CanvasWrapper>
-      <Info>
-        <div>
-          <Paragraph>Book of shaders</Paragraph>
-          <div className="buttons">
-            {shaderMap.map((shader: ShaderSet, index: number) => (
-              <ButtonBasic
-                key={index}
-                onClick={() => onClick(index)}
-                onMouseEnter={() => onMouseEnter(index)}
-                activated={shaderNumber == index}
-              >
-                {shader.name}
-              </ButtonBasic>
-            ))}
+        <Info>
+          <div>
+            <h2>Book of shaders</h2>
+            <div className="buttons">
+              {shaderMap.map((shader: ShaderSet, index: number) => (
+                <ButtonBasic
+                  key={index}
+                  onClick={() => onClick(index)}
+                  onMouseEnter={() => onMouseEnter(index)}
+                  activated={shaderNumber == index}
+                >
+                  {shader.name}
+                </ButtonBasic>
+              ))}
+            </div>
           </div>
-        </div>
-      </Info>
+        </Info>
+      </CanvasWrapper>
     </>
   );
 };

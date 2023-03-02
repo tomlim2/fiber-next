@@ -21,12 +21,12 @@ const BOSAniH: React.FC<Props> = () => {
         <Canvas onCreated={created}>
           <MeshForShader />
         </Canvas>
+        <Info>
+          <div>
+            <h2>AniH</h2>
+          </div>
+        </Info>
       </CanvasWrapper>
-      <Info>
-        <div>
-          <Paragraph>AniH</Paragraph>
-        </div>
-      </Info>
     </>
   );
 };

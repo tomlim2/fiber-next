@@ -38,24 +38,24 @@ const ProjectGlsl: React.FC<Props> = () => {
             })}
           </mesh>
         </Canvas>
-      </CanvasWrapper>
-      <Info>
-        <div>
-          <Paragraph>Shader patterns</Paragraph>
-          <div className="buttons">
-            {shaderMap.map((shader: ShaderMap, index: number) => (
-              <ButtonBasic
-                key={index}
-                onClick={() => onClick(index)}
-                onMouseEnter={() => onMouseEnter(index)}
-                activated={shaderNumber == index}
-              >
-                {index + 1}
-              </ButtonBasic>
-            ))}
+        <Info>
+          <div>
+            <h2>Shader patterns</h2>
+            <div className="buttons">
+              {shaderMap.map((shader: ShaderMap, index: number) => (
+                <ButtonBasic
+                  key={index}
+                  onClick={() => onClick(index)}
+                  onMouseEnter={() => onMouseEnter(index)}
+                  activated={shaderNumber == index}
+                >
+                  {index + 1}
+                </ButtonBasic>
+              ))}
+            </div>
           </div>
-        </div>
-      </Info>
+        </Info>
+      </CanvasWrapper>
     </>
   );
 };

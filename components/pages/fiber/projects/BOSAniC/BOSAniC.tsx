@@ -20,12 +20,12 @@ const BOSAniC: React.FC<Props> = () => {
         <Canvas onCreated={created}>
           <MeshForShader />
         </Canvas>
+        <Info>
+          <div>
+            <Paragraph>Scale</Paragraph>
+          </div>
+        </Info>
       </CanvasWrapper>
-      <Info>
-        <div>
-          <Paragraph>Scale</Paragraph>
-        </div>
-      </Info>
     </>
   );
 };

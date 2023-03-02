@@ -7,8 +7,8 @@ const SectionAbout = () => {
     return (
         <>
             <Section>
-                <Paragraph usage='about'>exp<br /></Paragraph>
-                <Paragraph usage='about'><TextLink to='tomandlim@gmail.com' usage='email'>hey you</TextLink></Paragraph>
+                <Paragraph usage='about'>exp<br /></h2>
+                <Paragraph usage='about'><TextLink to='tomandlim@gmail.com' usage='email'>hey you</TextLink></h2>
             </Section>
         </>
     )
