@@ -1,6 +1,5 @@
 import { Canvas } from "@react-three/fiber";
 
-import Paragraph from "@/components/texts/paragraph";
 import MeshForShader from "./meshForShader";
 import { CanvasWrapper, Info } from "../projectStyles";
 
@@ -21,12 +20,12 @@ const BOSAniJ: React.FC<Props> = () => {
         <Canvas onCreated={created}>
           <MeshForShader />
         </Canvas>
-        <Info>
-          <div>
-            <h2>BOSAniJ</h2>
-          </div>
-        </Info>
       </CanvasWrapper>
+      <Info>
+        <div>
+          <h2>BOSAniJ</h2>
+        </div>
+      </Info>
     </>
   );
 };

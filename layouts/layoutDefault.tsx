@@ -7,15 +7,16 @@ interface Props {
 
 const LayoutDefault: React.FC<Props> = ({ children }) => {
   return (
-    <>
+    <Layout>
       <GlobalHeader />
-      <Page>{children}</Page>
-    </>
+      <PageWrapper>
+        <main className="page">{children}</main>
+      </PageWrapper>
+    </Layout>
   );
 };
 
 export default LayoutDefault;
-
-export const Page = styled.main`
-  
+export const Layout = styled.div``;
+export const PageWrapper = styled.div`
 `;

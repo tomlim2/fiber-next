@@ -2,7 +2,6 @@ import { useEffect, useState } from "react";
 import { shaderMap } from "@/components/pages/fiber/projects/BOS/shader/shaderMap";
 import type { ShaderSet } from "@/components/pages/fiber/projects/BOS/shader/shaderMap";
 import { Canvas } from "@react-three/fiber";
-import Paragraph from "@/components/texts/paragraph";
 import ButtonBasic from "@/components/ui/buttonBasic";
 import MeshForShader from "@/components/pages/fiber/projects/BOS/meshForShader";
 import { CanvasWrapper, Info } from "../projectStyles";
@@ -60,24 +59,24 @@ const BookOfShaders: React.FC<Props> = () => {
             }
           })}
         </Canvas>
-        <Info>
-          <div>
-            <h2>Book of shaders</h2>
-            <div className="buttons">
-              {shaderMap.map((shader: ShaderSet, index: number) => (
-                <ButtonBasic
-                  key={index}
-                  onClick={() => onClick(index)}
-                  onMouseEnter={() => onMouseEnter(index)}
-                  activated={shaderNumber == index}
-                >
-                  {shader.name}
-                </ButtonBasic>
-              ))}
-            </div>
-          </div>
-        </Info>
       </CanvasWrapper>
+      <Info>
+        <div>
+          <h2>Book of shaders</h2>
+          <div className="buttons">
+            {shaderMap.map((shader: ShaderSet, index: number) => (
+              <ButtonBasic
+                key={index}
+                onClick={() => onClick(index)}
+                onMouseEnter={() => onMouseEnter(index)}
+                activated={shaderNumber == index}
+              >
+                {shader.name}
+              </ButtonBasic>
+            ))}
+          </div>
+        </div>
+      </Info>
     </>
   );
 };

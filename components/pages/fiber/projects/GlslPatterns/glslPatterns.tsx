@@ -2,7 +2,6 @@ import { useState } from "react";
 import { shaderMap } from "@/components/pages/fiber/projects/GlslPatterns/shader/shaderMap";
 import type { ShaderMap } from "@/components/pages/fiber/projects/GlslPatterns/shader/shaderMap";
 import { Canvas } from "@react-three/fiber";
-import Paragraph from "@/components/texts/paragraph";
 import ButtonBasic from "@/components/ui/buttonBasic";
 import { CanvasWrapper, Info } from "../projectStyles";
 
@@ -38,24 +37,24 @@ const ProjectGlsl: React.FC<Props> = () => {
             })}
           </mesh>
         </Canvas>
-        <Info>
-          <div>
-            <h2>Shader patterns</h2>
-            <div className="buttons">
-              {shaderMap.map((shader: ShaderMap, index: number) => (
-                <ButtonBasic
-                  key={index}
-                  onClick={() => onClick(index)}
-                  onMouseEnter={() => onMouseEnter(index)}
-                  activated={shaderNumber == index}
-                >
-                  {index + 1}
-                </ButtonBasic>
-              ))}
-            </div>
-          </div>
-        </Info>
       </CanvasWrapper>
+      <Info>
+        <div>
+          <h2>Shader patterns</h2>
+          <div className="buttons">
+            {shaderMap.map((shader: ShaderMap, index: number) => (
+              <ButtonBasic
+                key={index}
+                onClick={() => onClick(index)}
+                onMouseEnter={() => onMouseEnter(index)}
+                activated={shaderNumber == index}
+              >
+                {index + 1}
+              </ButtonBasic>
+            ))}
+          </div>
+        </div>
+      </Info>
     </>
   );
 };

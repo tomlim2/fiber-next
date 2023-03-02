@@ -20,12 +20,12 @@ const BookOfShadersAnimationB: React.FC<Props> = () => {
         <Canvas onCreated={created}>
           <MeshForShader />
         </Canvas>
-        <Info>
-          <div>
-            <h2>Rotation</h2>
-          </div>
-        </Info>
       </CanvasWrapper>
+      <Info>
+        <div>
+          <h2>Rotation</h2>
+        </div>
+      </Info>
     </>
   );
 };

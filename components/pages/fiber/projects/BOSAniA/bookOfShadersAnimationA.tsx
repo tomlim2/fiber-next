@@ -1,6 +1,5 @@
 import { Canvas } from "@react-three/fiber";
 import MeshForShader from "@/components/pages/fiber/projects/BOSAniA/meshForShader";
-import Paragraph from "@/components/texts/paragraph";
 import { CanvasWrapper, Info } from "../projectStyles";
 
 interface Props {}
@@ -20,12 +19,12 @@ const BookOfShadersAnimationA: React.FC<Props> = () => {
         <Canvas onCreated={created}>
           <MeshForShader />
         </Canvas>
-        <Info>
-          <div>
-            <h2>Translate</h2>
-          </div>
-        </Info>
       </CanvasWrapper>
+      <Info>
+        <div>
+          <h2>Translate</h2>
+        </div>
+      </Info>
     </>
   );
 };

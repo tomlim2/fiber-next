@@ -2,20 +2,15 @@ import styled from "styled-components";
 
 export const CanvasWrapper = styled.div`
   position: relative;
-  width: 100%;
-  height: 100%;
+  width: 600px;
+  height: 600px;
   background-color: #252525;
 `;
 
 export const Info = styled.div`
-  position: absolute;
-  bottom:5px;
-  display: flex;
-  align-items: center;
-
-  h2{
-    color: #fcfcfc;
-    font-size:.75rem;
+  h2 {
+    color: #252525;
+    font-size: 0.75rem;
   }
 
   .buttons {

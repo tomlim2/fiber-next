@@ -1,6 +1,5 @@
 import { Canvas } from "@react-three/fiber";
 import MeshForShader from "./meshForShader";
-import Paragraph from "@/components/texts/paragraph";
 import { CanvasWrapper, Info } from "../projectStyles";
 
 interface Props {}
@@ -20,12 +19,12 @@ const BOSAniC: React.FC<Props> = () => {
         <Canvas onCreated={created}>
           <MeshForShader />
         </Canvas>
-        <Info>
-          <div>
-            <Paragraph>Scale</Paragraph>
-          </div>
-        </Info>
       </CanvasWrapper>
+      <Info>
+        <div>
+          <h2>Scale</h2>
+        </div>
+      </Info>
     </>
   );
 };

@@ -1,16 +1,9 @@
-import { useState } from "react";
 import styled from "styled-components";
 
 import SvgLogo from "../svg/svgLogo";
-import TextLink from "components/texts/textLink";
 import Link from "next/link";
 
 const GlobalHeader: React.FC = () => {
-  const [isNavOpen, setIsNavOpen] = useState(false);
-  const toggleNav = () => {
-    setIsNavOpen((val) => !val);
-  };
-
   return (
     <>
       <Header>
@@ -45,6 +38,7 @@ export const Header = styled.header`
   top: 5px;
   width: 100%;
   padding: 0 24px;
+  z-index: 10000;
 `;
 
 export const Footer = styled.footer`
@@ -63,8 +57,9 @@ export const Menus = styled.ul`
     a {
       font-size: 0.75rem;
       text-decoration: none;
-      color: #252525;
-      &:hover{
+      color: #000;
+
+      &:hover {
         color: blue;
       }
     }
