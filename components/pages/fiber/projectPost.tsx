@@ -1,14 +1,38 @@
+import { useEffect, useRef, useState } from "react";
 import styled from "styled-components";
 interface Props {
-  canvasComponent: React.ReactNode; 
-  info: string; 
+  canvasComponent: React.ReactNode;
+  info: string;
 }
 
 export default function ProjectPost(props: Props) {
   const { canvasComponent, info } = props;
+  const refCanvas = useRef<any>();
+  const [isOn, setIsOn] = useState(false);
+
+  useEffect(() => {
+    const options = {
+      root: null,
+      rootMargin: "0px",
+      threshold: 0.5,
+    };
+
+    const callback = (entries: any) => {
+      entries.forEach((entry: any) => {
+        if (entry.isIntersecting) {
+          setIsOn(true);
+        } else {
+          setIsOn(false);
+        }
+      });
+    };
+
+    const observer = new IntersectionObserver(callback, options);
+    observer.observe(refCanvas.current);
+  }, []);
   return (
     <ProjectFramer>
-      <CanvasWrapper>{canvasComponent}</CanvasWrapper>
+      <CanvasWrapper ref={refCanvas}>{isOn && canvasComponent}</CanvasWrapper>
       <Info>
         <div>
           <h2>{info}</h2>

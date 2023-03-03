@@ -15,18 +15,9 @@ const BOSAniI: React.FC<Props> = () => {
   };
 
   return (
-    <>
-      <CanvasWrapper>
-        <Canvas onCreated={created}>
-          <MeshForShader />
-        </Canvas>
-      </CanvasWrapper>
-      <Info>
-        <div>
-          <h2>BOSAniI</h2>
-        </div>
-      </Info>
-    </>
+    <Canvas onCreated={created}>
+      <MeshForShader />
+    </Canvas>
   );
 };
 

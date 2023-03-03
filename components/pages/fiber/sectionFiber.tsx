@@ -14,7 +14,6 @@ import BOSAniK from "@/components/pages/fiber/projects/BOSAniK/BOSAniK";
 import BOSAniL from "@/components/pages/fiber/projects/BOSAniL/BOSAniL";
 import BOSAniM from "@/components/pages/fiber/projects/BOSAniM/BOSAniM";
 import styled from "styled-components";
-import { useRef, useState, RefObject, useEffect } from "react";
 import ProjectPost from "./projectPost";
 
 const componentList = [
@@ -26,15 +25,18 @@ const componentList = [
     info: "Pattern L",
     component: <BOSAniL />,
   },
-  // {
-  //   component: <BOSAniK />,
-  // },
-  // {
-  //   component: <BOSAniJ />,
-  // },
-  // {
-  //   component: <BOSAniI />,
-  // },
+  {
+    info: "Pattern K",
+    component: <BOSAniK />,
+  },
+  {
+    info: "Pattern J",
+    component: <BOSAniJ />,
+  },
+  {
+    info: "Pattern I",
+    component: <BOSAniI />,
+  },
   // {
   //   component: <BOSAniH />,
   // },
