@@ -1,4 +1,5 @@
 import { Canvas } from "@react-three/fiber";
+
 import MeshForShader from "./meshForShader";
 import { CanvasWrapper, Info } from "../projectStyles";
 
@@ -8,25 +9,16 @@ export interface IFVector2 {
   y: number;
 }
 
-const BOSAniD: React.FC<Props> = () => {
+const BOSAniH: React.FC<Props> = () => {
   const created = (state: any) => {
     state.gl.setClearColor("#252525");
   };
 
   return (
-    <>
-      <CanvasWrapper>
-        <Canvas onCreated={created}>
-          <MeshForShader />
-        </Canvas>
-      </CanvasWrapper>
-      <Info>
-        <div>
-          <h2>Truchet Tiles</h2>
-        </div>
-      </Info>
-    </>
+    <Canvas onCreated={created}>
+      <MeshForShader />
+    </Canvas>
   );
 };
 
-export default BOSAniD;
+export default BOSAniH;

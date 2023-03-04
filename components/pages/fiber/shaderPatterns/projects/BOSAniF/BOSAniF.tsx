@@ -9,25 +9,16 @@ export interface IFVector2 {
   y: number;
 }
 
-const BOSAniG: React.FC<Props> = () => {
+const BOSAniF: React.FC<Props> = () => {
   const created = (state: any) => {
     state.gl.setClearColor("#252525");
   };
 
   return (
-    <>
-      <CanvasWrapper>
-        <Canvas onCreated={created}>
-          <MeshForShader />
-        </Canvas>
-      </CanvasWrapper>
-      <Info>
-        <div>
-          <h2>AniG</h2>
-        </div>
-      </Info>
-    </>
+    <Canvas onCreated={created}>
+      <MeshForShader />
+    </Canvas>
   );
 };
 
-export default BOSAniG;
+export default BOSAniF;

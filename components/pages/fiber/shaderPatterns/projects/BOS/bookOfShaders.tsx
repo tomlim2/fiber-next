@@ -1,10 +1,10 @@
-import { useEffect, useState } from "react";
-import { shaderMap } from "@/components/pages/fiber/projects/BOS/shader/shaderMap";
-import type { ShaderSet } from "@/components/pages/fiber/projects/BOS/shader/shaderMap";
+import { useEffect, useState, useRef } from "react";
+import { shaderMap } from "@/components/pages/fiber/shaderPatterns/projects/BOS/shader/shaderMap";
+import type { ShaderSet } from "@/components/pages/fiber/shaderPatterns/projects/BOS/shader/shaderMap";
 import { Canvas } from "@react-three/fiber";
 import ButtonBasic from "@/components/ui/buttonBasic";
-import MeshForShader from "@/components/pages/fiber/projects/BOS/meshForShader";
-import { CanvasWrapper, Info } from "../projectStyles";
+import MeshForShader from "@/components/pages/fiber/shaderPatterns/projects/BOS/meshForShader";
+import { ProjectFramer, CanvasWrapper, Info } from "../../postAni";
 
 interface Props {}
 export interface IFVector2 {
@@ -16,6 +16,29 @@ const BookOfShaders: React.FC<Props> = () => {
   const [shaderNumber, setShaderNumber] = useState(0);
   const [resolution, setResolution] = useState<IFVector2>();
   const [mousePos, setMousePos] = useState<IFVector2 | undefined>();
+  const [isOn, setIsOn] = useState(false);
+  const refCanvas = useRef<any>();
+
+  useEffect(() => {
+    const options = {
+      root: null,
+      rootMargin: "0px",
+      threshold: 0.5,
+    };
+
+    const callback = (entries: any) => {
+      entries.forEach((entry: any) => {
+        if (entry.isIntersecting) {
+          setIsOn(true);
+        } else {
+          setIsOn(false);
+        }
+      });
+    };
+
+    const observer = new IntersectionObserver(callback, options);
+    observer.observe(refCanvas.current);
+  }, []);
 
   const created = (state: any) => {
     state.gl.setClearColor("#252525");
@@ -35,30 +58,29 @@ const BookOfShaders: React.FC<Props> = () => {
 
   useEffect(() => {
     window.addEventListener("resize", checkResolution);
-    document.onmousemove = function (e) {
-      setMousePos({ x: e.pageX, y: e.pageY });
-    };
     return () => {
       window.removeEventListener("resize", checkResolution);
     };
   });
 
   return (
-    <>
-      <CanvasWrapper>
-        <Canvas onCreated={created}>
-          {shaderMap.map((shader: ShaderSet, index: number) => {
-            if (shaderNumber === index) {
-              return (
-                <MeshForShader
-                  key={index}
-                  shader={shader}
-                  mousePos={mousePos}
-                />
-              );
-            }
-          })}
-        </Canvas>
+    <ProjectFramer>
+      <CanvasWrapper ref={refCanvas}>
+        {isOn && (
+          <Canvas onCreated={created}>
+            {shaderMap.map((shader: ShaderSet, index: number) => {
+              if (shaderNumber === index) {
+                return (
+                  <MeshForShader
+                    key={index}
+                    shader={shader}
+                    mousePos={mousePos}
+                  />
+                );
+              }
+            })}
+          </Canvas>
+        )}
       </CanvasWrapper>
       <Info>
         <div>
@@ -77,7 +99,7 @@ const BookOfShaders: React.FC<Props> = () => {
           </div>
         </div>
       </Info>
-    </>
+    </ProjectFramer>
   );
 };
 

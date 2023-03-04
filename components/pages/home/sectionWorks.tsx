@@ -13,7 +13,7 @@ const SectionWorks: React.FC<ISectionProps> = ({ backgroundColor, color }) => {
     <SectionExtend sectionStyles={sectionStyles}>
       <ul className="works">
         <li className="work">
-          <TextLink to="/fiber">Fiber</TextLink>
+          <TextLink to="/fiber/shader-patterns">Shader Patterns</TextLink>
         </li>
         <li className="work">
           <TextLink to="/design">Designs</TextLink>

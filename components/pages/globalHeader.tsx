@@ -35,22 +35,30 @@ export default GlobalHeader;
 
 export const Header = styled.header`
   position: fixed;
-  top: 5px;
   width: 100%;
-  padding: 0 24px;
+  padding: 5px 24px;
   z-index: 10000;
+  backdrop-filter: blur(4px);
+  ul{
+    grid-template-columns: repeat(3, 1fr);
+  }
 `;
 
 export const Footer = styled.footer`
   position: fixed;
-  bottom: 5px;
   width: 100%;
-  padding: 0 24px;
+  padding: 5px 24px 6px 24px;
+  bottom: -1px;
+  z-index: 10000;
+  backdrop-filter: blur(4px);
+  ul{
+    grid-template-columns: repeat(2, 1fr);
+  }
 `;
 
 export const Menus = styled.ul`
   display: grid;
-  grid-template-columns: repeat(3, 1fr);
+  
   
   li {
     font-size: 0.75rem;
