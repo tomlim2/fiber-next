@@ -47,7 +47,7 @@ interface FramerInterface {}
 export const ProjectFramer = styled.li<FramerInterface>`
   display: flex;
   gap: 12px;
-  min-height: 848px;
+  min-height: 648px;
   flex-direction: column;
   padding: 24px;
   margin-bottom: 48px;
@@ -74,8 +74,8 @@ export const ProjectFramer = styled.li<FramerInterface>`
 
 export const CanvasWrapper = styled.div`
   position: relative;
-  width: 800px;
-  height: 800px;
+  width: 600px;
+  height: 600px;
   background-color: #252525;
 `;
 
