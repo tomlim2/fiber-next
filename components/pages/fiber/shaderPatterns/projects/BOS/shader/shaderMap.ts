@@ -28,8 +28,13 @@ import Pattern14Fragment from "raw-loader!glslify-loader!./pattern14/fragment.gl
 import Pattern14Vertex from "raw-loader!glslify-loader!./pattern14/vertex.glsl";
 import Pattern15Fragment from "raw-loader!glslify-loader!./pattern15/fragment.glsl";
 import Pattern15Vertex from "raw-loader!glslify-loader!./pattern15/vertex.glsl";
+import Pattern16Fragment from "raw-loader!glslify-loader!./pattern16/fragment.glsl";
+import Pattern16Vertex from "raw-loader!glslify-loader!./pattern16/vertex.glsl";
+import Pattern17Fragment from "raw-loader!glslify-loader!./pattern17/fragment.glsl";
+import Pattern17Vertex from "raw-loader!glslify-loader!./pattern17/vertex.glsl";
 
 export const shaderMap: ShaderSet[] = [
+  { fragment: Pattern17Fragment, vertex: Pattern17Vertex, name: 'Distance Field'},
   { fragment: Pattern1Fragment, vertex: Pattern1Vertex, name: '2D random'},
   { fragment: Pattern2Fragment, vertex: Pattern2Vertex, name: 'Mosaic' },
   { fragment: Pattern3Fragment, vertex: Pattern3Vertex, name: 'UV'},
@@ -45,6 +50,7 @@ export const shaderMap: ShaderSet[] = [
   { fragment: Pattern13Fragment, vertex: Pattern13Vertex, name: 'Apply matrices'},
   { fragment: Pattern14Fragment, vertex: Pattern14Vertex, name: 'Offset patterns'},
   { fragment: Pattern15Fragment, vertex: Pattern15Vertex, name: 'Truchet Tiles'},
+  { fragment: Pattern16Fragment, vertex: Pattern16Vertex, name: 'YUV color'},
 ];
 
 export interface ShaderSet {
