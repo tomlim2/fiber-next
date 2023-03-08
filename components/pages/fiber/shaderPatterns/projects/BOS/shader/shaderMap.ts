@@ -36,7 +36,7 @@ import Pattern18Fragment from "raw-loader!glslify-loader!./pattern18/fragment.gl
 import Pattern18Vertex from "raw-loader!glslify-loader!./pattern18/vertex.glsl";
 
 export const shaderMap: ShaderSet[] = [
-  { fragment: Pattern18Fragment, vertex: Pattern18Vertex, name: 'Distance Field'},
+  { fragment: Pattern18Fragment, vertex: Pattern18Vertex, name: 'Polar shapes'},
   { fragment: Pattern17Fragment, vertex: Pattern17Vertex, name: 'Distance Field'},
   { fragment: Pattern1Fragment, vertex: Pattern1Vertex, name: '2D random'},
   { fragment: Pattern2Fragment, vertex: Pattern2Vertex, name: 'Mosaic' },

@@ -4,7 +4,7 @@ varying vec2 vUv;
 
 void main() {
   vec2 st = vUv;
-  vec2 grid = vec2(2.,2.);
+  vec2 grid = vec2(9.,9.);
   st *= grid;
   vec3 color = vec3(0.0f);
 
