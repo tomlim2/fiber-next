@@ -34,8 +34,11 @@ import Pattern17Fragment from "raw-loader!glslify-loader!./pattern17/fragment.gl
 import Pattern17Vertex from "raw-loader!glslify-loader!./pattern17/vertex.glsl";
 import Pattern18Fragment from "raw-loader!glslify-loader!./pattern18/fragment.glsl";
 import Pattern18Vertex from "raw-loader!glslify-loader!./pattern18/vertex.glsl";
+import Pattern19Fragment from "raw-loader!glslify-loader!./pattern19/fragment.glsl";
+import Pattern19Vertex from "raw-loader!glslify-loader!./pattern19/vertex.glsl";
 
 export const shaderMap: ShaderSet[] = [
+  { fragment: Pattern19Fragment, vertex: Pattern19Vertex, name: 'Truchet'},
   { fragment: Pattern18Fragment, vertex: Pattern18Vertex, name: 'Polar shapes'},
   { fragment: Pattern17Fragment, vertex: Pattern17Vertex, name: 'Distance Field'},
   { fragment: Pattern1Fragment, vertex: Pattern1Vertex, name: '2D random'},
