@@ -17,10 +17,15 @@ import BOSAniN from "@/components/pages/fiber/shaderPatterns/projects/BOSAniN/BO
 import BOSAniO from "@/components/pages/fiber/shaderPatterns/projects/BOSAniO/BOSAniO";
 import BOSAniP from "@/components/pages/fiber/shaderPatterns/projects/BOSAniP/BOSAniP";
 import BOSAniQ from "@/components/pages/fiber/shaderPatterns/projects/BOSAniQ/BOSAniQ";
+import BOSAniR from "@/components/pages/fiber/shaderPatterns/projects/BOSAniR/BOSAniR";
 import PostAni from "./postAni";
 import styled from "styled-components";
 
 const aniList = [
+  {
+    info: "Pattern R",
+    component: <BOSAniR />,
+  },
   {
     info: "Pattern Q",
     component: <BOSAniQ />,
