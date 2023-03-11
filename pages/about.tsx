@@ -3,9 +3,9 @@ import SectionAbout from "@/components/pages/about/sectionAbout";
 
 const About = () => {
   return (
-    <main>
+    <div>
       <SectionAbout />
-    </main>
+    </div>
   );
 };
 
