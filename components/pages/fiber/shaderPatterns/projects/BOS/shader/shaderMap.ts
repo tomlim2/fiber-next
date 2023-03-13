@@ -38,8 +38,11 @@ import Pattern19Fragment from "raw-loader!glslify-loader!./pattern19/fragment.gl
 import Pattern19Vertex from "raw-loader!glslify-loader!./pattern19/vertex.glsl";
 import Pattern20Fragment from "raw-loader!glslify-loader!./pattern20/fragment.glsl";
 import Pattern20Vertex from "raw-loader!glslify-loader!./pattern20/vertex.glsl";
+import Pattern21Fragment from "raw-loader!glslify-loader!./pattern21/fragment.glsl";
+import Pattern21Vertex from "raw-loader!glslify-loader!./pattern21/vertex.glsl";
 
 export const shaderMap: ShaderSet[] = [
+  { fragment: Pattern21Fragment, vertex: Pattern21Vertex, name: '4 cells DF'},
   { fragment: Pattern20Fragment, vertex: Pattern20Vertex, name: '2D Noise'},
   { fragment: Pattern19Fragment, vertex: Pattern19Vertex, name: 'Truchet'},
   { fragment: Pattern18Fragment, vertex: Pattern18Vertex, name: 'Polar shapes'},
