@@ -40,8 +40,14 @@ import Pattern20Fragment from "raw-loader!glslify-loader!./pattern20/fragment.gl
 import Pattern20Vertex from "raw-loader!glslify-loader!./pattern20/vertex.glsl";
 import Pattern21Fragment from "raw-loader!glslify-loader!./pattern21/fragment.glsl";
 import Pattern21Vertex from "raw-loader!glslify-loader!./pattern21/vertex.glsl";
+import Pattern22Fragment from "raw-loader!glslify-loader!./pattern22/fragment.glsl";
+import Pattern22Vertex from "raw-loader!glslify-loader!./pattern22/vertex.glsl";
+import Pattern23Fragment from "raw-loader!glslify-loader!./pattern23/fragment.glsl";
+import Pattern23Vertex from "raw-loader!glslify-loader!./pattern23/vertex.glsl";
 
 export const shaderMap: ShaderSet[] = [
+  { fragment: Pattern23Fragment, vertex: Pattern23Vertex, name: 'Test cells'},
+  { fragment: Pattern22Fragment, vertex: Pattern22Vertex, name: 'Test cells DF'},
   { fragment: Pattern21Fragment, vertex: Pattern21Vertex, name: '4 cells DF'},
   { fragment: Pattern20Fragment, vertex: Pattern20Vertex, name: '2D Noise'},
   { fragment: Pattern19Fragment, vertex: Pattern19Vertex, name: 'Truchet'},
