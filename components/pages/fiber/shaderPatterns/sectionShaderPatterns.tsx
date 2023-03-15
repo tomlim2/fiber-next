@@ -20,10 +20,15 @@ import BOSAniQ from "@/components/pages/fiber/shaderPatterns/projects/BOSAniQ/BO
 import BOSAniR from "@/components/pages/fiber/shaderPatterns/projects/BOSAniR/BOSAniR";
 import BOSAniS from "@/components/pages/fiber/shaderPatterns/projects/BOSAniS/BOSAniS";
 import BOSAniT from "@/components/pages/fiber/shaderPatterns/projects/BOSAniT/BOSAniT";
+import BOSAniU from "@/components/pages/fiber/shaderPatterns/projects/BOSAniU/BOSAniU";
 import PostAni from "./postAni";
 import styled from "styled-components";
 
 const aniList = [
+  {
+    info: "Pattern U",
+    component: <BOSAniU />,
+  },
   {
     info: "Pattern T",
     component: <BOSAniT />,
