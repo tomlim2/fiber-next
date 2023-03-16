@@ -1,3 +1,6 @@
+import PostAni from "./postAni";
+import styled from "styled-components";
+
 import ProjectGlslPatterns from "@/components/pages/fiber/shaderPatterns/projects/GlslPatterns/glslPatterns";
 import ProjectBookOfShaders from "@/components/pages/fiber/shaderPatterns/projects/BOS/bookOfShaders";
 import ProjectBookOfShadersAnimationA from "@/components/pages/fiber/shaderPatterns/projects/BOSAniA/bookOfShadersAnimationA";
@@ -21,10 +24,14 @@ import BOSAniR from "@/components/pages/fiber/shaderPatterns/projects/BOSAniR/BO
 import BOSAniS from "@/components/pages/fiber/shaderPatterns/projects/BOSAniS/BOSAniS";
 import BOSAniT from "@/components/pages/fiber/shaderPatterns/projects/BOSAniT/BOSAniT";
 import BOSAniU from "@/components/pages/fiber/shaderPatterns/projects/BOSAniU/BOSAniU";
-import PostAni from "./postAni";
-import styled from "styled-components";
+import BOSAniV from "@/components/pages/fiber/shaderPatterns/projects/BOSAniV/BOSAniV";
+
 
 const aniList = [
+  {
+    info: "Pattern V",
+    component: <BOSAniV />,
+  },
   {
     info: "Pattern U",
     component: <BOSAniU />,
