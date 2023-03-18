@@ -16,6 +16,9 @@ const SectionWorks: React.FC<ISectionProps> = ({ backgroundColor, color }) => {
           <TextLink to="/fiber/shader-patterns">Shader Patterns</TextLink>
         </li>
         <li className="work">
+          <TextLink to="/fiber/mesh-and-shader">Mesh And Shader</TextLink>
+        </li>
+        <li className="work">
           <TextLink to="/design">Designs</TextLink>
         </li>
       </ul>

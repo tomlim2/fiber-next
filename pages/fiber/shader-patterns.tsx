@@ -1,10 +1,10 @@
 import LayoutDefault from "layouts/layoutDefault";
-import SectionFiber from "@/components/pages/fiber/shaderPatterns/sectionShaderPatterns";
+import MeshoNShader from "@/components/pages/fiber/shaderPatterns";
 
 const ShaderPatterns = () => {
   return (
     <div>
-      <SectionFiber />
+      <MeshoNShader />
     </div>
   );
 };
