@@ -55,7 +55,5 @@ void main() {
     // Show isolines
     // color -= step(.7,abs(sin(27.0*m_dist)))*.5;
 
-    gl_FragColor = vec4(color, 1.0);
-
     gl_FragColor = vec4(1. - color, 1.0);
 }

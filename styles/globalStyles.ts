@@ -89,6 +89,17 @@ const GlobalStyle = createGlobalStyle`
         border-collapse: collapse;
         border-spacing: 0;
     }
+    ::selection {
+    background-color: #252525; /* Change the background color of the highlighted text */
+    color: #fff; /* Change the text color of the highlighted text */
+    }
+
+    /* For browser compatibility, you might also want to include the following: */
+    ::-moz-selection {
+    background-color: #252525;
+    color: #fff;
+    }
+
 `;
 
 export default GlobalStyle;

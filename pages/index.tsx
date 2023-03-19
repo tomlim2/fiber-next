@@ -32,7 +32,7 @@ PageHome.getLayout = function getLayout(page: React.ReactElement) {
 export const Home = styled.div`
   display: flex;
   flex-direction: column;
-  padding: 24px;
+  padding: 48px 24px;
 
   gap: 24px;
 `;

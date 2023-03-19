@@ -31,8 +31,7 @@ export default SectionWorks;
 export const SectionExtend = styled(Section)`
   ul.works {
     display: grid;
-    grid-template-columns: repeat(3, 1fr);
-    gap: 24px;
+    gap: 16px;
 
     .work {
     }
