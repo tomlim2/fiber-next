@@ -1,6 +1,6 @@
 import styled from "styled-components";
 
-const MeshNShader = () => {
+const MeshAndShader = () => {
   return (
     <SectionWrapper>
       <Container>
@@ -10,7 +10,7 @@ const MeshNShader = () => {
   );
 };
 
-export default MeshNShader;
+export default MeshAndShader;
 
 export const SectionWrapper = styled.section`
   display: flex;

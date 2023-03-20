@@ -1,10 +1,10 @@
 import LayoutDefault from "layouts/layoutDefault";
-import MeshNShader from "@/components/pages/fiber/MeshNShader";
+import MeshAndShader from "@/components/pages/fiber/meshNShader";
 
 const meshAndShader = () => {
   return (
     <div>
-      <MeshNShader />
+      <MeshAndShader />
     </div>
   );
 };
