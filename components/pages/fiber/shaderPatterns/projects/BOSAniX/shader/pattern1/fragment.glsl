@@ -3,94 +3,24 @@
 uniform float uTime;
 varying vec2 vUv;
 
-vec2 random2(vec2 p) {
-    return fract(sin(vec2(dot(p, vec2(127.1, 311.7)), dot(p, vec2(269.5, 183.3)))) * 43758.5453);
+float random(in float x) {
+    return fract(sin(x) * 1e4);
+}
+
+float random(in vec2 st) {
+    return fract(sin(dot(st.xy, vec2(12.9898, 78.233))) * 43758.5453123);
 }
 
 void main() {
     vec2 st = vUv;
-        // st.x *= u_resolution.x/u_resolution.y;
-    vec3 color = vec3(.0);
+    vec3 color = vec3(0.);
+    //scale
+    vec2 grid = vec2(10.,2.0);
+    st *= grid;
 
-    st *= 2.;
+    vec2 ipos = floor(st);
 
-    vec2 i_st = floor(st);
-    vec2 f_st = fract(st);
-
-    float m_dist = 1.;
-
-    int x = 0;
-    int y = 0;
-
-    vec2 neighbor = vec2(float(x), float(y));
-    vec2 point = i_st + neighbor;
-    point = 0.5 + 0.5 * sin(uTime + 6.2831 * point);
-    vec2 diff = neighbor + point - f_st;
-    float dist = length(diff);
-    m_dist = min(m_dist, dist);
-
-    x = 1;
-    y = 0;
-
-    neighbor = vec2(float(x), float(y));
-    point = i_st + neighbor;
-    point = 0.5 + 0.5 * sin(uTime + 6.2831 * point);
-    diff = neighbor + point - f_st;
-    dist = length(diff);
-    m_dist = min(m_dist, dist);
-
-    x = 0;
-    y = 1;
-
-    neighbor = vec2(float(x), float(y));
-    point = i_st + neighbor;
-    point = 0.5 + 0.5 * sin(uTime + 6.2831 * point);
-    diff = neighbor + point - f_st;
-    dist = length(diff);
-    m_dist = min(m_dist, dist);
-
-    x = 1;
-    y = 1;
-
-    neighbor = vec2(float(x), float(y));
-    point = i_st + neighbor;
-    point = 0.5 + 0.5 * sin(uTime + 6.2831 * point);
-    diff = neighbor + point - f_st;
-    dist = length(diff);
-    m_dist = min(m_dist, dist);
-
-    x = 0;
-    y = -1;
-
-    neighbor = vec2(float(x), float(y));
-    point = i_st + neighbor;
-    point = 0.5 + 0.5 * sin(uTime + 6.2831 * point);
-    diff = neighbor + point - f_st;
-    dist = length(diff);
-    m_dist = min(m_dist, dist);
-
-    x = -1;
-    y = 0;
-
-    neighbor = vec2(float(x), float(y));
-    point = i_st + neighbor;
-    point = 0.5 + 0.5 * sin(uTime + 6.2831 * point);
-    diff = neighbor + point - f_st;
-    dist = length(diff);
-    m_dist = min(m_dist, dist);
-
-    x = -1;
-    y = -1;
-
-    neighbor = vec2(float(x), float(y));
-    point = i_st + neighbor;
-    point = 0.5 + 0.5 * sin(uTime + 6.2831 * point);
-    diff = neighbor + point - f_st;
-    dist = length(diff);
-    m_dist = min(m_dist, dist);
-
-
-    color += m_dist;
+    color = vec3(random(ipos));
 
     gl_FragColor = vec4(color, 1.0);
 }

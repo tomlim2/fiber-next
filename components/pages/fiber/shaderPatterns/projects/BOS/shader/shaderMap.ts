@@ -46,13 +46,6 @@ import Pattern23Fragment from "raw-loader!glslify-loader!./pattern23/fragment.gl
 import Pattern23Vertex from "raw-loader!glslify-loader!./pattern23/vertex.glsl";
 
 export const shaderMap: ShaderSet[] = [
-  { fragment: Pattern23Fragment, vertex: Pattern23Vertex, name: 'Test cells'},
-  { fragment: Pattern22Fragment, vertex: Pattern22Vertex, name: 'Test cells DF'},
-  { fragment: Pattern21Fragment, vertex: Pattern21Vertex, name: '4 cells DF'},
-  { fragment: Pattern20Fragment, vertex: Pattern20Vertex, name: '2D Noise'},
-  { fragment: Pattern19Fragment, vertex: Pattern19Vertex, name: 'Truchet'},
-  { fragment: Pattern18Fragment, vertex: Pattern18Vertex, name: 'Polar shapes'},
-  { fragment: Pattern17Fragment, vertex: Pattern17Vertex, name: 'Distance Field'},
   { fragment: Pattern1Fragment, vertex: Pattern1Vertex, name: '2D random'},
   { fragment: Pattern2Fragment, vertex: Pattern2Vertex, name: 'Mosaic' },
   { fragment: Pattern3Fragment, vertex: Pattern3Vertex, name: 'UV'},
@@ -69,6 +62,13 @@ export const shaderMap: ShaderSet[] = [
   { fragment: Pattern14Fragment, vertex: Pattern14Vertex, name: 'Offset patterns'},
   { fragment: Pattern15Fragment, vertex: Pattern15Vertex, name: 'Truchet Tiles'},
   { fragment: Pattern16Fragment, vertex: Pattern16Vertex, name: 'YUV color'},
+  { fragment: Pattern17Fragment, vertex: Pattern17Vertex, name: 'Distance Field'},
+  { fragment: Pattern18Fragment, vertex: Pattern18Vertex, name: 'Polar shapes'},
+  { fragment: Pattern19Fragment, vertex: Pattern19Vertex, name: 'Truchet'},
+  { fragment: Pattern20Fragment, vertex: Pattern20Vertex, name: '2D Noise'},
+  { fragment: Pattern21Fragment, vertex: Pattern21Vertex, name: '4 cells DF'},
+  { fragment: Pattern22Fragment, vertex: Pattern22Vertex, name: 'Test cells DF'},
+  { fragment: Pattern23Fragment, vertex: Pattern23Vertex, name: 'Test cells'},
 ];
 
 export interface ShaderSet {

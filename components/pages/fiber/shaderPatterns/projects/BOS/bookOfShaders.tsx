@@ -93,7 +93,7 @@ const BookOfShaders: React.FC<Props> = () => {
                 onMouseEnter={() => onMouseEnter(index)}
                 activated={shaderNumber == index}
               >
-                {shader.name}
+                {`${index+1} ${shader.name}`}
               </ButtonBasic>
             ))}
           </div>
