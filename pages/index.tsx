@@ -10,6 +10,7 @@ const PageHome = () => {
   const pageHeadData = (
     <Head>
       <title>Home | yslim</title>
+      <meta name="view-transition" content="same-origin" />
       <meta name="description" content="Welcome!" />
     </Head>
   );
