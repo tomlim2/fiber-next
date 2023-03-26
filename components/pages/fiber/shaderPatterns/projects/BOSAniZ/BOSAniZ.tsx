@@ -13,8 +13,16 @@ const BOSAniZ: React.FC<Props> = () => {
     state.gl.setClearColor("#252525");
   };
 
+  const eventHandler = (event: any, eventType: string) => {
+    console.log(eventType);
+    
+  };
+
   return (
-    <Canvas onCreated={created}>
+    <Canvas
+      onCreated={created}
+      onPointerMissed={(event) => eventHandler(event, "onPointerMissed")}
+    >
       <MeshForShader />
     </Canvas>
   );
