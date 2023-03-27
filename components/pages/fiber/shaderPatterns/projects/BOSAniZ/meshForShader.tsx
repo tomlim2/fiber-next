@@ -16,12 +16,20 @@ const MeshForShader: React.FC = () => {
 
   const eventHandler = (event: any, eventType: string) => {
     console.log(eventType);
-    console.log('uv', event.uv) // UV coordinates on the geometry (in 2D)
+
     if (eventType == "onPointerEnter") {
       document.body.style.cursor = "pointer";
     }
     if (eventType == "onPointerLeave") {
       document.body.style.cursor = "default";
+    }
+    if (eventType == "onPointerMove") {
+      document.body.style.cursor = "pointer";
+      console.log("X", event.uv.x, "Y", event.uv.y); // UV coordinates on the geometry (in 2D)
+      if (materialRef && materialRef.current) {
+        materialRef.current.uniforms.mouseX.value = event.uv.x;
+        materialRef.current.uniforms.mouseY.value = event.uv.y;
+      }
     }
   };
 
@@ -38,6 +46,7 @@ const MeshForShader: React.FC = () => {
         onPointerEnter={(event) => eventHandler(event, "onPointerEnter")}
         onPointerOut={(event) => eventHandler(event, "onPointerOut")}
         onPointerLeave={(event) => eventHandler(event, "onPointerLeave")}
+        onPointerMove={(event) => eventHandler(event, "onPointerMove")}
       >
         <planeGeometry args={[planeDimention.width, planeDimention.height]} />
         <shaderMaterial
