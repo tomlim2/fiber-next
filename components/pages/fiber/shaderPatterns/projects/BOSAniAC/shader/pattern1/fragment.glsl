@@ -31,8 +31,8 @@ void main() {
     // pct = min(distance(st, vec2(0.4)), distance(st, vec2(0.6)));
     // pct = max(distance(st, vec2(0.4)), distance(st, vec2(0.6)));
     // pct = pow(distance(st,vec2(0.4)),distance(st,vec2(0.6)));
-    vec2 point1 = vec2(.4);
-    vec2 point2 = vec2(.6);
+    vec2 point1 = vec2(.2);
+    vec2 point2 = vec2(.8);
     vec2 point3 = vec2(mouseX, mouseY);
     pct = pow(pct, distance(st, point1));
     pct = pow(pct, distance(st, point2));

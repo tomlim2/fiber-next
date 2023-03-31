@@ -23,14 +23,9 @@ void main() {
 
     // c. The SQUARE ROOT of the vector
     //    from the pixel to the center
-    vec2 tC = vec2(0.5) - st;
-    pct = sqrt(tC.x * tC.x + tC.y * tC.y);
-    pct = 1. - step(.2, pct);
-    pct = distance(st, vec2(0.4)) + distance(st, vec2(0.6));
-    pct = distance(st, vec2(0.4)) * distance(st, vec2(0.6));
-    pct = min(distance(st, vec2(0.4)), distance(st, vec2(0.6)));
-    pct = max(distance(st, vec2(0.4)), distance(st, vec2(0.6)));
-    pct = pow(distance(st, vec2(0.4)), distance(st, vec2(0.6)));
+    vec2 tC = vec2(0.5)-st;
+    pct = sqrt(tC.x*tC.x+tC.y*tC.y);
+
     vec3 color = vec3(pct);
 
     gl_FragColor = vec4(color, 1.0);
