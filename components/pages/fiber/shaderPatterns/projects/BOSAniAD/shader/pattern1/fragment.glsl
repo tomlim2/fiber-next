@@ -24,7 +24,7 @@ void main() {
     // Now we have 9 spaces that go from 0-1
 
     color = vec3(st, 0.0);
-    color = vec3(circle(st, 0.5), 0., 0.);
+    color = vec3(circle(st, 0.5), mouseX, circle(st, 0.5) * mouseY);
 
     gl_FragColor = vec4(color, 1.0);
 }
