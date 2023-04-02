@@ -8,7 +8,7 @@ const GeometryNode = () => {
     <Head>
       <title>Blender | Geometry Node | yslim</title>
       <meta name="view-transition" content="same-origin" />
-      <meta name="description" content="Works about Geomtery node" />
+      <meta name="description" content="Works about geomtery node" />
     </Head>
   );
   return (
