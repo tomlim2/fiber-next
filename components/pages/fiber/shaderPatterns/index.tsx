@@ -36,8 +36,13 @@ import BOSAniAD from "@/components/pages/fiber/shaderPatterns/projects/BOSAniAD/
 import BOSAniAE from "@/components/pages/fiber/shaderPatterns/projects/BOSAniAE/BOSAniAE";
 import BOSAniAF from "@/components/pages/fiber/shaderPatterns/projects/BOSAniAF/BOSAniAF";
 import BOSAniAG from "@/components/pages/fiber/shaderPatterns/projects/BOSAniAG/BOSAniAG";
+import BOSAniAH from "@/components/pages/fiber/shaderPatterns/projects/BOSAniAH/BOSAniAH";
 
 const aniList = [
+  {
+    info: "Pattern AH",
+    component: <BOSAniAH />,
+  },
   {
     info: "Pattern AG",
     component: <BOSAniAG />,

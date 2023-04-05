@@ -21,13 +21,25 @@ void main() {
     st *= 4.0;      // Scale up the space by 3
     float row = floor(st.y);
 
-    st = fract(st); // Wrap around 1.0
     vec3 num = vec3(0.0);
-    mod(row, 2.0) == 0.0 ? num = vec3(0.0, st) : num = vec3(st, 0.0);
+
+    if(mod(row, 2.0) == 0.0) {
+        st.x += uTime;
+    } else {
+        st.x += 1.0 - uTime;
+    }
     // Now we have 9 spaces that go from 0-1
 
     // color = vec3(st, 0.0);
     // color = vec3(circle(st, 0.5));
+    st = fract(st); // Wrap around 1.0
+
+    if(mod(row, 2.0) == 0.0) {
+        num = vec3(0.0, st);
+    } else {
+        num = vec3(st, 0.0);
+    }
     color = vec3(num);
+
     gl_FragColor = vec4(color, 1.0);
 }
