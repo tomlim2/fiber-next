@@ -1,9 +1,20 @@
 import styled from "styled-components";
+import Image from "next/image";
 
 const GeometryNodes = () => {
   return (
     <SectionWrapper>
       <Container>Geometry Nodes</Container>
+      <div>
+        1.
+        <br />
+        <Image
+          src="/assets/images/blenderGeometryNodes/blender_geometry_nodes_1.png"
+          alt="Description of the image"
+          width={500}
+          height={300}
+        />
+      </div>
     </SectionWrapper>
   );
 };

@@ -1,7 +1,7 @@
 import Head from "next/head";
 
 import LayoutDefault from "layouts/layoutDefault";
-import MeshoNShader from "@/components/pages/fiber/shaderPatterns";
+import GeometryNodes from "@/components/pages/blender/geometryNodes";
 
 const GeometryNode = () => {
   const pageHeadData = (
@@ -14,7 +14,7 @@ const GeometryNode = () => {
   return (
     <div>
       {pageHeadData}
-      <MeshoNShader />
+      <GeometryNodes />
     </div>
   );
 };
