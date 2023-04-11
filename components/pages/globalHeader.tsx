@@ -9,10 +9,10 @@ const GlobalHeader: React.FC = () => {
       <Header>
         <Menus>
           <li className="menu">
-            <Link href="/">home</Link>
+            <Link href="/">ylim</Link>
           </li>
           <li className="menu">
-            <Link href="/exps">exps</Link>
+            <Link href="/">work</Link>
           </li>
           <li className="menu">
             <Link href="/about">about</Link>
