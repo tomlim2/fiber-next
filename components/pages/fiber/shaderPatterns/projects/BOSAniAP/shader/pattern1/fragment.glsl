@@ -41,14 +41,14 @@ void main() {
     vec2 pos3 = fSt;
     pos1 = rotate2d(noise(st) + uTime) * pos1;
     pos1 += .5;
-    pos2 = rotate2d(noise(st) + uTime + 0.3) * pos2;
+    pos2 = rotate2d(noise(st) + uTime + 1.) * pos2;
     pos2 += .5;
-    pos3 = rotate2d(noise(st) + uTime + 0.6) * pos3;
+    pos3 = rotate2d(noise(st) + uTime + 0.5) * pos3;
     pos3 += .5;
     // float n = rotate2d(noise(pos) + uTime);
     // color = vec3(n + 0.01, n, n - 0.01);
 
     // gl_FragColor = vec4(color, 1.0);
 
-    gl_FragColor = vec4(vec3(pos2.x, pos1.x, pos3.y), 1.0);
+    gl_FragColor = vec4(vec3(pos2.x*.2, pos1.x*.4, pos3.x*.6), 1.0);
 }

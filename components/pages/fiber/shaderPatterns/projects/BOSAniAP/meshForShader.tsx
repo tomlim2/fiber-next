@@ -1,23 +1,33 @@
 import { shaderMap } from "./shader/shaderMap";
 import type { Mesh, BufferGeometry, Material, ShaderMaterial } from "three";
 import { useFrame } from "@react-three/fiber";
-import { useRef, useEffect } from "react";
+import { useRef, useEffect, useState } from "react";
 import { useControls } from "leva";
 
-const MeshForShader: React.FC = () => {
-  const { offsetX } = useControls({
-    offsetX: {
-      value: 1,
-      step: 0.1,
-    },
-  });
+interface Props {
+  ctloffsetX: number;
+}
+
+const MeshForShader: React.FC<Props> = ({ ctloffsetX }) => {
   const meshRef = useRef<Mesh<BufferGeometry, Material | Material[]>>(null);
   const materialRef = useRef<ShaderMaterial>(null);
   const planeDimention = { width: 6, height: 6 };
 
+  const ctloffsetXRef = useRef(1);
+
+  useControls({
+    ctloffsetX: {
+      value: ctloffsetXRef.current,
+      step: 0.1,
+      onChange: (value) => {
+        ctloffsetXRef.current = value;
+      },
+    },
+  });
+
   useFrame((state, delta) => {
     if (materialRef && materialRef.current) {
-      materialRef.current.uniforms.uTime.value = state.clock.elapsedTime;
+      materialRef.current.uniforms.uTime.value += delta*ctloffsetXRef.current;
     }
   });
 
@@ -40,38 +50,36 @@ const MeshForShader: React.FC = () => {
 
   return (
     <>
-      <mesh position={[offsetX, offsetX, offsetX]}>
-        <planeGeometry args={[planeDimention.width, planeDimention.height]} />
-        <meshBasicMaterial />
-      </mesh>
-      <mesh
-        ref={meshRef}
-        onClick={(event) => eventHandler(event, "onClick")}
-        onContextMenu={(event) => eventHandler(event, "onRightClick")}
-        onDoubleClick={(event) => eventHandler(event, "onDoubleClick")}
-        onPointerUp={(event) => eventHandler(event, "onPointerUp")}
-        onPointerDown={(event) => eventHandler(event, "onPointerDown")}
-        onPointerOver={(event) => eventHandler(event, "onPointerOver")}
-        onPointerEnter={(event) => eventHandler(event, "onPointerEnter")}
-        onPointerOut={(event) => eventHandler(event, "onPointerOut")}
-        onPointerLeave={(event) => eventHandler(event, "onPointerLeave")}
-        onPointerMove={(event) => eventHandler(event, "onPointerMove")}
-      >
-        <planeGeometry args={[planeDimention.width, planeDimention.height]} />
-        <shaderMaterial
-          ref={materialRef}
-          uniforms={{
-            uTime: { value: 0 },
-            uWidth: { value: planeDimention.width },
-            uHeight: { value: planeDimention.height },
-            mouseX: { value: 0 },
-            mouseY: { value: 0 },
-            offsetX: { value: 5 },
-          }}
-          fragmentShader={shaderMap[0].fragment}
-          vertexShader={shaderMap[0].vertex}
-        />
-      </mesh>
+      <group position-x={ctloffsetX}>
+        <mesh
+          ref={meshRef}
+          onClick={(event) => eventHandler(event, "onClick")}
+          onContextMenu={(event) => eventHandler(event, "onRightClick")}
+          onDoubleClick={(event) => eventHandler(event, "onDoubleClick")}
+          onPointerUp={(event) => eventHandler(event, "onPointerUp")}
+          onPointerDown={(event) => eventHandler(event, "onPointerDown")}
+          onPointerOver={(event) => eventHandler(event, "onPointerOver")}
+          onPointerEnter={(event) => eventHandler(event, "onPointerEnter")}
+          onPointerOut={(event) => eventHandler(event, "onPointerOut")}
+          onPointerLeave={(event) => eventHandler(event, "onPointerLeave")}
+          onPointerMove={(event) => eventHandler(event, "onPointerMove")}
+        >
+          <planeGeometry args={[planeDimention.width, planeDimention.height]} />
+          <shaderMaterial
+            ref={materialRef}
+            uniforms={{
+              uTime: { value: 0 },
+              uWidth: { value: planeDimention.width },
+              uHeight: { value: planeDimention.height },
+              mouseX: { value: 0 },
+              mouseY: { value: 0 },
+              offsetX: { value: 5 },
+            }}
+            fragmentShader={shaderMap[0].fragment}
+            vertexShader={shaderMap[0].vertex}
+          />
+        </mesh>
+      </group>
     </>
   );
 };
