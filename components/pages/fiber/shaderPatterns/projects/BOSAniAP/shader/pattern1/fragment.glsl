@@ -7,7 +7,7 @@ uniform float uTime;
 uniform float mouseX;
 uniform float mouseY;
 
-uniform float offsetX;
+uniform float tileCount;
 
 varying vec2 vUv;
 
@@ -33,8 +33,7 @@ void main() {
     // pos = rotate2d(noise(pos) + uTime) * pos;
 
     // vec3 color = vec3(0.0);
-    st *= offsetX;
-    st -= offsetX;
+    st *= tileCount;
     vec2 fSt = fract(st);
     vec2 pos1 = fSt;
     vec2 pos2 = fSt;

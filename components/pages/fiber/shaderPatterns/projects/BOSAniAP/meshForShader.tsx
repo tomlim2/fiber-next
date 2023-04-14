@@ -1,5 +1,5 @@
 import { shaderMap } from "./shader/shaderMap";
-import type { Mesh, BufferGeometry, Material, ShaderMaterial } from "three";
+import { Mesh, BufferGeometry, Material, ShaderMaterial } from "three";
 import { useFrame } from "@react-three/fiber";
 import { useRef, useEffect, useState } from "react";
 import { useControls } from "leva";
@@ -13,21 +13,30 @@ const MeshForShader: React.FC<Props> = ({ ctloffsetX }) => {
   const materialRef = useRef<ShaderMaterial>(null);
   const planeDimention = { width: 6, height: 6 };
 
-  const ctloffsetXRef = useRef(1);
+  const timeSpeed = useRef(1);
 
   useControls({
-    ctloffsetX: {
-      value: ctloffsetXRef.current,
+    timeSpeed: {
+      value: timeSpeed.current,
       step: 0.1,
       onChange: (value) => {
-        ctloffsetXRef.current = value;
+        timeSpeed.current = value;
+      },
+    },
+    tileCount: {
+      value: 1,
+      step: 1,
+      onChange: (value) => {
+        if (materialRef && materialRef.current) {
+          materialRef.current.uniforms.tileCount.value = value;
+        }
       },
     },
   });
 
   useFrame((state, delta) => {
     if (materialRef && materialRef.current) {
-      materialRef.current.uniforms.uTime.value += delta*ctloffsetXRef.current;
+      materialRef.current.uniforms.uTime.value += delta * timeSpeed.current;
     }
   });
 
@@ -73,7 +82,7 @@ const MeshForShader: React.FC<Props> = ({ ctloffsetX }) => {
               uHeight: { value: planeDimention.height },
               mouseX: { value: 0 },
               mouseY: { value: 0 },
-              offsetX: { value: 5 },
+              tileCount: { value: 1 },
             }}
             fragmentShader={shaderMap[0].fragment}
             vertexShader={shaderMap[0].vertex}
