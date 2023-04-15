@@ -13,13 +13,17 @@ const MeshForShader: React.FC<Props> = ({ ctloffsetX }) => {
   const meshRef = useRef<Mesh<BufferGeometry, Material | Material[]>>(null);
   const materialRef = useRef<ShaderMaterial>(null);
   const planeDimention = { width: 6, height: 6 };
-  const router = useRouter();
 
-  const timeSpeed = useRef(1);
+  const intiValue = {
+    ctrlTimeSpeed: 1,
+    ctrlTileCount: 1,
+  };
 
-  useControls({
-    timeSpeed: {
-      value: timeSpeed.current,
+  const timeSpeed = useRef(intiValue.ctrlTimeSpeed);
+
+  const [_, set] = useControls(() => ({
+    ctrlTimeSpeed: {
+      value: intiValue.ctrlTimeSpeed,
       step: 0.1,
       min: 0,
       max: 10,
@@ -27,8 +31,8 @@ const MeshForShader: React.FC<Props> = ({ ctloffsetX }) => {
         timeSpeed.current = value;
       },
     },
-    tileCount: {
-      value: 1,
+    ctrlTileCount: {
+      value: intiValue.ctrlTileCount,
       step: 1,
       min: 0,
       max: 10,
@@ -38,6 +42,10 @@ const MeshForShader: React.FC<Props> = ({ ctloffsetX }) => {
         }
       },
     },
+  }));
+
+  useEffect(() => {
+    set(intiValue);
   });
 
   useFrame((state, delta) => {
