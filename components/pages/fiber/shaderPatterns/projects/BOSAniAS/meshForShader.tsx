@@ -16,30 +16,54 @@ const MeshForShader: React.FC<Props> = ({ ctloffsetX }) => {
   const router = useRouter();
 
   const intiValue = {
-    ctrlTimeSpeed: 1,
-    ctrlTileCount: 10,
+    timeSpeedCtrl: 1,
+    amplitudeCtrl: 1,
+    frequencyCtrl: 1,
+    tileCountCtrl: 2,
   };
 
-  const timeSpeed = useRef(intiValue.ctrlTimeSpeed);
+  const timeSpeed = useRef(intiValue.timeSpeedCtrl);
 
   const [_, set] = useControls(() => ({
-    ctrlTimeSpeed: {
-      value: intiValue.ctrlTimeSpeed,
+    timeSpeedCtrl: {
+      value: intiValue.timeSpeedCtrl,
       step: 0.1,
-      min: 0,
+      min: 1,
       max: 10,
       onChange: (value) => {
         timeSpeed.current = value;
       },
     },
-    ctrlTileCount: {
-      value: intiValue.ctrlTileCount,
+    amplitudeCtrl: {
+      value: intiValue.amplitudeCtrl,
       step: 1,
-      min: 0,
+      min: 1,
       max: 10,
       onChange: (value) => {
         if (materialRef && materialRef.current) {
-          materialRef.current.uniforms.tileCount.value = value;
+          materialRef.current.uniforms.uAmp.value = value;
+        }
+      },
+    },
+    frequencyCtrl: {
+      value: intiValue.frequencyCtrl,
+      step: 1,
+      min: 1,
+      max: 10,
+      onChange: (value) => {
+        if (materialRef && materialRef.current) {
+          materialRef.current.uniforms.uFreq.value = value;
+        }
+      },
+    },
+    tileCountCtrl: {
+      value: intiValue.tileCountCtrl,
+      step: 1,
+      min: 1,
+      max: 10,
+      onChange: (value) => {
+        if (materialRef && materialRef.current) {
+          materialRef.current.uniforms.uTileCount.value = value;
         }
       },
     },
@@ -66,8 +90,8 @@ const MeshForShader: React.FC<Props> = ({ ctloffsetX }) => {
       document.body.style.cursor = "pointer";
       console.log("X", event.uv.x, "Y", event.uv.y); // UV coordinates on the geometry (in 2D)
       if (materialRef && materialRef.current) {
-        materialRef.current.uniforms.mouseX.value = event.uv.x;
-        materialRef.current.uniforms.mouseY.value = event.uv.y;
+        materialRef.current.uniforms.uMouseX.value = event.uv.x;
+        materialRef.current.uniforms.uMouseY.value = event.uv.y;
       }
     }
   };
@@ -95,9 +119,11 @@ const MeshForShader: React.FC<Props> = ({ ctloffsetX }) => {
               uTime: { value: 0 },
               uWidth: { value: planeDimention.width },
               uHeight: { value: planeDimention.height },
-              mouseX: { value: 0 },
-              mouseY: { value: 0 },
-              tileCount: { value: 1 },
+              uMouseX: { value: 0 },
+              uMouseY: { value: 0 },
+              uTileCount: { value: 1 },
+              uAmp: { value: 1 },
+              uFreq: { value: 1 },
             }}
             fragmentShader={shaderMap[0].fragment}
             vertexShader={shaderMap[0].vertex}

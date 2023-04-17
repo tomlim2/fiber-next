@@ -25,6 +25,11 @@ float noise(vec2 st) {
 mat2 rotate2d(float angle) {
     return mat2(cos(angle), -sin(angle), sin(angle), cos(angle));
 }
+float lines(in vec2 pos, float b) {
+    float scale = 10.0;
+    pos *= scale;
+    return smoothstep(0.0, .5 + b * .5, abs((sin(pos.x * 3.1415) + b * 2.0)) * .5);
+}
 
 void main() {
     vec2 st = vUv;
@@ -32,25 +37,26 @@ void main() {
     // vec2 pos = st.yx * vec2(10., 3.);
     // pos = rotate2d(noise(pos) + uTime) * pos;
 
-    // vec3 color = vec3(0.0);
-    st *= tileCount;
-    st -= tileCount;
-    vec2 fSt = fract(st);
-    vec2 flSt = floor(st);
-    vec2 pos1 = fSt;
-    vec2 pos2 = fSt;
-    vec2 pos3 = fSt;
-    float offsetTime = (flSt.x + flSt.y) / 2.;
-    pos1 = rotate2d(noise(st) + uTime + offsetTime) * pos1;
-    pos1 += .5;
-    pos2 = rotate2d(noise(st) + uTime + 1. + offsetTime) * pos2;
-    pos2 += .5;
-    pos3 = rotate2d(noise(st) + uTime + 0.5 + offsetTime) * pos3;
-    pos3 += .5;
-    // float n = rotate2d(noise(pos) + uTime);
-    // color = vec3(n + 0.01, n, n - 0.01);
+    vec3 color = vec3(0.0);
+    st *= vec2(20.);
+    st -= vec2(9.5, 9.5);
+    float pct = 0.0;
+    pct = distance(st, vec2(0.5));
+    vec2 pos = vec2(pct) * .1;
+    vec2 pos1 = vec2(0.);
+    vec2 pos2 = vec2(0.);
+    vec2 pos3 = vec2(0.);
+    float offsetTime = abs(st.x - .5) + abs(st.y - .5);
+    float u_time = -uTime + offsetTime;
+    float f_noise = noise(st * pos) + u_time;
+    pos1 = rotate2d((f_noise + .01 + sin(u_time)*1.)) * vec2(1.);
+    pos2 = rotate2d((f_noise )) * vec2(1.);
+    pos3 = rotate2d((f_noise - .01 + cos(u_time)*1.)) * vec2(1.);
 
+    // float n = rotate2d(noise(pos) + uTime);
+    color = vec3(pos2.x, pos1.x, pos3.x);
+    color = clamp(color, vec3(0.), vec3(1.));
     // gl_FragColor = vec4(color, 1.0);
 
-    gl_FragColor = vec4(vec3(pos2.x*.2, pos1.x*.4, pos3.x*.6), 1.0);
+    gl_FragColor = vec4(color, 1.0);
 }
