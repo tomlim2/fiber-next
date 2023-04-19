@@ -19,7 +19,7 @@ const MeshForShader: React.FC<Props> = ({ ctloffsetX }) => {
     timeSpeedCtrl: 1,
     amplitudeCtrl: 1,
     frequencyCtrl: 1,
-    tileCountCtrl: 2,
+    tileCountCtrl: 4,
   };
 
   const timeSpeed = useRef(intiValue.timeSpeedCtrl);

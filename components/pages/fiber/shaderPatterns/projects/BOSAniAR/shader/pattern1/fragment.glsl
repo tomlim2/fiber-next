@@ -25,6 +25,7 @@ float noise(vec2 st) {
 mat2 rotate2d(float angle) {
     return mat2(cos(angle), -sin(angle), sin(angle), cos(angle));
 }
+
 float lines(in vec2 pos, float b) {
     float scale = 10.0;
     pos *= scale;

@@ -28,19 +28,24 @@ float boxo(in vec2 _st, in vec2 _size) {
 void main() {
     vec2 st = vUv;
 
-    
     // st -= vec2(.5);
     // float pct = distance(st, vec2(.5));
     st *= uTileCount;
     st = fract(st);
     st -= vec2(0.5);
+    float flow = sin(uTime * uFreq);
+    float t = 0.01 * (-uTime * 130.0);
 
-    st *= rotate2d((uAmp * sin(uTime * uFreq)) * PI * .5);
+    flow += sin(uTime * uFreq * 2.1 + t) * 4.5;
+    flow += sin(uTime * uFreq * 1.72 + t * 1.121) * 4.0;
+    flow += sin(uTime * uFreq * 2.221 + t * 0.437) * 5.0;
+    flow += sin(uTime * uFreq * 3.1122 + t * 4.269) * 2.5;
+    flow *= uAmp*0.06;
+
+    st *= rotate2d(flow * PI * .5);
     // vec2 fl = floor(st);
     // vec2 fr = fract(st);
     st += vec2(0.5);
-
-    
 
     vec3 color = vec3(boxo(st, vec2(.5)));
     gl_FragColor = vec4(color, 1.0);
