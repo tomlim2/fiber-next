@@ -11,6 +11,7 @@ uniform float uTileCount;
 
 uniform float uAmp;
 uniform float uFreq;
+uniform int uOctaves;
 
 varying vec2 vUv;
 
@@ -50,7 +51,7 @@ float boxo(in vec2 _st, in vec2 _size) {
 void main() {
     vec2 st = vUv;
 
-    const int octaves = 1;
+    int octaves = uOctaves;
     float lacunarity = 2.0;
     float gain = 0.5;
 

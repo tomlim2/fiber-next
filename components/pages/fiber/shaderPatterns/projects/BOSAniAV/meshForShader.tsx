@@ -16,6 +16,7 @@ const MeshForShader: React.FC<Props> = ({ ctloffsetX }) => {
   const router = useRouter();
 
   const intiValue = {
+    octavesCtrl: 1,
     timeSpeedCtrl: 1,
     amplitudeCtrl: 1,
     frequencyCtrl: 1,
@@ -25,6 +26,15 @@ const MeshForShader: React.FC<Props> = ({ ctloffsetX }) => {
   const timeSpeed = useRef(intiValue.timeSpeedCtrl);
 
   const [_, set] = useControls(() => ({
+    octavesCtrl: {
+      value: intiValue.octavesCtrl,
+      step: 1,
+      min: 1,
+      max: 10,
+      onChange: (value) => {
+        timeSpeed.current = value;
+      },
+    },
     timeSpeedCtrl: {
       value: intiValue.timeSpeedCtrl,
       step: 0.1,
@@ -124,6 +134,7 @@ const MeshForShader: React.FC<Props> = ({ ctloffsetX }) => {
               uTileCount: { value: 1 },
               uAmp: { value: 1 },
               uFreq: { value: 1 },
+              uOctaves: { value: 1 },
             }}
             fragmentShader={shaderMap[0].fragment}
             vertexShader={shaderMap[0].vertex}
