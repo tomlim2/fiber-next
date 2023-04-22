@@ -14,7 +14,7 @@ export default function ProjectPost(props: Props) {
     const options = {
       root: null,
       rootMargin: "0px",
-      threshold: 0.5,
+      threshold: 1,
     };
 
     const callback = (entries: any) => {
@@ -30,6 +30,7 @@ export default function ProjectPost(props: Props) {
     const observer = new IntersectionObserver(callback, options);
     observer.observe(refCanvas.current);
   }, []);
+
   return (
     <ProjectFramer>
       <CanvasWrapper ref={refCanvas}>{isOn && canvasComponent}</CanvasWrapper>
