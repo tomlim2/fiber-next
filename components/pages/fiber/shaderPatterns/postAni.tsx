@@ -13,8 +13,8 @@ export default function ProjectPost(props: Props) {
   useEffect(() => {
     const options = {
       root: null,
-      rootMargin: "0px",
-      threshold: 1,
+      rootMargin: "-50%",
+      threshold: 0,
     };
 
     const callback = (entries: any) => {
