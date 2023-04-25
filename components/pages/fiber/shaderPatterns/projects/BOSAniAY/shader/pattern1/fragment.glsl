@@ -57,7 +57,7 @@ float fbm(in vec2 _st) {
 void main() {
     vec2 st = vUv;
 
-    // st += st * abs(sin(uTime*0.1)*3.0);
+    st += 10.;
     vec3 color = vec3(0.0);
 
     vec2 q = vec2(0.);
@@ -68,13 +68,10 @@ void main() {
     r.x = fbm(st + 1.0 * q + vec2(1.7, 9.2) + 0.15 * uTime);
     r.y = fbm(st + 1.0 * q + vec2(8.3, 2.8) + 0.126 * uTime);
 
-    float f = fbm(st + r);
+    float f = fbm(vec2(fbm(st + r)));
 
-    color = mix(vec3(0.101961, 0.619608, 0.666667), vec3(0.666667, 0.666667, 0.498039), clamp((f * f) * 4.0, 0.0, 1.0));
+    color = mix(color, vec3(1., 1, 1), clamp(length(r*f), 0.0, 1.0));
+    
 
-    color = mix(color, vec3(0, 0, 0.164706), clamp(length(q), 0.0, 1.0));
-
-    color = mix(color, vec3(0.666667, 1, 1), clamp(length(r.x), 0.0, 1.0));
-
-    gl_FragColor = vec4((f * f * f + .6 * f * f + .5 * f) * color, 1.);
+    gl_FragColor = vec4(color, 1.);
 }
