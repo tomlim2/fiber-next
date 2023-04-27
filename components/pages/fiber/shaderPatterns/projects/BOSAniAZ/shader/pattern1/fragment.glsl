@@ -64,10 +64,14 @@ void main() {
     st.x *= uWidth/uHeight;
 
     vec2 q = vec2(0.);
-    q = vec2(fbm(st + 0.06 * uTime));
-    // q.y = fbm(st + vec2(1.0));
+    q.x = fbm(st + 0. * uTime);
+    q.y = fbm(st + vec2(1.0));
 
-    float f = fbm(st + q);
+    vec2 r = vec2(0.);
+    r.x = fbm(st + 1.0 * q + vec2(1.7, 9.2) + 0.15 * uTime);
+    r.y = fbm(st + 1.0 * q + vec2(8.3, 2.8) + 0.126 * uTime);
+
+    float f = fbm(st + r);
 
     vec3 color = vec3(0., f*.58, f*.65);
 
