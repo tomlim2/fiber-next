@@ -7,11 +7,11 @@ uniform float uTime;
 uniform float uMouseX;
 uniform float uMouseY;
 
-uniform float uTileCount;
+uniform float uParamsA;
 
-uniform float uAmp;
-uniform float uFreq;
-uniform int uOctaves;
+uniform float uParamsB;
+uniform float uParamsC;
+uniform float uParamsD;
 
 uniform vec3 uColorA;
 uniform vec3 uColorB;
@@ -106,10 +106,10 @@ void main() {
 
     // Perlin noise
     float strength = cnoise(vec3(displacedUv * 5.0, uTime * 0.2));
-    strength *= .8;
-    float outerGlow = distance(vUv, vec2(0.5)) * 5.0 - 1.4;
+    strength *= uParamsC;
+    float outerGlow = distance(vUv, vec2(0.5)) * 5.0 - uParamsD;
     strength += outerGlow;
-    strength += step(-0.2, strength) * 0.8;
+    strength += step(uParamsA, strength) * uParamsB;
 
     // strength = fract(strength);
     vec3 color = mix(uColorA, uColorB, strength);

@@ -16,13 +16,13 @@ const MeshForShader: React.FC<Props> = ({ ctloffsetX }) => {
   const router = useRouter();
 
   const intiValue = {
-    octavesCtrl: 6,
     timeSpeedCtrl: 1,
-    amplitudeCtrl: 0.5,
-    frequencyCtrl: 1,
-    tileCountCtrl: 4,
-    colorACtrl: "#ff0000",
-    colorBCtrl: "#00f0f0",
+    paramsACtrl: -0.2,
+    paramsBCtrl: .8,
+    paramsCCtrl: .8,
+    paramsDCtrl: 1.4,
+    colorACtrl: "#55cafc",
+    colorBCtrl: "#2a7990",
   };
 
   const timeSpeed = useRef(intiValue.timeSpeedCtrl);
@@ -44,14 +44,47 @@ const MeshForShader: React.FC<Props> = ({ ctloffsetX }) => {
         }
       },
     },
-    octavesCtrl: {
-      value: intiValue.octavesCtrl,
-      step: 1,
-      min: 1,
+    paramsACtrl: {
+      value: intiValue.paramsACtrl,
+      step: 0.1,
+      min: -10,
       max: 10,
       onChange: (value) => {
         if (materialRef && materialRef.current) {
-          materialRef.current.uniforms.uOctaves.value = value;
+          materialRef.current.uniforms.uParamsA.value = value;
+        }
+      },
+    },
+    paramsBCtrl: {
+      value: intiValue.paramsBCtrl,
+      step: 0.1,
+      min: -10,
+      max: 10,
+      onChange: (value) => {
+        if (materialRef && materialRef.current) {
+          materialRef.current.uniforms.uParamsB.value = value;
+        }
+      },
+    },
+    paramsCCtrl: {
+      value: intiValue.paramsCCtrl,
+      step: 0.1,
+      min: -10,
+      max: 10,
+      onChange: (value) => {
+        if (materialRef && materialRef.current) {
+          materialRef.current.uniforms.uParamsC.value = value;
+        }
+      },
+    },
+    paramsDCtrl: {
+      value: intiValue.paramsDCtrl,
+      step: 0.1,
+      min: -10,
+      max: 10,
+      onChange: (value) => {
+        if (materialRef && materialRef.current) {
+          materialRef.current.uniforms.uParamsD.value = value;
         }
       },
     },
@@ -62,39 +95,6 @@ const MeshForShader: React.FC<Props> = ({ ctloffsetX }) => {
       max: 10,
       onChange: (value) => {
         timeSpeed.current = value;
-      },
-    },
-    amplitudeCtrl: {
-      value: intiValue.amplitudeCtrl,
-      step: 0.1,
-      min: 0,
-      max: 10,
-      onChange: (value) => {
-        if (materialRef && materialRef.current) {
-          materialRef.current.uniforms.uAmp.value = value;
-        }
-      },
-    },
-    frequencyCtrl: {
-      value: intiValue.frequencyCtrl,
-      step: 0.1,
-      min: 0,
-      max: 10,
-      onChange: (value) => {
-        if (materialRef && materialRef.current) {
-          materialRef.current.uniforms.uFreq.value = value;
-        }
-      },
-    },
-    tileCountCtrl: {
-      value: intiValue.tileCountCtrl,
-      step: 1,
-      min: 1,
-      max: 10,
-      onChange: (value) => {
-        if (materialRef && materialRef.current) {
-          materialRef.current.uniforms.uTileCount.value = value;
-        }
       },
     },
   }));
@@ -151,10 +151,10 @@ const MeshForShader: React.FC<Props> = ({ ctloffsetX }) => {
               uHeight: { value: planeDimention.height },
               uMouseX: { value: 0 },
               uMouseY: { value: 0 },
-              uTileCount: { value: 1 },
-              uAmp: { value: 1 },
-              uFreq: { value: 1 },
-              uOctaves: { value: 1 },
+              uParamsA: { value: 1 },
+              uParamsB: { value: 1 },
+              uParamsC: { value: 1 },
+              uParamsD: { value: 1 },
               uColorA: { value: new Color("#ff0000") },
               uColorB: { value: new Color("#ff0000") },
             }}
