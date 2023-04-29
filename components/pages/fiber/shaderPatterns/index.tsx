@@ -57,8 +57,18 @@ import BOSAniAY from "@/components/pages/fiber/shaderPatterns/projects/BOSAniAY/
 import BOSAniAZ from "@/components/pages/fiber/shaderPatterns/projects/BOSAniAZ/BOSAniAZ";
 import BOSAniBA from "@/components/pages/fiber/shaderPatterns/projects/BOSAniBA/BOSAniBA";
 import BOSAniBB from "@/components/pages/fiber/shaderPatterns/projects/BOSAniBB/BOSAniBB";
+import BOSAniBC from "@/components/pages/fiber/shaderPatterns/projects/BOSAniBC/BOSAniBC";
+import BOSAniBD from "@/components/pages/fiber/shaderPatterns/projects/BOSAniBD/BOSAniBD";
 
 const aniList = [
+  {
+    info: "Pattern BD: Points for a distance field",
+    component: <BOSAniBD />,
+  },
+  {
+    info: "Pattern BC: CellularNoise",
+    component: <BOSAniBC />,
+  },
   {
     info: "Pattern BB",
     component: <BOSAniBB />,
