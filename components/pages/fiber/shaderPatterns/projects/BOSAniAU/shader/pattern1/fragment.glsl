@@ -62,6 +62,7 @@ void main() {
     st *= uTileCount;
     st = fract(st);
     st -= vec2(0.5);
+    
     float flow = sin(uTime * uFreq);
     float t = 0.01 * (-uTime * 130.0);
 
