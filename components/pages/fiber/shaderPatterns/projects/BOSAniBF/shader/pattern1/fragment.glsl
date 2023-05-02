@@ -9,7 +9,6 @@ uniform float uMouseX;
 uniform float uMouseY;
 
 uniform float uParamsA;
-
 uniform float uParamsB;
 uniform float uParamsC;
 uniform float uParamsD;
@@ -134,19 +133,23 @@ float noise(in vec2 st) {
 void main() {
     vec2 st = vUv;
 
-    st *= 20.;
+    st *= uParamsA;
     vec2 f_st = fract(st);
     vec2 fl_st = floor(st);
     f_st -= vec2(0.5);
 
-    vec2 c_1 = fl_st + cnoise(vec3(fl_st * 50000., uTime * 1.1111));
+    vec2 c_1 = fl_st + cnoise(vec3(fl_st * 50000., uTime * .01));
 
     // Add the shape on the foreground
-    f_st *= rotate2d(PI * cnoise(vec3(c_1 * .09, uTime)));
+    vec2 c1 = f_st * rotate2d(PI * cnoise(vec3(c_1 * .05, uTime * uParamsB + uParamsC)));
+    vec2 c2 = f_st * rotate2d(PI * cnoise(vec3(c_1 * .05, uTime * uParamsB)));
+    vec2 c3 = f_st * rotate2d(PI * cnoise(vec3(c_1 * .05, uTime * uParamsB - uParamsC)));
 
-    f_st += vec2(0.5);
+    c1 += vec2(0.5);
+    c2 += vec2(0.5);
+    c3 += vec2(0.5);
 
-    vec3 color = vec3(boxes(f_st, vec2(0.5, 0.5 / 4.)));
+    vec3 color = vec3(1. - boxes(c1, vec2(0.75, 0.1)) - .1, 1. - boxes(c2, vec2(0.75, 0.1)), 1. - boxes(c3, vec2(0.75, 0.1)) + .1);
 
     gl_FragColor = vec4(color, vec2(1., .5));
 }

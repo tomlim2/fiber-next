@@ -17,9 +17,9 @@ const MeshForShader: React.FC<Props> = ({ ctloffsetX }) => {
 
   const intiValue = {
     timeSpeedCtrl: 1,
-    paramsACtrl: 3,
+    paramsACtrl: 12,
     paramsBCtrl: .8,
-    paramsCCtrl: .8,
+    paramsCCtrl: .02,
     paramsDCtrl: 1.4,
     colorACtrl: "#1d79a0",
     colorBCtrl: "#ffffff",
@@ -46,9 +46,9 @@ const MeshForShader: React.FC<Props> = ({ ctloffsetX }) => {
     },
     paramsACtrl: {
       value: intiValue.paramsACtrl,
-      step: 0.1,
-      min: -10,
-      max: 10,
+      step: 1,
+      min: 1,
+      max: 50,
       onChange: (value) => {
         if (materialRef && materialRef.current) {
           materialRef.current.uniforms.uParamsA.value = value;
@@ -68,9 +68,9 @@ const MeshForShader: React.FC<Props> = ({ ctloffsetX }) => {
     },
     paramsCCtrl: {
       value: intiValue.paramsCCtrl,
-      step: 0.1,
-      min: -10,
-      max: 10,
+      step: 0.001,
+      min: -.1,
+      max: .1,
       onChange: (value) => {
         if (materialRef && materialRef.current) {
           materialRef.current.uniforms.uParamsC.value = value;
@@ -151,9 +151,9 @@ const MeshForShader: React.FC<Props> = ({ ctloffsetX }) => {
               uHeight: { value: planeDimention.height },
               uMouseX: { value: 0 },
               uMouseY: { value: 0 },
-              uParamsA: { value: 1 },
+              uParamsA: { value: 12 },
               uParamsB: { value: 1 },
-              uParamsC: { value: 1 },
+              uParamsC: { value: .02 },
               uParamsD: { value: 1 },
               uColorA: { value: new Color("#1d79a0") },
               uColorB: { value: new Color("#ffffff") },
