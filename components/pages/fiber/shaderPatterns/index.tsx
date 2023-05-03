@@ -61,8 +61,13 @@ import BOSAniBC from "@/components/pages/fiber/shaderPatterns/projects/BOSAniBC/
 import BOSAniBD from "@/components/pages/fiber/shaderPatterns/projects/BOSAniBD/BOSAniBD";
 import BOSAniBE from "@/components/pages/fiber/shaderPatterns/projects/BOSAniBE/BOSAniBE";
 import BOSAniBF from "@/components/pages/fiber/shaderPatterns/projects/BOSAniBF/BOSAniBF";
+import BOSAniBG from "@/components/pages/fiber/shaderPatterns/projects/BOSAniBG/BOSAniBG";
 
 const aniList = [
+  {
+    info: "Pattern BG: Unicorn Puke",
+    component: <BOSAniBG />,
+  },
   {
     info: "Pattern BF: Study in Vector field",
     component: <BOSAniBF />,
