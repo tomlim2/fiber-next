@@ -2,9 +2,9 @@ import { buildFeedbackPath, extractFeedback } from "pages/api/feedback";
 import { flfi } from "data/workLog";
 
 import DefaultLayout from "layouts/layoutDefault";
-import SectionSpotify from "components/pages/exps/sectionSpotify";
+import SectionSpotify from "components/sections/exps/sectionSpotify";
 import styled from "styled-components";
-import SectionExpLog from "@/components/pages/exps/sectionWorkLogs";
+import SectionExpLog from "@/components/sections/exps/sectionWorkLogs";
 import SectionForm from "@/components/sections/sectionForm";
 
 interface PageProps {

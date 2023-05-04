@@ -1,8 +1,8 @@
 import Head from "next/head";
 
 import DefaultLayout from "layouts/layoutDefault";
-import SectionSummary from "@/components/pages/home/sectionSummary";
-import SectionWorks from "@/components/pages/home/sectionWorks";
+import SectionSummary from "components/sections/home/sectionSummary";
+import SectionWorks from "components/sections/home/sectionWorks";
 
 import styled from "styled-components";
 

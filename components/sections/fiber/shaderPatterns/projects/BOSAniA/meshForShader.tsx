@@ -1,5 +1,5 @@
-import { shaderMap } from "@/components/pages/fiber/shaderPatterns/projects/BOSAniA/shader/shaderMap";
-import type { ShaderSet } from "@/components/pages/fiber/shaderPatterns/projects/BOS/shader/shaderMap";
+import { shaderMap } from "@/components/sections/fiber/shaderPatterns/projects/BOSAniA/shader/shaderMap";
+import type { ShaderSet } from "@/components/sections/fiber/shaderPatterns/projects/BOS/shader/shaderMap";
 import { IUniform, Vector2 } from "three";
 import type { IFVector2 } from "./bookOfShadersAnimationA";
 import { useFrame } from "@react-three/fiber";

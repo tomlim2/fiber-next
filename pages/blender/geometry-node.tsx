@@ -1,7 +1,7 @@
 import Head from "next/head";
 
 import LayoutDefault from "layouts/layoutDefault";
-import GeometryNodes from "@/components/pages/blender/geometryNodes";
+import GeometryNodes from "@/components/sections/blender/geometryNodes";
 
 const GeometryNode = () => {
   const pageHeadData = (

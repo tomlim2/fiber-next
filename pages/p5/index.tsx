@@ -11,6 +11,7 @@ const Home: NextPage = () => {
     <div>
       <h1>Next.js and p5.js with TypeScript</h1>
       <P5Wrapper sketch={sketch} />
+      <P5Wrapper sketch={sketch} />
     </div>
   );
 };

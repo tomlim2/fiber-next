@@ -1,6 +1,6 @@
 import { useEffect, useState, useRef } from "react";
-import { shaderMap } from "@/components/pages/fiber/shaderPatterns/projects/GlslPatterns/shader/shaderMap";
-import type { ShaderMap } from "@/components/pages/fiber/shaderPatterns/projects/GlslPatterns/shader/shaderMap";
+import { shaderMap } from "@/components/sections/fiber/shaderPatterns/projects/GlslPatterns/shader/shaderMap";
+import type { ShaderMap } from "@/components/sections/fiber/shaderPatterns/projects/GlslPatterns/shader/shaderMap";
 import { Canvas } from "@react-three/fiber";
 import ButtonBasic from "@/components/ui/buttonBasic";
 import { ProjectFramer, CanvasWrapper, Info } from "../../postAni";

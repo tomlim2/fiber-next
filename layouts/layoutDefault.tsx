@@ -1,4 +1,4 @@
-import GlobalHeader from "@/components/pages/globalHeader";
+import GlobalHeader from "@/components/globalHeader";
 import styled from "styled-components";
 
 interface Props {

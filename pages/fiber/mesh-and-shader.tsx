@@ -1,7 +1,7 @@
 import Head from "next/head";
 
 import LayoutDefault from "layouts/layoutDefault";
-import MeshAndShader from "@/components/pages/fiber/meshNShader";
+import MeshAndShader from "@/components/sections/fiber/meshNShader";
 
 const meshAndShader = () => {
   const pageHeadData = (

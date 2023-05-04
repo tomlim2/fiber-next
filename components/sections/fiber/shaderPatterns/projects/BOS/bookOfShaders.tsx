@@ -1,9 +1,9 @@
 import { useEffect, useState, useRef } from "react";
-import { shaderMap } from "@/components/pages/fiber/shaderPatterns/projects/BOS/shader/shaderMap";
-import type { ShaderSet } from "@/components/pages/fiber/shaderPatterns/projects/BOS/shader/shaderMap";
+import { shaderMap } from "@/components/sections/fiber/shaderPatterns/projects/BOS/shader/shaderMap";
+import type { ShaderSet } from "@/components/sections/fiber/shaderPatterns/projects/BOS/shader/shaderMap";
 import { Canvas } from "@react-three/fiber";
 import ButtonBasic from "@/components/ui/buttonBasic";
-import MeshForShader from "@/components/pages/fiber/shaderPatterns/projects/BOS/meshForShader";
+import MeshForShader from "@/components/sections/fiber/shaderPatterns/projects/BOS/meshForShader";
 import { ProjectFramer, CanvasWrapper, Info } from "../../postAni";
 
 interface Props {}

@@ -9,7 +9,7 @@ export interface IFVector2 {
   y: number;
 }
 
-const BOSAniBG: React.FC<Props> = () => {
+const BOSAniBH: React.FC<Props> = () => {
   const [ctloffsetX, setCtloffsetX] = useState(0);
   const created = (state: any) => {
     state.gl.setClearColor("#252525");
@@ -37,4 +37,4 @@ const BOSAniBG: React.FC<Props> = () => {
   );
 };
 
-export default BOSAniBG;
+export default BOSAniBH;

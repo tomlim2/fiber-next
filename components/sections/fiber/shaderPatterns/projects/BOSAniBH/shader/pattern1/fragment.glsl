@@ -67,16 +67,16 @@ vec3 voronoi(in vec2 x) {
 void main() {
     vec2 st = vUv;
     st.x *= uWidth / uHeight;
-    vec3 color = vec3(0.335, 0.335, 0.335);
+    vec3 color = vec3(1.0, 1.0, 1.0);
 
     // Scale
-    st *= 3.;
+    st *= 10.;
     vec3 c = voronoi(st);
 
     // isolines
     // color = c.x*(0.5 + 0.5*sin(64.0*c.x))*vec3(1.0);
     // borders
-    color = mix(vec3(1.0), color, smoothstep(0.01, 0.02, c.x));
+    color = mix(vec3(.2), color, smoothstep(0.01, 0.02, c.x));
     // feature points
     // float dd = length( c.yz );
     // color += vec3(1.)*(1.0-smoothstep( 0.0, 0.04, dd));
