@@ -1,6 +1,6 @@
 import styled from "styled-components";
 
-import SvgLogo from "../svg/svgLogo";
+import SvgLogo from "./svg/svgLogo";
 import Link from "next/link";
 
 const GlobalHeader: React.FC = () => {

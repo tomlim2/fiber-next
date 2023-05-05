@@ -19,7 +19,7 @@ uniform vec3 uColorB;
 varying vec2 vUv;
 
 vec2 random2(vec2 p) {
-    return fract(sin(vec2(dot(p, vec2(127.1, 311.7)), dot(p, vec2(269.5, 183.3)))) * 43758.5453);
+    return fract(sin(vec2(dot(p + uParamsA, vec2(127.1, 311.7)), dot(p, vec2(269.5, 183.3)))) * 43758.5453);
 }
 
 vec3 voronoi(in vec2 x) {
@@ -57,7 +57,7 @@ vec3 voronoi(in vec2 x) {
             vec2 r = g + o - f;
 
             if(dot(mr - r, mr - r) > 0.00001) {
-                md = min(md, dot(0.5 * (mr + r), normalize(r - mr)));
+                md = min(md, dot(.3 * (mr + r), normalize(r - mr)));
             }
         }
     }
@@ -67,7 +67,7 @@ vec3 voronoi(in vec2 x) {
 void main() {
     vec2 st = vUv;
     st.x *= uWidth / uHeight;
-    vec3 color = vec3(1.0, 1.0, 1.0);
+    vec3 color = vec3(0);
 
     // Scale
     st *= 10.;
@@ -76,7 +76,7 @@ void main() {
     // isolines
     // color = c.x*(0.5 + 0.5*sin(64.0*c.x))*vec3(1.0);
     // borders
-    color = mix(vec3(.2), color, smoothstep(0.01, 0.02, c.x));
+    color = mix(vec3(1.), color, smoothstep(0.01, 0.02, c.x));
     // feature points
     // float dd = length( c.yz );
     // color += vec3(1.)*(1.0-smoothstep( 0.0, 0.04, dd));
