@@ -1,7 +1,7 @@
 import Head from "next/head";
 
 import LayoutDefault from "layouts/layoutDefault";
-import SectionAbout from "@/components/pages/about/sectionAbout";
+import SectionAbout from "@/components/sections/about/sectionAbout";
 
 const About = () => {
   const pageHeadData = (
