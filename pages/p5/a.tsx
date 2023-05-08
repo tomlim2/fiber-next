@@ -1,7 +1,7 @@
 import Head from "next/head";
 import dynamic from "next/dynamic";
 import type { NextPage } from "next";
-import sketchVectorFields from "sketches/sketchVectorFields";
+import sketchVectorFields from "sketches/vectorFields/sketchVectorFields";
 
 const P5Wrapper = dynamic(() => import("components/P5Wrapper"), { ssr: false });
 
