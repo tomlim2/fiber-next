@@ -4,16 +4,20 @@ class Particle {
   pos: any;
   vel: any;
   acc: any;
+  prevPos: any;
+  maxSpeed: number;
 
   constructor(p: p5) {
     this.p = p;
+    this.maxSpeed = 4;
     this.pos = p.createVector(p.random(p.width), p.random(p.height));
     this.vel = p.createVector(0, 0);
     this.acc = p.createVector(0, 0);
+    this.prevPos = this.pos.copy();
   }
 
   update() {
-    this.vel.add(this.acc);
+    this.vel.add(this.acc).limit(this.maxSpeed);
     this.pos.add(this.vel);
     this.acc.mult(0);
   }
@@ -31,16 +35,35 @@ class Particle {
   }
 
   show() {
-    this.p.stroke(0);
-    this.p.strokeWeight(4);
-    this.p.point(this.pos.x, this.pos.y);
+    this.p.stroke(0, 10);
+    // this.p.strokeWeight(4);
+    // this.p.point(this.pos.x, this.pos.y);
+    this.p.line(this.pos.x, this.pos.y, this.prevPos.x, this.prevPos.y);
+    this.updatePrev();
   }
 
-  edges() {
-    if (this.pos.x > this.p.width) this.pos.x = 0;
-    if (this.pos.x < 0) this.pos.x = this.p.width;
-    if (this.pos.y > this.p.height) this.pos.y = 0;
-    if (this.pos.y < 0) this.pos.y = this.p.height;
+  updatePrev() {
+    this.prevPos.x = this.pos.x;
+    this.prevPos.y = this.pos.y;
+  }
+
+  edges(width: number, height: number) {
+    if (this.pos.x > width) {
+      this.pos.x = 0;
+      this.updatePrev();
+    }
+    if (this.pos.x < 0) {
+      this.pos.x = width;
+      this.updatePrev();
+    }
+    if (this.pos.y > height) {
+      this.pos.y = 0;
+      this.updatePrev();
+    }
+    if (this.pos.y < 0) {
+      this.pos.y = height;
+      this.updatePrev();
+    }
   }
 }
 
