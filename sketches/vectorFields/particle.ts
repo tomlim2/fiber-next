@@ -8,7 +8,7 @@ class Particle {
   constructor(p: p5) {
     this.p = p;
     this.pos = p.createVector(p.random(p.width), p.random(p.height));
-    this.vel = p.createVector().set(p.random(), p.random());
+    this.vel = p.createVector(0, 0);
     this.acc = p.createVector(0, 0);
   }
 
@@ -22,8 +22,17 @@ class Particle {
     this.acc.add(force);
   }
 
+  follow(vector: any, scl: any, cols: any) {
+    let x = this.p.floor(this.pos.x / scl);
+    let y = this.p.floor(this.pos.y / scl);
+    let index = x + y * cols;
+    let force = vector[index];
+    this.applyForce(force);
+  }
+
   show() {
     this.p.stroke(0);
+    this.p.strokeWeight(4);
     this.p.point(this.pos.x, this.pos.y);
   }
 
