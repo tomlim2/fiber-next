@@ -63,8 +63,13 @@ import BOSAniBE from "@/components/sections/fiber/shaderPatterns/projects/BOSAni
 import BOSAniBF from "@/components/sections/fiber/shaderPatterns/projects/BOSAniBF/BOSAniBF";
 import BOSAniBG from "@/components/sections/fiber/shaderPatterns/projects/BOSAniBG/BOSAniBG";
 import BOSAniBH from "@/components/sections/fiber/shaderPatterns/projects/BOSAniBH/BOSAniBH";
+import BOSAniBI from "@/components/sections/fiber/shaderPatterns/projects/BOSAniBI/BOSAniBI";
 
 const aniList = [
+  {
+    info: "Pattern BI: 2D Random",
+    component: <BOSAniBI />,
+  },
   {
     info: "Pattern BH: voronoi",
     component: <BOSAniBH />,

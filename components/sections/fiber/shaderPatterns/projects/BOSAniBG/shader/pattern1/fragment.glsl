@@ -23,18 +23,14 @@ float hash(in float n) {
 }
 
 void main() {
-    //"squarified" coordinates 
     vec2 xy = vUv;
     xy -= .5;
     xy *= 3.;
 
-    //rotating light 
     vec3 center = vec3(sin(uTime), 1., cos(uTime * .5));
 
-    //temporary vector
     vec3 pp = vec3(0.);
 
-    //maximum distance of the surface to the center (try a value of 0.1 for example)
     float length = 4.;
 
     //this is the number of cells
@@ -68,9 +64,6 @@ void main() {
         }
     }
 
-    //shimmy shake:
-    //uses the temp vector's coordinates and uses the angle and the temp vector
-    //to create light & shadow (quick & dirty )
     vec3 shade = vec3(1.) * (1. - max(0.0, dot(pp, center)));
 
     //final color
