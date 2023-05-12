@@ -24,7 +24,10 @@ const SectionWorks: React.FC<ISectionProps> = ({ backgroundColor, color }) => {
           <h3>P5</h3>
           <ul>
             <li>
-              <TextLink to="/p5/a">Vector Field</TextLink>
+              <TextLink to="/p5/vfa">Vector Field</TextLink>
+            </li>
+            <li>
+              <TextLink to="/p5/boid">Boids</TextLink>
             </li>
           </ul>
         </li>
