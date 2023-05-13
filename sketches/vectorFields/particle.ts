@@ -1,10 +1,11 @@
 import p5 from "p5";
+
 class Particle {
   p: p5;
-  pos: any;
-  vel: any;
-  acc: any;
-  prevPos: any;
+  pos: p5.Vector;
+  vel: p5.Vector;
+  acc: p5.Vector;
+  prevPos: p5.Vector;
   maxSpeed: number;
 
   constructor(p: p5) {
