@@ -64,8 +64,13 @@ import BOSAniBF from "@/components/sections/fiber/shaderPatterns/projects/BOSAni
 import BOSAniBG from "@/components/sections/fiber/shaderPatterns/projects/BOSAniBG/BOSAniBG";
 import BOSAniBH from "@/components/sections/fiber/shaderPatterns/projects/BOSAniBH/BOSAniBH";
 import BOSAniBI from "@/components/sections/fiber/shaderPatterns/projects/BOSAniBI/BOSAniBI";
+import BOSAniBJ from "@/components/sections/fiber/shaderPatterns/projects/BOSAniBJ/BOSAniBJ";
 
 const aniList = [
+  {
+    info: "Pattern BJ: Mosaic",
+    component: <BOSAniBJ />,
+  },
   {
     info: "Pattern BI: 2D Random",
     component: <BOSAniBI />,

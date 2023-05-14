@@ -5,7 +5,7 @@ class Boid {
   velocity: p5.Vector;
   acceleration: p5.Vector;
   constructor(p: p5) {
-    this.position = p.createVector();
+    this.position = p.createVector(p.width/2, p.height/2);
     this.velocity = p.createVector();
     this.acceleration = p.createVector();
   }
