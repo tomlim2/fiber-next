@@ -11,5 +11,8 @@ export default function sketchBoids(p: p5): void {
 
   p.draw = () => {
     p.background(51);
+    for (let boid of flock) {
+      boid.show(p);
+    }
   };
 }
