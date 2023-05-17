@@ -6,12 +6,15 @@ const flock: any = [];
 export default function sketchBoids(p: p5): void {
   p.setup = () => {
     p.createCanvas(600, 600);
-    flock.push(new Boid(p));
+    for (let i = 0; i < 100; i++) {
+      flock.push(new Boid(p));
+    }
   };
 
   p.draw = () => {
     p.background(51);
     for (let boid of flock) {
+      boid.update();
       boid.show(p);
     }
   };

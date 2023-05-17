@@ -7,8 +7,16 @@ class Boid {
 
   constructor(p: p5) {
     this.position = p.createVector(p.width / 2, p.height / 2);
-    this.velocity = p.createVector();
+    this.velocity = p.createVector(
+      p.random()-.5,
+      p.random()-.5
+    );
     this.acceleration = p.createVector();
+  }
+
+  update() {
+    this.position.add(this.velocity);
+    this.velocity.add(this.acceleration);
   }
 
   show(p: p5) {
