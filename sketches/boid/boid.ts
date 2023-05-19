@@ -4,12 +4,27 @@ class Boid {
   position: p5.Vector;
   velocity: p5.Vector;
   acceleration: p5.Vector;
+  maxForce: number;
 
   constructor(p: p5) {
     this.position = p.createVector(p.random(p.width), p.random(p.height));
-    this.velocity = p.createVector(p.random(), p.random());
+    this.velocity = p.createVector(p.random() - 0.5, p.random() - 0.5);
     this.velocity.setMag(p.random(0.5, 1.5));
     this.acceleration = p.createVector();
+    this.maxForce = 0.01;
+  }
+
+  edges(p: p5) {
+    if (this.position.x > p.width) {
+      this.position.x = 0;
+    } else if (this.position.x < 0) {
+      this.position.x = p.width;
+    }
+    if (this.position.y > p.height) {
+      this.position.y = 0;
+    } else if (this.position.y < 0) {
+      this.position.y = p.height;
+    }
   }
 
   align(p: p5, boids: any) {
@@ -31,6 +46,7 @@ class Boid {
     if (total > 0) {
       steering.div(total);
       steering.sub(this.velocity);
+      steering.limit(this.maxForce);
     }
     return steering;
   }
