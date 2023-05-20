@@ -5,13 +5,15 @@ class Boid {
   velocity: p5.Vector;
   acceleration: p5.Vector;
   maxForce: number;
+  maxSpeed: number;
 
   constructor(p: p5) {
     this.position = p.createVector(p.random(p.width), p.random(p.height));
     this.velocity = p.createVector(p.random() - 0.5, p.random() - 0.5);
     this.velocity.setMag(p.random(0.5, 1.5));
     this.acceleration = p.createVector();
-    this.maxForce = 0.01;
+    this.maxForce = 0.05;
+    this.maxSpeed = 4;
   }
 
   edges(p: p5) {
@@ -45,6 +47,33 @@ class Boid {
     }
     if (total > 0) {
       steering.div(total);
+      steering.setMag(this.maxSpeed);
+      steering.sub(this.velocity);
+      steering.limit(this.maxForce);
+    }
+    return steering;
+  }
+
+  cohesion(p: p5, boids: any) {
+    let perceptionRadius = 10000;
+    let steering = p.createVector();
+    let total = 0;
+    for (let other of boids) {
+      let d = p.dist(
+        this.position.x,
+        this.position.y,
+        other.position.x,
+        other.position.y
+      );
+      if (other != this && d < perceptionRadius) {
+        steering.add(other.position);
+        total++;
+      }
+    }
+    if (total > 0) {
+      steering.div(total);
+      steering.sub(this.position);
+      steering.setMag(this.maxSpeed);
       steering.sub(this.velocity);
       steering.limit(this.maxForce);
     }
@@ -52,8 +81,10 @@ class Boid {
   }
 
   flock(p: p5, boids: any) {
-    let alignment = this.align(p, boids);
-    this.acceleration = alignment;
+    // let alignment = this.align(p, boids);
+    let cohesion = this.cohesion(p, boids);
+    // this.acceleration = alignment;
+    this.acceleration = cohesion;
   }
 
   update() {
