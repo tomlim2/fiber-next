@@ -1,6 +1,5 @@
 import { shaderMap } from "@/components/sections/fiber/shaderPatterns/projects/BOSAniA/shader/shaderMap";
 import { IUniform } from "three";
-import type { IFVector2 } from "types/fiber";
 import { useFrame } from "@react-three/fiber";
 import { useRef } from "react";
 

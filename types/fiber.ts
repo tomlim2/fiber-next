@@ -1,4 +1,4 @@
-export interface IFShaderSet {
+export interface IShaderSet {
   fragment: string;
   vertex: string;
   name: string;

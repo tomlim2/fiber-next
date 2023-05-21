@@ -1,3 +1,5 @@
+import type { IShaderSet } from "types/fiber";
+
 import Pattern1Fragment from "raw-loader!glslify-loader!./pattern1/fragment.glsl";
 import Pattern1Vertex from "raw-loader!glslify-loader!./pattern1/vertex.glsl";
 import Pattern2Fragment from "raw-loader!glslify-loader!./pattern2/fragment.glsl";
@@ -45,29 +47,60 @@ import Pattern22Vertex from "raw-loader!glslify-loader!./pattern22/vertex.glsl";
 import Pattern23Fragment from "raw-loader!glslify-loader!./pattern23/fragment.glsl";
 import Pattern23Vertex from "raw-loader!glslify-loader!./pattern23/vertex.glsl";
 
-export const shaderMap: IFShaderSet[] = [
-  { fragment: Pattern1Fragment, vertex: Pattern1Vertex, name: '2D random'},
-  { fragment: Pattern2Fragment, vertex: Pattern2Vertex, name: 'Mosaic' },
-  { fragment: Pattern3Fragment, vertex: Pattern3Vertex, name: 'UV'},
-  { fragment: Pattern4Fragment, vertex: Pattern4Vertex, name: 'Pow'},
-  { fragment: Pattern5Fragment, vertex: Pattern5Vertex, name: 'Step'},
-  { fragment: Pattern6Fragment, vertex: Pattern6Vertex, name: 'Smoothstep'},
-  { fragment: Pattern7Fragment, vertex: Pattern7Vertex, name: 'Blinn-Wyvill Approximation to the Raised Inverted Cosine'},
-  { fragment: Pattern8Fragment, vertex: Pattern8Vertex, name: 'Cubic Bezier'},
-  { fragment: Pattern9Fragment, vertex: Pattern9Vertex, name: 'Cubic Puls'},
-  { fragment: Pattern10Fragment, vertex: Pattern10Vertex, name: 'Circular EaseIn'},
-  { fragment: Pattern11Fragment, vertex: Pattern11Vertex, name: 'patriciogv'},
-  { fragment: Pattern12Fragment, vertex: Pattern12Vertex, name: 'normalized'},
-  { fragment: Pattern13Fragment, vertex: Pattern13Vertex, name: 'Apply matrices'},
-  { fragment: Pattern14Fragment, vertex: Pattern14Vertex, name: 'Offset patterns'},
-  { fragment: Pattern15Fragment, vertex: Pattern15Vertex, name: 'Truchet Tiles'},
-  { fragment: Pattern16Fragment, vertex: Pattern16Vertex, name: 'YUV color'},
-  { fragment: Pattern17Fragment, vertex: Pattern17Vertex, name: 'Distance Field'},
-  { fragment: Pattern18Fragment, vertex: Pattern18Vertex, name: 'Polar shapes'},
-  { fragment: Pattern19Fragment, vertex: Pattern19Vertex, name: 'Truchet'},
-  { fragment: Pattern20Fragment, vertex: Pattern20Vertex, name: '2D Noise'},
-  { fragment: Pattern21Fragment, vertex: Pattern21Vertex, name: '4 cells DF'},
-  { fragment: Pattern22Fragment, vertex: Pattern22Vertex, name: 'Test cells DF'},
-  { fragment: Pattern23Fragment, vertex: Pattern23Vertex, name: 'Test cells'},
+export const shaderMap: IShaderSet[] = [
+  { fragment: Pattern1Fragment, vertex: Pattern1Vertex, name: "2D random" },
+  { fragment: Pattern2Fragment, vertex: Pattern2Vertex, name: "Mosaic" },
+  { fragment: Pattern3Fragment, vertex: Pattern3Vertex, name: "UV" },
+  { fragment: Pattern4Fragment, vertex: Pattern4Vertex, name: "Pow" },
+  { fragment: Pattern5Fragment, vertex: Pattern5Vertex, name: "Step" },
+  { fragment: Pattern6Fragment, vertex: Pattern6Vertex, name: "Smoothstep" },
+  {
+    fragment: Pattern7Fragment,
+    vertex: Pattern7Vertex,
+    name: "Blinn-Wyvill Approximation to the Raised Inverted Cosine",
+  },
+  { fragment: Pattern8Fragment, vertex: Pattern8Vertex, name: "Cubic Bezier" },
+  { fragment: Pattern9Fragment, vertex: Pattern9Vertex, name: "Cubic Puls" },
+  {
+    fragment: Pattern10Fragment,
+    vertex: Pattern10Vertex,
+    name: "Circular EaseIn",
+  },
+  { fragment: Pattern11Fragment, vertex: Pattern11Vertex, name: "patriciogv" },
+  { fragment: Pattern12Fragment, vertex: Pattern12Vertex, name: "normalized" },
+  {
+    fragment: Pattern13Fragment,
+    vertex: Pattern13Vertex,
+    name: "Apply matrices",
+  },
+  {
+    fragment: Pattern14Fragment,
+    vertex: Pattern14Vertex,
+    name: "Offset patterns",
+  },
+  {
+    fragment: Pattern15Fragment,
+    vertex: Pattern15Vertex,
+    name: "Truchet Tiles",
+  },
+  { fragment: Pattern16Fragment, vertex: Pattern16Vertex, name: "YUV color" },
+  {
+    fragment: Pattern17Fragment,
+    vertex: Pattern17Vertex,
+    name: "Distance Field",
+  },
+  {
+    fragment: Pattern18Fragment,
+    vertex: Pattern18Vertex,
+    name: "Polar shapes",
+  },
+  { fragment: Pattern19Fragment, vertex: Pattern19Vertex, name: "Truchet" },
+  { fragment: Pattern20Fragment, vertex: Pattern20Vertex, name: "2D Noise" },
+  { fragment: Pattern21Fragment, vertex: Pattern21Vertex, name: "4 cells DF" },
+  {
+    fragment: Pattern22Fragment,
+    vertex: Pattern22Vertex,
+    name: "Test cells DF",
+  },
+  { fragment: Pattern23Fragment, vertex: Pattern23Vertex, name: "Test cells" },
 ];
-
