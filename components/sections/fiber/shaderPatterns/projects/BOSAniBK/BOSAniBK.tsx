@@ -4,8 +4,6 @@ import { StrictMode, useState } from "react";
 
 interface Props {}
 
-
-
 const BOSAniBK: React.FC<Props> = () => {
   const [ctloffsetX, setCtloffsetX] = useState(0);
   const created = (state: any) => {
@@ -26,9 +24,8 @@ const BOSAniBK: React.FC<Props> = () => {
           onCreated={created}
           onPointerMissed={(event) => eventHandler(event, "onPointerMissed")}
         >
-          <MeshForShader shaderIndex={1} />
+          <MeshForShader ctloffsetX={ctloffsetX} />
         </Canvas>
-        
       </StrictMode>
     </>
   );
