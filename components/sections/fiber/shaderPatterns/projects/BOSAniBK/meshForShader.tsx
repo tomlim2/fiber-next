@@ -6,19 +6,17 @@ import { useControls } from "leva";
 import { Router, useRouter } from "next/router";
 
 interface Props {
-  shaderIndex: number;
+  ctloffsetX: number;
 }
 
-const MeshForShader: React.FC<Props> = ({ shaderIndex }) => {
+const MeshForShader: React.FC<Props> = ({ ctloffsetX }) => {
   const meshRef = useRef<Mesh<BufferGeometry, Material | Material[]>>(null);
   const materialRef = useRef<ShaderMaterial>(null);
   const planeDimention = { width: 6, height: 6 };
   const router = useRouter();
-if(true){
-
-} else {
-  
-}
+  if (true) {
+  } else {
+  }
   const intiValue = {
     timeSpeedCtrl: 1,
     paramsACtrl: 12,
@@ -132,7 +130,7 @@ if(true){
 
   return (
     <>
-      <group>
+      <group position-x={ctloffsetX}>
         <mesh
           ref={meshRef}
           onClick={(event) => eventHandler(event, "onClick")}
