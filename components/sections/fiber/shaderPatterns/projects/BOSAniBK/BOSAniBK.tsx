@@ -29,7 +29,7 @@ const BOSAniBK: React.FC<Props> = () => {
           onCreated={created}
           onPointerMissed={(event) => eventHandler(event, "onPointerMissed")}
         >
-          <MeshForShader ctloffsetX={ctloffsetX} />
+          <MeshForShader shaderIndex={1} />
         </Canvas>
         
       </StrictMode>
