@@ -4,10 +4,7 @@ import Paragraph from "@/components/texts/paragraph";
 import { CanvasWrapper, Info } from "../projectStyles";
 
 interface Props {}
-export interface IFVector2 {
-  x: number;
-  y: number;
-}
+
 
 const BOSAniK: React.FC<Props> = () => {
   const created = (state: any) => {

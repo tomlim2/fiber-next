@@ -45,7 +45,7 @@ import Pattern22Vertex from "raw-loader!glslify-loader!./pattern22/vertex.glsl";
 import Pattern23Fragment from "raw-loader!glslify-loader!./pattern23/fragment.glsl";
 import Pattern23Vertex from "raw-loader!glslify-loader!./pattern23/vertex.glsl";
 
-export const shaderMap: ShaderSet[] = [
+export const shaderMap: IFShaderSet[] = [
   { fragment: Pattern1Fragment, vertex: Pattern1Vertex, name: '2D random'},
   { fragment: Pattern2Fragment, vertex: Pattern2Vertex, name: 'Mosaic' },
   { fragment: Pattern3Fragment, vertex: Pattern3Vertex, name: 'UV'},
@@ -71,8 +71,3 @@ export const shaderMap: ShaderSet[] = [
   { fragment: Pattern23Fragment, vertex: Pattern23Vertex, name: 'Test cells'},
 ];
 
-export interface ShaderSet {
-  fragment: string;
-  vertex: string;
-  name: string;
-}

@@ -4,10 +4,7 @@ import MeshForShader from "./meshForShader";
 import { CanvasWrapper, Info } from "../projectStyles";
 
 interface Props {}
-export interface IFVector2 {
-  x: number;
-  y: number;
-}
+
 
 const BOSAniG: React.FC<Props> = () => {
   const created = (state: any) => {

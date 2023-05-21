@@ -1,12 +1,11 @@
 import { shaderMap } from "./shader/shaderMap";
-import type { ShaderSet } from "./shader/shaderMap";
 import { IUniform, Vector2 } from "three";
-import type { IFVector2 } from "./bookOfShaders";
+import type { IFShaderSet, IFVector2 } from "types/fiber";
 import { useFrame } from "@react-three/fiber";
 import { useRef } from "react";
 
 interface Props {
-  shader: ShaderSet;
+  shader: IFShaderSet;
   mousePos: IFVector2 | undefined;
 }
 

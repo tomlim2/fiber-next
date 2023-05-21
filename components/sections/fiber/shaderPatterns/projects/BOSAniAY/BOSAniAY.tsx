@@ -4,10 +4,7 @@ import { StrictMode, useState } from "react";
 
 interface Props {}
 
-export interface IFVector2 {
-  x: number;
-  y: number;
-}
+
 
 const BOSAniAY: React.FC<Props> = () => {
   const [ctloffsetX, setCtloffsetX] = useState(0);

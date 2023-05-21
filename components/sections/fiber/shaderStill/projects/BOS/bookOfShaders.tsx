@@ -1,6 +1,6 @@
 import { useEffect, useState, useRef } from "react";
 import { shaderMap } from "./shader/shaderMap";
-import type { ShaderSet } from "./shader/shaderMap";
+import type { IFShaderSet, IFVector2 } from "types/fiber";
 import { Canvas } from "@react-three/fiber";
 import ButtonBasic from "@/components/ui/buttonBasic";
 import MeshForShader from "./meshForShader";
@@ -11,10 +11,6 @@ import {
 } from "@/components/sections/fiber/shaderPatterns/postAni";
 
 interface Props {}
-export interface IFVector2 {
-  x: number;
-  y: number;
-}
 
 const BookOfShaders: React.FC<Props> = () => {
   const [shaderNumber, setShaderNumber] = useState(0);
@@ -72,7 +68,7 @@ const BookOfShaders: React.FC<Props> = () => {
       <CanvasWrapper ref={refCanvas}>
         {isOn && (
           <Canvas onCreated={created}>
-            {shaderMap.map((shader: ShaderSet, index: number) => {
+            {shaderMap.map((shader: IFShaderSet, index: number) => {
               if (shaderNumber === index) {
                 return (
                   <MeshForShader
@@ -90,7 +86,7 @@ const BookOfShaders: React.FC<Props> = () => {
         <div>
           <h2>Book of shaders</h2>
           <div className="buttons">
-            {shaderMap.map((shader: ShaderSet, index: number) => (
+            {shaderMap.map((shader: IFShaderSet, index: number) => (
               <ButtonBasic
                 key={index}
                 onClick={() => onClick(index)}

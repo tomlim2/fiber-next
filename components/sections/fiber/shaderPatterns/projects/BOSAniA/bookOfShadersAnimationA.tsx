@@ -1,11 +1,8 @@
 import { Canvas } from "@react-three/fiber";
+
 import MeshForShader from "@/components/sections/fiber/shaderPatterns/projects/BOSAniA/meshForShader";
 
 interface Props {}
-export interface IFVector2 {
-  x: number;
-  y: number;
-}
 
 const BookOfShadersAnimationA: React.FC<Props> = () => {
   const created = (state: any) => {

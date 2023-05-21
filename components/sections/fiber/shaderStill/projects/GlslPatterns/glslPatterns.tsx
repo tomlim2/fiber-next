@@ -1,6 +1,5 @@
 import { useEffect, useState, useRef } from "react";
 import { shaderMap } from "./shader/shaderMap";
-import type { ShaderMap } from "./shader/shaderMap";
 import { Canvas } from "@react-three/fiber";
 import ButtonBasic from "@/components/ui/buttonBasic";
 import {
@@ -8,6 +7,8 @@ import {
   CanvasWrapper,
   Info,
 } from "@/components/sections/fiber/shaderPatterns/postAni";
+
+import type { ShaderMap } from "./shader/shaderMap";
 
 interface Props {}
 

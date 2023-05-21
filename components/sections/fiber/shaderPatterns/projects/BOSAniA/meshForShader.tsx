@@ -1,12 +1,10 @@
 import { shaderMap } from "@/components/sections/fiber/shaderPatterns/projects/BOSAniA/shader/shaderMap";
-import type { ShaderSet } from "@/components/sections/fiber/shaderPatterns/projects/BOS/shader/shaderMap";
-import { IUniform, Vector2 } from "three";
-import type { IFVector2 } from "./bookOfShadersAnimationA";
+import { IUniform } from "three";
+import type { IFVector2 } from "types/fiber";
 import { useFrame } from "@react-three/fiber";
 import { useRef } from "react";
 
-interface Props {
-}
+interface Props {}
 
 interface Uniforms {
   [uniform: string]: IUniform<number>;

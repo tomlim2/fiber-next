@@ -3,10 +3,7 @@ import MeshForShader from "./meshForShader";
 
 interface Props {}
 
-export interface IFVector2 {
-  x: number;
-  y: number;
-}
+
 
 const BOSAniN: React.FC<Props> = () => {
   const created = (state: any) => {
