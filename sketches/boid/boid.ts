@@ -90,6 +90,7 @@ class Boid {
   update() {
     this.position.add(this.velocity);
     this.velocity.add(this.acceleration);
+    this.velocity.limit(this.maxSpeed);
   }
 
   show(p: p5) {

@@ -69,7 +69,7 @@ import BOSAniBK from "@/components/sections/fiber/shaderPatterns/projects/BOSAni
 
 const aniList = [
   {
-    info: "Pattern BK: Mosaic",
+    info: "Pattern BK: Numered",
     component: <BOSAniBK />,
   },
   {
@@ -333,6 +333,7 @@ const stillList = [
   },
 ];
 
+
 const sectionShaderPatterns = () => {
   return (
     <SectionWrapper>
@@ -341,6 +342,7 @@ const sectionShaderPatterns = () => {
           return (
             <PostAni
               key={index}
+              shaderIndex={index}
               canvasComponent={item.component}
               info={item.info}
             />

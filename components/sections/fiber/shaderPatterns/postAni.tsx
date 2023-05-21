@@ -1,14 +1,19 @@
+import { useRecoilState } from "recoil";
+import { currentShaderIndex } from "store/storeFiber";
 import { useEffect, useRef, useState } from "react";
 import styled from "styled-components";
+
 interface Props {
   canvasComponent: React.ReactNode;
   info: string;
+  shaderIndex: number;
 }
 
 export default function ProjectPost(props: Props) {
-  const { canvasComponent, info } = props;
-  const refCanvas = useRef<any>();
+  const [currentIndex, setCurrentIndex] = useRecoilState(currentShaderIndex);
+  const { canvasComponent, info, shaderIndex } = props;
   const [isOn, setIsOn] = useState(false);
+  const refCanvas = useRef<any>();
 
   useEffect(() => {
     const options = {
@@ -20,16 +25,28 @@ export default function ProjectPost(props: Props) {
     const callback = (entries: any) => {
       entries.forEach((entry: any) => {
         if (entry.isIntersecting) {
-          setIsOn(true);
-        } else {
-          setIsOn(false);
+          setCurrentIndex(shaderIndex);
         }
       });
     };
 
     const observer = new IntersectionObserver(callback, options);
     observer.observe(refCanvas.current);
-  }, []);
+  });
+
+  useEffect(() => {
+    const isCurrentIndex: boolean = shaderIndex === currentIndex;
+    const isPrevIndex: boolean = shaderIndex === currentIndex - 1;
+    const isNextIndex: boolean = shaderIndex === currentIndex + 1;
+
+    if (
+      // isPrevIndex || isNextIndex || 
+      isCurrentIndex) {
+      setIsOn(true);
+    } else {
+      setIsOn(false);
+    }
+  }, [currentIndex, shaderIndex]);
 
   return (
     <ProjectFramer>
