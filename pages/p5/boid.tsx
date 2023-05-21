@@ -1,11 +1,12 @@
+import LayoutDefault from "layouts/layoutDefault";
 import Head from "next/head";
 import dynamic from "next/dynamic";
-import type { NextPage } from "next";
+
 import sketchBoids from "sketches/boid/sketchBoids";
 
 const P5Wrapper = dynamic(() => import("components/P5Wrapper"), { ssr: false });
 
-const P5VectorField: NextPage = () => {
+const P5VectorField = () => {
   const pageHeadData = (
     <Head>
       <title>P5 | Vector Field | yslim</title>
@@ -23,3 +24,7 @@ const P5VectorField: NextPage = () => {
 };
 
 export default P5VectorField;
+
+P5VectorField.getLayout = function getLayout(page: React.ReactElement) {
+  return <LayoutDefault>{page}</LayoutDefault>;
+};

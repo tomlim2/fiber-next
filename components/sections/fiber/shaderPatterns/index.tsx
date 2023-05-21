@@ -1,8 +1,6 @@
 import PostAni from "./postAni";
 import styled from "styled-components";
 
-import ProjectGlslPatterns from "@/components/sections/fiber/shaderPatterns/projects/GlslPatterns/glslPatterns";
-import ProjectBookOfShaders from "@/components/sections/fiber/shaderPatterns/projects/BOS/bookOfShaders";
 import ProjectBookOfShadersAnimationA from "@/components/sections/fiber/shaderPatterns/projects/BOSAniA/bookOfShadersAnimationA";
 import ProjectBookOfShadersAnimationB from "@/components/sections/fiber/shaderPatterns/projects/BOSAniB/bookOfShadersAnimationB";
 import BOSAniC from "@/components/sections/fiber/shaderPatterns/projects/BOSAniC/BOSAniC";
@@ -322,23 +320,13 @@ const aniList = [
   },
 ];
 
-const stillList = [
-  {
-    info: "Pattern A",
-    component: <ProjectBookOfShaders key={"s1"} />,
-  },
-  {
-    info: "Pattern A",
-    component: <ProjectGlslPatterns key={"s2"} />,
-  },
-];
-
-
 const sectionShaderPatterns = () => {
   return (
     <SectionWrapper>
       <Container>
         {aniList.map((item, index) => {
+          console.log(item);
+        
           return (
             <PostAni
               key={index}
@@ -347,11 +335,6 @@ const sectionShaderPatterns = () => {
               info={item.info}
             />
           );
-        })}
-      </Container>
-      <Container>
-        {stillList.map((item, index) => {
-          return item.component;
         })}
       </Container>
     </SectionWrapper>

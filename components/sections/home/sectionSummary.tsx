@@ -5,7 +5,7 @@ const SectionSummary = () => {
   return (
     <>
       <Section>
-        <Title usage="page">Playground #Explore #Experiment #Experience</Title>
+        <Title usage="page">Hi!</Title>
       </Section>
     </>
   );

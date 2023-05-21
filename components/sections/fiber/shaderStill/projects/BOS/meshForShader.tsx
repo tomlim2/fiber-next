@@ -1,5 +1,5 @@
-import { shaderMap } from "@/components/sections/fiber/shaderPatterns/projects/BOS/shader/shaderMap";
-import type { ShaderSet } from "@/components/sections/fiber/shaderPatterns/projects/BOS/shader/shaderMap";
+import { shaderMap } from "./shader/shaderMap";
+import type { ShaderSet } from "./shader/shaderMap";
 import { IUniform, Vector2 } from "three";
 import type { IFVector2 } from "./bookOfShaders";
 import { useFrame } from "@react-three/fiber";

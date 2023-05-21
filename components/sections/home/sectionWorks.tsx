@@ -14,6 +14,9 @@ const SectionWorks: React.FC<ISectionProps> = ({ backgroundColor, color }) => {
         <li className="shader">
           <TextLink to="/fiber/shader-patterns">Shader Patterns</TextLink>
         </li>
+        <li className="shader">
+          <TextLink to="/fiber/shader-still">Shader Stills</TextLink>
+        </li>
         <li className="blender">
           <TextLink to="/blender/geometry-node">Geometry Node</TextLink>
         </li>
