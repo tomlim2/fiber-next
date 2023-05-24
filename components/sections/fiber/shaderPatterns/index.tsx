@@ -64,8 +64,13 @@ import BOSAniBH from "@/components/sections/fiber/shaderPatterns/projects/BOSAni
 import BOSAniBI from "@/components/sections/fiber/shaderPatterns/projects/BOSAniBI/BOSAniBI";
 import BOSAniBJ from "@/components/sections/fiber/shaderPatterns/projects/BOSAniBJ/BOSAniBJ";
 import BOSAniBK from "@/components/sections/fiber/shaderPatterns/projects/BOSAniBK/BOSAniBK";
+import BOSAniBL from "@/components/sections/fiber/shaderPatterns/projects/BOSAniBL/BOSAniBL";
 
 const aniList = [
+  {
+    info: "Pattern BL: Flickering",
+    component: <BOSAniBL />,
+  },
   {
     info: "Pattern BK: Numered",
     component: <BOSAniBK />,
