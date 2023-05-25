@@ -64,9 +64,14 @@ import BOSAniBH from "@/components/sections/fiber/shaderPatterns/projects/BOSAni
 import BOSAniBI from "@/components/sections/fiber/shaderPatterns/projects/BOSAniBI/BOSAniBI";
 import BOSAniBJ from "@/components/sections/fiber/shaderPatterns/projects/BOSAniBJ/BOSAniBJ";
 import BOSAniBK from "@/components/sections/fiber/shaderPatterns/projects/BOSAniBK/BOSAniBK";
-import BOSAniBL from "@/components/sections/fiber/shaderPatterns/projects/BOSAniBL/BOSAniBL";
+import BOSAniBL from "@/components/sections/fiber/shaderPatterns/projects/BOSAniBL";
+import BOSAniBM from "@/components/sections/fiber/shaderPatterns/projects/BOSAniBM";
 
 const aniList = [
+  {
+    info: "Pattern BM: Fractal Brownian Motion",
+    component: <BOSAniBM />,
+  },
   {
     info: "Pattern BL: Flickering",
     component: <BOSAniBL />,
@@ -331,7 +336,7 @@ const sectionShaderPatterns = () => {
       <Container>
         {aniList.map((item, index) => {
           console.log(item);
-        
+
           return (
             <PostAni
               key={index}
