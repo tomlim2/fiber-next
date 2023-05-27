@@ -66,8 +66,13 @@ import BOSAniBJ from "@/components/sections/fiber/shaderPatterns/projects/BOSAni
 import BOSAniBK from "@/components/sections/fiber/shaderPatterns/projects/BOSAniBK/BOSAniBK";
 import BOSAniBL from "@/components/sections/fiber/shaderPatterns/projects/BOSAniBL";
 import BOSAniBM from "@/components/sections/fiber/shaderPatterns/projects/BOSAniBM";
+import BOSAniBN from "@/components/sections/fiber/shaderPatterns/projects/BOSAniBN";
 
 const aniList = [
+  {
+    info: "Pattern BN: Raging sea",
+    component: <BOSAniBN />,
+  },
   {
     info: "Pattern BM: Fractal Brownian Motion",
     component: <BOSAniBM />,
