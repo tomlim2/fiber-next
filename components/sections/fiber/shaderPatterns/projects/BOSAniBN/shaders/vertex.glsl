@@ -1,4 +1,6 @@
 varying vec2 vUv;
+varying float vElevation;
+
 uniform float uParamsA;
 uniform float uParamsB;
 uniform float uParamsC;
@@ -13,4 +15,5 @@ void main() {
     gl_Position = projectedPosition;
 
     vUv = uv;
+    vElevation = elevation;
 }

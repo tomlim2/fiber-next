@@ -3,11 +3,8 @@ import { Mesh, BufferGeometry, Material, ShaderMaterial, Color } from "three";
 import { useFrame } from "@react-three/fiber";
 import { useRef, useEffect, useState } from "react";
 import { useControls } from "leva";
-import { Router, useRouter } from "next/router";
 
-interface Props {}
-
-const MeshObject: React.FC<Props> = () => {
+const MeshObject: React.FC = () => {
   const meshRef = useRef<Mesh<BufferGeometry, Material | Material[]>>(null);
   const materialRef = useRef<ShaderMaterial>(null);
   const planeDimention = {
@@ -16,10 +13,7 @@ const MeshObject: React.FC<Props> = () => {
     widthSegments: 128,
     heightSegments: 128,
   };
-  const router = useRouter();
-  if (true) {
-  } else {
-  }
+
   const intiValue = {
     timeSpeedCtrl: 1,
     paramsACtrl: 1,
@@ -53,7 +47,7 @@ const MeshObject: React.FC<Props> = () => {
       value: intiValue.paramsACtrl,
       step: 1,
       min: 1,
-      max: 50,
+      max: 10,
       onChange: (value) => {
         if (materialRef && materialRef.current) {
           materialRef.current.uniforms.uParamsA.value = value;
