@@ -6,7 +6,7 @@ import MeshoNShader from "@/components/sections/fiber/shaderPatterns";
 const ShaderPatterns = () => {
   const pageHeadData = (
     <Head>
-      <title>Fiber | Shader Patterns | yslim</title>
+      <title>Fiber | Shader Time | yslim</title>
       <meta name="view-transition" content="same-origin" />
       <meta name="description" content="Welcome!" />
     </Head>

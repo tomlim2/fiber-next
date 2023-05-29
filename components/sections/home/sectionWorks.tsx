@@ -12,16 +12,18 @@ const SectionWorks: React.FC<ISectionProps> = ({ backgroundColor, color }) => {
     <SectionExtend sectionStyles={sectionStyles}>
       <ul className="works">
         <li className="shader">
-          <TextLink to="/fiber/shader-patterns">Shader Patterns</TextLink>
-        </li>
-        <li className="shader">
-          <TextLink to="/fiber/shader-still">Shader Stills</TextLink>
-        </li>
-        <li className="blender">
-          <TextLink to="/blender/geometry-node">Geometry Node</TextLink>
-        </li>
-        <li className="meshAndShader">
-          <TextLink to="/fiber/mesh-and-shader">Mesh And Shader</TextLink>
+          <h3>Shader</h3>
+          <ul>
+            <li>
+              <TextLink to="/fiber/fragnent-time">Fragnent-Time</TextLink>
+            </li>
+            <li>
+              <TextLink to="/fiber/fragnent-still">Fragnent-Still</TextLink>
+            </li>
+            <li>
+              <TextLink to="/fiber/vertext-fragnent">Vertex-Fragnent</TextLink>
+            </li>
+          </ul>
         </li>
         <li className="p5">
           <h3>P5</h3>
@@ -33,6 +35,10 @@ const SectionWorks: React.FC<ISectionProps> = ({ backgroundColor, color }) => {
               <TextLink to="/p5/boid">Boids</TextLink>
             </li>
           </ul>
+        </li>
+        <li className="blender">
+          <h3>Blender</h3>
+          <TextLink to="/blender/geometry-node">Geometry Node</TextLink>
         </li>
         <li className="design">
           <TextLink to="/design">Designs</TextLink>

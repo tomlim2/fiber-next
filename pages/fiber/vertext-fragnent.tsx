@@ -1,12 +1,12 @@
 import Head from "next/head";
 
 import LayoutDefault from "layouts/layoutDefault";
-import MeshAndShader from "@/components/sections/fiber/meshNShader";
+import MeshoNShader from "@/components/sections/fiber/vertexFragnent";
 
-const meshAndShader = () => {
+const ShaderPatterns = () => {
   const pageHeadData = (
     <Head>
-      <title>Fiber | Shader Patterns | yslim</title>
+      <title>Fiber | Vertex Fragnent | yslim</title>
       <meta name="view-transition" content="same-origin" />
       <meta name="description" content="Welcome!" />
     </Head>
@@ -14,13 +14,13 @@ const meshAndShader = () => {
   return (
     <div>
       {pageHeadData}
-      <MeshAndShader />
+      <MeshoNShader />
     </div>
   );
 };
 
-export default meshAndShader;
+export default ShaderPatterns;
 
-meshAndShader.getLayout = function getLayout(page: React.ReactElement) {
+ShaderPatterns.getLayout = function getLayout(page: React.ReactElement) {
   return <LayoutDefault>{page}</LayoutDefault>;
 };
