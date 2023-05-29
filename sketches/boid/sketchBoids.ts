@@ -13,6 +13,7 @@ export default function sketchBoids(p: p5) {
     p.background(51);
 
     for (let boid of flock) {
+      boid.update(p);
       boid.show(p);
     }
   };
