@@ -31,8 +31,15 @@ vec2 boxi(in vec2 _st, in vec2 _size) {
 float fbm(in vec2 offset) {
     float amplitude = 1.;
     float frequency = 1.;
-
-    return amplitude * sin((uTime + offset.x + offset.y) * frequency);
+    float timeWithOffset = uTime + offset.x + offset.y;
+    float fbms = sin(timeWithOffset * frequency);
+    float t = 0.01 * (-uTime * 130.0);
+    fbms += sin(timeWithOffset * frequency * 2.1 + t) * 4.5;
+    fbms += sin(timeWithOffset * frequency * 1.72 + t * 1.121) * 4.0;
+    fbms += sin(timeWithOffset * frequency * 2.221 + t * 0.437) * 5.0;
+    fbms += sin(timeWithOffset * frequency * 3.1122 + t * 4.269) * 2.5;
+    fbms *= amplitude * 0.06;
+    return fbms;
 }
 
 void main() {
@@ -42,10 +49,10 @@ void main() {
     vec2 fl_st = floor(st);
 
     fr_st -= vec2(0.5);
-    vec2 c1 = fr_st * rotate2d(PI * fbm(fl_st / 10.));
+    vec2 c1 = fr_st * rotate2d(PI * fbm(fl_st / 18.));
     c1 += vec2(0.5);
 
-    vec3 color = vec3(boxi(c1, vec2(.75, .1)).y,boxi(c1, vec2(.75, .1)).x,1.0);
+    vec3 color = vec3(boxi(c1, vec2(.75, .1)).y, boxi(c1, vec2(.75, .1)).x, 1.0);
 
     gl_FragColor = vec4(color, 1.0);
 }

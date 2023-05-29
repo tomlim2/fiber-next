@@ -1,22 +1,15 @@
-import { shaderMap } from "./shader/shaderMap";
+import { shaders } from "./shaders";
 import { Mesh, BufferGeometry, Material, ShaderMaterial, Color } from "three";
 import { useFrame } from "@react-three/fiber";
 import { useRef, useEffect, useState } from "react";
 import { useControls } from "leva";
 import { Router, useRouter } from "next/router";
 
-interface Props {
-  ctloffsetX: number;
-}
-
-const MeshForShader: React.FC<Props> = ({ ctloffsetX }) => {
+const Experience: React.FC = () => {
   const meshRef = useRef<Mesh<BufferGeometry, Material | Material[]>>(null);
   const materialRef = useRef<ShaderMaterial>(null);
   const planeDimention = { width: 6, height: 6 };
-  const router = useRouter();
-  if (true) {
-  } else {
-  }
+
   const intiValue = {
     timeSpeedCtrl: 1,
     paramsACtrl: 12,
@@ -130,7 +123,7 @@ const MeshForShader: React.FC<Props> = ({ ctloffsetX }) => {
 
   return (
     <>
-      <group position-x={ctloffsetX}>
+      <group>
         <mesh
           ref={meshRef}
           onClick={(event) => eventHandler(event, "onClick")}
@@ -160,8 +153,8 @@ const MeshForShader: React.FC<Props> = ({ ctloffsetX }) => {
               uColorA: { value: new Color("#1d79a0") },
               uColorB: { value: new Color("#ffffff") },
             }}
-            fragmentShader={shaderMap[0].fragment}
-            vertexShader={shaderMap[0].vertex}
+            fragmentShader={shaders[0].fragment}
+            vertexShader={shaders[0].vertex}
           />
         </mesh>
       </group>
@@ -169,4 +162,4 @@ const MeshForShader: React.FC<Props> = ({ ctloffsetX }) => {
   );
 };
 
-export default MeshForShader;
+export default Experience;

@@ -1,10 +1,8 @@
 import { Canvas } from "@react-three/fiber";
-import MeshForShader from "./meshForShader";
+import Experience from "./Experience";
 import { StrictMode, useState } from "react";
 
-interface Props {}
-
-const FiberCanvas: React.FC<Props> = () => {
+const FiberCanvas: React.FC = () => {
   const [ctloffsetX, setCtloffsetX] = useState(0);
   const created = (state: any) => {
     state.gl.setClearColor("#252525");
@@ -24,7 +22,7 @@ const FiberCanvas: React.FC<Props> = () => {
           onCreated={created}
           onPointerMissed={(event) => eventHandler(event, "onPointerMissed")}
         >
-          <MeshForShader ctloffsetX={ctloffsetX} />
+          <Experience />
         </Canvas>
       </StrictMode>
     </>

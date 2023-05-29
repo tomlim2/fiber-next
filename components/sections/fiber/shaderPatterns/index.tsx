@@ -340,8 +340,6 @@ const sectionShaderPatterns = () => {
     <SectionWrapper>
       <Container>
         {aniList.map((item, index) => {
-          console.log(item);
-
           return (
             <PostAni
               key={index}

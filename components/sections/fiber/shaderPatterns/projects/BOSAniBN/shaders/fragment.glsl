@@ -47,7 +47,7 @@ void main() {
     vec2 c1 = fr_st * rotate2d(PI * fbm(fl_st / 10.));
     c1 += vec2(0.5);
 
-    vec3 boxiColor = vec3(boxi(c1, vec2(.75, .1)), 1.0);
-    vec3 color = mix(vec3(.8, .8, .8) * boxiColor, boxiColor, vElevation);
+    vec3 boxiColor = vec3(boxi(c1, vec2(.75, .1)), 0.)/1.;
+    vec3 color = mix(vec3(.6, .6, .6) * boxiColor, boxiColor, vElevation);
     gl_FragColor = vec4(color, 1.0);
 }

@@ -10,15 +10,15 @@ const MeshObject: React.FC = () => {
   const planeDimention = {
     width: 6,
     height: 6,
-    widthSegments: 128,
-    heightSegments: 128,
+    widthSegments: 512,
+    heightSegments: 512,
   };
 
   const intiValue = {
-    timeSpeedCtrl: 1,
-    paramsACtrl: 1,
-    paramsBCtrl: 1,
-    paramsCCtrl: 1,
+    timeSpeedCtrl: 1.,
+    paramsACtrl: .2,
+    paramsBCtrl: 4,
+    paramsCCtrl: 1.5,
     paramsDCtrl: 1.4,
     colorACtrl: "#1d79a0",
     colorBCtrl: "#ffffff",
@@ -46,7 +46,7 @@ const MeshObject: React.FC = () => {
     paramsACtrl: {
       value: intiValue.paramsACtrl,
       step: 1,
-      min: 1,
+      min: 0,
       max: 10,
       onChange: (value) => {
         if (materialRef && materialRef.current) {
@@ -90,7 +90,7 @@ const MeshObject: React.FC = () => {
     timeSpeedCtrl: {
       value: intiValue.timeSpeedCtrl,
       step: 0.1,
-      min: 1,
+      min: 0,
       max: 10,
       onChange: (value) => {
         timeSpeed.current = value;
