@@ -1,7 +1,5 @@
 import { Canvas } from "@react-three/fiber";
 import MeshForShader from "./meshForShader";
-import Paragraph from "@/components/texts/paragraph";
-import { CanvasWrapper, Info } from "../projectStyles";
 
 interface Props {}
 

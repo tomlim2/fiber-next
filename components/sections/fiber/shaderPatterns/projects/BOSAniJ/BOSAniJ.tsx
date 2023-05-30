@@ -1,7 +1,5 @@
 import { Canvas } from "@react-three/fiber";
-
 import MeshForShader from "./meshForShader";
-import { CanvasWrapper, Info } from "../projectStyles";
 
 interface Props {}
 

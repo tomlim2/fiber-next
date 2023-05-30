@@ -1,16 +1,35 @@
+import PostAni from "./postAni";
 import styled from "styled-components";
 
-const MeshAndShader = () => {
+import VerFragA from "./projects/verFragA";
+
+const aniList = [
+  {
+    info: "Pattern BN: Raging sea",
+    component: <VerFragA />,
+  },
+];
+
+const sectionShaderPatterns = () => {
   return (
     <SectionWrapper>
       <Container>
-        Mesh and shader
+        {aniList.map((item, index) => {
+          return (
+            <PostAni
+              key={index}
+              shaderIndex={index}
+              canvasComponent={item.component}
+              info={item.info}
+            />
+          );
+        })}
       </Container>
     </SectionWrapper>
   );
 };
 
-export default MeshAndShader;
+export default sectionShaderPatterns;
 
 export const SectionWrapper = styled.section`
   display: flex;
