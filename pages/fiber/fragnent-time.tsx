@@ -1,7 +1,7 @@
 import Head from "next/head";
 
 import LayoutDefault from "layouts/layoutDefault";
-import MeshoNShader from "@/components/sections/fiber/shaderPatterns";
+import MeshoNShader from "@/components/sections/fiber/fragnentTime";
 
 const ShaderPatterns = () => {
   const pageHeadData = (

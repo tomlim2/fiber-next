@@ -6,7 +6,7 @@ import {
   ProjectFramer,
   CanvasWrapper,
   Info,
-} from "@/components/sections/fiber/shaderPatterns/postAni";
+} from "@/components/sections/fiber/fragnentTime/postAni";
 
 import type { ShaderMap } from "./shader/shaderMap";
 
