@@ -8,7 +8,30 @@ class Boid {
   constructor(p: p5) {
     this.position = p.createVector(p.width / 2, p.height / 2);
     this.velocity = p.createVector(p.random() - 0.5, p.random() - 0.5);
+    this.velocity.setMag(p.random(0.5, 1.5));
     this.acceleration = p.createVector();
+  }
+
+  align(p: p5, boids: Boid[]) {
+    let perceptionRadius = 100;
+    let avg = p.createVector();
+    let total = 0;
+    for (let other of boids) {
+      let d = p.dist(
+        this.position.x,
+        this.position.y,
+        other.position.x,
+        other.position.y
+      );
+      if (other !== this && d < perceptionRadius) {
+        avg.add(other.velocity);
+        total++;
+      }
+    }
+    if (total > 0) {
+      avg.div(boids.length);
+      this.velocity = avg;
+    }
   }
 
   update(p: p5) {
