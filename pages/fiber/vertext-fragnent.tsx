@@ -1,7 +1,7 @@
 import Head from "next/head";
 
 import LayoutDefault from "layouts/layoutDefault";
-import MeshoNShader from "@/components/sections/fiber/vertexFragnent";
+import VertexFragnent from "@/components/sections/fiber/vertexFragnent";
 
 const ShaderPatterns = () => {
   const pageHeadData = (
@@ -14,7 +14,7 @@ const ShaderPatterns = () => {
   return (
     <div>
       {pageHeadData}
-      <MeshoNShader />
+      <VertexFragnent />
     </div>
   );
 };

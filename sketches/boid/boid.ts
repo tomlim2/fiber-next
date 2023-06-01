@@ -12,8 +12,8 @@ class Boid {
     this.velocity = p.createVector(p.random() - 0.5, p.random() - 0.5);
     this.velocity.setMag(p.random(2, 4));
     this.acceleration = p.createVector();
-    this.maxForce =.2;
-    this.maxSpeed = 4 ;
+    this.maxForce = 0.2;
+    this.maxSpeed = 4;
   }
 
   edges(p: p5) {

@@ -1,4 +1,4 @@
-import PostAni from "./postAni";
+import PostAni from "../common/postAni";
 import styled from "styled-components";
 
 import VerFragA from "./projects/verFragA";
@@ -10,7 +10,7 @@ const aniList = [
   },
 ];
 
-const sectionShaderPatterns = () => {
+const VertextFragnent = () => {
   return (
     <SectionWrapper>
       <Container>
@@ -29,7 +29,7 @@ const sectionShaderPatterns = () => {
   );
 };
 
-export default sectionShaderPatterns;
+export default VertextFragnent;
 
 export const SectionWrapper = styled.section`
   display: flex;

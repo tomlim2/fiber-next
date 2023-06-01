@@ -8,7 +8,7 @@ import {
   ProjectFramer,
   CanvasWrapper,
   Info,
-} from "@/components/sections/fiber/fragnentTime/postAni";
+} from "@/components/sections/fiber/common/postAni";
 
 interface Props {}
 

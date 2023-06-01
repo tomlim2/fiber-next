@@ -1,4 +1,4 @@
-import PostAni from "./postAni";
+import PostAni from "../common/postAni";
 import styled from "styled-components";
 
 import ProjectBookOfShadersAnimationA from "@/components/sections/fiber/fragnentTime/projects/BOSAniA/bookOfShadersAnimationA";

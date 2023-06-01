@@ -5,7 +5,7 @@ import sketchVectorFields from "sketches/vectorFields/sketchVectorFields";
 
 import dynamic from "next/dynamic";
 
-const P5Wrapper = dynamic(() => import("components/P5Wrapper"), { ssr: false });
+const P5Wrapper = dynamic(() => import("@/components/sections/p5/P5Wrapper"), { ssr: false });
 
 const P5VectorField = () => {
   const pageHeadData = (
