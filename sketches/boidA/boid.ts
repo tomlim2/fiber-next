@@ -81,7 +81,7 @@ class Boid {
   }
 
   separation(p: p5, boids: any) {
-    let perceptionRadius = 100;
+    let perceptionRadius = 50;
     let steering = p.createVector();
     let total = 0;
     for (let other of boids) {

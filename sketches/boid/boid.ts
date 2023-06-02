@@ -80,11 +80,45 @@ class Boid {
     return steering;
   }
 
+  separation(p: p5, boids: Boid[]) {
+    let perceptionRadius = 50;
+    let steering = p.createVector();
+    let total = 0;
+    for (let other of boids) {
+      let d = p.dist(
+        this.position.x,
+        this.position.y,
+        other.position.x,
+        other.position.y
+      );
+      if (other != this && d < perceptionRadius) {        
+        let diff = p.createVector(this.position.x, this.position.y);
+        console.log(other);
+        
+        diff.sub(other.position.x, other.position.y)        
+        diff.div(d);
+        steering.add(diff);
+        total++;
+      }
+    }
+
+    if (total > 0) {
+      steering.div(total);
+      steering.setMag(this.maxSpeed);
+      steering.sub(this.velocity);
+      steering.limit(this.maxForce);
+    }
+    return steering;
+  }
+
   flock(p: p5, boids: Boid[]) {
     let alignment = this.align(p, boids);
     let cohesion = this.cohesion(p, boids);
-    this.acceleration.add(alignment);
-    this.acceleration.add(cohesion);
+    let separation = this.separation(p, boids);
+    
+    this.acceleration.add(separation);
+    // this.acceleration.add(alignment);
+    // this.acceleration.add(cohesion);
   }
 
   update(p: p5) {

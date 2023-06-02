@@ -12,7 +12,7 @@ const SectionWorks: React.FC<ISectionProps> = ({ backgroundColor, color }) => {
     <SectionExtend sectionStyles={sectionStyles}>
       <ul className="works">
         <li className="shader">
-          <h3>Shader</h3>
+          <h3>SHADER</h3>
           <ul>
             <li>
               <TextLink to="/fiber/fragnent-time">Fragnent-Time</TextLink>
@@ -37,11 +37,11 @@ const SectionWorks: React.FC<ISectionProps> = ({ backgroundColor, color }) => {
           </ul>
         </li>
         <li className="blender">
-          <h3>Blender</h3>
+          <h3>BLENDER</h3>
           <TextLink to="/blender/geometry-node">Geometry Node</TextLink>
         </li>
         <li className="design">
-          <TextLink to="/design">Designs</TextLink>
+          <TextLink to="/design">DESIGN</TextLink>
         </li>
       </ul>
     </SectionExtend>
