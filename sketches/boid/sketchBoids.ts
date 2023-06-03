@@ -2,7 +2,7 @@ import p5 from "p5";
 import Boid from "./boid";
 
 const flock: Boid[] = [];
-const count = 50;
+const count = 200;
 
 export default function sketchBoids(p: p5) {
   p.setup = () => {

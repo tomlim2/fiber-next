@@ -15,13 +15,13 @@ const SectionWorks: React.FC<ISectionProps> = ({ backgroundColor, color }) => {
           <h3>SHADER</h3>
           <ul>
             <li>
+              <TextLink to="/fiber/vertext-fragnent">Vertex-Fragnent</TextLink>
+            </li>
+            <li>
               <TextLink to="/fiber/fragnent-time">Fragnent-Time</TextLink>
             </li>
             <li>
               <TextLink to="/fiber/fragnent-still">Fragnent-Still</TextLink>
-            </li>
-            <li>
-              <TextLink to="/fiber/vertext-fragnent">Vertex-Fragnent</TextLink>
             </li>
           </ul>
         </li>
@@ -41,7 +41,7 @@ const SectionWorks: React.FC<ISectionProps> = ({ backgroundColor, color }) => {
           <TextLink to="/blender/geometry-node">Geometry Node</TextLink>
         </li>
         <li className="design">
-          <TextLink to="/design">DESIGN</TextLink>
+          <h3>DESIGN</h3>
         </li>
       </ul>
     </SectionExtend>
@@ -54,6 +54,10 @@ export const SectionExtend = styled(Section)`
   ul.works {
     display: grid;
     gap: 16px;
+
+    h3 {
+      font-size: 12px;
+    }
 
     .work {
     }
