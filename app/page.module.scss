@@ -1,0 +1,16 @@
+.main {
+  display: flex;
+  flex-direction: column;
+  padding: 48px 24px;
+
+  gap: 24px; 
+}
+
+.works {
+  display: grid;
+  gap: 16px;
+
+  h3 {
+    font-size: 12px;
+  }
+}

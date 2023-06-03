@@ -1,0 +1,13 @@
+.button {
+  padding: 6px 8px;
+  background-color: #252525;
+  color: #fcfcfc;
+  border: none;
+
+  transition: 120ms background-color ease-in-out, 120ms color ease-in-out;
+
+  &:hover {
+    color: #ffffff;
+    background-color: #000000;
+  }
+}
