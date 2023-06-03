@@ -84,6 +84,7 @@ class Boid {
     let perceptionRadius = 50;
     let steering = p.createVector();
     let total = 0;
+    
     for (let other of boids) {
       let d = p.dist(
         this.position.x,
@@ -93,8 +94,6 @@ class Boid {
       );
       if (other != this && d < perceptionRadius) {        
         let diff = p.createVector(this.position.x, this.position.y);
-        console.log(other);
-        
         diff.sub(other.position.x, other.position.y)        
         diff.div(d);
         steering.add(diff);
@@ -129,7 +128,7 @@ class Boid {
   }
 
   show(p: p5) {
-    p.strokeWeight(8);
+    p.strokeWeight(4);
     p.stroke(255);
     p.point(this.position.x, this.position.y);
   }

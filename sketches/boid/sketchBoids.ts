@@ -2,13 +2,15 @@ import p5 from "p5";
 import Boid from "./boid";
 
 const flock: Boid[] = [];
-const count = 100;
+const count = 50;
 
 export default function sketchBoids(p: p5) {
   p.setup = () => {
     p.createCanvas(600, 600);
-    for (let i = 0; i < count; i++) {
-      flock.push(new Boid(p));
+    if (flock.length < 1) {
+      for (let i = 0; i < count; i++) {
+        flock.push(new Boid(p));
+      }
     }
   };
 
