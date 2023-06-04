@@ -1,73 +1,73 @@
 "use client";
 import PostTime from "../common/postTime";
-import styles from "../common/fiber.module.scss"
+import styles from "../common/fiber.module.scss";
 
-import ProjectBookOfShadersAnimationA from "@/components/sections/fiber/fragnentTime/projects/BOSAniA/bookOfShadersAnimationA";
-import ProjectBookOfShadersAnimationB from "@/components/sections/fiber/fragnentTime/projects/BOSAniB/bookOfShadersAnimationB";
+import ProjectBookOfShadersAnimationA from "@/components/sections/fiber/fragnentTime/patterns/BOSAniA/bookOfShadersAnimationA";
+import ProjectBookOfShadersAnimationB from "@/components/sections/fiber/fragnentTime/patterns/BOSAniB/bookOfShadersAnimationB";
 
-import BOSAniC from "@/components/sections/fiber/fragnentTime/projects/BOSAniC/BOSAniC";
-import BOSAniD from "@/components/sections/fiber/fragnentTime/projects/BOSAniD/BOSAniD";
-import BOSAniE from "@/components/sections/fiber/fragnentTime/projects/BOSAniE/BOSAniE";
-import BOSAniF from "@/components/sections/fiber/fragnentTime/projects/BOSAniF/BOSAniF";
-import BOSAniG from "@/components/sections/fiber/fragnentTime/projects/BOSAniG/BOSAniG";
-import BOSAniH from "@/components/sections/fiber/fragnentTime/projects/BOSAniH/BOSAniH";
-import BOSAniI from "@/components/sections/fiber/fragnentTime/projects/BOSAniI/BOSAniI";
-import BOSAniJ from "@/components/sections/fiber/fragnentTime/projects/BOSAniJ/BOSAniJ";
-import BOSAniK from "@/components/sections/fiber/fragnentTime/projects/BOSAniK/BOSAniK";
-import BOSAniL from "@/components/sections/fiber/fragnentTime/projects/BOSAniL/BOSAniL";
-import BOSAniM from "@/components/sections/fiber/fragnentTime/projects/BOSAniM/BOSAniM";
-import BOSAniN from "@/components/sections/fiber/fragnentTime/projects/BOSAniN/BOSAniN";
-import BOSAniO from "@/components/sections/fiber/fragnentTime/projects/BOSAniO/BOSAniO";
-import BOSAniP from "@/components/sections/fiber/fragnentTime/projects/BOSAniP/BOSAniP";
-import BOSAniQ from "@/components/sections/fiber/fragnentTime/projects/BOSAniQ/BOSAniQ";
-import BOSAniR from "@/components/sections/fiber/fragnentTime/projects/BOSAniR/BOSAniR";
-import BOSAniS from "@/components/sections/fiber/fragnentTime/projects/BOSAniS/BOSAniS";
-import BOSAniT from "@/components/sections/fiber/fragnentTime/projects/BOSAniT/BOSAniT";
-import BOSAniU from "@/components/sections/fiber/fragnentTime/projects/BOSAniU/BOSAniU";
-import BOSAniV from "@/components/sections/fiber/fragnentTime/projects/BOSAniV/BOSAniV";
-import BOSAniW from "@/components/sections/fiber/fragnentTime/projects/BOSAniW/BOSAniW";
-import BOSAniX from "@/components/sections/fiber/fragnentTime/projects/BOSAniX/BOSAniX";
-import BOSAniY from "@/components/sections/fiber/fragnentTime/projects/BOSAniY/BOSAniY";
-import BOSAniZ from "@/components/sections/fiber/fragnentTime/projects/BOSAniZ";
-import BOSAniAA from "@/components/sections/fiber/fragnentTime/projects/BOSAniAA/BOSAniAA";
-import BOSAniAB from "@/components/sections/fiber/fragnentTime/projects/BOSAniAB/BOSAniAB";
-import BOSAniAC from "@/components/sections/fiber/fragnentTime/projects/BOSAniAC/BOSAniAC";
-import BOSAniAD from "@/components/sections/fiber/fragnentTime/projects/BOSAniAD/BOSAniAD";
-import BOSAniAE from "@/components/sections/fiber/fragnentTime/projects/BOSAniAE/BOSAniAE";
-import BOSAniAF from "@/components/sections/fiber/fragnentTime/projects/BOSAniAF/BOSAniAF";
-import BOSAniAG from "@/components/sections/fiber/fragnentTime/projects/BOSAniAG/BOSAniAG";
-import BOSAniAH from "@/components/sections/fiber/fragnentTime/projects/BOSAniAH/BOSAniAH";
-import BOSAniAI from "@/components/sections/fiber/fragnentTime/projects/BOSAniAI/BOSAniAI";
-import BOSAniAJ from "@/components/sections/fiber/fragnentTime/projects/BOSAniAJ/BOSAniAJ";
-import BOSAniAK from "@/components/sections/fiber/fragnentTime/projects/BOSAniAK/BOSAniAK";
-import BOSAniAL from "@/components/sections/fiber/fragnentTime/projects/BOSAniAL/BOSAniAL";
-import BOSAniAM from "@/components/sections/fiber/fragnentTime/projects/BOSAniAM/BOSAniAM";
-import BOSAniAN from "@/components/sections/fiber/fragnentTime/projects/BOSAniAN/BOSAniAN";
-import BOSAniAO from "@/components/sections/fiber/fragnentTime/projects/BOSAniAO/BOSAniAO";
-import BOSAniAP from "@/components/sections/fiber/fragnentTime/projects/BOSAniAP/BOSAniAP";
-import BOSAniAQ from "@/components/sections/fiber/fragnentTime/projects/BOSAniAQ/BOSAniAQ";
-import BOSAniAR from "@/components/sections/fiber/fragnentTime/projects/BOSAniAR/BOSAniAR";
-import BOSAniAS from "@/components/sections/fiber/fragnentTime/projects/BOSAniAS/BOSAniAS";
-import BOSAniAT from "@/components/sections/fiber/fragnentTime/projects/BOSAniAT/BOSAniAT";
-import BOSAniAU from "@/components/sections/fiber/fragnentTime/projects/BOSAniAU/BOSAniAU";
-import BOSAniAV from "@/components/sections/fiber/fragnentTime/projects/BOSAniAV/BOSAniAV";
-import BOSAniAW from "@/components/sections/fiber/fragnentTime/projects/BOSAniAW/BOSAniAW";
-import BOSAniAX from "@/components/sections/fiber/fragnentTime/projects/BOSAniAX/BOSAniAX";
-import BOSAniAY from "@/components/sections/fiber/fragnentTime/projects/BOSAniAY/BOSAniAY";
-import BOSAniAZ from "@/components/sections/fiber/fragnentTime/projects/BOSAniAZ/BOSAniAZ";
-import BOSAniBA from "@/components/sections/fiber/fragnentTime/projects/BOSAniBA/BOSAniBA";
-import BOSAniBB from "@/components/sections/fiber/fragnentTime/projects/BOSAniBB/BOSAniBB";
-import BOSAniBC from "@/components/sections/fiber/fragnentTime/projects/BOSAniBC/BOSAniBC";
-import BOSAniBD from "@/components/sections/fiber/fragnentTime/projects/BOSAniBD/BOSAniBD";
-import BOSAniBE from "@/components/sections/fiber/fragnentTime/projects/BOSAniBE/BOSAniBE";
-import BOSAniBF from "@/components/sections/fiber/fragnentTime/projects/BOSAniBF/BOSAniBF";
-import BOSAniBG from "@/components/sections/fiber/fragnentTime/projects/BOSAniBG/BOSAniBG";
-import BOSAniBH from "@/components/sections/fiber/fragnentTime/projects/BOSAniBH/BOSAniBH";
-import BOSAniBI from "@/components/sections/fiber/fragnentTime/projects/BOSAniBI/BOSAniBI";
-import BOSAniBJ from "@/components/sections/fiber/fragnentTime/projects/BOSAniBJ/BOSAniBJ";
-import BOSAniBK from "@/components/sections/fiber/fragnentTime/projects/BOSAniBK/BOSAniBK";
-import BOSAniBL from "@/components/sections/fiber/fragnentTime/projects/BOSAniBL";
-import BOSAniBM from "@/components/sections/fiber/fragnentTime/projects/BOSAniBM";
+import BOSAniC from "@/components/sections/fiber/fragnentTime/patterns/BOSAniC/BOSAniC";
+import BOSAniD from "@/components/sections/fiber/fragnentTime/patterns/BOSAniD/BOSAniD";
+import BOSAniE from "@/components/sections/fiber/fragnentTime/patterns/BOSAniE/BOSAniE";
+import BOSAniF from "@/components/sections/fiber/fragnentTime/patterns/BOSAniF/BOSAniF";
+import BOSAniG from "@/components/sections/fiber/fragnentTime/patterns/BOSAniG/BOSAniG";
+import BOSAniH from "@/components/sections/fiber/fragnentTime/patterns/BOSAniH/BOSAniH";
+import BOSAniI from "@/components/sections/fiber/fragnentTime/patterns/BOSAniI/BOSAniI";
+import BOSAniJ from "@/components/sections/fiber/fragnentTime/patterns/BOSAniJ/BOSAniJ";
+import BOSAniK from "@/components/sections/fiber/fragnentTime/patterns/BOSAniK/BOSAniK";
+import BOSAniL from "@/components/sections/fiber/fragnentTime/patterns/BOSAniL/BOSAniL";
+import BOSAniM from "@/components/sections/fiber/fragnentTime/patterns/BOSAniM/BOSAniM";
+import BOSAniN from "@/components/sections/fiber/fragnentTime/patterns/BOSAniN/BOSAniN";
+import BOSAniO from "@/components/sections/fiber/fragnentTime/patterns/BOSAniO/BOSAniO";
+import BOSAniP from "@/components/sections/fiber/fragnentTime/patterns/BOSAniP/BOSAniP";
+import BOSAniQ from "@/components/sections/fiber/fragnentTime/patterns/BOSAniQ/BOSAniQ";
+import BOSAniR from "@/components/sections/fiber/fragnentTime/patterns/BOSAniR/BOSAniR";
+import BOSAniS from "@/components/sections/fiber/fragnentTime/patterns/BOSAniS/BOSAniS";
+import BOSAniT from "@/components/sections/fiber/fragnentTime/patterns/BOSAniT/BOSAniT";
+import BOSAniU from "@/components/sections/fiber/fragnentTime/patterns/BOSAniU/BOSAniU";
+import BOSAniV from "@/components/sections/fiber/fragnentTime/patterns/BOSAniV/BOSAniV";
+import BOSAniW from "@/components/sections/fiber/fragnentTime/patterns/BOSAniW/BOSAniW";
+import BOSAniX from "@/components/sections/fiber/fragnentTime/patterns/BOSAniX/BOSAniX";
+import BOSAniY from "@/components/sections/fiber/fragnentTime/patterns/BOSAniY/BOSAniY";
+import BOSAniZ from "@/components/sections/fiber/fragnentTime/patterns/BOSAniZ";
+import BOSAniAA from "@/components/sections/fiber/fragnentTime/patterns/BOSAniAA/BOSAniAA";
+import BOSAniAB from "@/components/sections/fiber/fragnentTime/patterns/BOSAniAB/BOSAniAB";
+import BOSAniAC from "@/components/sections/fiber/fragnentTime/patterns/BOSAniAC/BOSAniAC";
+import BOSAniAD from "@/components/sections/fiber/fragnentTime/patterns/BOSAniAD/BOSAniAD";
+import BOSAniAE from "@/components/sections/fiber/fragnentTime/patterns/BOSAniAE/BOSAniAE";
+import BOSAniAF from "@/components/sections/fiber/fragnentTime/patterns/BOSAniAF/BOSAniAF";
+import BOSAniAG from "@/components/sections/fiber/fragnentTime/patterns/BOSAniAG/BOSAniAG";
+import BOSAniAH from "@/components/sections/fiber/fragnentTime/patterns/BOSAniAH/BOSAniAH";
+import BOSAniAI from "@/components/sections/fiber/fragnentTime/patterns/BOSAniAI/BOSAniAI";
+import BOSAniAJ from "@/components/sections/fiber/fragnentTime/patterns/BOSAniAJ/BOSAniAJ";
+import BOSAniAK from "@/components/sections/fiber/fragnentTime/patterns/BOSAniAK/BOSAniAK";
+import BOSAniAL from "@/components/sections/fiber/fragnentTime/patterns/BOSAniAL/BOSAniAL";
+import BOSAniAM from "@/components/sections/fiber/fragnentTime/patterns/BOSAniAM/BOSAniAM";
+import BOSAniAN from "@/components/sections/fiber/fragnentTime/patterns/BOSAniAN/BOSAniAN";
+import BOSAniAO from "@/components/sections/fiber/fragnentTime/patterns/BOSAniAO/BOSAniAO";
+import BOSAniAP from "@/components/sections/fiber/fragnentTime/patterns/BOSAniAP/BOSAniAP";
+import BOSAniAQ from "@/components/sections/fiber/fragnentTime/patterns/BOSAniAQ/BOSAniAQ";
+import BOSAniAR from "@/components/sections/fiber/fragnentTime/patterns/BOSAniAR/BOSAniAR";
+import BOSAniAS from "@/components/sections/fiber/fragnentTime/patterns/BOSAniAS/BOSAniAS";
+import BOSAniAT from "@/components/sections/fiber/fragnentTime/patterns/BOSAniAT/BOSAniAT";
+import BOSAniAU from "@/components/sections/fiber/fragnentTime/patterns/BOSAniAU/BOSAniAU";
+import BOSAniAV from "@/components/sections/fiber/fragnentTime/patterns/BOSAniAV/BOSAniAV";
+import BOSAniAW from "@/components/sections/fiber/fragnentTime/patterns/BOSAniAW/BOSAniAW";
+import BOSAniAX from "@/components/sections/fiber/fragnentTime/patterns/BOSAniAX/BOSAniAX";
+import BOSAniAY from "@/components/sections/fiber/fragnentTime/patterns/BOSAniAY/BOSAniAY";
+import BOSAniAZ from "@/components/sections/fiber/fragnentTime/patterns/BOSAniAZ/BOSAniAZ";
+import BOSAniBA from "@/components/sections/fiber/fragnentTime/patterns/BOSAniBA/BOSAniBA";
+import BOSAniBB from "@/components/sections/fiber/fragnentTime/patterns/BOSAniBB/BOSAniBB";
+import BOSAniBC from "@/components/sections/fiber/fragnentTime/patterns/BOSAniBC/BOSAniBC";
+import BOSAniBD from "@/components/sections/fiber/fragnentTime/patterns/BOSAniBD/BOSAniBD";
+import BOSAniBE from "@/components/sections/fiber/fragnentTime/patterns/BOSAniBE/BOSAniBE";
+import BOSAniBF from "@/components/sections/fiber/fragnentTime/patterns/BOSAniBF/BOSAniBF";
+import BOSAniBG from "@/components/sections/fiber/fragnentTime/patterns/BOSAniBG/BOSAniBG";
+import BOSAniBH from "@/components/sections/fiber/fragnentTime/patterns/BOSAniBH/BOSAniBH";
+import BOSAniBI from "@/components/sections/fiber/fragnentTime/patterns/BOSAniBI/BOSAniBI";
+import BOSAniBJ from "@/components/sections/fiber/fragnentTime/patterns/BOSAniBJ/BOSAniBJ";
+import BOSAniBK from "@/components/sections/fiber/fragnentTime/patterns/BOSAniBK/BOSAniBK";
+import BOSAniBL from "@/components/sections/fiber/fragnentTime/patterns/BOSAniBL";
+import BOSAniBM from "@/components/sections/fiber/fragnentTime/patterns/BOSAniBM";
 
 const aniList = [
   {
@@ -332,10 +332,10 @@ const aniList = [
   },
 ];
 
-const sectionShaderPatterns = () => {
+const SectionFragnentTime = () => {
   return (
-    <div className={styles['section-shader']}>
-      <div className={styles['container-shader']}>
+    <div className={styles["section-shader"]}>
+      <div className={styles["container-shader"]}>
         {aniList.map((item, index) => {
           return (
             <PostTime
@@ -351,4 +351,4 @@ const sectionShaderPatterns = () => {
   );
 };
 
-export default sectionShaderPatterns;
+export default SectionFragnentTime;

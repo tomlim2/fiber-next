@@ -1,0 +1,39 @@
+.header {
+  position: fixed;
+  width: 100%;
+  padding: 5px 24px;
+  z-index: 10000;
+  backdrop-filter: blur(4px);
+  ul {
+    grid-template-columns: repeat(3, 1fr);
+  }
+}
+
+.footer {
+  position: fixed;
+  width: 100%;
+  padding: 5px 24px 6px 24px;
+  bottom: -1px;
+  z-index: 10000;
+  backdrop-filter: blur(4px);
+  ul {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+.menu {
+  display: grid;
+
+  li {
+    font-size: 0.75rem;
+    a {
+      font-size: 0.75rem;
+      text-decoration: none;
+      color: #000;
+
+      &:hover {
+        color: blue;
+      }
+    }
+  }
+}

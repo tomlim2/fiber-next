@@ -1,5 +1,5 @@
 import { Metadata } from "next/dist/lib/metadata/types/metadata-interface";
-import SectionVertexFragnent from "@/components/sections/fiber/Vertexfragnent/";
+import SectionVertexFragnent from "@/components/sections/fiber/vertexFragnent";
 
 export const metadata: Metadata = {
   title: "Fragnent time | yslim",

@@ -15,7 +15,7 @@ const stillList = [
   },
 ];
 
-const sectionShaderPatterns = () => {
+const SectionFragnentStill = () => {
   return (
     <section className={styles["section-shader"]}>
       <div className={styles["container-shader"]}>
@@ -27,4 +27,4 @@ const sectionShaderPatterns = () => {
   );
 };
 
-export default sectionShaderPatterns;
+export default SectionFragnentStill;

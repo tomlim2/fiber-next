@@ -11,7 +11,7 @@ const aniList = [
   },
 ];
 
-const VertextFragnent = () => {
+const SectionVertexFragnent = () => {
   return (
     <div className={styles["section-shader"]}>
       <div className={styles["container-shader"]}>
@@ -30,4 +30,4 @@ const VertextFragnent = () => {
   );
 };
 
-export default VertextFragnent;
+export default SectionVertexFragnent;

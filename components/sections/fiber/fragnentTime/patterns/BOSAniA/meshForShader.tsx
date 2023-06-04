@@ -1,4 +1,4 @@
-import { shaderMap } from "@/components/sections/fiber/fragnentTime/projects/BOSAniA/shader/shaderMap";
+import { shaderMap } from "@/components/sections/fiber/fragnentTime/patterns/BOSAniA/shader/shaderMap";
 import { useFrame } from "@react-three/fiber";
 import { useRef } from "react";
 
