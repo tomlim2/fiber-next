@@ -16,8 +16,8 @@ const stillList = [
 
 const sectionShaderPatterns = () => {
   return (
-    <section className={styles["section-fiber"]}>
-      <div className={styles["container-fiber"]}>
+    <section className={styles["section-shader"]}>
+      <div className={styles["container-shader"]}>
         {stillList.map((item, index) => {
           return item.component;
         })}

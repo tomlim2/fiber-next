@@ -1,5 +1,4 @@
 "use client";
-
 import { useEffect, useState, useRef } from "react";
 import { shaderMap } from "./shader/shaderMap";
 import { Canvas } from "@react-three/fiber";
@@ -64,7 +63,7 @@ const BookOfShaders: React.FC<Props> = () => {
 
   return (
     <div className={styles["canvas-wrapper"]}>
-      <div className={styles["canvas"]} ref={refCanvas}>
+      <div className={styles["canvas-main"]} ref={refCanvas}>
         {isOn && (
           <Canvas onCreated={created}>
             {shaderMap.map((shader: IShaderSetWithName, index: number) => {
@@ -77,7 +76,7 @@ const BookOfShaders: React.FC<Props> = () => {
           </Canvas>
         )}
       </div>
-      <div className={styles["info"]}>
+      <div className={styles["canvas-info"]}>
         <div>
           <h2>Book of shaders</h2>
           <div className="buttons">

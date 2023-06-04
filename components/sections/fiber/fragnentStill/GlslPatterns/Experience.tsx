@@ -1,6 +1,4 @@
 'use client';
-
-import type { IUniform, Vector2 } from "three";
 import type { IShaderSet, IFVector2 } from "@/types/fiber";
 import { useFrame } from "@react-three/fiber";
 import { useRef } from "react";
