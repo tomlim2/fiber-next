@@ -1,3 +1,4 @@
+"use client";
 import React, { useRef, useEffect } from "react";
 import styles from "./wrapperP5.module.scss";
 

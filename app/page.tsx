@@ -31,10 +31,10 @@ const PageHome = () => {
             <h3>P5</h3>
             <ul>
               <li>
-                <Link href="/p5/vfa">Vector Field</Link>
+                <Link href="/p5/boid">Boids</Link>
               </li>
               <li>
-                <Link href="/p5/boid">Boids</Link>
+                <Link href="/p5/vfa">Vector Field</Link>
               </li>
             </ul>
           </li>
