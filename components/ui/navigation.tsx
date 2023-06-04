@@ -10,10 +10,10 @@ const Navigation: React.FC = () => {
             <Link href="/">ylim</Link>
           </li>
           <li className="menu">
-            <Link href="/">work</Link>
+            <Link href="/">collections</Link>
           </li>
           <li className="menu">
-            <Link href="/about">about</Link>
+            <Link href="/about">about this website</Link>
           </li>
         </ul>
       </header>
@@ -22,7 +22,10 @@ const Navigation: React.FC = () => {
           <li>
             <Link href="/exps">tomandlim@gmail.com</Link>
           </li>
-          <li>Copyright, yslim. All rights reserved</li>
+          <li>
+            The purpose of all works this website is only for showing progress
+            of the study.
+          </li>
         </ul>
       </footer>
     </>
