@@ -10,7 +10,7 @@
   padding-bottom: 48px;
 }
 
-.project-frame {
+.canvas-wrapper {
   display: flex;
   gap: 12px;
   min-height: 648px;
@@ -38,7 +38,7 @@
   }
 }
 
-.canvas-wrapper {
+.canvas {
   position: relative;
   width: 600px;
   height: 600px;

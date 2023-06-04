@@ -1,19 +1,22 @@
-'use client';
+"use client";
 
 import { useEffect, useState, useRef } from "react";
 import { shaderMap } from "./shader/shaderMap";
 import { Canvas } from "@react-three/fiber";
 import ButtonBasic from "@/components/buttons/buttonBasic";
+import Experience from "./Experience";
 
+import type { IShaderSet, IFVector2 } from "@/types/fiber";
 import type { ShaderMap } from "./shader/shaderMap";
 
-import styles from "../../fiber.module.scss";
+import styles from "../../common/fiber.module.scss";
 
 interface Props {}
 
 const ProjectGlsl: React.FC<Props> = () => {
   const [shaderNumber, setShaderNumber] = useState(0);
   const [isOn, setIsOn] = useState(false);
+  const [mousePos, setMousePos] = useState<IFVector2 | undefined>();
   const refCanvas = useRef<any>();
 
   useEffect(() => {
@@ -46,25 +49,19 @@ const ProjectGlsl: React.FC<Props> = () => {
   const onClick = (index: number) => {
     if (index !== shaderNumber) setShaderNumber(index);
   };
+
   return (
-    <div className={styles["project-wrapper"]}>
-      <div className={styles["canvas-wrapper"]} ref={refCanvas}>
+    <div className={styles["canvas-wrapper"]}>
+      <div className={styles["canvas"]} ref={refCanvas}>
         {isOn && (
           <Canvas onCreated={created}>
-            <mesh scale={6}>
-              <planeGeometry />
-              {shaderMap.map((shader: ShaderMap, index: number) => {
-                if (shaderNumber == index) {
-                  return (
-                    <shaderMaterial
-                      fragmentShader={shaderMap[shaderNumber].fragment}
-                      vertexShader={shaderMap[shaderNumber].vertex}
-                      key={index}
-                    />
-                  );
-                }
-              })}
-            </mesh>
+            {shaderMap.map((shader: IShaderSet, index: number) => {
+              if (shaderNumber === index) {
+                return (
+                  <Experience key={index} shader={shader} mousePos={mousePos} />
+                );
+              }
+            })}
           </Canvas>
         )}
       </div>

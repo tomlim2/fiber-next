@@ -1,7 +1,7 @@
-import ProjectGlslPatterns from "./GlslPatterns/glslPatterns";
-import ProjectBookOfShaders from "./BOS/bookOfShaders";
+import ProjectGlslPatterns from "./GlslPatterns";
+import ProjectBookOfShaders from "./BOS";
 
-import styles from "../fiber.module.scss";
+import styles from "../common/fiber.module.scss";
 
 const stillList = [
   {

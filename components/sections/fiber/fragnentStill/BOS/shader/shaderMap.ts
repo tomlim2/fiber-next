@@ -1,4 +1,4 @@
-import type { IShaderSet } from "@/types/fiber";
+import type { IShaderSetWithName } from "@/types/fiber";
 
 import Pattern1Fragment from "raw-loader!glslify-loader!./pattern1/fragment.glsl";
 import Pattern1Vertex from "raw-loader!glslify-loader!./pattern1/vertex.glsl";
@@ -47,7 +47,7 @@ import Pattern22Vertex from "raw-loader!glslify-loader!./pattern22/vertex.glsl";
 import Pattern23Fragment from "raw-loader!glslify-loader!./pattern23/fragment.glsl";
 import Pattern23Vertex from "raw-loader!glslify-loader!./pattern23/vertex.glsl";
 
-export const shaderMap: IShaderSet[] = [
+export const shaderMap: IShaderSetWithName[] = [
   { fragment: Pattern1Fragment, vertex: Pattern1Vertex, name: "2D random" },
   { fragment: Pattern2Fragment, vertex: Pattern2Vertex, name: "Mosaic" },
   { fragment: Pattern3Fragment, vertex: Pattern3Vertex, name: "UV" },

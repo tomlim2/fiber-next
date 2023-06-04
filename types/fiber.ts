@@ -1,6 +1,9 @@
 export interface IShaderSet {
   fragment: string;
   vertex: string;
+}
+
+export interface IShaderSetWithName extends IShaderSet {
   name: string;
 }
 

@@ -17,7 +17,6 @@ const MeshForShader: React.FC<Props> = ({ shader, mousePos }) => {
   useFrame((state, delta) => {
     if (materialRef.current) {
       materialRef.current.uniforms.uTime.value = state.clock.elapsedTime;
-      // console.log(materialRef.current.uniforms.uTime.value, "hi");
     }
   });
 

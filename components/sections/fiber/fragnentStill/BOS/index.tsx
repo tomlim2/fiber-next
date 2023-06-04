@@ -1,13 +1,13 @@
-'use client';
+"use client";
 
 import { useEffect, useState, useRef } from "react";
 import { shaderMap } from "./shader/shaderMap";
-import type { IShaderSet, IFVector2 } from "@/types/fiber";
 import { Canvas } from "@react-three/fiber";
 import ButtonBasic from "@/components/buttons/buttonBasic";
-import MeshForShader from "./meshForShader";
+import Experience from "./Experience";
+import type { IShaderSetWithName, IFVector2 } from "@/types/fiber";
 
-import styles from "../../fiber.module.scss";
+import styles from "../../common/fiber.module.scss";
 
 interface Props {}
 
@@ -63,18 +63,14 @@ const BookOfShaders: React.FC<Props> = () => {
   });
 
   return (
-    <div className={styles["project-wrapper"]}>
-      <div className={styles["canvas-wrapper"]} ref={refCanvas}>
+    <div className={styles["canvas-wrapper"]}>
+      <div className={styles["canvas"]} ref={refCanvas}>
         {isOn && (
           <Canvas onCreated={created}>
-            {shaderMap.map((shader: IShaderSet, index: number) => {
+            {shaderMap.map((shader: IShaderSetWithName, index: number) => {
               if (shaderNumber === index) {
                 return (
-                  <MeshForShader
-                    key={index}
-                    shader={shader}
-                    mousePos={mousePos}
-                  />
+                  <Experience key={index} shader={shader} mousePos={mousePos} />
                 );
               }
             })}
@@ -85,7 +81,7 @@ const BookOfShaders: React.FC<Props> = () => {
         <div>
           <h2>Book of shaders</h2>
           <div className="buttons">
-            {shaderMap.map((shader: IShaderSet, index: number) => (
+            {shaderMap.map((shader: IShaderSetWithName, index: number) => (
               <ButtonBasic
                 key={index}
                 onClick={() => onClick(index)}
