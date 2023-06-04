@@ -1,3 +1,4 @@
+"use client";
 import ProjectGlslPatterns from "./GlslPatterns";
 import ProjectBookOfShaders from "./BOS";
 

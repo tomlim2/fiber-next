@@ -1,3 +1,4 @@
+"use client";
 import PostTime from "../common/postTime";
 import styles from "../common/fiber.module.scss"
 

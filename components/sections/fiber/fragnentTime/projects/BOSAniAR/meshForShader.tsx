@@ -1,4 +1,4 @@
-"use client";
+
 import { shaderMap } from "./shader/shaderMap";
 import { Mesh, BufferGeometry, Material, ShaderMaterial } from "three";
 import { useFrame } from "@react-three/fiber";

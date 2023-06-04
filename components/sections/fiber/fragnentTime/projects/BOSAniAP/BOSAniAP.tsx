@@ -1,3 +1,4 @@
+
 import { Canvas } from "@react-three/fiber";
 import MeshForShader from "./meshForShader";
 import { StrictMode, useState } from "react";

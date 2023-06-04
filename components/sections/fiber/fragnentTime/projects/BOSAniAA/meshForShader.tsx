@@ -1,8 +1,7 @@
-"use client";
 import { shaderMap } from "./shader/shaderMap";
-import type { Mesh, BufferGeometry, Material, ShaderMaterial } from "three";
 import { useFrame } from "@react-three/fiber";
 import { useRef } from "react";
+import type { Mesh, BufferGeometry, Material, ShaderMaterial } from "three";
 
 const MeshForShader: React.FC = () => {
   const meshRef = useRef<Mesh<BufferGeometry, Material | Material[]>>(null);

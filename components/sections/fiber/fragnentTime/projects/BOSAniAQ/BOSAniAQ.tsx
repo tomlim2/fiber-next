@@ -1,10 +1,8 @@
+import { StrictMode, useState } from "react";
 import { Canvas } from "@react-three/fiber";
 import MeshForShader from "./meshForShader";
-import { StrictMode, useState } from "react";
 
 interface Props {}
-
-
 
 const BOSAniAQ: React.FC<Props> = () => {
   const [ctloffsetX, setCtloffsetX] = useState(0);

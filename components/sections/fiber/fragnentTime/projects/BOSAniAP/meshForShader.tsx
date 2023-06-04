@@ -1,10 +1,8 @@
-"use client";
 import { shaderMap } from "./shader/shaderMap";
 import { Mesh, BufferGeometry, Material, ShaderMaterial } from "three";
 import { useFrame } from "@react-three/fiber";
-import { useRef, useEffect, useState } from "react";
+import { useRef } from "react";
 import { useControls } from "leva";
-import { Router, useRouter } from "next/router";
 
 interface Props {
   ctloffsetX: number;
@@ -14,7 +12,6 @@ const MeshForShader: React.FC<Props> = ({ ctloffsetX }) => {
   const meshRef = useRef<Mesh<BufferGeometry, Material | Material[]>>(null);
   const materialRef = useRef<ShaderMaterial>(null);
   const planeDimention = { width: 6, height: 6 };
-  
 
   const timeSpeed = useRef(1);
 

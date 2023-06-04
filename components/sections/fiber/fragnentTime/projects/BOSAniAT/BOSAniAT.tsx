@@ -3,9 +3,6 @@ import MeshForShader from "./meshForShader";
 import { StrictMode, useState } from "react";
 
 interface Props {}
-
-
-
 const BOSAniAT: React.FC<Props> = () => {
   const [ctloffsetX, setCtloffsetX] = useState(0);
   const created = (state: any) => {
@@ -28,7 +25,6 @@ const BOSAniAT: React.FC<Props> = () => {
         >
           <MeshForShader ctloffsetX={ctloffsetX} />
         </Canvas>
-        
       </StrictMode>
     </>
   );

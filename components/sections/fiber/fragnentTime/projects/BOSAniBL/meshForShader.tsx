@@ -1,20 +1,14 @@
-"use client";
 import { shaderMap } from "./shader/shaderMap";
 import { Mesh, BufferGeometry, Material, ShaderMaterial, Color } from "three";
 import { useFrame } from "@react-three/fiber";
-import { useRef, useEffect, useState } from "react";
+import { useRef, useEffect } from "react";
 import { useControls } from "leva";
-import { Router, useRouter } from "next/router";
 
-interface Props {
-  ctloffsetX: number;
-}
-
-const MeshForShader: React.FC<Props> = ({ ctloffsetX }) => {
+const MeshForShader: React.FC = () => {
   const meshRef = useRef<Mesh<BufferGeometry, Material | Material[]>>(null);
   const materialRef = useRef<ShaderMaterial>(null);
   const planeDimention = { width: 6, height: 6 };
-  
+
   if (true) {
   } else {
   }
@@ -131,7 +125,7 @@ const MeshForShader: React.FC<Props> = ({ ctloffsetX }) => {
 
   return (
     <>
-      <group position-x={ctloffsetX}>
+      <group>
         <mesh
           ref={meshRef}
           onClick={(event) => eventHandler(event, "onClick")}

@@ -1,4 +1,3 @@
-"use client";
 import { shaderMap } from "./shader/shaderMap";
 import { Mesh, BufferGeometry, Material, ShaderMaterial, Color } from "three";
 import { useFrame } from "@react-three/fiber";
@@ -14,13 +13,12 @@ const MeshForShader: React.FC<Props> = ({ ctloffsetX }) => {
   const meshRef = useRef<Mesh<BufferGeometry, Material | Material[]>>(null);
   const materialRef = useRef<ShaderMaterial>(null);
   const planeDimention = { width: 6, height: 6 };
-  
 
   const intiValue = {
     timeSpeedCtrl: 1,
     paramsACtrl: -0.2,
-    paramsBCtrl: .8,
-    paramsCCtrl: .8,
+    paramsBCtrl: 0.8,
+    paramsCCtrl: 0.8,
     paramsDCtrl: 1.4,
     colorACtrl: "#55cafc",
     colorBCtrl: "#2a7990",

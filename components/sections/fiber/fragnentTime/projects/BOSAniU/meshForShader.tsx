@@ -1,4 +1,3 @@
-"use client";
 import { shaderMap } from "./shader/shaderMap";
 import { IUniform, Vector2 } from "three";
 import { useFrame } from "@react-three/fiber";

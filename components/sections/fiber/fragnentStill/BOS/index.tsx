@@ -1,4 +1,4 @@
-"use client";
+
 import { useEffect, useState, useRef } from "react";
 import { shaderMap } from "./shader/shaderMap";
 import { Canvas } from "@react-three/fiber";

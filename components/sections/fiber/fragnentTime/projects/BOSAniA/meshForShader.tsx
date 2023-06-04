@@ -1,4 +1,3 @@
-"use client";
 import { shaderMap } from "@/components/sections/fiber/fragnentTime/projects/BOSAniA/shader/shaderMap";
 import { useFrame } from "@react-three/fiber";
 import { useRef } from "react";

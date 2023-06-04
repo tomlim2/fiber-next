@@ -3,8 +3,6 @@ import MeshForShader from "./meshForShader";
 
 interface Props {}
 
-
-
 const BOSAniAO: React.FC<Props> = () => {
   const created = (state: any) => {
     state.gl.setClearColor("#252525");
@@ -12,7 +10,6 @@ const BOSAniAO: React.FC<Props> = () => {
 
   const eventHandler = (event: any, eventType: string) => {
     console.log(eventType);
-    
   };
 
   return (

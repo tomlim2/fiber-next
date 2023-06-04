@@ -1,10 +1,8 @@
+import { StrictMode, useState } from "react";
 import { Canvas } from "@react-three/fiber";
 import MeshForShader from "./meshForShader";
-import { StrictMode, useState } from "react";
 
 interface Props {}
-
-
 
 const BOSAniBG: React.FC<Props> = () => {
   const [ctloffsetX, setCtloffsetX] = useState(0);
@@ -28,7 +26,6 @@ const BOSAniBG: React.FC<Props> = () => {
         >
           <MeshForShader ctloffsetX={ctloffsetX} />
         </Canvas>
-        
       </StrictMode>
     </>
   );

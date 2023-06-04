@@ -1,4 +1,3 @@
-"use client";
 import { shaderMap } from "./shader/shaderMap";
 import { useFrame } from "@react-three/fiber";
 import { useRef } from "react";
@@ -6,7 +5,7 @@ import { useRef } from "react";
 const MeshForShader: React.FC = () => {
   const meshRef = useRef() as any;
   const materialRef = useRef() as any;
-  const planeDimention = {width: 6, height: 6}
+  const planeDimention = { width: 6, height: 6 };
 
   useFrame((state, delta) => {
     if (materialRef.current) {

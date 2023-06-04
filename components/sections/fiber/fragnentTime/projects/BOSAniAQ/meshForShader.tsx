@@ -1,10 +1,8 @@
-"use client";
 import { shaderMap } from "./shader/shaderMap";
 import { Mesh, BufferGeometry, Material, ShaderMaterial } from "three";
 import { useFrame } from "@react-three/fiber";
 import { useRef, useEffect, useState } from "react";
 import { useControls } from "leva";
-import { Router, useRouter } from "next/router";
 
 interface Props {
   ctloffsetX: number;

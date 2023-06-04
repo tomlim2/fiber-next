@@ -1,4 +1,3 @@
-"use client";
 import { shaderMap } from "./shader/shaderMap";
 import { IUniform, Vector2 } from "three";
 import { useFrame } from "@react-three/fiber";
@@ -13,7 +12,7 @@ interface Uniforms {
 const MeshForShader: React.FC = () => {
   const meshRef = useRef() as any;
   const materialRef = useRef() as any;
-  const planeDimention = {width: 6, height: 6}
+  const planeDimention = { width: 6, height: 6 };
 
   useFrame((state, delta) => {
     if (materialRef.current) {

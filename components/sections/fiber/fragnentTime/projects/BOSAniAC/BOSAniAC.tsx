@@ -10,7 +10,6 @@ const BOSAniAC: React.FC<Props> = () => {
 
   const eventHandler = (event: any, eventType: string) => {
     console.log(eventType);
-    
   };
 
   return (

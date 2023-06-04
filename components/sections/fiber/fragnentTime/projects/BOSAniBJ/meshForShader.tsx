@@ -1,4 +1,3 @@
-"use client";
 import { shaderMap } from "./shader/shaderMap";
 import { Mesh, BufferGeometry, Material, ShaderMaterial, Color } from "three";
 import { useFrame } from "@react-three/fiber";
@@ -14,13 +13,12 @@ const MeshForShader: React.FC<Props> = ({ ctloffsetX }) => {
   const meshRef = useRef<Mesh<BufferGeometry, Material | Material[]>>(null);
   const materialRef = useRef<ShaderMaterial>(null);
   const planeDimention = { width: 6, height: 6 };
-  
 
   const intiValue = {
     timeSpeedCtrl: 1,
     paramsACtrl: 12,
-    paramsBCtrl: .8,
-    paramsCCtrl: .02,
+    paramsBCtrl: 0.8,
+    paramsCCtrl: 0.02,
     paramsDCtrl: 1.4,
     colorACtrl: "#1d79a0",
     colorBCtrl: "#ffffff",
@@ -70,8 +68,8 @@ const MeshForShader: React.FC<Props> = ({ ctloffsetX }) => {
     paramsCCtrl: {
       value: intiValue.paramsCCtrl,
       step: 0.001,
-      min: -.1,
-      max: .1,
+      min: -0.1,
+      max: 0.1,
       onChange: (value) => {
         if (materialRef && materialRef.current) {
           materialRef.current.uniforms.uParamsC.value = value;
@@ -154,7 +152,7 @@ const MeshForShader: React.FC<Props> = ({ ctloffsetX }) => {
               uMouseY: { value: 0 },
               uParamsA: { value: 12 },
               uParamsB: { value: 1 },
-              uParamsC: { value: .02 },
+              uParamsC: { value: 0.02 },
               uParamsD: { value: 1 },
               uColorA: { value: new Color("#1d79a0") },
               uColorB: { value: new Color("#ffffff") },

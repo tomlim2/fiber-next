@@ -3,8 +3,6 @@ import MeshForShader from "./meshForShader";
 
 interface Props {}
 
-
-
 const BOSAniN: React.FC<Props> = () => {
   const created = (state: any) => {
     state.gl.setClearColor("#252525");
