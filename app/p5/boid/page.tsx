@@ -6,7 +6,7 @@ export const metadata: Metadata = {
   description: "My playground",
 };
 
-const P5VectorField = () => {
+const P5Boid = () => {
   return (
     <div>
       <SectionP5Boid />
@@ -14,4 +14,4 @@ const P5VectorField = () => {
   );
 };
 
-export default P5VectorField;
+export default P5Boid;
