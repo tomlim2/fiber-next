@@ -1,4 +1,4 @@
-import styles from "./header.module.scss";
+import styles from "./navigation.module.scss";
 import Link from "next/link";
 
 const Navigation: React.FC = () => {
@@ -8,9 +8,6 @@ const Navigation: React.FC = () => {
         <ul className={styles.menu}>
           <li className="menu">
             <Link href="/">ylim</Link>
-          </li>
-          <li className="menu">
-            <Link href="/">collections</Link>
           </li>
           <li className="menu">
             <Link href="/about">about this website</Link>

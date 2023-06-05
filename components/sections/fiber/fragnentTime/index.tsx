@@ -68,8 +68,13 @@ import BOSAniBJ from "@/components/sections/fiber/fragnentTime/patterns/BOSAniBJ
 import BOSAniBK from "@/components/sections/fiber/fragnentTime/patterns/BOSAniBK/BOSAniBK";
 import BOSAniBL from "@/components/sections/fiber/fragnentTime/patterns/BOSAniBL";
 import BOSAniBM from "@/components/sections/fiber/fragnentTime/patterns/BOSAniBM";
+import BOSAniBN from "@/components/sections/fiber/fragnentTime/patterns/BOSAniBN";
 
 const aniList = [
+  {
+    info: "Pattern BN: Fractal Brownian Motion",
+    component: <BOSAniBN />,
+  },
   {
     info: "Pattern BM: Fractal Brownian Motion",
     component: <BOSAniBM />,
