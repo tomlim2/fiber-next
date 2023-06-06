@@ -8,9 +8,9 @@ export const metadata: Metadata = {
 
 const FragnentTime = () => {
   return (
-    <div>
+    <main className="page-fragnent-time">
       <SectionFragnentTime />
-    </div>
+    </main>
   );
 };
 

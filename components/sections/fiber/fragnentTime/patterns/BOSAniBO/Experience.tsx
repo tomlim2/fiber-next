@@ -12,7 +12,7 @@ const Experience: React.FC = () => {
 
   const intiValue = {
     timeSpeedCtrl: 1,
-    paramsACtrl: 12,
+    paramsACtrl: 5,
     paramsBCtrl: 0.8,
     paramsCCtrl: 0.02,
     paramsDCtrl: 1.4,

@@ -9,50 +9,52 @@ export const metadata: Metadata = {
 
 const GeometryNodes = () => {
   return (
-    <section className={styles["section-blender"]}>
-      <ul>
-        <li>
-          1.
-          <br />
-          <Image
-            src="/assets/images/blenderGeometryNodes/blender_geometry_nodes_1.png"
-            alt="Description of the image"
-            width={500}
-            height={300}
-          />
-        </li>
-        <li>
-          2.
-          <br />
-          <Image
-            src="/assets/images/blenderGeometryNodes/blender_geometry_nodes_2.png"
-            alt="Description of the image"
-            width={500}
-            height={300}
-          />
-        </li>
-        <li>
-          3.
-          <br />
-          <Image
-            src="/assets/images/blenderGeometryNodes/blender_geometry_nodes_3.png"
-            alt="Description of the image"
-            width={500}
-            height={500}
-          />
-        </li>
-        <li>
-          4.
-          <br />
-          <Image
-            src="/assets/images/blenderGeometryNodes/blender_geometry_nodes_4.png"
-            alt="Description of the image"
-            width={500}
-            height={300}
-          />
-        </li>
-      </ul>
-    </section>
+    <main className="page-geometry-node">
+      <section className={styles["section-blender"]}>
+        <ul>
+          <li>
+            1.
+            <br />
+            <Image
+              src="/assets/images/blenderGeometryNodes/blender_geometry_nodes_1.png"
+              alt="Description of the image"
+              width={500}
+              height={300}
+            />
+          </li>
+          <li>
+            2.
+            <br />
+            <Image
+              src="/assets/images/blenderGeometryNodes/blender_geometry_nodes_2.png"
+              alt="Description of the image"
+              width={500}
+              height={300}
+            />
+          </li>
+          <li>
+            3.
+            <br />
+            <Image
+              src="/assets/images/blenderGeometryNodes/blender_geometry_nodes_3.png"
+              alt="Description of the image"
+              width={500}
+              height={500}
+            />
+          </li>
+          <li>
+            4.
+            <br />
+            <Image
+              src="/assets/images/blenderGeometryNodes/blender_geometry_nodes_4.png"
+              alt="Description of the image"
+              width={500}
+              height={300}
+            />
+          </li>
+        </ul>
+      </section>
+    </main>
   );
 };
 

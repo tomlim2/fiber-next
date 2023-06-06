@@ -8,9 +8,9 @@ export const metadata: Metadata = {
 
 const FragnentStill = () => {
   return (
-    <div>
+    <main className="page-fragnent-still">
       <SectionFragnentStill />
-    </div>
+    </main>
   );
 };
 

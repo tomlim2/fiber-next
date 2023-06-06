@@ -4,7 +4,7 @@ import { StrictMode } from "react";
 
 const FiberCanvas: React.FC = () => {
   const created = (state: any) => {
-    state.gl.setClearColor("#252525");
+    state.gl.setClearColor("#f0f0f0");
   };
 
   const eventHandler = (event: Event, message: string) => {};

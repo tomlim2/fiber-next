@@ -10,7 +10,6 @@ export const metadata: Metadata = {
 const PageHome = () => {
   return (
     <main className={styles.main}>
-      <section>Hi!</section>
       <section>
         <ul className={styles.works}>
           <li className="shader">
@@ -40,10 +39,19 @@ const PageHome = () => {
           </li>
           <li className="blender">
             <h3>BLENDER</h3>
-            <Link href="/blender/geometry-node">Geometry Node</Link>
+            <ul>
+              <li>
+                <Link href="/blender/geometry-node">Geometry Node</Link>
+              </li>
+            </ul>
           </li>
           <li className="design">
             <h3>DESIGN</h3>
+            <ul>
+              <li>
+                <Link href="/design/ui">UI</Link>
+              </li>
+            </ul>
           </li>
         </ul>
       </section>

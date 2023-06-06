@@ -8,9 +8,9 @@ export const metadata: Metadata = {
 
 const VertexFragnent = () => {
   return (
-    <div>
+    <main className="page-vertex-fragnent">
       <SectionVertexFragnent />
-    </div>
+    </main>
   );
 };
 

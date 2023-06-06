@@ -27,8 +27,6 @@ float random(in vec2 _st) {
         43758.5453123);
 }
 
-// Based on Morgan McGuire @morgan3d
-// https://www.shadertoy.com/view/4dS3Wd
 float noise(in vec2 _st) {
     vec2 i = floor(_st);
     vec2 f = fract(_st);
@@ -51,7 +49,7 @@ float noise(in vec2 _st) {
 float fbm(in vec2 _st) {
     float v = 0.0;
     float a = 0.5;
-    vec2 shift = vec2(100.0);
+    vec2 shift = vec2(uParamsB * 1000.0);
     // Rotate to reduce axial bias
     mat2 rot = mat2(cos(0.5), sin(0.5), -sin(0.5), cos(0.50));
     for(int i = 0 ; i < NUM_OCTAVES ; ++i) {
@@ -72,8 +70,9 @@ void main() {
     vec3 color = vec3(0.0);
 
     vec2 q = vec2(0.);
-    q.x = quiles(st + 0.00 * uTime);
-    q.y = quiles(st + vec2(1.0));
+    q.x = quiles(st + uTime * .126);
+    // q.y = quiles(st + vec2(1.0));
+    q.y = quiles(st - uTime * .15);
 
     vec2 r = vec2(0.);
     r.x = quiles(st + 1.0 * q + vec2(1.7, 9.2) + 0.15 * uTime);
