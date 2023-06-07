@@ -11,13 +11,36 @@ const SectionP5Boid = () => {
       <WrapperP5 sketch={SketchBoids} />
       <div className={styles["section-p5"]}>
         <div className={styles["container-info"]}>
-          <a href="http://www.kfish.org/boids/pseudocode.html">
-            Boids Pseudocode
-          </a>
-          <br />
-          <a href="http://www.red3d.com/cwr/boids/">
-            Boids Background and Update by Craig Reynolds
-          </a>
+          <h2 className="title-info">P5 Boid</h2>
+          <div className="reference">
+            References
+            <ul >
+              <li>
+                <a
+                  className="reference-link"
+                  href="http://www.kfish.org/boids/pseudocode.html"
+                >
+                  Boids Pseudocode
+                </a>
+              </li>
+              <li>
+                <a
+                  className="reference-link"
+                  href="http://www.red3d.com/cwr/boids/"
+                >
+                  Boids Background and Update by Craig Reynolds
+                </a>
+              </li>
+              <li>
+                <a
+                  className="reference-link"
+                  href="https://threejs.org/examples/?q=bird#webgl_gpgpu_birds_gltf"
+                >
+                  gpgpu / birds / gltf
+                </a>
+              </li>
+            </ul>
+          </div>
         </div>
       </div>
     </>

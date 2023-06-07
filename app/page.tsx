@@ -13,7 +13,7 @@ const PageHome = () => {
       <section>
         <ul className={styles.works}>
           <li className="shader">
-            <h3>SHADER</h3>
+            <h3 className="category-name">SHADER</h3>
             <ul>
               <li>
                 <Link href="/fiber/vertex-fragnent">Vertex-Fragnent</Link>
@@ -27,7 +27,7 @@ const PageHome = () => {
             </ul>
           </li>
           <li className="p5">
-            <h3>P5</h3>
+            <h3 className="category-name">P5</h3>
             <ul>
               <li>
                 <Link href="/p5/boid">Boids</Link>
@@ -38,7 +38,7 @@ const PageHome = () => {
             </ul>
           </li>
           <li className="blender">
-            <h3>BLENDER</h3>
+            <h3 className="category-name">BLENDER</h3>
             <ul>
               <li>
                 <Link href="/blender/geometry-node">Geometry Node</Link>
@@ -46,7 +46,7 @@ const PageHome = () => {
             </ul>
           </li>
           <li className="design">
-            <h3>DESIGN</h3>
+            <h3 className="category-name">DESIGN</h3>
             <ul>
               <li>
                 <Link href="/design/ui">UI</Link>
