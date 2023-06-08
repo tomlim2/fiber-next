@@ -1,5 +1,12 @@
 import { shaderMap } from "./shaders";
-import { Mesh, BufferGeometry, Material, ShaderMaterial, Color } from "three";
+import {
+  Mesh,
+  BufferGeometry,
+  Material,
+  ShaderMaterial,
+  Color,
+  RGBA_PVRTC_2BPPV1_Format,
+} from "three";
 import { useFrame } from "@react-three/fiber";
 import { useRef, useEffect, useState } from "react";
 import { useControls } from "leva";
@@ -15,8 +22,8 @@ const MeshObject: React.FC = () => {
   };
 
   const intiValue = {
-    timeSpeedCtrl: 1.,
-    paramsACtrl: .2,
+    timeSpeedCtrl: 1,
+    paramsACtrl: 0.2,
     paramsBCtrl: 4,
     paramsCCtrl: 1.5,
     paramsDCtrl: 1.4,
@@ -142,14 +149,14 @@ const MeshObject: React.FC = () => {
           onPointerLeave={(event) => eventHandler(event, "onPointerLeave")}
           onPointerMove={(event) => eventHandler(event, "onPointerMove")}
         >
-          <planeGeometry
+          <sphereBufferGeometry
             args={[
-              planeDimention.width,
-              planeDimention.height,
+              1,
               planeDimention.widthSegments,
               planeDimention.heightSegments,
             ]}
           />
+          {/* <meshBasicMaterial/> */}
           <shaderMaterial
             ref={materialRef}
             uniforms={{

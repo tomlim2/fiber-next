@@ -3,8 +3,13 @@ import PostTime from "../common/postTime";
 import styles from "../common/fiber.module.scss";
 
 import VerFragA from "./patterns/verFragA";
+import VerFragB from "./patterns/verFragB";
 
 const aniList = [
+  {
+    info: "Pattern B: Particles",
+    component: <VerFragB />,
+  },
   {
     info: "Pattern A: Raging sea",
     component: <VerFragA />,
