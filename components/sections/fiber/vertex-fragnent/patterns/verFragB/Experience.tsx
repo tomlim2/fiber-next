@@ -6,6 +6,7 @@ import {
   ShaderMaterial,
   Color,
   BufferAttribute,
+  PointsMaterial,
 } from "three";
 import { Canvas, useLoader } from "@react-three/fiber";
 import { TextureLoader } from "three/src/loaders/TextureLoader";
@@ -17,7 +18,7 @@ import { useControls } from "leva";
 const MeshObject: React.FC = () => {
   const meshRef = useRef<Mesh<BufferGeometry, Material | Material[]>>(null);
   const colorMap = useLoader(TextureLoader, "/assets/images/particles/1.png");
-  const materialRef = useRef<ShaderMaterial>(null);
+  const materialRef = useRef<PointsMaterial>(null);
   const planeDimention = {
     width: 6,
     height: 6,
@@ -31,7 +32,7 @@ const MeshObject: React.FC = () => {
     paramsBCtrl: 4,
     paramsCCtrl: 1.5,
     paramsDCtrl: 1.4,
-    colorACtrl: "#1d79a0",
+    colorACtrl: "#dcb3ff",
     colorBCtrl: "#ffffff",
   };
 
@@ -42,7 +43,7 @@ const MeshObject: React.FC = () => {
       value: intiValue.colorACtrl,
       onChange: (value) => {
         if (materialRef && materialRef.current) {
-          materialRef.current.uniforms.uColorA.value = new Color(value);
+          // materialRef.current.color = new Color(value);
         }
       },
     },
@@ -50,7 +51,7 @@ const MeshObject: React.FC = () => {
       value: intiValue.colorBCtrl,
       onChange: (value) => {
         if (materialRef && materialRef.current) {
-          materialRef.current.uniforms.uColorB.value = new Color(value);
+          // materialRef.current.uniforms.uColorB.value = new Color(value);
         }
       },
     },
@@ -61,7 +62,7 @@ const MeshObject: React.FC = () => {
       max: 10,
       onChange: (value) => {
         if (materialRef && materialRef.current) {
-          materialRef.current.uniforms.uParamsA.value = value;
+          // materialRef.current.uniforms.uParamsA.value = value;
         }
       },
     },
@@ -72,7 +73,7 @@ const MeshObject: React.FC = () => {
       max: 10,
       onChange: (value) => {
         if (materialRef && materialRef.current) {
-          materialRef.current.uniforms.uParamsB.value = value;
+          // materialRef.current.uniforms.uParamsB.value = value;
         }
       },
     },
@@ -83,7 +84,7 @@ const MeshObject: React.FC = () => {
       max: 10,
       onChange: (value) => {
         if (materialRef && materialRef.current) {
-          materialRef.current.uniforms.uParamsC.value = value;
+          // materialRef.current.uniforms.uParamsC.value = value;
         }
       },
     },
@@ -94,7 +95,7 @@ const MeshObject: React.FC = () => {
       max: 10,
       onChange: (value) => {
         if (materialRef && materialRef.current) {
-          materialRef.current.uniforms.uParamsD.value = value;
+          // materialRef.current.uniforms.uParamsD.value = value;
         }
       },
     },
@@ -111,17 +112,23 @@ const MeshObject: React.FC = () => {
 
   const count = 3000;
 
-  const points = useMemo(() => {
+  const spawner = useMemo(() => {
     const particles = new Array(count)
       .fill(0)
       .map(() => (0.5 - Math.random()) * 7.5);
+    console.log(particles);
+    
+    return new BufferAttribute(new Float32Array(particles), 3);
+  }, [count]);
 
+  const spawnerColor = useMemo(() => {
+    const particles = new Array(count).fill(0).map(() => Math.random());
     return new BufferAttribute(new Float32Array(particles), 3);
   }, [count]);
 
   useFrame((state, delta) => {
     if (materialRef && materialRef.current) {
-      materialRef.current.uniforms.uTime.value += delta * timeSpeed.current;
+      // materialRef.current.uniforms.uTime.value += delta * timeSpeed.current;
     }
   });
 
@@ -130,13 +137,17 @@ const MeshObject: React.FC = () => {
       <group>
         <points>
           <bufferGeometry>
-            <bufferAttribute attach={"attributes-position"} {...points} />
+            <bufferAttribute attach={"attributes-position"} {...spawner} />
+            <bufferAttribute attach={"attributes-color"} {...spawnerColor} />
           </bufferGeometry>
           <pointsMaterial
+            ref={materialRef}
             attach="material"
+            vertexColors={true}
+            color={new Color("#ff88cc")}
             transparent={true}
             alphaMap={colorMap}
-            alphaTest={0.001}
+            depthTest={false}
             size={0.1}
             sizeAttenuation={true}
           />

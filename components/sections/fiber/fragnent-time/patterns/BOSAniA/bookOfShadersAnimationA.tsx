@@ -1,5 +1,5 @@
 import { Canvas } from "@react-three/fiber";
-import MeshForShader from "@/components/sections/fiber/fragnentTime/patterns/BOSAniA/meshForShader";
+import MeshForShader from "@/components/sections/fiber/fragnent-time/patterns/BOSAniA/meshForShader";
 
 interface Props {}
 

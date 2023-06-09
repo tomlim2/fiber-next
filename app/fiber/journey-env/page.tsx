@@ -2,11 +2,11 @@ import { Metadata } from "next/dist/lib/metadata/types/metadata-interface";
 import SectionVertexFragnent from "@/components/sections/fiber/vertex-fragnent";
 
 export const metadata: Metadata = {
-  title: "Fragnent time | yslim",
+  title: "Journey Environment | Fiber | yslim",
   description: "My playground",
 };
 
-const VertexFragnent = () => {
+const JourneyEnv = () => {
   return (
     <main className="page-vertex-fragnent">
       <SectionVertexFragnent />
@@ -14,4 +14,4 @@ const VertexFragnent = () => {
   );
 };
 
-export default VertexFragnent;
+export default JourneyEnv;
