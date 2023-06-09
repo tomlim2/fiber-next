@@ -1,8 +1,8 @@
 import { Metadata } from "next/dist/lib/metadata/types/metadata-interface";
-import SectionFragnentStill from "@/components/sections/fiber/fragnentStill/";
+import SectionFragnentStill from "@/components/sections/fiber/fragnent-still";
 
 export const metadata: Metadata = {
-  title: "Fragnent still | yslim",
+  title: "Fragnent still | Fiber | yslim",
   description: "My playground",
 };
 

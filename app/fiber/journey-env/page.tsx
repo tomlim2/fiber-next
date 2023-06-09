@@ -1,5 +1,5 @@
 import { Metadata } from "next/dist/lib/metadata/types/metadata-interface";
-import SectionVertexFragnent from "@/components/sections/fiber/vertex-fragnent";
+import SectionJourneyEnv from "@/components/sections/fiber/journey-env";
 
 export const metadata: Metadata = {
   title: "Journey Environment | Fiber | yslim",
@@ -8,8 +8,8 @@ export const metadata: Metadata = {
 
 const JourneyEnv = () => {
   return (
-    <main className="page-vertex-fragnent">
-      <SectionVertexFragnent />
+    <main className="page-journey-env">
+      <SectionJourneyEnv />
     </main>
   );
 };
