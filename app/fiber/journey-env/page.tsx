@@ -1,5 +1,6 @@
 import { Metadata } from "next/dist/lib/metadata/types/metadata-interface";
 import SectionJourneyEnv from "@/components/sections/fiber/journey-env";
+import styles from "./page.module.scss";
 
 export const metadata: Metadata = {
   title: "Journey Environment | Fiber | yslim",
@@ -8,7 +9,7 @@ export const metadata: Metadata = {
 
 const JourneyEnv = () => {
   return (
-    <main className="page-journey-env">
+    <main className={styles.page}>
       <SectionJourneyEnv />
     </main>
   );

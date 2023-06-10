@@ -24,6 +24,9 @@ const PageHome = () => {
               <li>
                 <Link href="/fiber/fragnent-still">Fragnent-Still</Link>
               </li>
+              <li>
+                <Link href="/fiber/journey-env">Journey-Env</Link>
+              </li>
             </ul>
           </li>
           <li className="p5">
