@@ -9,7 +9,7 @@ interface Props {}
 const BOSAniBH: React.FC<Props> = () => {
   const [ctloffsetX, setCtloffsetX] = useState(0);
   const created = (state: any) => {
-    state.gl.setClearColor("#252525");
+    // state.gl.setClearColor("#252525");
   };
 
   const eventHandler = (event: Event, message: string) => {};

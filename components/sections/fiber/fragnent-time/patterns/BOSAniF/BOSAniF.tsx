@@ -6,7 +6,7 @@ interface Props {}
 
 const BOSAniF: React.FC<Props> = () => {
   const created = (state: any) => {
-    state.gl.setClearColor("#252525");
+    // state.gl.setClearColor("#252525");
   };
 
   return (

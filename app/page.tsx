@@ -13,7 +13,7 @@ const PageHome = () => {
       <section>
         <ul className={styles.works}>
           <li className="shader">
-            <h3 className="category-name">SHADER</h3>
+            <h3 className="category-name">FIBER</h3>
             <ul>
               <li>
                 <Link href="/fiber/vertex-fragnent">Vertex-Fragnent</Link>

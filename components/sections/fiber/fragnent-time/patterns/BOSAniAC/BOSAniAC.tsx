@@ -5,7 +5,7 @@ interface Props {}
 
 const BOSAniAC: React.FC<Props> = () => {
   const created = (state: any) => {
-    state.gl.setClearColor("#252525");
+    // state.gl.setClearColor("#252525");
   };
 
   const eventHandler = (event: any, eventType: string) => {
