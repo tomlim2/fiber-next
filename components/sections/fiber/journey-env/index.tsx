@@ -1,6 +1,6 @@
 "use client";
 import { Canvas } from "@react-three/fiber";
-import Experience from "./Experience.tsx";
+import Experience from "./Experience";
 
 const SectionJourneyEnv = () => {
   return (
