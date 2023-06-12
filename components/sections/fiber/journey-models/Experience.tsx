@@ -60,8 +60,6 @@ const Experience = () => {
         <Fox />
       </Suspense>
 
-      
-
       <mesh
         receiveShadow
         position-y={-1}

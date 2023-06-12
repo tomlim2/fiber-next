@@ -1,7 +1,7 @@
 import { useGLTF } from "@react-three/drei";
 
 export default function Hamburger(props: any) {
-  const { nodes, materials } = useGLTF("/assets/models/hamburger.glb");
+  const { nodes, materials } = useGLTF("/assets/models/hamburger.glb") as any;
   return (
     <group {...props} dispose={null}>
       <mesh
