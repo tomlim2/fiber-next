@@ -37,17 +37,6 @@ const Experience = () => {
       />
       <ambientLight intensity={0.5} />
 
-      <ContactShadows
-        position={[0, -0.99, 0]}
-        scale={10}
-        resolution={512}
-        far={5}
-        color={color}
-        opacity={opacity}
-        blur={blur}
-        frames={1}
-      />
-
       <Suspense
         fallback={
           <mesh position-y={0.5} scale={[2, 3, 2]}>
@@ -57,6 +46,16 @@ const Experience = () => {
         }
       >
         {/* <Hamburger scale={0.35} /> */}
+        <ContactShadows
+          position={[0, -0.99, 0]}
+          scale={10}
+          resolution={512}
+          far={5}
+          color={color}
+          opacity={opacity}
+          blur={blur}
+          frames={1}
+        />
         <Fox />
       </Suspense>
 
