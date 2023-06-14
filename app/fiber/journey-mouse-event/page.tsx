@@ -7,7 +7,7 @@ export const metadata: Metadata = {
   description: "My playground",
 };
 
-const JourneyStage = () => {
+const JourneyMouseEvent = () => {
   return (
     <main className={styles.page}>
       <SectionJourneyMouseEvent />
@@ -15,4 +15,4 @@ const JourneyStage = () => {
   );
 };
 
-export default JourneyStage;
+export default JourneyMouseEvent;

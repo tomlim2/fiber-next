@@ -10,10 +10,13 @@ import { useRef } from "react";
 import { Perf } from "r3f-perf";
 import * as THREE from "three";
 import { useControls } from "leva";
+import { EffectComposer } from "@react-three/postprocessing";
+import Drunk from "./postprocess/Drunk";
 
 const Experience = () => {
   const cube = useRef() as any;
   const directionalLight = useRef() as any;
+  const drunkRef = useRef() as any;
   useHelper(directionalLight, THREE.DirectionalLightHelper, 1);
 
   const { shadowColor, shadowOpacity, shadowBlur } = useControls(
@@ -33,6 +36,10 @@ const Experience = () => {
     cube.current.rotation.y += delta * 0.2;
   });
 
+  const eventHandler = () => {
+    cube.current.material.color.set(`hsl(${Math.random() * 360}, 100%, 75%)`);
+  };
+
   return (
     <>
       <Perf position="bottom-right" />
@@ -50,12 +57,21 @@ const Experience = () => {
         preset="portrait"
         intensity={stageIntensity}
       >
+        <EffectComposer>
+          <Drunk ref={drunkRef} frequency={2} amplitude={0.1} />
+        </EffectComposer>
         <mesh position-y={1} position-x={-2}>
           <sphereGeometry />
           <meshStandardMaterial color="orange" />
         </mesh>
 
-        <mesh ref={cube} position-y={1} position-x={2} scale={1.5}>
+        <mesh
+          ref={cube}
+          position-y={1}
+          position-x={2}
+          scale={1.5}
+          onClick={eventHandler}
+        >
           <boxGeometry />
           <meshStandardMaterial color="mediumpurple" />
         </mesh>
