@@ -25,6 +25,9 @@ const PageHome = () => {
                 <Link href="/fiber/fragnent-still">Fragnent-Still</Link>
               </li>
               <li>
+                <Link href="/fiber/journey-physics">Journey-Physics</Link>
+              </li>
+              <li>
                 <Link href="/fiber/journey-mouse-event">Journey-MouseEvent</Link>
               </li>
               <li>
