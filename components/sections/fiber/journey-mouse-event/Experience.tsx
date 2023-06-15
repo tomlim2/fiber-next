@@ -1,23 +1,18 @@
+// "use client";
 import { useFrame } from "@react-three/fiber";
-import {
-  Stage,
-  AccumulativeShadows,
-  useHelper,
-  OrbitControls,
-  ContactShadows,
-} from "@react-three/drei";
+import { Stage, OrbitControls } from "@react-three/drei";
 import { useRef } from "react";
 import { Perf } from "r3f-perf";
-import * as THREE from "three";
 import { useControls } from "leva";
-import { EffectComposer } from "@react-three/postprocessing";
-import Drunk from "./postprocess/Drunk";
+// import Drunk from "./postprocess/Drunk";
+import { EffectComposer, Vignette } from "@react-three/postprocessing";
 
 const Experience = () => {
   const cube = useRef() as any;
   const directionalLight = useRef() as any;
-  const drunkRef = useRef() as any;
-  useHelper(directionalLight, THREE.DirectionalLightHelper, 1);
+  // const drunkRef = useRef() as any;
+
+  // console.log(Drunk);
 
   const { shadowColor, shadowOpacity, shadowBlur } = useControls(
     "contact shadows",
@@ -42,10 +37,14 @@ const Experience = () => {
 
   return (
     <>
+      {/* <EffectComposer>
+      <Drunk />
+      </EffectComposer> */}
+        {/* <Vignette eskil={false} offset={0.1} darkness={1.1} /> */}
+
       <Perf position="bottom-right" />
 
       <OrbitControls makeDefault />
-
       <Stage
         shadows={{
           type: "contact",
@@ -57,9 +56,6 @@ const Experience = () => {
         preset="portrait"
         intensity={stageIntensity}
       >
-        <EffectComposer>
-          <Drunk ref={drunkRef} frequency={2} amplitude={0.1} />
-        </EffectComposer>
         <mesh position-y={1} position-x={-2}>
           <sphereGeometry />
           <meshStandardMaterial color="orange" />
