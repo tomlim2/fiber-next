@@ -2,15 +2,33 @@
 import { Stage, OrbitControls } from "@react-three/drei";
 import { Debug, RigidBody, Physics, CuboidCollider } from "@react-three/rapier";
 import { Perf } from "r3f-perf";
-import { useRef } from "react";
+import { useState, useRef } from "react";
 import { useFrame } from "@react-three/fiber";
+import * as THREE from "three";
 
 const Experience = () => {
+  const [hitSound] = useState(() => new Audio("/assets/sounds/hit.mp3"));
   const cube = useRef(null) as any;
   const twister = useRef(null) as any;
-  useFrame(() => {
+
+  const collisionEnter = () => {
+    console.log("collision!");
+    hitSound.currentTime = 0;
+    hitSound.volume = Math.random();
+    hitSound.play();
+  };
+
+  useFrame((state: any) => {
     const time = state.clock.getElapsedTime();
     console.log(time);
+    const eulerRotation = new THREE.Euler(0, time * 3, 0);
+    const quaternionRotation = new THREE.Quaternion();
+    quaternionRotation.setFromEuler(eulerRotation);
+    twister.current.setNextKinematicRotation(quaternionRotation);
+    const angle = time * 0.5;
+    const x = Math.cos(angle);
+    const z = Math.sin(angle);
+    twister.current.setNextKinematicTranslation({ x: x, y: -0.8, z: z });
   });
   const cubeJump = () => {
     const mass = cube.current.mass();
@@ -68,6 +86,16 @@ const Experience = () => {
           restitution={0}
           friction={0.7}
           colliders={false}
+          onCollisionEnter={collisionEnter}
+          onCollisionExit={() => {
+            console.log("exit");
+          }}
+          onSleep={() => {
+            console.log("sleep");
+          }}
+          onWake={() => {
+            console.log("wake");
+          }}
         >
           <mesh castShadow onClick={cubeJump}>
             <boxGeometry />
@@ -91,6 +119,12 @@ const Experience = () => {
             <boxGeometry args={[10, 0.5, 10]} />
             <meshStandardMaterial color="greenyellow" />
           </mesh>
+        </RigidBody>
+        <RigidBody type="fixed">
+          <CuboidCollider args={[5, 2, 0.5]} position={[0, 1, 5.5]} />
+          <CuboidCollider args={[5, 2, 0.5]} position={[0, 1, -5.5]} />
+          <CuboidCollider args={[0.5, 2, 5]} position={[5.5, 1, 0]} />
+          <CuboidCollider args={[0.5, 2, 5]} position={[-5.5, 1, 0]} />
         </RigidBody>
       </Physics>
     </>
