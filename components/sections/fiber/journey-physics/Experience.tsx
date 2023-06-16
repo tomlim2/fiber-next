@@ -1,9 +1,27 @@
 // "use client";
 import { Stage, OrbitControls } from "@react-three/drei";
-import { Debug, RigidBody, Physics } from "@react-three/rapier";
+import { Debug, RigidBody, Physics, CuboidCollider } from "@react-three/rapier";
 import { Perf } from "r3f-perf";
+import { useRef } from "react";
+import { useFrame } from "@react-three/fiber";
 
 const Experience = () => {
+  const cube = useRef(null) as any;
+  const twister = useRef(null) as any;
+  useFrame(() => {
+    const time = state.clock.getElapsedTime();
+    console.log(time);
+  });
+  const cubeJump = () => {
+    const mass = cube.current.mass();
+    console.log("jump");
+    cube.current.applyImpulse({ x: 0, y: 5 * mass, z: 0 });
+    cube.current.applyTorqueImpulse({
+      x: Math.random() - 0.5,
+      y: Math.random() - 0.5,
+      z: Math.random() - 0.5,
+    });
+  };
   return (
     <>
       <Perf position="bottom-right" />
@@ -12,31 +30,63 @@ const Experience = () => {
 
       <directionalLight castShadow position={[1, 2, 3]} intensity={1.5} />
       <ambientLight intensity={0.5} />
-      <Physics>
+      <Physics gravity={[0, -9.81, 0]}>
         <Debug />
         {/* <mesh castShadow position={[-2, 2, 0]}>
           <sphereGeometry />
           <meshStandardMaterial color="orange" />
         </mesh> */}
 
-        <RigidBody>
-          <mesh castShadow position={[2, 2, 0]}>
-            <boxGeometry args={[3, 2, 1]} />
-            <meshStandardMaterial color="mediumpurple" />
-          </mesh>
-          <mesh castShadow position={[2, 2, 1]}>
-            <boxGeometry args={[1, 1, 1]} />
+        {/* <RigidBody colliders="trimesh">
+          <mesh
+            castShadow
+            position={[0, 1, -0.25]}
+            rotation={[Math.PI * 0.1, 0, 0]}
+          >
+            <torusGeometry args={[1, 0.5, 16, 32]} />
             <meshStandardMaterial color="mediumpurple" />
           </mesh>
         </RigidBody>
 
-        <RigidBody>
-          <mesh castShadow position={[-2, 2, 0]}>
+        <RigidBody colliders="ball">
+          <mesh castShadow position={[0, 4, 0]}>
+            <sphereGeometry />
+            <meshStandardMaterial color="orange" />
+          </mesh>
+        </RigidBody> */}
+        <RigidBody colliders="ball" position={[-1.5, 2, 0]}>
+          <mesh castShadow>
             <sphereGeometry />
             <meshStandardMaterial color="orange" />
           </mesh>
         </RigidBody>
-        <RigidBody type="fixed">
+
+        <RigidBody
+          ref={cube}
+          position={[1.5, 2, 0]}
+          gravityScale={1}
+          restitution={0}
+          friction={0.7}
+          colliders={false}
+        >
+          <mesh castShadow onClick={cubeJump}>
+            <boxGeometry />
+            <meshStandardMaterial color="mediumpurple" />
+          </mesh>
+          <CuboidCollider mass={2} args={[0.5, 0.5, 0.5]} />
+        </RigidBody>
+        <RigidBody
+          ref={twister}
+          position={[0, -0.8, 0]}
+          friction={0}
+          type="kinematicPosition"
+        >
+          <mesh castShadow scale={[0.4, 0.4, 3]}>
+            <boxGeometry />
+            <meshStandardMaterial color="red" />
+          </mesh>
+        </RigidBody>
+        <RigidBody type="fixed" restitution={0} friction={0.7}>
           <mesh receiveShadow position-y={-1.25}>
             <boxGeometry args={[10, 0.5, 10]} />
             <meshStandardMaterial color="greenyellow" />
