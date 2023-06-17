@@ -1,8 +1,15 @@
 // "use client";
 import { useGLTF, Stage, OrbitControls } from "@react-three/drei";
-import { Debug, RigidBody, Physics, CuboidCollider } from "@react-three/rapier";
+import {
+  Debug,
+  RigidBody,
+  Physics,
+  CuboidCollider,
+  CylinderCollider,
+  InstancedRigidBodies,
+} from "@react-three/rapier";
 import { Perf } from "r3f-perf";
-import { useState, useRef } from "react";
+import { useMemo, useEffect, useState, useRef } from "react";
 import { useFrame } from "@react-three/fiber";
 import * as THREE from "three";
 
@@ -11,6 +18,26 @@ const Experience = () => {
   const hamburger = useGLTF("/assets/models/hamburger.glb");
   const cube = useRef(null) as any;
   const twister = useRef(null) as any;
+  const cubesCount = 30;
+  const cubes = useRef(null) as any;
+  const cubeTransforms = useMemo(() => {
+    const positions: any[] = [];
+    const rotations: any[] = [];
+    const scales: any[] = [];
+    for (let i = 0; i < cubesCount; i++) {
+      positions.push([
+        (Math.random() - 0.5) * 8,
+        6 + i * 0.2,
+        (Math.random() - 0.5) * 8,
+      ]);
+      rotations.push([Math.random(), Math.random(), Math.random()]);
+
+      const scale = 0.2 + Math.random() * 0.8;
+      scales.push([scale, scale, scale]);
+    }
+
+    return { positions, rotations, scales };
+  }, []);
 
   const collisionEnter = () => {
     console.log("collision!");
@@ -18,6 +45,18 @@ const Experience = () => {
     hitSound.volume = Math.random();
     hitSound.play();
   };
+
+  // useEffect(() => {
+  //   for (let i = 0; i < cubesCount; i++) {
+  //     const matrix = new THREE.Matrix4()
+  //       matrix.compose(
+  //           new THREE.Vector3(i * 2, 0, 0),
+  //           new THREE.Quaternion(),
+  //           new THREE.Vector3(1, 1, 1)
+  //       )
+  //       cubes.current.setMatrixAt(i, matrix)
+  //   }
+  // }, []);
 
   useFrame((state: any) => {
     const time = state.clock.getElapsedTime();
@@ -51,8 +90,24 @@ const Experience = () => {
       <ambientLight intensity={0.5} />
       <Physics gravity={[0, -9.81, 0]}>
         <Debug />
-        <RigidBody>
+        <InstancedRigidBodies
+          positions={cubeTransforms.positions}
+          rotations={cubeTransforms.rotations}
+          scales={cubeTransforms.scales}
+        >
+          <instancedMesh
+            ref={cubes}
+            castShadow
+            receiveShadow
+            args={[undefined, undefined, cubesCount]}
+          >
+            <boxGeometry />
+            <meshStandardMaterial color="tomato" />
+          </instancedMesh>
+        </InstancedRigidBodies>
+        <RigidBody colliders={false} position={[0, 4, 0]}>
           <primitive object={hamburger.scene} scale={0.25} />
+          <CylinderCollider args={[0.65, 1.25]} position={[0, 0.7, 0]} />
         </RigidBody>
         {/* <mesh castShadow position={[-2, 2, 0]}>
           <sphereGeometry />
