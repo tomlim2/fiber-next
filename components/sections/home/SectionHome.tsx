@@ -7,6 +7,9 @@ const SectionHome = () => {
         <li className="shader">
           <h3 className="category-name">FIBER</h3>
           <ul>
+          <li>
+              <Link href="/fiber/drei-portal">Drei-Portal</Link>
+            </li>
             <li>
               <Link href="/fiber/vertex-fragnent">Vertex-Fragnent</Link>
             </li>
