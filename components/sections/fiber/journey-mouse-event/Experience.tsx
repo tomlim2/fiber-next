@@ -4,7 +4,7 @@ import { Stage, OrbitControls } from "@react-three/drei";
 import { useRef } from "react";
 import { Perf } from "r3f-perf";
 import { useControls } from "leva";
-// import Drunk from "./postprocess/Drunk";
+import Drunk from "./postprocess/Drunk";
 import { EffectComposer, Vignette } from "@react-three/postprocessing";
 
 const Experience = () => {
@@ -37,11 +37,11 @@ const Experience = () => {
 
   return (
     <>
-      {/* <EffectComposer>
+      <EffectComposer>
       <Drunk />
-      </EffectComposer> */}
         {/* <Vignette eskil={false} offset={0.1} darkness={1.1} /> */}
-
+      </EffectComposer>
+      <color args={["#fcfcfc"]} attach="background" />
       <Perf position="bottom-right" />
 
       <OrbitControls makeDefault />
