@@ -1,18 +1,18 @@
 import { Metadata } from "next/dist/lib/metadata/types/metadata-interface";
-import SectionJourneyMouseEvent from "@/components/sections/fiber/journey-mouse-event";
+import SectionJourneyPostprocess from "@/components/sections/fiber/journey-postprocess";
 import styles from "./page.module.scss";
 
 export const metadata: Metadata = {
-  title: "Journey Mouse Event | Fiber | yslim",
+  title: "Journey Postprocess | Fiber | yslim",
   description: "My playground",
 };
 
-const JourneyMouseEvent = () => {
+const JourneyPostprocess = () => {
   return (
     <main className={styles.page}>
-      <SectionJourneyMouseEvent />
+      <SectionJourneyPostprocess />
     </main>
   );
 };
 
-export default JourneyMouseEvent;
+export default JourneyPostprocess;

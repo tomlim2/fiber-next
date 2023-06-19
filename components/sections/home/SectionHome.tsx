@@ -26,7 +26,7 @@ const SectionHome = () => {
               <Link href="/fiber/journey-physics-gltf">Journey-Physics-GLTF</Link>
             </li>
             <li>
-              <Link href="/fiber/journey-mouse-event">Journey-Mouse-Event</Link>
+              <Link href="/fiber/journey-postprocess">Journey-Postprocess</Link>
             </li>
             <li>
               <Link href="/fiber/journey-models">Journey-Models</Link>
