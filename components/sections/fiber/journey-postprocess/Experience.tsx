@@ -10,7 +10,7 @@ import { EffectComposer, Vignette } from "@react-three/postprocessing";
 const Experience = () => {
   const cube = useRef() as any;
   const directionalLight = useRef() as any;
-  // const drunkRef = useRef() as any;
+  const drunkRef = useRef() as any;
 
   // console.log(Drunk);
 
@@ -37,9 +37,9 @@ const Experience = () => {
 
   return (
     <>
+      {/* <Vignette eskil={false} offset={0.1} darkness={1.1} /> */}
       <EffectComposer>
-      <Drunk />
-        {/* <Vignette eskil={false} offset={0.1} darkness={1.1} /> */}
+        <Drunk ref={drunkRef} frequency={2} amplitude={0.1} />
       </EffectComposer>
       <color args={["#fcfcfc"]} attach="background" />
       <Perf position="bottom-right" />
