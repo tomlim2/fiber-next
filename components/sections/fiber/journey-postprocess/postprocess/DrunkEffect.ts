@@ -3,6 +3,7 @@ import { Effect } from "postprocessing";
 const fragmentShader = /* glsl */ `
     void mainUv(inout vec2 uv)
     {
+        uv.x += sin(uv.x * 10.0) * 0.1;
         uv.y += sin(uv.x * 10.0) * 0.1;
     }
     void mainImage(const in vec4 inputColor, const in vec2 uv, out vec4 outputColor)
