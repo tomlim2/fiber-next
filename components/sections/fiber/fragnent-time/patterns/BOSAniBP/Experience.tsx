@@ -17,7 +17,7 @@ import { Router, useRouter } from "next/router";
 const Experience: React.FC = () => {
   const meshRef = useRef<Mesh<BufferGeometry, Material | Material[]>>(null);
   const materialRef = useRef<ShaderMaterial>(null);
-  const planeDimention = { width: 6, height: 6 };
+  const planeDimention = { width: 3, height: 3 };
 
   const intiValue = {
     timeSpeedCtrl: 1,
@@ -162,7 +162,11 @@ const Experience: React.FC = () => {
           onPointerLeave={(event) => eventHandler(event, "onPointerLeave")}
           onPointerMove={(event) => eventHandler(event, "onPointerMove")}
         >
-          <planeGeometry args={[planeDimention.width, planeDimention.height]} />
+          <sphereGeometry
+            args={[
+              planeDimention.width/2,
+            ]}
+          />
           <shaderMaterial
             ref={materialRef}
             uniforms={{
