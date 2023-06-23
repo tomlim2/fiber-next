@@ -72,8 +72,13 @@ import BOSAniBN from "@/components/sections/fiber/fragnent-time/patterns/BOSAniB
 import BOSAniBO from "@/components/sections/fiber/fragnent-time/patterns/BOSAniBO";
 import BOSAniBP from "@/components/sections/fiber/fragnent-time/patterns/BOSAniBP";
 import BOSAniBQ from "@/components/sections/fiber/fragnent-time/patterns/BOSAniBQ";
+import BOSAniBR from "@/components/sections/fiber/fragnent-time/patterns/BOSAniBR";
 
 const aniList = [
+  {
+    info: "Pattern BR: Basic",
+    component: <BOSAniBR />,
+  },
   {
     info: "Pattern BQ: WaterColor",
     component: <BOSAniBQ />,
