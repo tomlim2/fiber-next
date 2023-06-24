@@ -10,7 +10,7 @@ const Navigation: React.FC = () => {
             <Link href="/">ylim</Link>
           </li>
           <li className="menu">
-            <Link href="/about">about this website</Link>
+            <Link href="/about">about</Link>
           </li>
         </ul>
       </header>

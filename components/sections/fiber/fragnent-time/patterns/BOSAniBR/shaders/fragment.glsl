@@ -21,6 +21,7 @@ uniform vec3 uColorA;
 uniform vec3 uColorB;
 
 varying vec2 vUv;
+varying vec3 vNormal;
 
 float random(in vec2 _st) {
     return fract(sin(dot(_st.xy, vec2(12.9898, 78.233))) *
@@ -65,7 +66,18 @@ float quiles(in vec2 _st) {
 }
 
 void main() {
-    vec3 st = cameraPosition;
-    st = step(1., st);
+    // vec3 st = cameraPosition;
+    // st = step(1., st);
+    // vec2 uv = vUv;
+    vec3 st = vNormal;
+    if(st.x == -1.){
+        st.x = 1.;
+    }
+    if(st.y == -1.){
+        st.y = 1.;
+    }
+    if(st.z == -1.){
+        st.z = 1.;
+    }
     gl_FragColor = vec4(st, 1.);
 }

@@ -1,0 +1,45 @@
+.sectionBlender {
+  padding: 48px 24px;
+  display: flex;
+  justify-content: center;
+}
+
+.list {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding-bottom: 48px;
+}
+
+.item {
+  width: 100%;
+}
+.item+.item{
+  margin-top: 24px;
+}
+
+.imageFrame {
+  position: relative;
+  max-height: 400px;
+  height: calc(100vw - 48px);
+  max-width: 400px;
+  width: calc(100vw - 48px);
+  // overflow: hidden;
+}
+
+.image {
+  object-fit: cover;
+}
+.workInfo{
+
+}
+.workName{
+  margin-top: 8px;
+  font-size: 1rem;
+  font-weight: 600;
+}
+.workDescription{
+  margin-top: 2px;
+  font-size: 1rem;
+  color: #919191;
+}

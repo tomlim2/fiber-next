@@ -21,7 +21,7 @@ const Experience = () => {
       <PivotControls anchor={[-1.1, -1.1, -1.1]} scale={0.75} lineWidth={3.5}>
       <directionalLight castShadow position={[1, 2, 3]} intensity={1.5} />
         <mesh castShadow receiveShadow geometry={nodes.Cube.geometry}></mesh>
-        {/* <mesh castShadow receiveShadow>
+        <mesh castShadow receiveShadow>
           <boxGeometry args={[2, 2, 2]} />
           <Edges />
           <Side rotation={[0, 0, 0]} bg="orange" index={0}>
@@ -50,7 +50,7 @@ const Experience = () => {
           <Side rotation={[0, Math.PI / 2, 0]} bg="hotpink" index={5}>
             <dodecahedronGeometry />
           </Side>
-        </mesh> */}
+        </mesh>
       </PivotControls>
       <CameraControls makeDefault />
     </>

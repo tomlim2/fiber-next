@@ -1,0 +1,40 @@
+.list {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding-bottom: 36px;
+}
+
+.item {
+  width: 100%;
+}
+.item + .item {
+  margin-top: 24px;
+}
+
+.imageFrame {
+  position: relative;
+  max-height: 400px;
+  height: calc(100vw - 48px);
+  max-width: 400px;
+  width: calc(100vw - 48px);
+  // overflow: hidden;
+}
+
+.image {
+  object-fit: cover;
+}
+
+.itemInfo {
+  margin-top: 8px;
+}
+
+.itemName {
+  font-size: 0.75rem;
+  font-weight: 600;
+}
+.itemDescription {
+  margin-top: 2px;
+  font-size: 0.75rem;
+  color: #919191;
+}
