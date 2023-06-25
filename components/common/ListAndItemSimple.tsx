@@ -1,16 +1,16 @@
 import Image from "next/image";
 import styles from "./ListAndItemSimple.module.scss";
 import { ItemSimple, ItemImg } from "@/types/list";
-const ListAndItemSimple = (props: any) => {
+const ListAndItemSimple = (props: { list: ItemSimple[] }) => {
   const { list } = props;
 
   return (
     <ul className={styles.list}>
-      {list.map((item: any, index: number) => {
+      {list.map((item: ItemSimple, index: number) => {
         return (
           <li className={styles.item} key={index}>
             <div className={styles.imageFrame}>
-              {item.itemImgs.map((itemImg: any, itemIndex: number) => {
+              {item.itemImgs.map((itemImg: ItemImg, itemIndex: number) => {
                 return (
                   <Image
                     key={itemIndex}

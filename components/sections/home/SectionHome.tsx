@@ -1,74 +1,71 @@
-import styles from "../../../app/page.module.scss";
+import styles from "./SectionHome.module.scss";
 import Link from "next/link";
 const SectionHome = () => {
   const routeInfo = [
     {
-      routeCategoryName: "Fiber",
-      routeList: [
-        { routeName: "Drei-Portal", routeHref: "/fiber/drei-portal" },
-        { routeName: "Vertex-Fragnent", routeHref: "/fiber/vertex-fragnent" },
-        { routeName: "Fragnent-Time", routeHref: "/fiber/fragnent-time" },
-        { routeName: "Fragnent-Still", routeHref: "/fiber/fragnent-still" },
+      categoryName: "Fiber",
+      urlList: [
+        { name: "Drei-Portal", url: "/fiber/drei-portal" },
+        { name: "Vertex-Fragnent", url: "/fiber/vertex-fragnent" },
+        { name: "Fragnent-Time", url: "/fiber/fragnent-time" },
+        { name: "Fragnent-Still", url: "/fiber/fragnent-still" },
         {
-          routeName: "Journey-Physics-Base",
-          routeHref: "/fiber/journey-physics",
+          name: "Journey-Physics-Base",
+          url: "/fiber/journey-physics",
         },
         {
-          routeName: "Journey-Physics-GLTF",
-          routeHref: "/fiber/journey-physics-gltf",
+          name: "Journey-Physics-GLTF",
+          url: "/fiber/journey-physics-gltf",
         },
         {
-          routeName: "Journey-Postprocess",
-          routeHref: "/fiber/journey-postprocess",
+          name: "Journey-Postprocess",
+          url: "/fiber/journey-postprocess",
         },
         {
-          routeName: "Journey-Models",
-          routeHref: "/fiber/journey-models",
+          name: "Journey-Models",
+          url: "/fiber/journey-models",
         },
         {
-          routeName: "Journey-Stage",
-          routeHref: "/fiber/journey-stage",
+          name: "Journey-Stage",
+          url: "/fiber/journey-stage",
         },
         {
-          routeName: "Journey-Env",
-          routeHref: "/fiber/journey-env",
+          name: "Journey-Env",
+          url: "/fiber/journey-env",
         },
       ],
     },
     {
-      routeCategoryName: "P5",
-      routeList: [
-        { routeName: "Boid", routeHref: "/p5/boid" },
-        { routeName: "Vector Field", routeHref: "/p5/vfa" },
+      categoryName: "P5",
+      urlList: [
+        { name: "Boid", url: "/p5/boid" },
+        { name: "Vector Field", url: "/p5/vfa" },
       ],
     },
     {
-      routeCategoryName: "Blender",
-      routeList: [
-        { routeName: "Geometry Node", routeHref: "/blender/geometry-node" },
-      ],
+      categoryName: "Blender",
+      urlList: [{ name: "Geometry Node", url: "/blender/geometry-node" }],
     },
     {
-      routeCategoryName: "Design",
-      routeList: [{ routeName: "UI", routeHref: "/design/ui" }],
+      categoryName: "Design",
+      urlList: [{ name: "UI", url: "/design/ui" }],
     },
   ];
+
   return (
-    <section>
-      <ul className={styles.works}>
+    <section className="sectionHome">
+      <ul className={styles.categories}>
         {routeInfo.map((categoryItem, categoryIndex) => {
           return (
-            <li className="blender" key={categoryIndex}>
-              <h3 className="category-name">
-                {categoryItem.routeCategoryName}
-              </h3>
-              <ul>
-                {categoryItem.routeList.map((routeItem, routeIndex) => {
+            <li className={styles.category} key={categoryIndex}>
+              <h2 className={styles.categoryName}>
+                {categoryItem.categoryName}
+              </h2>
+              <ul className={styles.urlList}>
+                {categoryItem.urlList.map((routeItem, routeIndex) => {
                   return (
-                    <li key={routeIndex}>
-                      <Link href={routeItem.routeHref}>
-                        {routeItem.routeName}
-                      </Link>
+                    <li key={routeIndex} className={styles.urlLink}>
+                      <Link href={routeItem.url}>{routeItem.name}</Link>
                     </li>
                   );
                 })}

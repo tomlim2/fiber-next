@@ -1,0 +1,15 @@
+.categories {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+}
+
+.categoryName {
+  font-size: 0.875rem;
+}
+
+.urlLink {
+  a {
+    font-size: 0.875rem;
+  }
+}
