@@ -69,8 +69,13 @@ import BOSAniBO from "@/components/sections/fiber/fragnent-time/patterns/BOSAniB
 import BOSAniBP from "@/components/sections/fiber/fragnent-time/patterns/BOSAniBP";
 import BOSAniBQ from "@/components/sections/fiber/fragnent-time/patterns/BOSAniBQ";
 import BOSAniBR from "@/components/sections/fiber/fragnent-time/patterns/BOSAniBR";
+import BOSAniBS from "@/components/sections/fiber/fragnent-time/patterns/BOSAniBS";
 
 const shaderManager = [
+  {
+    info: "Pattern BS: Basic",
+    component: <BOSAniBS />,
+  },
   {
     info: "Pattern BR: Basic",
     component: <BOSAniBR />,
