@@ -2,20 +2,18 @@ $skeleton-color: #f9f9f9;
 
 .section-shader {
   display: flex;
-  flex-direction: column;
-  align-items: center;
+  // flex-direction: column;
+  justify-content: center;
 }
 
 .container-shader {
-  width: 648px;
   margin-top: 48px;
   padding-bottom: 48px;
 }
 
 .canvas-wrapper {
   display: flex;
-  gap: 12px;
-  min-height: 648px;
+  gap: 8px;
   flex-direction: column;
   padding: 24px;
   margin-bottom: 48px;
@@ -42,8 +40,10 @@ $skeleton-color: #f9f9f9;
 
 .canvas-main {
   position: relative;
-  width: 600px;
-  height: 600px;
+  max-width: 600px;
+  width: calc(100vw - 48px);
+  max-height: 600px;
+  height: calc(100vw - 48px);
   background-color: $skeleton-color;
 }
 
@@ -51,6 +51,7 @@ $skeleton-color: #f9f9f9;
   h2 {
     color: #252525;
     font-size: 0.75rem;
+    font-weight: 600;
   }
 
   .buttons {
