@@ -2,7 +2,7 @@
 import { Canvas } from "@react-three/fiber";
 import Experience from "./Experience";
 
-const SectionJourneyStage = () => {
+const SectionJourneyEnvModel = () => {
   return (
     <Canvas
       camera={{
@@ -18,4 +18,4 @@ const SectionJourneyStage = () => {
   );
 };
 
-export default SectionJourneyStage;
+export default SectionJourneyEnvModel;

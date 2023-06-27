@@ -9,8 +9,8 @@ import { Suspense, useRef } from "react";
 import { Perf } from "r3f-perf";
 import * as THREE from "three";
 import { useControls } from "leva";
-import Model from "./Halmet";
 import Hamburger from "./Hamburger";
+import Halmet from "./Halmet";
 import Fox from "./Fox";
 
 const Experience = () => {
