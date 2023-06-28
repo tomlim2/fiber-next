@@ -4,6 +4,7 @@ import {
   useHelper,
   OrbitControls,
   ContactShadows,
+  Environment,
 } from "@react-three/drei";
 import { Suspense, useRef } from "react";
 import { Perf } from "r3f-perf";
@@ -29,14 +30,27 @@ const Experience = () => {
 
       <OrbitControls makeDefault />
 
-      <directionalLight
+      {/* <directionalLight
         castShadow
         position={[1, 2, 3]}
         intensity={1.5}
         shadow-normalBias={0.04}
       />
-      <ambientLight intensity={0.5} />
-
+      <ambientLight intensity={0.5} /> */}
+      
+      <Environment
+        background
+        blur={0.1}
+        // files={[
+        //   "/assets/images/environmentMaps/0/px.jpg",
+        //   "/assets/images/environmentMaps/0/nx.jpg",
+        //   "/assets/images/environmentMaps/0/py.jpg",
+        //   "/assets/images/environmentMaps/0/ny.jpg",
+        //   "/assets/images/environmentMaps/0/pz.jpg",
+        //   "/assets/images/environmentMaps/0/nz.jpg",
+        // ]}
+        files="/assets/images/environmentMaps/4/2k.hdr"
+      ></Environment>
       <Suspense
         fallback={
           <mesh position-y={0.5} scale={[2, 3, 2]}>
