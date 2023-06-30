@@ -143,10 +143,9 @@ const Experience: React.FC = () => {
         //   "/assets/images/environmentMaps/2/pz.jpg",
         //   "/assets/images/environmentMaps/2/nz.jpg",
         // ]}
-        // files="/assets/images/environmentMaps/the_sky_is_on_fire_2k.hdr"
+        files="/assets/images/environmentMaps/blender/blender_1.hdr"
         // preset="sunset"
         // resolution={32}
-        preset="sunset"
       ></Environment>
       <group>
         <mesh
