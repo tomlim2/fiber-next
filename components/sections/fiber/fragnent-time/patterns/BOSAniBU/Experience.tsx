@@ -4,8 +4,11 @@ import {
   Lightformer,
   useHelper,
   OrbitControls,
+  Edges,
   ContactShadows,
+  MeshPortalMaterial,
   Environment,
+  useGLTF
 } from "@react-three/drei";
 import { shaders } from "./shaders";
 import { Mesh, BufferGeometry, Material, ShaderMaterial, Color } from "three";
@@ -15,6 +18,7 @@ import { useControls } from "leva";
 import { Router, useRouter } from "next/router";
 
 const Experience: React.FC = () => {
+  const { nodes } = useGLTF("/assets/models/aobox-transformed.glb") as any;
   const meshRef = useRef<Mesh<BufferGeometry, Material | Material[]>>(null);
   const materialRef = useRef<ShaderMaterial>(null);
   const planeDimention = { width: 3, height: 3 };
@@ -148,27 +152,36 @@ const Experience: React.FC = () => {
         // resolution={32}
       ></Environment>
       <group>
-        <mesh
-          ref={meshRef}
-          onClick={(event) => eventHandler(event, "onClick")}
-          onContextMenu={(event) => eventHandler(event, "onRightClick")}
-          onDoubleClick={(event) => eventHandler(event, "onDoubleClick")}
-          onPointerUp={(event) => eventHandler(event, "onPointerUp")}
-          onPointerDown={(event) => eventHandler(event, "onPointerDown")}
-          onPointerOver={(event) => eventHandler(event, "onPointerOver")}
-          onPointerEnter={(event) => eventHandler(event, "onPointerEnter")}
-          onPointerOut={(event) => eventHandler(event, "onPointerOut")}
-          onPointerLeave={(event) => eventHandler(event, "onPointerLeave")}
-          onPointerMove={(event) => eventHandler(event, "onPointerMove")}
-        >
-          <boxGeometry
-            args={[
-              planeDimention.width,
-              planeDimention.width,
-              planeDimention.height,
-            ]}
-          />
-          <meshStandardMaterial color="orange" />
+        <mesh castShadow receiveShadow geometry={nodes.Cube.geometry}></mesh>
+        <mesh castShadow receiveShadow>
+          <boxGeometry args={[2, 2, 2]} />
+          <Edges />
+          <Side rotation={[0, 0, 0]} bg="orange" index={0}>
+            <torusGeometry args={[0.65, 0.3, 64]} />
+          </Side>
+          <Side rotation={[0, Math.PI, 0]} bg="lightblue" index={1}>
+            <torusKnotGeometry args={[0.55, 0.2, 128, 32]} />
+          </Side>
+          <Side
+            rotation={[0, Math.PI / 2, Math.PI / 2]}
+            bg="lightgreen"
+            index={2}
+          >
+            <boxGeometry args={[1.15, 1.15, 1.15]} />
+          </Side>
+          <Side
+            rotation={[0, Math.PI / 2, -Math.PI / 2]}
+            bg="aquamarine"
+            index={3}
+          >
+            <octahedronGeometry />
+          </Side>
+          <Side rotation={[0, -Math.PI / 2, 0]} bg="indianred" index={4}>
+            <icosahedronGeometry />
+          </Side>
+          <Side rotation={[0, Math.PI / 2, 0]} bg="hotpink" index={5}>
+            <dodecahedronGeometry />
+          </Side>
         </mesh>
       </group>
     </>
@@ -176,3 +189,48 @@ const Experience: React.FC = () => {
 };
 
 export default Experience;
+
+function Side(props: any) {
+  const { rotation = [0, 0, 0], bg = "#f0f0f0", children, index } = props;
+  const mesh: any = useRef();
+  const { worldUnits } = useControls({ worldUnits: false });
+  const { nodes } = useGLTF("/assets/models/aobox-transformed.glb") as any;
+  useFrame((state, delta) => {
+    mesh.current.rotation.x = mesh.current.rotation.y += delta;
+  });
+  return (
+    <MeshPortalMaterial worldUnits={worldUnits} attach={`material-${index}`}>
+      {/** Everything in here is inside the portal and isolated from the canvas */}
+      <ambientLight intensity={0.5} />
+      <Environment preset="city" />
+      {/** A box with baked AO */}
+      <mesh
+        castShadow
+        receiveShadow
+        rotation={rotation}
+        geometry={nodes.Cube.geometry}
+      >
+        <meshStandardMaterial
+          aoMapIntensity={1}
+          aoMap={nodes.Cube.material.aoMap}
+          color={bg}
+        />
+        <spotLight
+          castShadow
+          color={bg}
+          intensity={2}
+          position={[10, 10, 10]}
+          angle={0.15}
+          penumbra={1}
+          shadow-normalBias={0.05}
+          shadow-bias={0.0001}
+        />
+      </mesh>
+      {/** The shape */}
+      <mesh castShadow receiveShadow ref={mesh}>
+        {children}
+        <meshLambertMaterial color={bg} />
+      </mesh>
+    </MeshPortalMaterial>
+  );
+}
