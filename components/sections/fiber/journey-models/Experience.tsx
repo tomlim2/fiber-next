@@ -12,6 +12,7 @@ import { useControls } from "leva";
 import Model from "./Halmet";
 import Hamburger from "./Hamburger";
 import Fox from "./Fox";
+import Cube from "./Cube";
 
 const Experience = () => {
   const cube = useRef() as any;
@@ -56,7 +57,8 @@ const Experience = () => {
           blur={blur}
           frames={1}
         />
-        <Fox />
+        {/* <Fox /> */}
+        <Cube />
       </Suspense>
 
       <mesh
