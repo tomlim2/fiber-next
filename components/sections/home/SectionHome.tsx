@@ -5,10 +5,11 @@ const SectionHome = () => {
     {
       categoryName: "Fiber",
       urlList: [
-        { name: "Drei-Portal", url: "/fiber/drei-portal" },
+        { name: "Models", url: "/fiber/models" },
         { name: "Vertex-Fragnent", url: "/fiber/vertex-fragnent" },
         { name: "Fragnent-Time", url: "/fiber/fragnent-time" },
         { name: "Fragnent-Still", url: "/fiber/fragnent-still" },
+        { name: "Drei-Portal", url: "/fiber/drei-portal" },
         {
           name: "Journey-Physics-Base",
           url: "/fiber/journey-physics",

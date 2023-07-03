@@ -1,4 +1,3 @@
-
 import { useRecoilState } from "recoil";
 import { currentShaderIndex } from "@/store/storeFiber";
 import { useEffect, useRef, useState } from "react";
@@ -11,7 +10,7 @@ interface Props {
   shaderIndex: number;
 }
 
-export default function ProjectPost(props: Props) {
+export default function PostProject(props: Props) {
   const [currentIndex, setCurrentIndex] = useRecoilState(currentShaderIndex);
   const { canvasComponent, info, shaderIndex } = props;
   const [isOn, setIsOn] = useState(false);
@@ -42,8 +41,9 @@ export default function ProjectPost(props: Props) {
     const isNextIndex: boolean = shaderIndex === currentIndex + 1;
 
     if (
-      // isPrevIndex || isNextIndex || 
-      isCurrentIndex) {
+      // isPrevIndex || isNextIndex ||
+      isCurrentIndex
+    ) {
       setIsOn(true);
     } else {
       setIsOn(false);
@@ -51,9 +51,11 @@ export default function ProjectPost(props: Props) {
   }, [currentIndex, shaderIndex]);
 
   return (
-    <div className={styles['canvas-wrapper']}>
-      <div className={styles['canvas-main']} ref={refCanvas}>{isOn && canvasComponent}</div>
-      <div className={styles['canvas-info']}>
+    <div className={styles["canvas-wrapper"]}>
+      <div className={styles["canvas-main"]} ref={refCanvas}>
+        {isOn && canvasComponent}
+      </div>
+      <div className={styles["canvas-info"]}>
         <div>
           <h2>{info}</h2>
         </div>

@@ -1,26 +1,13 @@
 "use client";
 import PostTime from "../common/postProject";
 import styles from "../common/fiber.module.scss";
+import { modelManager } from "./modelManager";
 
-import VerFragA from "./patterns/verFragA";
-import VerFragB from "./patterns/verFragB";
-
-const aniList = [
-  {
-    info: "Pattern B: Particles",
-    component: <VerFragB />,
-  },
-  {
-    info: "Pattern A: Raging sea",
-    component: <VerFragA />,
-  },
-];
-
-const SectionVertexFragnent = () => {
+const SectionModels = () => {
   return (
     <div className={styles["section-shader"]}>
       <div className={styles["container-shader"]}>
-        {aniList.map((item, index) => {
+        {modelManager.map((item, index) => {
           return (
             <PostTime
               key={index}
@@ -35,4 +22,4 @@ const SectionVertexFragnent = () => {
   );
 };
 
-export default SectionVertexFragnent;
+export default SectionModels;

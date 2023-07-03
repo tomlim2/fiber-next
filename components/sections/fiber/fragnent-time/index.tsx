@@ -1,5 +1,5 @@
 "use client";
-import PostTime from "../common/postTime";
+import PostProject from "../common/postProject";
 import styles from "../common/fiber.module.scss";
 import { shaderManager } from "./shaderManager";
 
@@ -9,7 +9,7 @@ const SectionFragnentTime = () => {
       <div className={styles["container-shader"]}>
         {shaderManager.map((item, index) => {
           return (
-            <PostTime
+            <PostProject
               key={index}
               shaderIndex={index}
               canvasComponent={item.component}
