@@ -1,11 +1,22 @@
-import { OrbitControls, Environment } from "@react-three/drei";
+import {
+  Environment,
+  useHelper,
+  OrbitControls,
+  ContactShadows,
+} from "@react-three/drei";
 import { Mesh, BufferGeometry, Material, ShaderMaterial, Color } from "three";
-import { useRef } from "react";
+import { Suspense, useRef } from "react";
+import Cube from "./Cube";
+import { useControls } from "leva";
 
 const Experience: React.FC = () => {
   const meshRef = useRef<Mesh<BufferGeometry, Material | Material[]>>(null);
   const materialRef = useRef<ShaderMaterial>(null);
-  const planeDimention = { width: 3, height: 3 };
+  const { color, opacity, blur } = useControls("contact shadows", {
+    color: "#1d8f75",
+    opacity: { value: 0, min: 0, max: 1 },
+    blur: { value: 2.8, min: 0, max: 10 },
+  });
 
   const eventHandler = (event: any, eventType: string) => {
     if (eventType == "onPointerEnter") {
@@ -32,6 +43,28 @@ const Experience: React.FC = () => {
         files="/assets/images/environmentMaps/blender/blender_2.hdr"
       ></Environment>
       <group>
+        <Suspense
+          fallback={
+            <mesh position-y={0.5} scale={[2, 3, 2]}>
+              <boxGeometry args={[1, 1, 1, 2, 2, 2]} />
+              <meshBasicMaterial wireframe color="red" />
+            </mesh>
+          }
+        >
+          {/* <Hamburger scale={0.35} /> */}
+          <ContactShadows
+            position={[0, -0.99, 0]}
+            scale={10}
+            resolution={512}
+            far={5}
+            color={color}
+            opacity={opacity}
+            blur={blur}
+            frames={1}
+          />
+          {/* <Fox /> */}
+          <Cube />
+        </Suspense>
         <mesh
           ref={meshRef}
           onClick={(event) => eventHandler(event, "onClick")}
@@ -45,13 +78,6 @@ const Experience: React.FC = () => {
           onPointerLeave={(event) => eventHandler(event, "onPointerLeave")}
           onPointerMove={(event) => eventHandler(event, "onPointerMove")}
         >
-          <boxGeometry
-            args={[
-              planeDimention.width,
-              planeDimention.width,
-              planeDimention.height,
-            ]}
-          />
           <meshStandardMaterial color="orange" />
         </mesh>
       </group>
