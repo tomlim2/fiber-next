@@ -14,9 +14,7 @@ const Navigation: React.FC = () => {
   useEffect(() => {
     const fetchData = async () => {
       try {
-        const apiKey = process.env.OPENWEATHERMAP_API_KEY;
-        console.log(apiKey);
-
+        const apiKey = process.env.NEXT_PUBLIC_OPENWEATHERMAP_API_KEY;
         const city = "Seoul";
         const response = await axios.get(
           `https://api.openweathermap.org/data/2.5/weather?q=${city}&appid=${apiKey}`
