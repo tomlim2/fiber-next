@@ -1,12 +1,8 @@
 "use client";
-import axios from "axios";
-import React, { useEffect, useState } from "react";
 import PostTime from "../common/postProject";
 import styles from "../common/fiber.module.scss";
 import { modelManager } from "./modelManager";
-import { currentWeather } from "@/store/storeFiber";
-import { useRecoilState } from "recoil";
-import { stringToHexCode, hexCodeToColor } from "@/lib/utils";
+
 
 const SectionModels = () => {
   

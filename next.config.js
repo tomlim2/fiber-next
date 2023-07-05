@@ -1,4 +1,6 @@
 /** @type {import('next').NextConfig} */
-const nextConfig = {}
+const dotenv = require('dotenv');
 
+dotenv.config();
+const nextConfig = {}
 module.exports = nextConfig
