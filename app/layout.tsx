@@ -1,9 +1,9 @@
 "use client";
 import { RecoilRoot } from "recoil";
 import Navigation from "@/components/ui/navigation";
-
-import "./globals.scss";
 import { Inter } from "next/font/google";
+import "./globals.scss";
+
 
 const inter = Inter({ subsets: ["latin"] });
 
@@ -12,6 +12,8 @@ export default function RootLayout({
 }: {
   children: React.ReactNode;
 }) {
+  
+
   return (
     <html lang="en">
       <RecoilRoot>

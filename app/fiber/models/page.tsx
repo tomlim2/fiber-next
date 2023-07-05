@@ -6,7 +6,7 @@ export const metadata: Metadata = {
   description: "My playground",
 };
 
-const FragnentTime = () => {
+const Modelss = () => {
   return (
     <main className="page-fragnent-time">
       <SectionModels />
@@ -14,4 +14,4 @@ const FragnentTime = () => {
   );
 };
 
-export default FragnentTime;
+export default Modelss;
