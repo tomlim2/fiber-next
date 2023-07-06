@@ -72,8 +72,13 @@ import BOSAniBR from "@/components/sections/fiber/fragnent-time/patterns/BOSAniB
 import BOSAniBS from "@/components/sections/fiber/fragnent-time/patterns/BOSAniBS";
 import BOSAniBT from "@/components/sections/fiber/fragnent-time/patterns/BOSAniBT";
 import BOSAniBU from "@/components/sections/fiber/fragnent-time/patterns/BOSAniBU";
+import BOSAniBV from "@/components/sections/fiber/fragnent-time/patterns/BOSAniBV";
 
 const shaderManager = [
+  {
+    info: "Pattern BV: Raymarching",
+    component: <BOSAniBV />,
+  },
   {
     info: "Pattern BU: Basic",
     component: <BOSAniBU />,
