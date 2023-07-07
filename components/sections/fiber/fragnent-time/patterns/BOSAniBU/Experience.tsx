@@ -55,8 +55,8 @@ const Experience: React.FC = () => {
     paramsACtrl: {
       value: intiValue.paramsACtrl,
       step: 1,
-      min: 1,
-      max: 50,
+      min: -10,
+      max: 10,
       onChange: (value) => {
         if (materialRef && materialRef.current) {
           materialRef.current.uniforms.uParamsA.value = value;
