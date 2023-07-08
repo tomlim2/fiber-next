@@ -5,6 +5,7 @@ const SectionHome = () => {
     {
       categoryName: "Fiber",
       urlList: [
+        { name: "Raymarch101", url: "/fiber/raymarch101" },
         { name: "Models", url: "/fiber/models" },
         { name: "Vertex-Fragnent", url: "/fiber/vertex-fragnent" },
         { name: "Fragnent-Time", url: "/fiber/fragnent-time" },
