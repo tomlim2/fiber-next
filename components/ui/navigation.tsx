@@ -36,8 +36,11 @@ const Navigation: React.FC = () => {
       <header className={styles.header}>
         <ul className={styles.menu}>
           <li className="menu">
-            <Link style={{ color: "#252525" }} href="/">
-              ylim | {weatherColor}
+            <Link href="/">
+              ylim |{" "}
+              <span style={{ fontSize: "0.75rem", color: weatherColor }}>
+                {weatherColor}
+              </span>
             </Link>
           </li>
           <li className="menu">

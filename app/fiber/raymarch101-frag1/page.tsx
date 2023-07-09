@@ -1,16 +1,16 @@
 import { Metadata } from "next/dist/lib/metadata/types/metadata-interface";
-import SectionRayMarch101 from "@/components/sections/fiber/raymarch101";
+import SectionRayMarch101F1 from "@/components/sections/fiber/raymarch101-frag1";
 import styles from "./page.module.scss";
 
 export const metadata: Metadata = {
-  title: "Drei Portal | Fiber | yslim",
+  title: "Raymarch101 Frag1 | Fiber | yslim",
   description: "My playground",
 };
 
 const DreiPortal = () => {
   return (
     <main className={styles.page}>
-      <SectionRayMarch101 />
+      <SectionRayMarch101F1 />
     </main>
   );
 };

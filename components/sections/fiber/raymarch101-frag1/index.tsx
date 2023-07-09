@@ -2,7 +2,7 @@
 import { Canvas } from "@react-three/fiber";
 import Experience from "./Experience";
 
-const SectionRaymarch101 = () => {
+const SectionRaymarch101F1 = () => {
   return (
     <Canvas shadows camera={{ position: [0, 0, 3] }}>
       <Experience />
@@ -10,4 +10,4 @@ const SectionRaymarch101 = () => {
   );
 };
 
-export default SectionRaymarch101;
+export default SectionRaymarch101F1;
