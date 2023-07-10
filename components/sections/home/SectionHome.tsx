@@ -5,8 +5,10 @@ const SectionHome = () => {
     {
       categoryName: "Fiber",
       urlList: [
-        { name: "Raymarch101-frag2", url: "/fiber/raymarch101-frag2" },
+        
         { name: "Raymarch101-frag1", url: "/fiber/raymarch101-frag1" },
+        { name: "Raymarch101-frag2", url: "/fiber/raymarch101-frag2" },
+        { name: "Raymarch101-frag3", url: "/fiber/raymarch101-frag3" },
         { name: "Models", url: "/fiber/models" },
         { name: "Vertex-Fragnent", url: "/fiber/vertex-fragnent" },
         { name: "Fragnent-Time", url: "/fiber/fragnent-time" },
