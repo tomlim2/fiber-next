@@ -34,11 +34,12 @@ float smax(float a, float b, float k) {
 
 float map(vec2 coord) {
     vec2 mouse = vec2(uMouseX, uMouseY);
-    float circle1 = 1.0 - distance(coord, mouse) - .9;
-    float circle2 = 1.0 - distance(coord, vec2(.2, .3)) - .8;
-    float smoothCircles = smax(circle1, circle2, .2);
-    float quad = length(max(vec2(0.1, 0.1) - coord, 0.9));
-    return quad;
+    float circle1 = distance(vec2(.8 + sin(uTime) * .1, .8), coord) - .1;
+    float circle2 = distance(vec2(.3, .7), coord) - .2;
+    float rect = length(max(abs(coord - mouse) - vec2(.1, .1), 0.0));
+
+    float merged = smin(smin(rect, circle1, .1), circle2, 0.1);
+    return merged;
 }
 
 void main() {
@@ -50,7 +51,6 @@ void main() {
     vec3 colorD = vec3(1., 1., 1.);
     float opcity = 1.0;
 
-    vec3 color = colorA * step(0.0, map(uv));
-    color += fract(min(0., map(vUv)) * 10.);
+    vec3 color = colorA * step(0.0, -map(uv)) + colorD * fract(max(0.0, map(uv)) * 10.0);
     gl_FragColor = vec4(color, opcity);
 }

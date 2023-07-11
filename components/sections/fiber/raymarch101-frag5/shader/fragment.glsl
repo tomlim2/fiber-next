@@ -38,7 +38,7 @@ float map(vec2 coord) {
     float circle2 = 1.0 - distance(coord, vec2(.2, .3)) - .8;
     float smoothCircles = smax(circle1, circle2, .2);
     float quad = length(max(vec2(0.1, 0.1) - coord, 0.9));
-    return smoothCircles;
+    return quad;
 }
 
 void main() {
