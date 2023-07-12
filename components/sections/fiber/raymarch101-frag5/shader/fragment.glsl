@@ -32,25 +32,29 @@ float smax(float a, float b, float k) {
     return mix(b, a, h) + k * h * (1.0 - h);
 }
 
-float map(vec2 coord) {
-    vec2 mouse = vec2(uMouseX, uMouseY);
-    float circle1 = 1.0 - distance(coord, mouse) - .9;
-    float circle2 = 1.0 - distance(coord, vec2(.2, .3)) - .8;
-    float smoothCircles = smax(circle1, circle2, .2);
-    float quad = length(max(vec2(0.1, 0.1) - coord, 0.9));
-    return quad;
+float map(vec3 p) {
+    return distance(p, vec3(0.0)) - 1.0;
+}
+
+float trace(vec3 origin, vec3 direction) {
+    float dist = 0.0;
+    for(int i = 0 ; i < 64 ; i++) {
+        vec3 p = origin + direction * dist;
+        float d = map(p);
+        if(d <= 0.0) {
+            break;
+        }
+        dist += d;
+    }
+    return dist;
 }
 
 void main() {
-    vec2 uv = vUv;
+    vec2 uv = vUv * 2. - 1.;
 
-    vec3 colorA = vec3(.8, .2, .2);
-    vec3 colorB = vec3(.2, .8, .2);
-    vec3 colorC = vec3(.2, .2, .8);
-    vec3 colorD = vec3(1., 1., 1.);
-    float opcity = 1.0;
-
-    vec3 color = colorA * step(0.0, map(uv));
-    color += fract(min(0., map(vUv)) * 10.);
-    gl_FragColor = vec4(color, opcity);
+    vec3 direction = normalize(vec3(uv, 1.0));
+    vec3 origin = vec3(0.0, 0.0, -3.0);
+    float dist = trace(origin, direction);
+    vec3 color = vec3(1.0 - dist / 10.0);
+    gl_FragColor = vec4(color, 1.0);
 }
