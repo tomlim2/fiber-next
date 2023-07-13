@@ -18,7 +18,11 @@ uniform vec3 uColorA;
 uniform vec3 uColorB;
 
 varying vec2 vUv;
-varying vec3 vNormal;
+varying vec3 vNormalz;
+
+#define EPSILON 0.0001
+#define steps 128
+
 
 // polynomial smooth 
 float smin(float a, float b, float k) {
@@ -33,12 +37,14 @@ float smax(float a, float b, float k) {
 }
 
 float map(vec3 p) {
-    return distance(p, vec3(0.0)) - 1.0;
+    // float circ = distance(p, vec3(0.0)) - 1.0;
+    float cube = length(max(abs(p) - vec3(0.5), 0.0));
+    return cube;
 }
 
 float trace(vec3 origin, vec3 direction) {
     float dist = 0.0;
-    for(int i = 0 ; i < 64 ; i++) {
+    for(int i = 0 ; i < steps ; i++) {
         vec3 p = origin + direction * dist;
         float d = map(p);
         if(d <= 0.0) {
@@ -49,12 +55,23 @@ float trace(vec3 origin, vec3 direction) {
     return dist;
 }
 
+vec3 normalz(vec3 p) {
+    return normalize(vec3(map(vec3(p.x + EPSILON, p.y, p.z)) - map(vec3(p.x - EPSILON, p.y, p.z)), map(vec3(p.x, p.y + EPSILON, p.z)) - map(vec3(p.x, p.y - EPSILON, p.z)), map(vec3(p.x, p.y, p.z + EPSILON)) - map(vec3(p.x, p.y, p.z - EPSILON))));
+}
+
 void main() {
     vec2 uv = vUv * 2. - 1.;
 
+    vec3 light = vec3(2.0, 5.0, 2.0);
+
     vec3 direction = normalize(vec3(uv, 1.0));
-    vec3 origin = vec3(0.0, 0.0, -3.0);
+    vec3 origin = vec3(1.0, 1.0, -3.0);
     float dist = trace(origin, direction);
-    vec3 color = vec3(1.0 - dist / 10.0);
+
+    vec3 p = origin + dist * direction;
+    vec3 norm = normalz(p);
+
+    vec3 color = abs(norm);
+    // color = vec3(1.0 - dist / 10.0);
     gl_FragColor = vec4(color, 1.0);
 }
