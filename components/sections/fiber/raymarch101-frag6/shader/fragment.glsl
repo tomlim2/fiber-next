@@ -21,7 +21,7 @@ varying vec2 vUv;
 varying vec3 vNormalz;
 
 #define EPSILON 0.0001
-#define steps 128
+#define steps 1024
 
 // polynomial smooth 
 float smin(float a, float b, float k) {
@@ -37,7 +37,7 @@ float smax(float a, float b, float k) {
 
 float map(vec3 p) {
     // float circ = distance(p, vec3(0.0)) - 1.0;
-    float cube = length(max(abs(p) - vec3(0.5), 0.0))-.2;
+    float cube = length(max(abs(p) - vec3(0.5), 0.0)) - .2;
     return cube;
 }
 
@@ -61,16 +61,19 @@ vec3 normalz(vec3 p) {
 void main() {
     vec2 uv = vUv * 2. - 1.;
 
-    vec3 light = vec3(2.0, 5.0, 2.0);
+    vec3 light = vec3(sin(uTime) * 2.0, 2.0, -2.0 + cos(uTime) * 2.0);
 
     vec3 direction = normalize(vec3(uv, 1.0));
-    vec3 origin = vec3(-(uMouseX - .5) * 4., -(uMouseY - .5) * 4., -3.0);
+    vec3 origin = vec3(1.0, 1.0, -3.0);
     float dist = trace(origin, direction);
 
     vec3 p = origin + dist * direction;
     vec3 norm = normalz(p);
+    vec3 reflection = direction - 2.0 * dot(direction, norm) * norm;
 
-    vec3 color = abs(norm);
-    // color = vec3(1.0 - dist / 10.0);
+    vec3 color = vec3(.8, 1.0, 0.8) * max(0.0, dot(norm, normalize(p - light)));
+    float specular = pow(max(0.0, dot(reflection, normalize(light - p))), 10.0);
+    vec3 ambient = vec3(0.2, 0.2, 0.4);
+    color += specular * vec3(1.0) + ambient;
     gl_FragColor = vec4(color, 1.0);
 }
