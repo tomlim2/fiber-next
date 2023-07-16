@@ -32,13 +32,16 @@ float smin(float a, float b, float k) {
 // polynomial smooth 
 float smax(float a, float b, float k) {
     float h = clamp(0.5 + 0.5 * (a - b) / k, 0.0, 1.0);
+
     return mix(b, a, h) + k * h * (1.0 - h);
 }
 
 float map(vec3 p) {
     // float circ = distance(p, vec3(0.0)) - 1.0;
-    float cube = length(max(abs(p) - vec3(0.5), 0.0)) - .2;
-    return cube;
+    vec3 cubeMv = vec3(0.0, sin(uTime), 0.0);
+    float cube = length(max(abs(p - cubeMv) - vec3(0.5), 0.0)) - .2;
+    float plane = p.y + 0.01 * sin(-uTime * 2.0 + length(p.xz) * 10.0);
+    return smin(plane, cube, 0.01);
 }
 
 float trace(vec3 origin, vec3 direction) {
@@ -71,7 +74,9 @@ void main() {
     vec3 norm = normalz(p);
     vec3 reflection = direction - 2.0 * dot(direction, norm) * norm;
 
-    vec3 color = vec3(.8, 1.0, 0.8) * max(0.0, dot(norm, normalize(p - light)));
+    float brightness = 1.0 - smoothstep(10.0, 20.0, distance(p, light));
+
+    vec3 color = vec3(.8, 1.0, 0.8) * max(0.0, dot(norm, normalize(light - p))) * brightness;
     float specular = pow(max(0.0, dot(reflection, normalize(light - p))), 10.0);
     vec3 ambient = vec3(0.2, 0.2, 0.4);
     color += specular * vec3(1.0) + ambient;
