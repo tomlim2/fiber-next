@@ -11,6 +11,7 @@ const SectionHome = () => {
         { name: "Raymarch101-frag4", url: "/fiber/raymarch101-frag4" },
         { name: "Raymarch101-frag5", url: "/fiber/raymarch101-frag5" },
         { name: "Raymarch101-frag6", url: "/fiber/raymarch101-frag6" },
+        { name: "Raymarch101-frag7", url: "/fiber/raymarch101-frag7" },
         { name: "Models", url: "/fiber/models" },
         { name: "Vertex-Fragnent", url: "/fiber/vertex-fragnent" },
         { name: "Fragnent-Time", url: "/fiber/fragnent-time" },
