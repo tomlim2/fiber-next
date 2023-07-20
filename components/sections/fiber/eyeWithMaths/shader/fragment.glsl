@@ -23,64 +23,38 @@ varying vec3 vNormalz;
 #define EPSILON 0.0001
 #define steps 1024
 
-// polynomial smooth 
-float smin(float a, float b, float k) {
-    float h = clamp(0.5 + 0.5 * (b - a) / k, 0.0, 1.0);
-    return mix(b, a, h) - k * h * (1.0 - h);
+float random(in vec2 st) {
+    return fract(sin(dot(st.xy, vec2(12.9898, 78.233))) * 43758.5453123);
 }
 
-// polynomial smooth 
-float smax(float a, float b, float k) {
-    float h = clamp(0.5 + 0.5 * (a - b) / k, 0.0, 1.0);
+float noise(in vec2 st) {
+    vec2 i = floor(st);
+    vec2 f = fract(st);
 
-    return mix(b, a, h) + k * h * (1.0 - h);
+    // Four corners in 2D of a tile
+    float a = random(i);
+    float b = random(i + vec2(1.0, 0.0));
+    float c = random(i + vec2(0.0, 1.0));
+    float d = random(i + vec2(1.0, 1.0));
+
+    // Smooth Interpolation
+
+    // Cubic Hermine Curve.  Same as SmoothStep()
+    vec2 u = f * f * (3.0 - 2.0 * f);
+    // u = smoothstep(0.,1.,f);
+
+    // Mix 4 coorners percentages
+    return mix(a, b, u.x) +
+        (c - a) * u.y * (1.0 - u.x) +
+        (d - b) * u.x * u.y;
 }
-
-float map(vec3 p) {
-    p.x = fract(p.x/4.0)*4.0 - 2.0;
-    p.z = fract(p.z/4.0)*4.0 - 2.0;
-    // float circ = distance(p, vec3(0.0)) - 1.0;
-    vec3 cubeMv = vec3(0.0, sin(uTime), 0.0);
-    float cube = length(max(abs(p - cubeMv) - vec3(0.5), 0.0)) - .2;
-    float plane = p.y + 0.01 * sin(-uTime * 2.0 + length(p.xz) * 10.0);
-    return smin(plane, cube, 0.01);
-}
-
-float trace(vec3 origin, vec3 direction) {
-    float dist = 0.0;
-    for(int i = 0 ; i < steps ; i++) {
-        vec3 p = origin + direction * dist;
-        float d = map(p);
-        if(d <= 0.0) {
-            break;
-        }
-        dist += d;
-    }
-    return dist;
-}
-
-vec3 normalz(vec3 p) {
-    return normalize(vec3(map(vec3(p.x + EPSILON, p.y, p.z)) - map(vec3(p.x - EPSILON, p.y, p.z)), map(vec3(p.x, p.y + EPSILON, p.z)) - map(vec3(p.x, p.y - EPSILON, p.z)), map(vec3(p.x, p.y, p.z + EPSILON)) - map(vec3(p.x, p.y, p.z - EPSILON))));
-}
-
 void main() {
     vec2 uv = vUv * 2. - 1.;
+    float background = smoothstep(-0.25, 0.25, uv.x);
+    float f = noise(uv);
 
-    vec3 light = vec3(sin(uTime) * 2.0, 2.0, -2.0 + cos(uTime) * 2.0+uTime*3.0);
-
-    vec3 direction = normalize(vec3(uv, 1.0));
-    vec3 origin = vec3(1.0, 1.0, -3.0+uTime*3.0);
-    float dist = trace(origin, direction);
-
-    vec3 p = origin + dist * direction;
-    vec3 norm = normalz(p);
-    vec3 reflection = direction - 2.0 * dot(direction, norm) * norm;
-
-    float brightness = 1.0 - smoothstep(10.0, 20.0, distance(p, light));
-
-    vec3 color = vec3(.8, 1.0, 0.8) * max(0.0, dot(norm, normalize(light - p))) * brightness;
-    float specular = pow(max(0.0, dot(reflection, normalize(light - p))), 10.0);
-    vec3 ambient = vec3(0.2, 0.2, 0.4);
-    color += specular * vec3(1.0) + ambient;
-    gl_FragColor = vec4(color, 1.0);
+    vec3 color = vec3(f, f, f);
+    float opacity = 1.0;
+    color *= background;
+    gl_FragColor = vec4(color, opacity);
 }
