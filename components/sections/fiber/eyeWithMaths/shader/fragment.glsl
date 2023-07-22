@@ -48,10 +48,24 @@ float noise(in vec2 st) {
         (c - a) * u.y * (1.0 - u.x) +
         (d - b) * u.x * u.y;
 }
+mat2 m = mat2(0.8, 0.6, -0.6, 0.8);
+float fbm(vec2 p) {
+    float f = 0.0;
+    f += 0.5000 * noise(p);
+    p *= m * 2.02;
+    f += 0.2500 * noise(p);
+    p *= m * 2.03;
+    f += 0.1250 * noise(p);
+    p *= m * 2.01;
+    f += 0.0625 * noise(p);
+    p *= m * 2.04;
+    f /= 0.9375;
+    return f;
+}
 void main() {
     vec2 uv = vUv * 2. - 1.;
     float background = smoothstep(-0.25, 0.25, uv.x);
-    float f = noise(uv);
+    float f = fbm(4.0 * uv);
 
     vec3 color = vec3(f, f, f);
     float opacity = 1.0;
