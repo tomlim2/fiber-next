@@ -5,6 +5,6 @@ export interface ItemSimple {
 }
 
 export interface ItemImg {
-  imgName: string;
+  imgPath: string;
   imgAlt: string;
 }

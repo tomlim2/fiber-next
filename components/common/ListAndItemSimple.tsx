@@ -15,7 +15,7 @@ const ListAndItemSimple = (props: { list: ItemSimple[] }) => {
                   <Image
                     key={itemIndex}
                     className={styles.image}
-                    src={itemImg.imgName}
+                    src={itemImg.imgPath}
                     alt={itemImg.imgAlt}
                     fill={true}
                   />

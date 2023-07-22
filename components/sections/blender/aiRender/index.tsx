@@ -1,7 +1,7 @@
-import ListAndItemSimple from "../../common/ListAndItemSimple";
+import ListAndItemSimple from "@/components/common/ListAndItemSimple";
 import { listBlender } from "./data";
 
-import styles from "./SectionBlender.module.scss";
+import styles from "../SectionBlender.module.scss";
 
 const SectionBlender = () => {
   return (

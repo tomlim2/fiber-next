@@ -57,7 +57,7 @@ const SectionHome = () => {
     },
     {
       categoryName: "Blender",
-      urlList: [{ name: "Geometry Node", url: "/blender/geometry-node" }],
+      urlList: [{ name: "Geometry Node", url: "/blender/geometry-node" },{ name: "AI Render", url: "/blender/ai-render" }],
     },
     {
       categoryName: "Design",

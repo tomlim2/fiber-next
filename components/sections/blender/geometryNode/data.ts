@@ -4,8 +4,8 @@ const listBlender = [
     itemDescription: "First",
     itemImgs: [
       {
-        imgName:
-          "/assets/images/blenderGeometryNodes/blender_geometry_nodes_1.png",
+        imgPath:
+          "/assets/images/blender/geometryNodes/blender_geometry_nodes_1.png",
         imgAlt: "Description of the image",
       },
     ],
@@ -15,8 +15,8 @@ const listBlender = [
     itemDescription: "Second",
     itemImgs: [
       {
-        imgName:
-          "/assets/images/blenderGeometryNodes/blender_geometry_nodes_2.png",
+        imgPath:
+          "/assets/images/blender/geometryNodes/blender_geometry_nodes_2.png",
         imgAlt: "Description of the image",
       },
     ],
@@ -26,8 +26,8 @@ const listBlender = [
     itemDescription: "Third",
     itemImgs: [
       {
-        imgName:
-          "/assets/images/blenderGeometryNodes/blender_geometry_nodes_3.png",
+        imgPath:
+          "/assets/images/blender/geometryNodes/blender_geometry_nodes_3.png",
         imgAlt: "Description of the image",
       },
     ],
@@ -37,8 +37,8 @@ const listBlender = [
     itemDescription: "Fourth",
     itemImgs: [
       {
-        imgName:
-          "/assets/images/blenderGeometryNodes/blender_geometry_nodes_4.png",
+        imgPath:
+          "/assets/images/blender/geometryNodes/blender_geometry_nodes_4.png",
         imgAlt: "Description of the image",
       },
     ],
