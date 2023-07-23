@@ -64,11 +64,33 @@ float fbm(vec2 p) {
 }
 void main() {
     vec2 uv = vUv * 2. - 1.;
-    float background = smoothstep(-0.25, 0.25, uv.x);
-    float f = fbm(4.0 * uv);
+    // float background = smoothstep(-0.25, 0.25, uv.x);
+    // float f = fbm(4.0 * uv);
+    float r = sqrt(dot(uv, uv));
+    float a = atan(uv.x, uv.y);
+    vec3 color = vec3(1.0);
 
-    vec3 color = vec3(f, f, f);
+    if(r < 0.8) {
+        color = vec3(0.2, 0.3, 0.4);
+        float f = fbm(5.0 * uv);
+        color = mix(color, vec3(0.2, 0.5, 0.4), f);
+
+        f = 1.0 - smoothstep(0.2, 0.5, r);
+        color = mix(color, vec3(0.9, 0.4, 0.2), f);
+
+        f = smoothstep(.3, 1.0, fbm(vec2(6.0 * r, 20.0 * a)));
+        color = mix(color, vec3(1.0), f);
+
+        f = smoothstep(0.4, 0.9, fbm(vec2(10.0 * r, 15.0 * a)));
+        color *= 1.0 - 0.5*f;
+
+        f = smoothstep(0.6, 0.8, r);
+        color *= 1.0 - 0.5*f;
+
+        f = smoothstep(0.2, 0.25, r);
+        color *= f;
+    }
+
     float opacity = 1.0;
-    color *= background;
     gl_FragColor = vec4(color, opacity);
 }
