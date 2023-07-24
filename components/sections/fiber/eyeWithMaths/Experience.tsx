@@ -23,12 +23,12 @@ const Experience = () => {
 
   const intiValue = {
     timeSpeedCtrl: 1,
-    paramsACtrl: 10,
+    paramsACtrl: 0.05,
     paramsBCtrl: 0,
     paramsCCtrl: 1,
     paramsDCtrl: 0,
-    colorACtrl: "#ff0000",
-    colorBCtrl: "#ffffff",
+    colorACtrl: "#020202",
+    colorBCtrl: "#fffce9",
   };
 
   const timeSpeed = useRef(intiValue.timeSpeedCtrl);
@@ -52,9 +52,9 @@ const Experience = () => {
     },
     paramsACtrl: {
       value: intiValue.paramsACtrl,
-      step: 1,
-      min: -10,
-      max: 10,
+      step: 0.01,
+      min: -1,
+      max: 1,
       onChange: (value) => {
         if (materialRef && materialRef.current) {
           materialRef.current.uniforms.uParamsA.value = value;
@@ -64,8 +64,8 @@ const Experience = () => {
     paramsBCtrl: {
       value: intiValue.paramsBCtrl,
       step: 0.1,
-      min: -10,
-      max: 10,
+      min: -1,
+      max: 1,
       onChange: (value) => {
         if (materialRef && materialRef.current) {
           materialRef.current.uniforms.uParamsB.value = value;

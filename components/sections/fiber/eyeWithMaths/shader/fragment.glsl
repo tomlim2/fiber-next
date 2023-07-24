@@ -82,7 +82,7 @@ void main() {
         f = 1.0 - smoothstep(0.2, 0.5, r);
         color = mix(color, vec3(0.9, 0.4, 0.2), f);
 
-        a += 0.05 * fbm(20.0 * uv);
+        a += uParamsA * fbm(20.0 * uv);
 
         f = smoothstep(.3, 1.0, fbm(vec2(6.0 * r, 20.0 * a)));
         color = mix(color, vec3(1.0), f);
@@ -96,8 +96,11 @@ void main() {
         f = smoothstep(0.2, 0.25, r);
         color *= f;
 
+        f = 1.0 - smoothstep(0.2, 0.25, r);
+        color += f * uColorA;
+
         f = 1.0 - smoothstep(0.0, 0.5, length(uv - vec2(0.24, 0.2)));
-        color += vec3(1.0, 0.9, 0.8) * f * 0.9;
+        color += uColorB * f * 0.9;
     }
 
     float opacity = 1.0;
