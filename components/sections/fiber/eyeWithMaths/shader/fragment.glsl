@@ -70,6 +70,10 @@ void main() {
     float a = atan(uv.x, uv.y);
     vec3 color = vec3(1.0);
 
+    float ss = 0.5 + 0.5 * sin(1.0 * uTime);
+    float anim = 1.0 + 0.1 * ss * clamp(1.0 - r, 0.0, 1.0);
+    r *= anim;
+
     if(r < 0.8) {
         color = vec3(0.2, 0.3, 0.4);
         float f = fbm(5.0 * uv);
@@ -78,17 +82,22 @@ void main() {
         f = 1.0 - smoothstep(0.2, 0.5, r);
         color = mix(color, vec3(0.9, 0.4, 0.2), f);
 
+        a += 0.05 * fbm(20.0 * uv);
+
         f = smoothstep(.3, 1.0, fbm(vec2(6.0 * r, 20.0 * a)));
         color = mix(color, vec3(1.0), f);
 
         f = smoothstep(0.4, 0.9, fbm(vec2(10.0 * r, 15.0 * a)));
-        color *= 1.0 - 0.5*f;
+        color *= 1.0 - 0.5 * f;
 
         f = smoothstep(0.6, 0.8, r);
-        color *= 1.0 - 0.5*f;
+        color *= 1.0 - 0.5 * f;
 
         f = smoothstep(0.2, 0.25, r);
         color *= f;
+
+        f = 1.0 - smoothstep(0.0, 0.5, length(uv - vec2(0.24, 0.2)));
+        color += vec3(1.0, 0.9, 0.8) * f * 0.9;
     }
 
     float opacity = 1.0;
