@@ -1,13 +1,13 @@
 import { Metadata } from "next/dist/lib/metadata/types/metadata-interface";
-import SectionEyeWithMaths from "@/components/sections/fiber/eyeWithMaths";
+import SectionEyeWithMaths from "@/components/sections/fiber/animatingTriangles";
 import styles from "./page.module.scss";
 
 export const metadata: Metadata = {
-  title: "Eye With Maths | Fiber | yslim",
+  title: "Animating Triangles | Fiber | yslim",
   description: "My playground",
 };
 
-const DreiPortal = () => {
+const Page = () => {
   return (
     <main className={styles.page}>
       <SectionEyeWithMaths />
@@ -15,4 +15,4 @@ const DreiPortal = () => {
   );
 };
 
-export default DreiPortal;
+export default Page;

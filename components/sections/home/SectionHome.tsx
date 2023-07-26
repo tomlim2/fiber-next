@@ -5,6 +5,7 @@ const SectionHome = () => {
     {
       categoryName: "Fiber",
       urlList: [
+        { name: "Animating with triangles", url: "/fiber/animatingTriangles" },
         { name: "Eye with maths", url: "/fiber/eyeWithMaths" },
         { name: "Raymarch101-frag1", url: "/fiber/raymarch101-frag1" },
         { name: "Raymarch101-frag2", url: "/fiber/raymarch101-frag2" },
