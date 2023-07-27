@@ -139,12 +139,12 @@ const Experience = () => {
       <Environment
         background
         files={[
-          "/assets/images/environmentMaps/3/px.jpg",
-          "/assets/images/environmentMaps/3/nx.jpg",
-          "/assets/images/environmentMaps/3/py.jpg",
-          "/assets/images/environmentMaps/3/ny.jpg",
-          "/assets/images/environmentMaps/3/pz.jpg",
-          "/assets/images/environmentMaps/3/nz.jpg",
+          "/assets/images/environmentMaps/2/px.jpg",
+          "/assets/images/environmentMaps/2/nx.jpg",
+          "/assets/images/environmentMaps/2/py.jpg",
+          "/assets/images/environmentMaps/2/ny.jpg",
+          "/assets/images/environmentMaps/2/pz.jpg",
+          "/assets/images/environmentMaps/2/nz.jpg",
         ]}
       ></Environment>
       <group>
@@ -161,9 +161,10 @@ const Experience = () => {
           onPointerLeave={(event) => eventHandler(event, "onPointerLeave")}
           onPointerMove={(event) => eventHandler(event, "onPointerMove")}
         >
-          <planeGeometry args={[planeDimention.width, planeDimention.height]} />
+          <sphereGeometry args={[1,10,10]} />
           <shaderMaterial
             ref={materialRef}
+            wireframe={true}
             uniforms={{
               uTime: { value: 0 },
               uWidth: { value: planeDimention.width },

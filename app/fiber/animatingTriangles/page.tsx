@@ -1,5 +1,5 @@
 import { Metadata } from "next/dist/lib/metadata/types/metadata-interface";
-import SectionEyeWithMaths from "@/components/sections/fiber/animatingTriangles";
+import SectionAnimatingTriangles from "@/components/sections/fiber/animatingTriangles";
 import styles from "./page.module.scss";
 
 export const metadata: Metadata = {
@@ -10,7 +10,7 @@ export const metadata: Metadata = {
 const Page = () => {
   return (
     <main className={styles.page}>
-      <SectionEyeWithMaths />
+      <SectionAnimatingTriangles />
     </main>
   );
 };
