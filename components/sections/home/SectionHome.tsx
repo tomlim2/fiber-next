@@ -7,13 +7,6 @@ const SectionHome = () => {
       urlList: [
         { name: "Animating with triangles", url: "/fiber/animatingTriangles" },
         { name: "Eye with maths", url: "/fiber/eyeWithMaths" },
-        { name: "Raymarch101-frag1", url: "/fiber/raymarch101-frag1" },
-        { name: "Raymarch101-frag2", url: "/fiber/raymarch101-frag2" },
-        { name: "Raymarch101-frag3", url: "/fiber/raymarch101-frag3" },
-        { name: "Raymarch101-frag4", url: "/fiber/raymarch101-frag4" },
-        { name: "Raymarch101-frag5", url: "/fiber/raymarch101-frag5" },
-        { name: "Raymarch101-frag6", url: "/fiber/raymarch101-frag6" },
-        { name: "Raymarch101-frag7", url: "/fiber/raymarch101-frag7" },
         { name: "Models", url: "/fiber/models" },
         { name: "Vertex-Fragnent", url: "/fiber/vertex-fragnent" },
         { name: "Fragnent-Time", url: "/fiber/fragnent-time" },
@@ -47,6 +40,13 @@ const SectionHome = () => {
           name: "Journey-Env-Model",
           url: "/fiber/journey-env-model",
         },
+        { name: "Raymarch101-frag1", url: "/fiber/raymarch101-frag1" },
+        { name: "Raymarch101-frag2", url: "/fiber/raymarch101-frag2" },
+        { name: "Raymarch101-frag3", url: "/fiber/raymarch101-frag3" },
+        { name: "Raymarch101-frag4", url: "/fiber/raymarch101-frag4" },
+        { name: "Raymarch101-frag5", url: "/fiber/raymarch101-frag5" },
+        { name: "Raymarch101-frag6", url: "/fiber/raymarch101-frag6" },
+        { name: "Raymarch101-frag7", url: "/fiber/raymarch101-frag7" },
       ],
     },
     {
@@ -58,7 +58,10 @@ const SectionHome = () => {
     },
     {
       categoryName: "Blender",
-      urlList: [{ name: "Geometry Node", url: "/blender/geometry-node" },{ name: "AI Render", url: "/blender/ai-render" }],
+      urlList: [
+        { name: "Geometry Node", url: "/blender/geometry-node" },
+        { name: "AI Render", url: "/blender/ai-render" },
+      ],
     },
     {
       categoryName: "Design",
