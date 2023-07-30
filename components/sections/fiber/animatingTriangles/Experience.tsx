@@ -161,10 +161,9 @@ const Experience = () => {
           onPointerLeave={(event) => eventHandler(event, "onPointerLeave")}
           onPointerMove={(event) => eventHandler(event, "onPointerMove")}
         >
-          <sphereGeometry args={[1,10,10]} />
+          <sphereGeometry args={[1,50,50]} />
           <shaderMaterial
             ref={materialRef}
-            wireframe={true}
             uniforms={{
               uTime: { value: 0 },
               uWidth: { value: planeDimention.width },
