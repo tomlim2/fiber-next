@@ -9,7 +9,7 @@ import {
 } from "@react-three/drei";
 import { Debug, RigidBody, Physics, CuboidCollider } from "@react-three/rapier";
 import { Perf } from "r3f-perf";
-import { useRef, useEffect, useState } from "react";
+import { useRef, useEffect, useState, useMemo } from "react";
 import { useFrame, extend } from "@react-three/fiber";
 import {
   Mesh,
@@ -121,13 +121,11 @@ const Experience = () => {
     // Set the custom attribute on the mesh's geometry
   });
 
-  useEffect(() => {
-    if (meshRef.current) {
-      const geometry = meshRef.current.geometry;
+  const onUpdateGeo = (geometrys: BufferGeometry) => {
+    if (geometrys) {
+      const geometry = geometrys;
       if (geometry) {
-        const lastIndexOfSphere = geometry.toNonIndexed();
-        lastIndexOfSphere
-        let len = lastIndexOfSphere.attributes.position.count;
+        let len = geometry.attributes.position.count;
 
         let randoms = new Float32Array(len);
         for (let i = 0; i < len; i += 3) {
@@ -139,11 +137,11 @@ const Experience = () => {
 
         const customAttributeArray = randoms;
         const customAttribute = new BufferAttribute(customAttributeArray, 1);
-        
+
         geometry.setAttribute("uARandom", customAttribute);
       }
     }
-  }, []);
+  };
 
   useFrame((state, delta) => {
     if (materialRef && materialRef.current) {
@@ -167,6 +165,8 @@ const Experience = () => {
       }
     }
   };
+  const sphereGeometry = new SphereGeometry(1, 32, 32);
+  const nonIndexedGeometry = sphereGeometry.toNonIndexed();
   return (
     <>
       <Perf position="bottom-right" />
@@ -196,13 +196,15 @@ const Experience = () => {
           onPointerLeave={(event) => eventHandler(event, "onPointerLeave")}
           onPointerMove={(event) => eventHandler(event, "onPointerMove")}
         >
-          <sphereGeometry
-            args={[sphereDimention[0], sphereDimention[1], sphereDimention[2]]}
+          <bufferGeometry
+            {...nonIndexedGeometry}
+            onUpdate={(geometry: BufferGeometry) => {
+              onUpdateGeo(geometry);
+            }}
           />
           <shaderMaterial
             wireframe={true}
             ref={materialRef}
-            side={DoubleSide}
             uniforms={{
               uTime: { value: 0 },
               uWidth: { value: planeDimention.width },

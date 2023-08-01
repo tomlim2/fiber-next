@@ -1,6 +1,5 @@
 precision highp float;
 uniform vec2 u_resolution;  // Width and height of the shader
-uniform float u_time;  // Time elapsed
 
 uniform float uWidth;
 uniform float uHeight;
