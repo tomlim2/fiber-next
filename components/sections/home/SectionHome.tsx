@@ -7,6 +7,7 @@ const SectionHome = () => {
       urlList: [
         { name: "Animating with triangles 1", url: "/fiber/animating-tri1" },
         { name: "Animating with triangles 2", url: "/fiber/animating-tri2" },
+        { name: "Animating with triangles 3", url: "/fiber/animating-tri3" },
         { name: "Eye with maths", url: "/fiber/eyeWithMaths" },
         { name: "Models", url: "/fiber/models" },
         { name: "Vertex-Fragnent", url: "/fiber/vertex-fragnent" },
