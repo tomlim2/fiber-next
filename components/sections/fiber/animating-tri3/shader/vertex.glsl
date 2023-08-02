@@ -10,7 +10,7 @@ void main() {
 
     vec3 pos = position;
     // pos.x += uARandom * sin((vUv.y + uTime) * 10.0) * 0.1;
-    pos +=  uARandom * normal;
+    pos += uARandom * (0.5 * sin(uTime) + 0.5) * normal;
 
     gl_Position = projectionMatrix * modelViewMatrix * vec4(pos, 1.);
     vNormal = normal;

@@ -1,5 +1,5 @@
 import { Metadata } from "next/dist/lib/metadata/types/metadata-interface";
-import SectionAnimatingTriangles from "@/components/sections/fiber/animating-tri2";
+import SectionAnimatingTriangles from "@/components/sections/fiber/animating-tri3";
 import styles from "./page.module.scss";
 
 export const metadata: Metadata = {
