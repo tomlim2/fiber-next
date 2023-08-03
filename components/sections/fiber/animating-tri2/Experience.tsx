@@ -20,6 +20,7 @@ import {
   Color,
   BufferAttribute,
   DoubleSide,
+  MeshStandardMaterial,
 } from "three";
 import { useControls } from "leva";
 import { shaders } from "./shader";
@@ -203,6 +204,7 @@ const Experience = () => {
             }}
           />
           <shaderMaterial
+            
             wireframe={true}
             ref={materialRef}
             uniforms={{

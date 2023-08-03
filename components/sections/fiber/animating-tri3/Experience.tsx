@@ -20,9 +20,11 @@ import {
   Color,
   BufferAttribute,
   DoubleSide,
+  MeshStandardMaterial,
 } from "three";
 import { useControls } from "leva";
 import { shaders } from "./shader";
+
 
 const Experience = () => {
   const meshRef = useRef<Mesh<BufferGeometry, Material | Material[]>>(null);
@@ -167,6 +169,8 @@ const Experience = () => {
   };
   const sphereGeometry = new SphereGeometry(1, 32, 32);
   const nonIndexedGeometry = sphereGeometry.toNonIndexed();
+  // const extendMaterials = new extendMaterial();
+  
   return (
     <>
       <Perf position="bottom-right" />
@@ -203,7 +207,7 @@ const Experience = () => {
             }}
           />
           <shaderMaterial
-            wireframe={true}
+            {...extendMaterial}
             ref={materialRef}
             uniforms={{
               uTime: { value: 0 },
