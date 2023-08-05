@@ -1,4 +1,3 @@
-#include <common>
 precision highp float;
 uniform vec2 u_resolution;  // Width and height of the shader
 
@@ -28,7 +27,7 @@ void main() {
     // float f = fbm(4.0 * uv);
     float r = sqrt(dot(uv, uv));
     float a = atan(uv.x, uv.y);
-    vec3 color = vec3( 0.5);
+    vec3 color = vec3( uv, 0.5);
     float opacity = 1.0;
 
     gl_FragColor = vec4(color, opacity);

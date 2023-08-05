@@ -1,95 +1,27 @@
 // "use client";
-import {
-  useGLTF,
-  Edges,
-  MeshPortalMaterial,
-  OrbitControls,
-  Environment,
-  PivotControls,
-} from "@react-three/drei";
-import { Debug, RigidBody, Physics, CuboidCollider } from "@react-three/rapier";
+import { useGLTF, OrbitControls, Environment } from "@react-three/drei";
 import { Perf } from "r3f-perf";
 import { useRef, useEffect, useState, useMemo } from "react";
-import { useFrame, extend } from "@react-three/fiber";
+import { useFrame } from "@react-three/fiber";
 import {
   Mesh,
   BufferGeometry,
   SphereGeometry,
   Material,
-  ShaderMaterial,
-  MeshBasicMaterial,
-  Color,
   BufferAttribute,
-  DoubleSide,
+  Shader,
+  ShaderMaterial,
+  ShaderMaterialParameters,
   MeshStandardMaterial,
-  MeshPhongMaterial,
-  MeshPhysicalMaterial,
 } from "three";
-import CustomShaderMaterial from "three-custom-shader-material";
-import CustomShaderMaterialType from "three-custom-shader-material/vanilla";
 import { useControls } from "leva";
-import { shaders } from "./shader";
 
 const Experience = () => {
   const meshRef = useRef<Mesh<BufferGeometry, Material | Material[]>>(null);
   const { nodes } = useGLTF("/assets/models/aobox-transformed.glb") as any;
-  const materialRef = useRef<CustomShaderMaterialType>(null);
-  const planeDimention = { width: 3, height: 3 };
-  const sphereDimention = [1, 32, 32];
+  const materialRef = useRef<MeshStandardMaterial>(null);
 
-  const intiValue = {
-    timeSpeedCtrl: 1,
-    paramsACtrl: 0.05,
-    colorACtrl: "#020202",
-    colorBCtrl: "#fffce9",
-  };
-
-  const timeSpeed = useRef(intiValue.timeSpeedCtrl);
-
-  const [_, set] = useControls(() => ({
-    colorACtrl: {
-      value: intiValue.colorACtrl,
-      onChange: (value) => {
-        if (materialRef && materialRef.current) {
-          materialRef.current.uniforms.uColorA.value = new Color(value);
-        }
-      },
-    },
-    colorBCtrl: {
-      value: intiValue.colorBCtrl,
-      onChange: (value) => {
-        if (materialRef && materialRef.current) {
-          materialRef.current.uniforms.uColorB.value = new Color(value);
-        }
-      },
-    },
-    paramsACtrl: {
-      value: intiValue.paramsACtrl,
-      step: 0.01,
-      min: -1,
-      max: 1,
-      onChange: (value) => {
-        if (materialRef && materialRef.current) {
-          materialRef.current.uniforms.uParamsA.value = value;
-        }
-      },
-    },
-    timeSpeedCtrl: {
-      value: intiValue.timeSpeedCtrl,
-      step: 0.1,
-      min: 1,
-      max: 10,
-      onChange: (value) => {
-        timeSpeed.current = value;
-      },
-    },
-  }));
-
-  useEffect(() => {
-    set(intiValue);
-
-    // Set the custom attribute on the mesh's geometry
-  });
+  useEffect(() => {});
 
   const onUpdateGeo = (geometrys: BufferGeometry) => {
     if (geometrys) {
@@ -113,14 +45,54 @@ const Experience = () => {
     }
   };
 
-  useFrame((state) => {
-    if (materialRef?.current) {
-      materialRef.current.uniforms.uTime.value = -state.clock.elapsedTime / 5;
+  const sphereGeometry = new SphereGeometry(1, 32, 32);
+  const nonIndexedGeometry = sphereGeometry.toNonIndexed();
+
+  const customUniforms = {
+    uTime: { value: 0 },
+  };
+
+  const onUpdateMaterial = (shader: Shader) => {
+    shader.uniforms.uTime = customUniforms.uTime;
+    shader.vertexShader = shader.vertexShader.replace(
+      "#include <common>",
+      `
+        #include <common>
+        uniform float uTime;
+        attribute float uARandom;
+        mat2 get2dRotateMatrix(float _angle)
+        {
+            return mat2(cos(_angle), - sin(_angle), sin(_angle), cos(_angle));
+        }
+      `
+    );
+    shader.vertexShader = shader.vertexShader.replace(
+      "#include <begin_vertex>",
+      `
+        #include <begin_vertex>
+
+        transformed += uARandom * (0.5 * sin(uTime) + 0.5) * normal;
+      `
+    );
+  };
+
+  useFrame((state, delta) => {
+    if (meshRef?.current?.material) {
+      customUniforms.uTime.value += delta;
     }
   });
 
-  const sphereGeometry = new SphereGeometry(1, 32, 32);
-  const nonIndexedGeometry = sphereGeometry.toNonIndexed();
+  // Define the ShaderMaterial with uniforms
+  const shaderMaterial = useMemo(() => {
+    const material = new ShaderMaterial({
+      uniforms: {
+        uTime: { value: 0 },
+      },
+      // ... other material properties
+    });
+    onUpdateMaterial(material); // Call the onUpdateMaterial function to set up the shader
+    return material;
+  }, []);
 
   return (
     <>
@@ -129,42 +101,25 @@ const Experience = () => {
       <Environment
         background
         files={[
-          "/assets/images/environmentMaps/2/px.jpg",
-          "/assets/images/environmentMaps/2/nx.jpg",
-          "/assets/images/environmentMaps/2/py.jpg",
-          "/assets/images/environmentMaps/2/ny.jpg",
-          "/assets/images/environmentMaps/2/pz.jpg",
-          "/assets/images/environmentMaps/2/nz.jpg",
+          "/assets/images/environmentMaps/1/px.jpg",
+          "/assets/images/environmentMaps/1/nx.jpg",
+          "/assets/images/environmentMaps/1/py.jpg",
+          "/assets/images/environmentMaps/1/ny.jpg",
+          "/assets/images/environmentMaps/1/pz.jpg",
+          "/assets/images/environmentMaps/1/nz.jpg",
         ]}
       ></Environment>
       <group>
-        <mesh ref={meshRef}>
+        <mesh ref={meshRef} material={shaderMaterial}>
           <bufferGeometry
             {...nonIndexedGeometry}
             onUpdate={(geometry: BufferGeometry) => {
               onUpdateGeo(geometry);
             }}
           />
-          <CustomShaderMaterial
-            baseMaterial={MeshStandardMaterial}
+          <meshStandardMaterial
             ref={materialRef}
-            color={0x68c3c0}
-            roughness={0.2}
-            metalness={0.1}
-            flatShading={true}
-            // fragmentShader={shaders[0].fragment}
-            vertexShader={shaders[0].vertex}
-            uniforms={{
-              uTime: { value: 0 },
-              uWidth: { value: planeDimention.width },
-              uHeight: { value: planeDimention.height },
-              uMouseX: { value: 0 },
-              uMouseY: { value: 0 },
-              uParamsA: { value: 12 },
-              uColorA: { value: new Color("#1d79a0") },
-              uColorB: { value: new Color("#ffffff") },
-            }}
-            
+            onBeforeCompile={(shader) => onUpdateMaterial(shader)}
           />
         </mesh>
       </group>
