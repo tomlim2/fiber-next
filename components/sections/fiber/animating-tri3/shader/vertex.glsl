@@ -3,7 +3,7 @@ uniform float uTime;
 attribute float uARandom;
 
 varying vec2 vUv;
-varying vec3 vNormal;
+// varying vec3 vNormal;
 
 void main() {
     vUv = uv;
@@ -13,5 +13,5 @@ void main() {
     pos += uARandom * (0.5 * sin(uTime) + 0.5) * normal;
 
     gl_Position = projectionMatrix * modelViewMatrix * vec4(pos, 1.);
-    vNormal = normal;
+    // vNormal = normal;
 }

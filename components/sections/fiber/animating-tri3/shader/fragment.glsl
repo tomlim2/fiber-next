@@ -1,3 +1,4 @@
+#include <common>
 precision highp float;
 uniform vec2 u_resolution;  // Width and height of the shader
 
@@ -19,7 +20,6 @@ uniform vec3 uColorB;
 varying vec2 vUv;
 varying vec3 vNormalz;
 
-#define EPSILON 0.0001
 #define steps 1024
 
 void main() {
@@ -28,7 +28,7 @@ void main() {
     // float f = fbm(4.0 * uv);
     float r = sqrt(dot(uv, uv));
     float a = atan(uv.x, uv.y);
-    vec3 color = vec3( 1.0);
+    vec3 color = vec3( 0.5);
     float opacity = 1.0;
 
     gl_FragColor = vec4(color, opacity);

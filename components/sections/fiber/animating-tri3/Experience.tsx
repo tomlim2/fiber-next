@@ -17,28 +17,29 @@ import {
   SphereGeometry,
   Material,
   ShaderMaterial,
+  MeshBasicMaterial,
   Color,
   BufferAttribute,
   DoubleSide,
   MeshStandardMaterial,
+  MeshPhongMaterial,
+  MeshPhysicalMaterial,
 } from "three";
+import CustomShaderMaterial from "three-custom-shader-material";
+import CustomShaderMaterialType from "three-custom-shader-material/vanilla";
 import { useControls } from "leva";
 import { shaders } from "./shader";
-
 
 const Experience = () => {
   const meshRef = useRef<Mesh<BufferGeometry, Material | Material[]>>(null);
   const { nodes } = useGLTF("/assets/models/aobox-transformed.glb") as any;
-  const materialRef = useRef<ShaderMaterial>(null);
+  const materialRef = useRef<CustomShaderMaterialType>(null);
   const planeDimention = { width: 3, height: 3 };
   const sphereDimention = [1, 32, 32];
 
   const intiValue = {
     timeSpeedCtrl: 1,
     paramsACtrl: 0.05,
-    paramsBCtrl: 0,
-    paramsCCtrl: 1,
-    paramsDCtrl: 0,
     colorACtrl: "#020202",
     colorBCtrl: "#fffce9",
   };
@@ -70,39 +71,6 @@ const Experience = () => {
       onChange: (value) => {
         if (materialRef && materialRef.current) {
           materialRef.current.uniforms.uParamsA.value = value;
-        }
-      },
-    },
-    paramsBCtrl: {
-      value: intiValue.paramsBCtrl,
-      step: 0.1,
-      min: -1,
-      max: 1,
-      onChange: (value) => {
-        if (materialRef && materialRef.current) {
-          materialRef.current.uniforms.uParamsB.value = value;
-        }
-      },
-    },
-    paramsCCtrl: {
-      value: intiValue.paramsCCtrl,
-      step: 0.001,
-      min: -10,
-      max: 10,
-      onChange: (value) => {
-        if (materialRef && materialRef.current) {
-          materialRef.current.uniforms.uParamsC.value = value;
-        }
-      },
-    },
-    paramsDCtrl: {
-      value: intiValue.paramsDCtrl,
-      step: 0.1,
-      min: -10,
-      max: 10,
-      onChange: (value) => {
-        if (materialRef && materialRef.current) {
-          materialRef.current.uniforms.uParamsD.value = value;
         }
       },
     },
@@ -145,32 +113,15 @@ const Experience = () => {
     }
   };
 
-  useFrame((state, delta) => {
-    if (materialRef && materialRef.current) {
-      materialRef.current.uniforms.uTime.value += delta * timeSpeed.current;
+  useFrame((state) => {
+    if (materialRef?.current) {
+      materialRef.current.uniforms.uTime.value = -state.clock.elapsedTime / 5;
     }
   });
 
-  const eventHandler = (event: any, eventType: string) => {
-    if (eventType == "onPointerEnter") {
-      document.body.style.cursor = "pointer";
-    }
-    if (eventType == "onPointerLeave") {
-      document.body.style.cursor = "default";
-    }
-    if (eventType == "onPointerMove") {
-      document.body.style.cursor = "pointer";
-
-      if (materialRef && materialRef.current) {
-        materialRef.current.uniforms.uMouseX.value = event.uv.x;
-        materialRef.current.uniforms.uMouseY.value = event.uv.y;
-      }
-    }
-  };
   const sphereGeometry = new SphereGeometry(1, 32, 32);
   const nonIndexedGeometry = sphereGeometry.toNonIndexed();
-  // const extendMaterials = new extendMaterial();
-  
+
   return (
     <>
       <Perf position="bottom-right" />
@@ -187,28 +138,22 @@ const Experience = () => {
         ]}
       ></Environment>
       <group>
-        <mesh
-          ref={meshRef}
-          onClick={(event) => eventHandler(event, "onClick")}
-          onContextMenu={(event) => eventHandler(event, "onRightClick")}
-          onDoubleClick={(event) => eventHandler(event, "onDoubleClick")}
-          onPointerUp={(event) => eventHandler(event, "onPointerUp")}
-          onPointerDown={(event) => eventHandler(event, "onPointerDown")}
-          onPointerOver={(event) => eventHandler(event, "onPointerOver")}
-          onPointerEnter={(event) => eventHandler(event, "onPointerEnter")}
-          onPointerOut={(event) => eventHandler(event, "onPointerOut")}
-          onPointerLeave={(event) => eventHandler(event, "onPointerLeave")}
-          onPointerMove={(event) => eventHandler(event, "onPointerMove")}
-        >
+        <mesh ref={meshRef}>
           <bufferGeometry
             {...nonIndexedGeometry}
             onUpdate={(geometry: BufferGeometry) => {
               onUpdateGeo(geometry);
             }}
           />
-          <shaderMaterial
-            {...extendMaterial}
+          <CustomShaderMaterial
+            baseMaterial={MeshStandardMaterial}
             ref={materialRef}
+            color={0x68c3c0}
+            roughness={0.2}
+            metalness={0.1}
+            flatShading={true}
+            // fragmentShader={shaders[0].fragment}
+            vertexShader={shaders[0].vertex}
             uniforms={{
               uTime: { value: 0 },
               uWidth: { value: planeDimention.width },
@@ -216,14 +161,10 @@ const Experience = () => {
               uMouseX: { value: 0 },
               uMouseY: { value: 0 },
               uParamsA: { value: 12 },
-              uParamsB: { value: 1 },
-              uParamsC: { value: 0.02 },
-              uParamsD: { value: 1 },
               uColorA: { value: new Color("#1d79a0") },
               uColorB: { value: new Color("#ffffff") },
             }}
-            fragmentShader={shaders[0].fragment}
-            vertexShader={shaders[0].vertex}
+            
           />
         </mesh>
       </group>
