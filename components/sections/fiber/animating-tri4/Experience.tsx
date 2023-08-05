@@ -49,16 +49,25 @@ const Experience = () => {
   const nonIndexedGeometry = sphereGeometry.toNonIndexed();
 
   const customUniforms = {
-    uTime: { value: 0 },
+    uTime: {
+      mixed: true,
+      linked: true,
+      value: 0,
+    },
+    uProgress: {
+      value: 0,
+    },
   };
 
   const onUpdateMaterial = (shader: Shader) => {
     shader.uniforms.uTime = customUniforms.uTime;
+    shader.uniforms.uProgress = customUniforms.uProgress;
     shader.vertexShader = shader.vertexShader.replace(
       "#include <common>",
       `
         #include <common>
         uniform float uTime;
+        uniform float uProgress;
         attribute float uARandom;
         mat2 get2dRotateMatrix(float _angle)
         {
@@ -71,7 +80,7 @@ const Experience = () => {
       `
         #include <begin_vertex>
 
-        transformed += uARandom * (0.5 * sin(uTime) + 0.5) * normal;
+        transformed += uProgress*uARandom*(0.5*sin(uTime)+0.5)*normal;
       `
     );
   };
@@ -82,7 +91,6 @@ const Experience = () => {
     }
   });
 
-  // Define the ShaderMaterial with uniforms
   const shaderMaterial = useMemo(() => {
     const material = new ShaderMaterial({
       uniforms: {
@@ -100,14 +108,7 @@ const Experience = () => {
       <OrbitControls makeDefault />
       <Environment
         background
-        files={[
-          "/assets/images/environmentMaps/1/px.jpg",
-          "/assets/images/environmentMaps/1/nx.jpg",
-          "/assets/images/environmentMaps/1/py.jpg",
-          "/assets/images/environmentMaps/1/ny.jpg",
-          "/assets/images/environmentMaps/1/pz.jpg",
-          "/assets/images/environmentMaps/1/nz.jpg",
-        ]}
+        files="/assets/images/environmentMaps/blender/blender_2.hdr"
       ></Environment>
       <group>
         <mesh ref={meshRef} material={shaderMaterial}>
