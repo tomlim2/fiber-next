@@ -17,6 +17,7 @@ import {
   DoubleSide,
   Vector3,
   IcosahedronGeometry,
+  PlaneGeometry,
 } from "three";
 import { useControls } from "leva";
 
@@ -67,48 +68,49 @@ const Experience = () => {
         let len = geometry.attributes.position.count;
 
         let randoms = new Float32Array(len);
-        let centers = new Float32Array(len*3);
+        let centers = new Float32Array(len * 3);
+
         for (let i = 0; i < len; i += 3) {
           let r = Math.random();
           randoms[i] = r;
           randoms[i + 1] = r;
           randoms[i + 2] = r;
 
-          let x1 = geometry.attributes.position.array[i * 3];
-          let y1 = geometry.attributes.position.array[i * 3 + 1];
-          let z1 = geometry.attributes.position.array[i * 3 + 2];
+          let x = geometry.attributes.position.array[i * 3];
+          let y = geometry.attributes.position.array[i * 3 + 1];
+          let z = geometry.attributes.position.array[i * 3 + 2];
 
-          let x2 = geometry.attributes.position.array[i * 3 + 3];
-          let y2 = geometry.attributes.position.array[i * 3 + 4];
-          let z2 = geometry.attributes.position.array[i * 3 + 5];
+          let x1 = geometry.attributes.position.array[i * 3 + 3];
+          let y1 = geometry.attributes.position.array[i * 3 + 4];
+          let z1 = geometry.attributes.position.array[i * 3 + 5];
 
-          let x3 = geometry.attributes.position.array[i * 3 + 6];
-          let y3 = geometry.attributes.position.array[i * 3 + 7];
-          let z3 = geometry.attributes.position.array[i * 3 + 8];
+          let x2 = geometry.attributes.position.array[i * 3 + 6];
+          let y2 = geometry.attributes.position.array[i * 3 + 7];
+          let z2 = geometry.attributes.position.array[i * 3 + 8];
 
-          let center = new Vector3(x1, y1, z1)
-            .add(new Vector3(x2, y2, z2))
-            .add(new Vector3(x3, y3, z3))
+          let center = new Vector3(x, y, z)
+            .add(new Vector3(x1, y1, z1).add(new Vector3(x2, y2, z2)))
             .divideScalar(3);
-          let centered = [center.x, center.y, center.z];
-          
-          centers.set([...centered], i*3);
-          centers.set([...centered], (i+1)*3);
-          centers.set([...centered], (i+2)*3);
-          console.log(centers);
+
+          centers.set([center.x, center.y, center.z], i * 3);
+          centers.set([center.x, center.y, center.z], (i + 1) * 3);
+          centers.set([center.x, center.y, center.z], (i + 2) * 3);
         }
 
-        const customAttributeArray = randoms;
-        const customAttribute = new BufferAttribute(customAttributeArray, 1);
+        const attributeRandoms = new BufferAttribute(randoms, 1);
 
-        geometry.setAttribute("aRandom", customAttribute);
-        geometry.setAttribute("aCenter", customAttribute);
+        const attributeCenters = new BufferAttribute(centers, 3);
+
+        geometry.setAttribute("aRandom", attributeRandoms);
+        geometry.setAttribute("aCenter", attributeCenters);
+        console.log(geometry);
       }
     }
   };
 
   // const sphereGeometry = new SphereGeometry(1, 16, 16);
   const sphereGeometry = new IcosahedronGeometry(1, 10);
+  // const sphereGeometry = new PlaneGeometry(1, 1, 1, 1);
   const nonIndexedGeometry = sphereGeometry.toNonIndexed();
 
   const customUniforms = {
@@ -132,7 +134,7 @@ const Experience = () => {
         uniform float uTime;
         uniform float uProgress;
         attribute float aRandom;
-        attribute float aCenter;
+        attribute vec3 aCenter;
         mat2 get2dRotateMatrix(float _angle)
         {
             return mat2(cos(_angle), - sin(_angle), sin(_angle), cos(_angle));
@@ -160,18 +162,22 @@ const Experience = () => {
       "#include <begin_vertex>",
       `
         #include <begin_vertex>
+        //transformed = (transformed - aCenter)*uProgress + aCenter;
+
+
+        //float prog = (position.y + 1.0)/2.0;
+        //float locprog = clamp((uProgress-0.4*prog)/0.6,0.0,10.);
+        //transformed -= aCenter;
+        //transformed *= locprog;
+        //transformed += aCenter;
+
+
         float prog = (position.y + 1.0)/2.0;
         float locprog = clamp((uProgress - 0.8 * prog) / 0.2, 0.0, 1.0);
-
-        //locprog = uProgress;
-
-        transformed = transformed - aCenter;
-
+        transformed -= aCenter;
         transformed += 3.0*aRandom*normal*locprog;
-
         transformed *= (1.0-locprog);
         transformed += aCenter;
-
         transformed = rotate(transformed, vec3(0.0,1.0,0.0),locprog*aRandom*3.14*3.0);
       `
     );
@@ -213,7 +219,7 @@ const Experience = () => {
           <meshStandardMaterial
             ref={materialRef}
             side={DoubleSide}
-            color={"#ff0000"}
+            color={"#ffcc00"}
             onBeforeCompile={(shader) => onUpdateMaterial(shader)}
           />
         </mesh>
