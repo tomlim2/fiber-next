@@ -9,6 +9,7 @@ const SectionHome = () => {
         { name: "Animating with triangles 2", url: "/fiber/animating-tri2" },
         { name: "Animating with triangles 3", url: "/fiber/animating-tri3" },
         { name: "Animating with triangles 4", url: "/fiber/animating-tri4" },
+        { name: "Animating with triangles 5", url: "/fiber/animating-tri5" },
         { name: "Eye with maths", url: "/fiber/eyeWithMaths" },
         { name: "Models", url: "/fiber/models" },
         { name: "Vertex-Fragnent", url: "/fiber/vertex-fragnent" },

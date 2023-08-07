@@ -109,7 +109,7 @@ const Experience = () => {
   };
 
   // const sphereGeometry = new SphereGeometry(1, 16, 16);
-  const sphereGeometry = new IcosahedronGeometry(1, 4);
+  const sphereGeometry = new IcosahedronGeometry(1, 6);
   // const sphereGeometry = new PlaneGeometry(1, 1, 1, 1);
   const nonIndexedGeometry = sphereGeometry.toNonIndexed();
 
