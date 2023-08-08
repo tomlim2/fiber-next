@@ -1,17 +1,16 @@
-uniform float uTime;
+#include <begin_vertex>
+        //transformed = (transformed - aCenter)*uProgress + aCenter;
 
-attribute float uARandom;
+        //float prog = (position.y + 1.0)/2.0;
+        //float locprog = clamp((uProgress-0.4*prog)/0.6,0.0,10.);
+        //transformed -= aCenter;
+        //transformed *= locprog;
+        //transformed += aCenter;
 
-varying vec2 vUv;
-// varying vec3 vNormal;
-
-void main() {
-    vUv = uv;
-
-    vec3 pos = position;
-    // pos.x += uARandom * sin((vUv.y + uTime) * 10.0) * 0.1;
-    pos += uARandom * (0.5 * sin(uTime) + 0.5) * normal;
-
-    gl_Position = projectionMatrix * modelViewMatrix * vec4(pos, 1.);
-    // vNormal = normal;
-}
+float prog = (position.y + 1.0) / 2.0;
+float locprog = clamp((uProgress - 0.8 * prog) / 0.2, 0.0, 1.0);
+transformed -= aCenter;
+transformed += 3.0 * aRandom * normal * locprog;
+transformed *= (1.0 - locprog);
+transformed += aCenter;
+transformed = rotate(transformed, vec3(0.0, 1.0, 0.0), locprog * aRandom * 3.14 * 3.0);
