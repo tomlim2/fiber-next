@@ -209,7 +209,7 @@ const Experience = () => {
         files="/assets/images/environmentMaps/blender/blender_2.hdr"
       ></Environment>
       <group>
-        <mesh ref={meshRef} material={shaderMaterial}>
+        <mesh ref={meshRef}>
           <bufferGeometry
             {...nonIndexedGeometry}
             onUpdate={(geometry: BufferGeometry) => {
