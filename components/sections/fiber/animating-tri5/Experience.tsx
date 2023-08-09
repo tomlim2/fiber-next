@@ -121,17 +121,17 @@ const Experience = () => {
         //transformed = (transformed - aCenter)*uProgress + aCenter;
 
 
-        //float prog = (position.y + 1.0)/2.0;
-        //float locprog = clamp((uProgress-0.4*prog)/0.6,0.0,10.);
+        //float prog = (position.y + 8.0)/4.0;
+        //float locprog = clamp((uProgress-0.8*prog)/0.8,0.0,10.);
         //transformed -= aCenter;
         //transformed *= locprog;
         //transformed += aCenter;
 
 
         float prog = (position.y + 2.0)/2.0;
-        float locprog = clamp((uProgress - 0.8 * prog) / 0.2, 0.0, 1.0);
+        float locprog = clamp((uProgress - 0.2 * prog) / 0.5, 0.0, 1.0);
         transformed -= aCenter;
-        transformed += 3.0*aRandom*normal*locprog;
+        transformed += .5*aRandom*normal*locprog;
         transformed *= (1.0-locprog);
         transformed += aCenter;
         transformed = rotate(transformed, vec3(0.0,1.0,0.0),locprog*aRandom*3.14*3.0);
@@ -200,7 +200,14 @@ const Experience = () => {
       <OrbitControls makeDefault />
       <Environment
         background
-        files="/assets/images/environmentMaps/blender/blender_2.hdr"
+        files={[
+          "/assets/images/environmentMaps/2/px.jpg",
+          "/assets/images/environmentMaps/2/nx.jpg",
+          "/assets/images/environmentMaps/2/py.jpg",
+          "/assets/images/environmentMaps/2/ny.jpg",
+          "/assets/images/environmentMaps/2/pz.jpg",
+          "/assets/images/environmentMaps/2/nz.jpg",
+        ]}
       ></Environment>
       <group>
         <mesh>
@@ -213,7 +220,7 @@ const Experience = () => {
           <meshStandardMaterial
             ref={materialRef}
             side={DoubleSide}
-            color={"#ffcc00"}
+            color={"#f0f0f0"}
             onBeforeCompile={(shader) => onUpdateMaterial(shader)}
           />
         </mesh>
