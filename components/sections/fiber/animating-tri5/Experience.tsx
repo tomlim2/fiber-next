@@ -24,8 +24,8 @@ import { shaders } from "./shader/index";
 import { useControls } from "leva";
 
 const Experience = () => {
-  const fox = useGLTF(
-    "/assets/models/figureOfaDancer/source/figure-of-a-dancer-150k-4096-web.gltf"
+  const gltfModel = useGLTF(
+    "/assets/models/mammuthus/source/woolly-mammoth-150k-4096-web.gltf"
   ) as any;
   const meshRef = useRef<Mesh<BufferGeometry, Material | Material[]>>(null);
   const materialRef = useRef<MeshStandardMaterial>(null);
@@ -65,9 +65,6 @@ const Experience = () => {
     set(intiValue);
   });
 
-  // const sphereGeometry = new SphereGeometry(1, 16, 16);
-  const sphereGeometry = new IcosahedronGeometry(1, 6);
-  // const sphereGeometry = new PlaneGeometry(1, 1, 1, 1);
 
   const customUniforms = {
     uTime: {
@@ -187,8 +184,8 @@ const Experience = () => {
       console.log(geometry);
     }
   };
-  let s = 0.07;
-  const mesh = fox.nodes.mesh_0.geometry;
+  let s = 0.04;
+  const mesh = gltfModel.nodes.mesh_0.geometry;
   console.log(mesh, "meshmesh");
 
   mesh.scale(s, s, s);
