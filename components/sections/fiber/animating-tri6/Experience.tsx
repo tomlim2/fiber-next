@@ -1,26 +1,18 @@
 // "use client";
 import { useGLTF, OrbitControls, Environment } from "@react-three/drei";
 import { Perf } from "r3f-perf";
-import { useRef, useEffect, useMemo } from "react";
+import { useRef, useEffect } from "react";
 import { useFrame } from "@react-three/fiber";
 import {
   Mesh,
   BufferGeometry,
-  SphereGeometry,
   Material,
   BufferAttribute,
   Shader,
-  ShaderMaterial,
-  ShaderMaterialParameters,
   MeshStandardMaterial,
-  Color,
   DoubleSide,
   Vector3,
-  IcosahedronGeometry,
-  PlaneGeometry,
-  MeshBasicMaterial,
 } from "three";
-import { shaders } from "./shader/index";
 import { useControls } from "leva";
 
 const Experience = () => {

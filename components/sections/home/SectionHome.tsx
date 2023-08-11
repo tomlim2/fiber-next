@@ -5,13 +5,14 @@ const SectionHome = () => {
     {
       categoryName: "Fiber",
       urlList: [
+        { name: "Gameboy Material 1", url: "/fiber/gameboy-material1" },
         { name: "Animating with triangles 1", url: "/fiber/animating-tri1" },
         { name: "Animating with triangles 2", url: "/fiber/animating-tri2" },
         { name: "Animating with triangles 3", url: "/fiber/animating-tri3" },
         { name: "Animating with triangles 4", url: "/fiber/animating-tri4" },
         { name: "Animating with triangles 5", url: "/fiber/animating-tri5" },
         { name: "Animating with triangles 6", url: "/fiber/animating-tri6" },
-        { name: "Eye with maths", url: "/fiber/eyeWithMaths" },
+        { name: "Eye with maths", url: "/fiber/eye-with-maths" },
         { name: "Models", url: "/fiber/models" },
         { name: "Vertex-Fragnent", url: "/fiber/vertex-fragnent" },
         { name: "Fragnent-Time", url: "/fiber/fragnent-time" },
