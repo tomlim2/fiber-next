@@ -59,34 +59,11 @@ const Experience = () => {
       /> */}
       {/* <ambientLight intensity={0.5} /> */}
       <Environment
-        background
-        // files={[
-        //   "/assets/images/environmentMaps/2/px.jpg",
-        //   "/assets/images/environmentMaps/2/nx.jpg",
-        //   "/assets/images/environmentMaps/2/py.jpg",
-        //   "/assets/images/environmentMaps/2/ny.jpg",
-        //   "/assets/images/environmentMaps/2/pz.jpg",
-        //   "/assets/images/environmentMaps/2/nz.jpg",
-        // ]}
-        // files="/assets/images/environmentMaps/the_sky_is_on_fire_2k.hdr"
-        // preset="sunset"
+  
+        files="/assets/images/environmentMaps/the_sky_is_on_fire_2k.hdr"
         // resolution={32}
-        preset="sunset"
       >
-        {/* <mesh position-z={-5} scale={10}>
-          <planeGeometry />
-          <meshBasicMaterial color="red" />
-        </mesh> */}
-        {/* <color args={["blue"]} attach="background" />
-        <Lightformer
-          position-z={-5}
-          scale={10}
-          color="red"
-          intensity={10}
-          form="ring"
-        /> */}
       </Environment>
-      {/* <Sky /> */}
 
       <ContactShadows
         position={[0, -0.99, 0]}
@@ -98,18 +75,7 @@ const Experience = () => {
         blur={blur}
         frames={1}
       />
-
-      <mesh position-x={-2}>
-        <sphereGeometry />
-        <meshStandardMaterial color="orange" />
-      </mesh>
-
       <Cube />
-
-      <mesh position-y={-1} rotation-x={-Math.PI * 0.5} scale={10}>
-        <planeGeometry />
-        <meshStandardMaterial color="greenyellow" />
-      </mesh>
     </>
   );
 };
