@@ -1,4 +1,6 @@
 import { useFrame } from "@react-three/fiber";
+import Level from "./Level";
+import Lights from "./Lights";
 import {
   Sky,
   AccumulativeShadows,
@@ -44,38 +46,8 @@ const Experience = () => {
       <Perf position="bottom-right" />
 
       <OrbitControls makeDefault />
-
-      {/* <directionalLight
-        ref={directionalLight}
-        position={sunPosition}
-        intensity={1.5}
-        shadow-mapSize={[1024, 1024]}
-        shadow-camera-near={1}
-        shadow-camera-far={10}
-        shadow-camera-top={5}
-        shadow-camera-right={5}
-        shadow-camera-bottom={-5}
-        shadow-camera-left={-5}
-      /> */}
-      {/* <ambientLight intensity={0.5} /> */}
-      <Environment
-  
-        files="/assets/images/environmentMaps/the_sky_is_on_fire_2k.hdr"
-        // resolution={32}
-      >
-      </Environment>
-
-      <ContactShadows
-        position={[0, -0.99, 0]}
-        scale={10}
-        resolution={512}
-        far={5}
-        color={color}
-        opacity={opacity}
-        blur={blur}
-        frames={1}
-      />
-      <Cube />
+      <Lights />
+      <Level />
     </>
   );
 };
