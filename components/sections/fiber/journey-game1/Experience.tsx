@@ -1,6 +1,7 @@
 import { useFrame } from "@react-three/fiber";
 import Level from "./Level";
 import Lights from "./Lights";
+import { Physics } from "@react-three/rapier";
 import {
   Sky,
   AccumulativeShadows,
@@ -46,8 +47,10 @@ const Experience = () => {
       <Perf position="bottom-right" />
 
       <OrbitControls makeDefault />
-      <Lights />
-      <Level />
+      <Physics>
+        <Lights />
+        <Level />
+      </Physics>
     </>
   );
 };
