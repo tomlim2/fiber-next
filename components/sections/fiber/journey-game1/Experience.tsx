@@ -47,6 +47,7 @@ const Experience = () => {
       <Perf position="bottom-right" />
 
       <OrbitControls makeDefault />
+      
       <Physics>
         <Lights />
         <Level />
