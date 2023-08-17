@@ -1,5 +1,7 @@
+import { useFrame } from "@react-three/fiber";
 import { RigidBody } from "@react-three/rapier";
-import { BoxGeometry, MeshStandardMaterial } from "three";
+import { useRef, useState } from "react";
+import { BoxGeometry, Euler, MeshStandardMaterial, Quaternion } from "three";
 
 interface PropsBlockStart {
   position: [number, number, number];
@@ -30,6 +32,15 @@ function BlockStart({ position = [0, 0, 0] }: PropsBlockStart) {
 }
 
 function BlockSpinner({ position = [0, 0, 0] }: PropsBlockSpinner) {
+  const obstacle = useRef() as any;
+  const [speed] = useState(() => Math.random() + 0.2);
+  useFrame((state) => {
+    const time = state.clock.getElapsedTime();
+    console.log(time);
+    const rotation = new Quaternion();
+    rotation.setFromEuler(new Euler(0, time * speed, 0));
+    obstacle.current.setNextKinematicRotation(rotation);
+  });
   return (
     <group position={position}>
       <mesh
@@ -39,7 +50,13 @@ function BlockSpinner({ position = [0, 0, 0] }: PropsBlockSpinner) {
         scale={[4, 0.2, 4]}
         receiveShadow
       />
-      <RigidBody type="kinematicPosition">
+      <RigidBody
+        ref={obstacle}
+        type="kinematicPosition"
+        position={[0, 0.3, 0]}
+        restitution={0.2}
+        friction={0}
+      >
         <mesh
           geometry={boxGeometry}
           material={obstacleMaterial}
