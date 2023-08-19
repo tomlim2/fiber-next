@@ -2,7 +2,7 @@
 import { useGLTF, OrbitControls, Environment } from "@react-three/drei";
 import { Perf } from "r3f-perf";
 import { useRef, useEffect, useState, useMemo } from "react";
-import { useFrame } from "@react-three/fiber";
+import { useFrame, useLoader } from "@react-three/fiber";
 import {
   Mesh,
   BufferGeometry,
@@ -18,12 +18,14 @@ import {
   Vector3,
   IcosahedronGeometry,
   PlaneGeometry,
+  TextureLoader,
 } from "three";
 import { useControls } from "leva";
 
 const Experience = () => {
   const meshRef = useRef<Mesh<BufferGeometry, Material | Material[]>>(null);
   const { nodes } = useGLTF("/assets/models/aobox-transformed.glb") as any;
+  const colorMap = useLoader(TextureLoader, "/assets/images/img_uv_00.png");
   const materialRef = useRef<MeshStandardMaterial>(null);
   interface IIntiValue {
     progress: number;
@@ -165,7 +167,7 @@ const Experience = () => {
         //transformed = (transformed - aCenter)*uProgress + aCenter;
 
 
-        //float prog = (position.y + 1.0)/2.0;
+        //float prog = (position.y + 1.0)/3.0;
         //float locprog = clamp((uProgress-0.4*prog)/0.6,0.0,10.);
         //transformed -= aCenter;
         //transformed *= locprog;
@@ -175,7 +177,7 @@ const Experience = () => {
         float prog = (position.y + 1.0)/2.0;
         float locprog = clamp((uProgress - 0.8 * prog) / 0.2, 0.0, 1.0);
         transformed -= aCenter;
-        transformed += 3.0*aRandom*normal*locprog;
+        transformed += .5*aRandom*normal*locprog;
         transformed *= (1.0-locprog);
         transformed += aCenter;
         transformed = rotate(transformed, vec3(0.0,1.0,0.0),locprog*aRandom*3.14*3.0);
@@ -219,7 +221,7 @@ const Experience = () => {
           <meshStandardMaterial
             ref={materialRef}
             side={DoubleSide}
-            color={"#ffcc00"}
+            map={colorMap}
             onBeforeCompile={(shader) => onUpdateMaterial(shader)}
           />
         </mesh>

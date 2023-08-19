@@ -1,8 +1,6 @@
-// "use client";
-import { useGLTF, OrbitControls, Environment } from "@react-three/drei";
-import { Perf } from "r3f-perf";
-import { useRef, useEffect, useMemo } from "react";
-import { useFrame } from "@react-three/fiber";
+import { useGLTF } from "@react-three/drei";
+import { useRef, useEffect } from "react";
+import { useFrame, useLoader } from "@react-three/fiber";
 import {
   Mesh,
   BufferGeometry,
@@ -12,15 +10,17 @@ import {
   MeshStandardMaterial,
   DoubleSide,
   Vector3,
+  TextureLoader,
 } from "three";
 import { useControls } from "leva";
 
-const Experience = () => {
+const AnimatingTriMesh = () => {
   const gltfModel = useGLTF(
-    "/assets/models/mammuthus/source/woolly-mammoth-150k-4096-web.gltf"
+    "/assets/models/figureOfaDancer/source/figure-of-a-dancer-150k-4096-web.gltf"
   ) as any;
   const meshRef = useRef<Mesh<BufferGeometry, Material | Material[]>>(null);
   const materialRef = useRef<MeshStandardMaterial>(null);
+  const colorMap = useLoader(TextureLoader, "/assets/images/img_uv_00.png");
   interface IIntiValue {
     progress: number;
     timeSpeed: number;
@@ -56,7 +56,6 @@ const Experience = () => {
   useEffect(() => {
     set(intiValue);
   });
-
 
   const customUniforms = {
     uTime: {
@@ -120,7 +119,7 @@ const Experience = () => {
         float prog = (position.y + 2.0)/2.0;
         float locprog = clamp((uProgress - 0.2 * prog) / 0.5, 0.0, 1.0);
         transformed -= aCenter;
-        transformed += .5*aRandom*normal*locprog;
+        transformed += .3*aRandom*normal*locprog;
         transformed *= (1.0-locprog);
         transformed += aCenter;
         transformed = rotate(transformed, vec3(0.0,1.0,0.0),locprog*aRandom*3.14*3.0);
@@ -175,43 +174,30 @@ const Experience = () => {
       geometry.setAttribute("aCenter", attributeCenters);
     }
   };
-  let s = 0.04;
+
+  let s = 0.07;
   const mesh = gltfModel.nodes.mesh_0.geometry;
-  const nonIndexedGeometry = mesh.scale(s, s, s).toNonIndexed();
+  mesh.scale(s, s, s);
+  const nonIndexedGeometry = mesh.toNonIndexed();
 
   return (
-    <>
-      <Perf position="bottom-right" />
-      <OrbitControls makeDefault />
-      <Environment
-        background
-        files={[
-          "/assets/images/environmentMaps/2/px.jpg",
-          "/assets/images/environmentMaps/2/nx.jpg",
-          "/assets/images/environmentMaps/2/py.jpg",
-          "/assets/images/environmentMaps/2/ny.jpg",
-          "/assets/images/environmentMaps/2/pz.jpg",
-          "/assets/images/environmentMaps/2/nz.jpg",
-        ]}
-      ></Environment>
-      <group>
-        <mesh>
-          <bufferGeometry
-            {...nonIndexedGeometry}
-            onUpdate={(geometry: BufferGeometry) => {
-              onUpdateGeo(geometry);
-            }}
-          />
-          <meshStandardMaterial
-            ref={materialRef}
-            side={DoubleSide}
-            color={"#f0f0f0"}
-            onBeforeCompile={(shader) => onUpdateMaterial(shader)}
-          />
-        </mesh>
-      </group>
-    </>
+    <group>
+      <mesh>
+        <bufferGeometry
+          {...nonIndexedGeometry}
+          onUpdate={(geometry: BufferGeometry) => {
+            onUpdateGeo(geometry);
+          }}
+        />
+        <meshStandardMaterial
+          ref={materialRef}
+          side={DoubleSide}
+          map={colorMap}
+          onBeforeCompile={(shader) => onUpdateMaterial(shader)}
+        />
+      </mesh>
+    </group>
   );
 };
 
-export default Experience;
+export default AnimatingTriMesh;
