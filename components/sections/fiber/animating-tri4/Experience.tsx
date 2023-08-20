@@ -111,7 +111,7 @@ const Experience = () => {
   };
 
   // const sphereGeometry = new SphereGeometry(1, 16, 16);
-  const sphereGeometry = new IcosahedronGeometry(1, 4);
+  const sphereGeometry = new IcosahedronGeometry(1, 12);
   // const sphereGeometry = new PlaneGeometry(1, 1, 1, 1);
   const nonIndexedGeometry = sphereGeometry.toNonIndexed();
 
@@ -177,10 +177,10 @@ const Experience = () => {
         float prog = (position.y + 1.0)/2.0;
         float locprog = clamp((uProgress - 0.8 * prog) / 0.2, 0.0, 1.0);
         transformed -= aCenter;
-        transformed += .5*aRandom*normal*locprog;
+        transformed += .1*aRandom*normal*locprog;
         transformed *= (1.0-locprog);
         transformed += aCenter;
-        transformed = rotate(transformed, vec3(0.0,1.0,0.0),locprog*aRandom*3.14*3.0);
+        transformed = rotate(transformed, vec3(0.0,1.0,0.0),locprog*aRandom*3.14*2.0);
       `
     );
   };

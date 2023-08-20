@@ -2,6 +2,7 @@ import { useFrame } from "@react-three/fiber";
 import { RigidBody } from "@react-three/rapier";
 import { useRef, useState } from "react";
 import { BoxGeometry, Euler, MeshStandardMaterial, Quaternion } from "three";
+import { useGLTF } from "@react-three/drei";
 
 const boxGeometry = new BoxGeometry(1, 1, 1);
 const floor1Material = new MeshStandardMaterial({ color: "limegreen" });
@@ -30,6 +31,10 @@ interface PropsBlockEnd {
   position: [number, number, number];
 }
 function BlockEnd({ position = [0, 0, 0] }: PropsBlockEnd) {
+  const hamburger = useGLTF("/assets/models/hamburger.glb") as any;
+  hamburger.scene.children.forEach((mesh: any) => {
+    mesh.castShadow = true;
+  });
   return (
     <group position={position}>
       <mesh
@@ -39,6 +44,16 @@ function BlockEnd({ position = [0, 0, 0] }: PropsBlockEnd) {
         scale={[4, 0.2, 4]}
         receiveShadow
       />
+
+      <RigidBody
+        type="fixed"
+        colliders="hull"
+        position={[0, 0.25, 0]}
+        restitution={0.2}
+        friction={0}
+      >
+        <primitive object={hamburger.scene} scale={0.2} />
+      </RigidBody>
     </group>
   );
 }
