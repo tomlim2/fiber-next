@@ -20,6 +20,7 @@ const SectionHome = () => {
         { name: "Fragnent-Still", url: "/fiber/fragnent-still" },
         { name: "Drei-Portal", url: "/fiber/drei-portal" },
         { name: "Journey Game 1", url: "/fiber/journey-game1" },
+        { name: "Journey Game 2", url: "/fiber/journey-game2" },
         {
           name: "Journey-Physics-Base",
           url: "/fiber/journey-physics",
