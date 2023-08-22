@@ -4,7 +4,7 @@ import styles from "./page.module.scss";
 
 export const metadata: Metadata = {
   title: "Journey game 2 | Fiber | yslim",
-  description: "My playground",
+  description: "From shuffle the blocks",
 };
 
 const Page = () => {

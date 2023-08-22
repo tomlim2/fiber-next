@@ -1,6 +1,6 @@
 import { useFrame } from "@react-three/fiber";
 import { RigidBody } from "@react-three/rapier";
-import { useRef, useState } from "react";
+import { useRef, useMemo, useState } from "react";
 import { BoxGeometry, Euler, MeshStandardMaterial, Quaternion } from "three";
 import { useGLTF } from "@react-three/drei";
 
@@ -14,7 +14,7 @@ interface PropsBlockStart {
   position: [number, number, number];
 }
 
-function BlockStart({ position = [0, 0, 0] }: PropsBlockStart) {
+export function BlockStart({ position = [0, 0, 0] }: PropsBlockStart) {
   return (
     <group position={position}>
       <mesh
@@ -30,7 +30,7 @@ function BlockStart({ position = [0, 0, 0] }: PropsBlockStart) {
 interface PropsBlockEnd {
   position: [number, number, number];
 }
-function BlockEnd({ position = [0, 0, 0] }: PropsBlockEnd) {
+export function BlockEnd({ position = [0, 0, 0] }: PropsBlockEnd) {
   const hamburger = useGLTF("/assets/models/hamburger.glb") as any;
   hamburger.scene.children.forEach((mesh: any) => {
     mesh.castShadow = true;
@@ -62,7 +62,7 @@ interface PropsBlockSpinner {
   position: [number, number, number];
 }
 
-function BlockSpinner({ position = [0, 0, 0] }: PropsBlockSpinner) {
+export function BlockSpinner({ position = [0, 0, 0] }: PropsBlockSpinner) {
   const obstacle = useRef() as any;
   const [speed] = useState(
     () => (Math.random() + 0.2) * (Math.random() < 0.5 ? -1 : 1)
@@ -104,7 +104,7 @@ interface PropsBlockLimbo {
   position: [number, number, number];
 }
 
-function BlockLimbo({ position = [0, 0, 0] }: PropsBlockLimbo) {
+export function BlockLimbo({ position = [0, 0, 0] }: PropsBlockLimbo) {
   const obstacle = useRef() as any;
   const [timeOffset] = useState(() => Math.random() * Math.PI * 2);
   const [speed] = useState(
@@ -154,7 +154,7 @@ interface PropsBlockAxe {
   position: [number, number, number];
 }
 
-function BlockAxe({ position = [0, 0, 0] }: PropsBlockAxe) {
+export function BlockAxe({ position = [0, 0, 0] }: PropsBlockAxe) {
   const obstacle = useRef() as any;
   const [timeOffset] = useState(() => Math.random() * Math.PI * 2);
 
@@ -197,10 +197,26 @@ function BlockAxe({ position = [0, 0, 0] }: PropsBlockAxe) {
   );
 }
 
-export default function Level() {
+export function Level({
+  count = 5,
+  types = [BlockSpinner, BlockAxe, BlockLimbo],
+}) {
+  const blocks = useMemo(() => {
+    const blocks: any = [];
+
+    for (let i = 0; i < count; i++) {
+      const type = types[Math.floor(Math.random() * types.length)];
+      blocks.push(type);
+    }
+
+    return blocks;
+  }, [count, types]);
   return (
     <>
       <BlockStart position={[0, 0, 0]} />
+      {blocks.map((Block: any, index: number) => (
+        <Block key={index} position={[0, 0, -(index + 1) * 4]} />
+      ))}
     </>
   );
 }
