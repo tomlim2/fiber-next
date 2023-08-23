@@ -1,6 +1,6 @@
 import { useFrame } from "@react-three/fiber";
 import { RigidBody } from "@react-three/rapier";
-import { useRef, useMemo, useState } from "react";
+import { useRef, useMemo, useState, JSXElementConstructor } from "react";
 import { BoxGeometry, Euler, MeshStandardMaterial, Quaternion } from "three";
 import { useGLTF } from "@react-three/drei";
 
@@ -10,11 +10,11 @@ const floor2Material = new MeshStandardMaterial({ color: "greenyellow" });
 const obstacleMaterial = new MeshStandardMaterial({ color: "orangered" });
 const wallMaterial = new MeshStandardMaterial({ color: "slategrey" });
 
-interface PropsBlockStart {
+interface PropsBlock {
   position: [number, number, number];
 }
 
-export function BlockStart({ position = [0, 0, 0] }: PropsBlockStart) {
+export function BlockStart({ position = [0, 0, 0] }: PropsBlock) {
   return (
     <group position={position}>
       <mesh
@@ -27,10 +27,8 @@ export function BlockStart({ position = [0, 0, 0] }: PropsBlockStart) {
     </group>
   );
 }
-interface PropsBlockEnd {
-  position: [number, number, number];
-}
-export function BlockEnd({ position = [0, 0, 0] }: PropsBlockEnd) {
+
+export function BlockEnd({ position = [0, 0, 0] }: PropsBlock) {
   const hamburger = useGLTF("/assets/models/hamburger.glb") as any;
   hamburger.scene.children.forEach((mesh: any) => {
     mesh.castShadow = true;
@@ -58,11 +56,7 @@ export function BlockEnd({ position = [0, 0, 0] }: PropsBlockEnd) {
   );
 }
 
-interface PropsBlockSpinner {
-  position: [number, number, number];
-}
-
-export function BlockSpinner({ position = [0, 0, 0] }: PropsBlockSpinner) {
+export function BlockSpinner({ position = [0, 0, 0] }: PropsBlock) {
   const obstacle = useRef() as any;
   const [speed] = useState(
     () => (Math.random() + 0.2) * (Math.random() < 0.5 ? -1 : 1)
@@ -100,11 +94,7 @@ export function BlockSpinner({ position = [0, 0, 0] }: PropsBlockSpinner) {
   );
 }
 
-interface PropsBlockLimbo {
-  position: [number, number, number];
-}
-
-export function BlockLimbo({ position = [0, 0, 0] }: PropsBlockLimbo) {
+export function BlockLimbo({ position = [0, 0, 0] }: PropsBlock) {
   const obstacle = useRef() as any;
   const [timeOffset] = useState(() => Math.random() * Math.PI * 2);
   const [speed] = useState(
@@ -150,11 +140,7 @@ export function BlockLimbo({ position = [0, 0, 0] }: PropsBlockLimbo) {
   );
 }
 
-interface PropsBlockAxe {
-  position: [number, number, number];
-}
-
-export function BlockAxe({ position = [0, 0, 0] }: PropsBlockAxe) {
+export function BlockAxe({ position = [0, 0, 0] }: PropsBlock) {
   const obstacle = useRef() as any;
   const [timeOffset] = useState(() => Math.random() * Math.PI * 2);
 
@@ -197,6 +183,36 @@ export function BlockAxe({ position = [0, 0, 0] }: PropsBlockAxe) {
   );
 }
 
+function Bounds({ length = 1 }) {
+  return (
+    <>
+      <RigidBody type="fixed" restitution={0.2} friction={0}>
+        <mesh
+          position={[2.15, 0.75, -(length * 2) + 2]}
+          geometry={boxGeometry}
+          material={wallMaterial}
+          scale={[0.3, 1.5, 4 * length]}
+          castShadow
+        />
+        <mesh
+          position={[-2.15, 0.75, -(length * 2) + 2]}
+          geometry={boxGeometry}
+          material={wallMaterial}
+          scale={[0.3, 1.5, 4 * length]}
+          receiveShadow
+        />
+        <mesh
+          position={[0, 0.75, -(length * 4) + 2]}
+          geometry={boxGeometry}
+          material={wallMaterial}
+          scale={[4, 1.5, 0.3]}
+          receiveShadow
+        />
+      </RigidBody>
+    </>
+  );
+}
+
 export function Level({
   count = 5,
   types = [BlockSpinner, BlockAxe, BlockLimbo],
@@ -214,9 +230,13 @@ export function Level({
   return (
     <>
       <BlockStart position={[0, 0, 0]} />
-      {blocks.map((Block: any, index: number) => (
+
+      {blocks.map((Block: JSXElementConstructor<PropsBlock>, index: any) => (
         <Block key={index} position={[0, 0, -(index + 1) * 4]} />
       ))}
+
+      <BlockEnd position={[0, 0, -(count + 1) * 4]} />
+      <Bounds length={count + 2} />
     </>
   );
 }
