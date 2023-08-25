@@ -5,7 +5,8 @@ const SectionHome = () => {
     {
       categoryName: "Fiber",
       urlList: [
-        { name: "Gameboy Material 1", url: "/fiber/gameboy-material1" },
+        { name: "Journey Game 1", url: "/fiber/journey-game1" },
+        { name: "Journey Game 2", url: "/fiber/journey-game2" },
         { name: "Animating with triangles 1", url: "/fiber/animating-tri1" },
         { name: "Animating with triangles 2", url: "/fiber/animating-tri2" },
         { name: "Animating with triangles 3", url: "/fiber/animating-tri3" },
@@ -14,13 +15,12 @@ const SectionHome = () => {
         { name: "Animating with triangles 6", url: "/fiber/animating-tri6" },
         { name: "Animating with triangles 7", url: "/fiber/animating-tri7" },
         { name: "Eye with maths", url: "/fiber/eye-with-maths" },
+        { name: "Gameboy Material 1", url: "/fiber/gameboy-material1" },
         { name: "Models", url: "/fiber/models" },
         { name: "Vertex-Fragnent", url: "/fiber/vertex-fragnent" },
         { name: "Fragnent-Time", url: "/fiber/fragnent-time" },
         { name: "Fragnent-Still", url: "/fiber/fragnent-still" },
         { name: "Drei-Portal", url: "/fiber/drei-portal" },
-        { name: "Journey Game 1", url: "/fiber/journey-game1" },
-        { name: "Journey Game 2", url: "/fiber/journey-game2" },
         {
           name: "Journey-Physics-Base",
           url: "/fiber/journey-physics",
