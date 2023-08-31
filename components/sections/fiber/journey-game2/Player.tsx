@@ -1,11 +1,38 @@
 import { useKeyboardControls } from "@react-three/drei";
-import { RigidBody } from "@react-three/rapier";
+import { useRapier, RigidBody } from "@react-three/rapier";
 import { useFrame } from "@react-three/fiber";
-import { useRef } from "react";
+import { useEffect, useRef } from "react";
+import * as RAPIER from "@dimforge/rapier3d-compat";
 
 export default function Player() {
-  const [subscribeKeys, getKeys] = useKeyboardControls();
   const body = useRef() as any;
+  const [subscribeKeys, getKeys] = useKeyboardControls();
+  const { rapier, world } = useRapier();
+
+  const jump = () => {
+    const origin = body.current.translation();
+    origin.y -= 0.31;
+    const direction = { x: 0, y: -1, z: 0 };
+    const ray = new rapier.Ray(origin, direction);
+    console.log(world);
+
+    // const hit = world.castRay(ray);
+
+    // console.log(hit);
+
+    body.current.applyImpulse({ x: 0, y: 0.5, z: 0 });
+  };
+
+  useEffect(() => {
+    subscribeKeys(
+      (state) => {
+        return state.jump;
+      },
+      (value) => {
+        if (value) jump();
+      }
+    );
+  }, []);
 
   useFrame((state, delta) => {
     const { forward, backward, leftward, rightward } = getKeys();
@@ -47,6 +74,8 @@ export default function Player() {
         colliders="ball"
         restitution={0.2}
         friction={1}
+        linearDamping={0.5}
+        angularDamping={0.5}
         position={[0, 1, 0]}
       >
         <mesh castShadow>
