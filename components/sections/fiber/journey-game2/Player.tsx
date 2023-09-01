@@ -2,12 +2,12 @@ import { useKeyboardControls } from "@react-three/drei";
 import { useRapier, RigidBody } from "@react-three/rapier";
 import { useFrame } from "@react-three/fiber";
 import { useEffect, useRef } from "react";
-import * as RAPIER from "@dimforge/rapier3d-compat";
+// import * as RAPIER from "@dimforge/rapier3d-compat";
 
 export default function Player() {
   const body = useRef() as any;
   const [subscribeKeys, getKeys] = useKeyboardControls();
-  const { rapier, world } = useRapier();
+  const { rapier, world } = useRapier() as any;
 
   const jump = () => {
     const origin = body.current.translation();
@@ -16,9 +16,10 @@ export default function Player() {
     const ray = new rapier.Ray(origin, direction);
     console.log(world);
 
-    // const hit = world.castRay(ray);
+    const hit = world.castRay(ray);
 
-    // console.log(hit);
+    console.log(hit);
+    console.log(hit.toi)
 
     body.current.applyImpulse({ x: 0, y: 0.5, z: 0 });
   };
