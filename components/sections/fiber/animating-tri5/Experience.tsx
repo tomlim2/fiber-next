@@ -206,6 +206,7 @@ const Experience = () => {
             ref={materialRef}
             side={DoubleSide}
             color={"#f0f0f0"}
+            
             onBeforeCompile={(shader) => onUpdateMaterial(shader)}
           />
         </mesh>

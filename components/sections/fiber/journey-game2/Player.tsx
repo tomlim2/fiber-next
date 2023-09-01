@@ -7,7 +7,7 @@ import { useEffect, useRef } from "react";
 export default function Player() {
   const body = useRef() as any;
   const [subscribeKeys, getKeys] = useKeyboardControls();
-  const { rapier, world } = useRapier() as any;
+  const { rapier, world } = useRapier();
 
   const jump = () => {
     const origin = body.current.translation();
@@ -16,23 +16,23 @@ export default function Player() {
     const ray = new rapier.Ray(origin, direction);
     console.log(world);
 
-    const hit = world.castRay(ray);
+    const hit = world.castRay(ray, 10, true) as any;
 
     console.log(hit);
-    console.log(hit.toi)
-
-    body.current.applyImpulse({ x: 0, y: 0.5, z: 0 });
+    console.log(hit.toi);
+    if (hit.toi < 0.15) body.current.applyImpulse({ x: 0, y: 0.5, z: 0 });
   };
 
   useEffect(() => {
-    subscribeKeys(
-      (state) => {
-        return state.jump;
-      },
+    const unsubscribeJump = subscribeKeys(
+      (state) => state.jump,
       (value) => {
         if (value) jump();
       }
     );
+    return () => {
+      unsubscribeJump();
+    };
   }, []);
 
   useFrame((state, delta) => {
