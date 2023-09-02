@@ -7,7 +7,6 @@ import {
   Environment,
   PivotControls,
 } from "@react-three/drei";
-import { Debug, RigidBody, Physics, CuboidCollider } from "@react-three/rapier";
 import { Perf } from "r3f-perf";
 import { useState, useRef } from "react";
 import { useFrame } from "@react-three/fiber";

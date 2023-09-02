@@ -1,7 +1,6 @@
 // "use client";
 import { useGLTF, Stage, OrbitControls } from "@react-three/drei";
 import {
-  Debug,
   RigidBody,
   Physics,
   CuboidCollider,
@@ -89,7 +88,6 @@ const Experience = () => {
       <directionalLight castShadow position={[1, 2, 3]} intensity={1.5} />
       <ambientLight intensity={0.5} />
       <Physics gravity={[0, -9.81, 0]}>
-        <Debug />
         <InstancedRigidBodies
           positions={cubeTransforms.positions}
           rotations={cubeTransforms.rotations}

@@ -1,6 +1,6 @@
 // "use client";
 import { Stage, OrbitControls } from "@react-three/drei";
-import { Debug, RigidBody, Physics, CuboidCollider } from "@react-three/rapier";
+import { RigidBody, Physics, CuboidCollider } from "@react-three/rapier";
 import { Perf } from "r3f-perf";
 import { useState, useRef } from "react";
 import { useFrame } from "@react-three/fiber";
@@ -49,7 +49,6 @@ const Experience = () => {
       <directionalLight castShadow position={[1, 2, 3]} intensity={1.5} />
       <ambientLight intensity={0.5} />
       <Physics gravity={[0, -9.81, 0]}>
-        <Debug />
         {/* <mesh castShadow position={[-2, 2, 0]}>
           <sphereGeometry />
           <meshStandardMaterial color="orange" />
