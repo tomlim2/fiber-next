@@ -29,6 +29,7 @@ const Experience = () => {
     const instances = [] as any;
 
     for (let i = 0; i < cubesCount; i++) {
+      const instanceScale = Math.random();
       instances.push({
         key: "instance_" + i,
         position: [
@@ -37,6 +38,7 @@ const Experience = () => {
           (Math.random() - 0.5) * 8,
         ],
         rotation: [Math.random(), Math.random(), Math.random()],
+        scale: [instanceScale, instanceScale, instanceScale],
       });
     }
     return instances;
@@ -83,7 +85,7 @@ const Experience = () => {
             <meshStandardMaterial color="tomato" />
           </instancedMesh>
         </InstancedRigidBodies>
-        {/* <RigidBody colliders={false} position={[0, 4, 0]}>
+        <RigidBody colliders={false} position={[0, 4, 0]}>
           <primitive object={hamburger.scene} scale={0.25} />
           <CylinderCollider args={[0.65, 1.25]} position={[0, 0.7, 0]} />
         </RigidBody>
@@ -118,7 +120,7 @@ const Experience = () => {
           </mesh>
           <CuboidCollider mass={2} args={[0.5, 0.5, 0.5]} />
         </RigidBody>
-        */}
+
         <RigidBody
           ref={twister}
           position={[0, -0.8, 0]}
