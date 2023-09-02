@@ -88,21 +88,6 @@ const Experience = () => {
       <directionalLight castShadow position={[1, 2, 3]} intensity={1.5} />
       <ambientLight intensity={0.5} />
       <Physics gravity={[0, -9.81, 0]}>
-        <InstancedRigidBodies
-          positions={cubeTransforms.positions}
-          rotations={cubeTransforms.rotations}
-          scales={cubeTransforms.scales}
-        >
-          <instancedMesh
-            ref={cubes}
-            castShadow
-            receiveShadow
-            args={[undefined, undefined, cubesCount]}
-          >
-            <boxGeometry />
-            <meshStandardMaterial color="tomato" />
-          </instancedMesh>
-        </InstancedRigidBodies>
         <RigidBody colliders={false} position={[0, 4, 0]}>
           <primitive object={hamburger.scene} scale={0.25} />
           <CylinderCollider args={[0.65, 1.25]} position={[0, 0.7, 0]} />
