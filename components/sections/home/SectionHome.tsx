@@ -7,6 +7,7 @@ const SectionHome = () => {
       urlList: [
         { name: "Journey Game 1", url: "/fiber/journey-game1" },
         { name: "Journey Game 2", url: "/fiber/journey-game2" },
+        { name: "Journey Game 3", url: "/fiber/journey-game3" },
         {
           name: "Journey-Physics-Base",
           url: "/fiber/journey-physics",
