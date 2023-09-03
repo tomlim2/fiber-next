@@ -54,6 +54,11 @@ const Experience = () => {
     const x = Math.cos(angle);
     const z = Math.sin(angle);
     twister.current.setNextKinematicTranslation({ x: x, y: -0.8, z: z });
+
+    //camera
+    const bodyPosition = body.current.translation();
+
+    console.log(bodyPosition);
   });
 
   const cubeJump = () => {
