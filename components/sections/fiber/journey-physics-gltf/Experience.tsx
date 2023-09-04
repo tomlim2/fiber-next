@@ -56,9 +56,9 @@ const Experience = () => {
     twister.current.setNextKinematicTranslation({ x: x, y: -0.8, z: z });
 
     //camera
-    const bodyPosition = body.current.translation();
+    // const bodyPosition = body.current.translation();
 
-    console.log(bodyPosition);
+    // console.log(bodyPosition);
   });
 
   const cubeJump = () => {
