@@ -35,16 +35,32 @@
     margin: 4px;
     border: 2px solid #ffffff;
     background: #ffffff44;
-  }
-  .key-large {
-    width: 144px;
-    height: 40px;
-    margin: 4px;
-    border: 2px solid #ffffff;
-    background: #ffffff44;
-  }
 
-  &.active {
-    background: #ffffff99;
+    &.large {
+      width: 144px;
+      height: 40px;
+      margin: 4px;
+      border: 2px solid #ffffff;
+      background: #ffffff44;
+    }
+
+    &.active {
+      background: #ffffff99;
+    }
   }
+}
+
+.restart {
+  display: flex;
+  justify-content: center;
+  position: absolute;
+  top: 40%;
+  left: 0;
+  width: 100%;
+  color: #ffffff;
+  font-size: 80px;
+  background: #00000033;
+  padding-top: 10px;
+  pointer-events: auto;
+  cursor: pointer;
 }
