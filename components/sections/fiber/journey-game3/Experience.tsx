@@ -8,6 +8,7 @@ import { Perf } from "r3f-perf";
 import * as THREE from "three";
 import { useControls } from "leva";
 import Player from "./Player";
+import useGame from "@/store/useGame";
 
 const Experience = () => {
   return (
