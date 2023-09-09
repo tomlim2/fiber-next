@@ -3,7 +3,7 @@ import { useRapier, RigidBody } from "@react-three/rapier";
 import { useFrame } from "@react-three/fiber";
 import { useState, useEffect, useRef } from "react";
 import { Vector3 } from "three";
-import useGame from "@/store/useGame.jsx";
+import useGame from "@/store/useGame";
 // import * as RAPIER from "@dimforge/rapier3d-compat";
 
 export default function Player() {
