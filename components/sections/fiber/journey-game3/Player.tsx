@@ -3,6 +3,7 @@ import { useRapier, RigidBody } from "@react-three/rapier";
 import { useFrame } from "@react-three/fiber";
 import { useState, useEffect, useRef } from "react";
 import { Vector3 } from "three";
+import useGame from "@/store/useGame.jsx";
 // import * as RAPIER from "@dimforge/rapier3d-compat";
 
 export default function Player() {
@@ -11,6 +12,17 @@ export default function Player() {
   const { rapier, world } = useRapier();
   const [smoothedCameraPosition] = useState(() => new Vector3(10, 10, 10));
   const [smoothedCameraTarget] = useState(() => new Vector3());
+
+  const start = useGame((state: any) => state.start);
+  const end = useGame((state: any) => state.end);
+  const restart = useGame((state: any) => state.restart);
+  const blocksCount = useGame((state: any) => state.blocksCount);
+
+  const reset = () => {
+    body.current.setTranslation({ x: 0, y: 1, z: 0 });
+    body.current.setLinvel({ x: 0, y: 0, z: 0 });
+    body.current.setAngvel({ x: 0, y: 0, z: 0 });
+  };
 
   const jump = () => {
     const origin = body.current.translation();
@@ -24,14 +36,28 @@ export default function Player() {
   };
 
   useEffect(() => {
+    const unsubscribeReset = useGame.subscribe(
+      (state) => state.phase,
+      (value) => {
+        if (value === "ready") reset();
+      }
+    );
     const unsubscribeJump = subscribeKeys(
       (state) => state.jump,
       (value) => {
         if (value) jump();
       }
     );
+    const unsubscribeAny = subscribeKeys(() => {
+      () => {
+        start();
+      };
+    });
+
     return () => {
       unsubscribeJump();
+      unsubscribeAny();
+      unsubscribeReset();
     };
   }, []);
 
@@ -84,6 +110,13 @@ export default function Player() {
 
     state.camera.position.copy(smoothedCameraPosition);
     state.camera.lookAt(smoothedCameraTarget);
+
+    /**
+     * Phases
+     */
+    if (bodyPosition.z < -(blocksCount * 4 + 2)) end();
+
+    if (bodyPosition.y < -4) restart();
   });
   return (
     <>

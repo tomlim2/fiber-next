@@ -11,6 +11,7 @@ import Player from "./Player";
 import useGame from "@/store/useGame";
 
 const Experience = () => {
+  const blocksCount = useGame((state) => state.blocksCount);
   return (
     <>
       <Perf position="bottom-right" />
@@ -18,7 +19,7 @@ const Experience = () => {
 
       <Physics>
         <Lights />
-        <Level />
+        <Level count={blocksCount} />
         <Player />
       </Physics>
     </>
