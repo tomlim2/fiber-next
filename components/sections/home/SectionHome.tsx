@@ -17,8 +17,12 @@ const SectionHome = () => {
           url: "/fiber/journey-physics-gltf",
         },
         {
-          name: "Journey-Postprocess",
-          url: "/fiber/journey-postprocess",
+          name: "Journey-Env",
+          url: "/fiber/journey-env",
+        },
+        {
+          name: "Journey-Env-Model",
+          url: "/fiber/journey-env-model",
         },
         {
           name: "Journey-Models",
@@ -29,13 +33,10 @@ const SectionHome = () => {
           url: "/fiber/journey-stage",
         },
         {
-          name: "Journey-Env",
-          url: "/fiber/journey-env",
+          name: "Journey-Postprocess",
+          url: "/fiber/journey-postprocess",
         },
-        {
-          name: "Journey-Env-Model",
-          url: "/fiber/journey-env-model",
-        },
+
         { name: "Animating with triangles 1", url: "/fiber/animating-tri1" },
         { name: "Animating with triangles 2", url: "/fiber/animating-tri2" },
         { name: "Animating with triangles 3", url: "/fiber/animating-tri3" },
