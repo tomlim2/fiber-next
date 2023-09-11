@@ -4,12 +4,13 @@ import {
   useHelper,
   OrbitControls,
   ContactShadows,
+  Environment,
 } from "@react-three/drei";
 import { Suspense, useRef } from "react";
 import { Perf } from "r3f-perf";
 import * as THREE from "three";
 import { useControls } from "leva";
-import Cube from "./Cube";
+import ModelEmoji from "./ModelEmoji";
 
 const Experience = () => {
   const cube = useRef() as any;
@@ -27,13 +28,10 @@ const Experience = () => {
 
       <OrbitControls makeDefault />
 
-      <directionalLight
-        castShadow
-        position={[1, 2, 3]}
-        intensity={1.5}
-        shadow-normalBias={0.04}
-      />
-      <ambientLight intensity={0.5} />
+      <Environment
+        files="/assets/images/environmentMaps/the_sky_is_on_fire_2k.hdr"
+        // resolution={32}
+      ></Environment>
 
       <Suspense
         fallback={
@@ -43,7 +41,6 @@ const Experience = () => {
           </mesh>
         }
       >
-        {/* <Hamburger scale={0.35} /> */}
         <ContactShadows
           position={[0, -0.99, 0]}
           scale={10}
@@ -54,8 +51,7 @@ const Experience = () => {
           blur={blur}
           frames={1}
         />
-        {/* <Fox /> */}
-        <Cube />
+        <ModelEmoji />
       </Suspense>
     </>
   );
