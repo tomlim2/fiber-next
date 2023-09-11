@@ -36,7 +36,6 @@ const SectionHome = () => {
           name: "Journey-Postprocess",
           url: "/fiber/journey-postprocess",
         },
-
         { name: "Animating with triangles 1", url: "/fiber/animating-tri1" },
         { name: "Animating with triangles 2", url: "/fiber/animating-tri2" },
         { name: "Animating with triangles 3", url: "/fiber/animating-tri3" },
@@ -44,6 +43,10 @@ const SectionHome = () => {
         { name: "Animating with triangles 5", url: "/fiber/animating-tri5" },
         { name: "Animating with triangles 6", url: "/fiber/animating-tri6" },
         { name: "Animating with triangles 7", url: "/fiber/animating-tri7" },
+        {
+          name: "Model emoji 1",
+          url: "/fiber/model-emoji-1",
+        },
         { name: "Eye with maths", url: "/fiber/eye-with-maths" },
         { name: "Gameboy Material 1", url: "/fiber/gameboy-material1" },
         { name: "Models", url: "/fiber/models" },
