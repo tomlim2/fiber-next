@@ -6,8 +6,6 @@ import { Color } from "three";
 export default function Fox() {
   const emoji = useGLTF("/assets/models/emojis/emoji01.glb") as any;
   const emojiGeometry = emoji.nodes.Curve005.geometry;
-  let s = 20;
-  emojiGeometry.scale(s, s, s);
   const config = useControls("cartridge.material", {
     transmissionSampler: false,
     backside: true,
@@ -29,9 +27,8 @@ export default function Fox() {
     bg: "#000000",
   });
   return (
-    <mesh>
-      <bufferGeometry {...emojiGeometry} />
-      <MeshTransmissionMaterial background={new Color(config.bg)} {...config} />
+    <mesh geometry={emojiGeometry} scale={300} rotation-x={Math.PI * 0.5} >
+      <MeshTransmissionMaterial {...config} />
     </mesh>
   );
 }
