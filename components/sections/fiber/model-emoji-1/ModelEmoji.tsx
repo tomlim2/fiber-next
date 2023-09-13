@@ -4,31 +4,61 @@ import { useGLTF, useAnimations } from "@react-three/drei";
 import { Color } from "three";
 
 export default function Fox() {
-  const emoji = useGLTF("/assets/models/emojis/emoji01.glb") as any;
-  const emojiGeometry = emoji.nodes.Curve005.geometry;
-  const config = useControls("cartridge.material", {
-    transmissionSampler: false,
-    backside: true,
-    samples: { value: 10, min: 1, max: 32, step: 1 },
-    resolution: { value: 2048, min: 256, max: 2048, step: 256 },
-    transmission: { value: 1, min: 0, max: 1 },
-    roughness: { value: 0.35, min: 0, max: 1, step: 0.01 },
-    thickness: { value: 0.25, min: 0, max: 10, step: 0.01 },
-    ior: { value: 1.46, min: 1, max: 5, step: 0.01 },
-    chromaticAberration: { value: 1, min: 0, max: 2 },
-    anisotropy: { value: 0.1, min: 0, max: 1, step: 0.01 },
-    distortion: { value: 0.0, min: 0, max: 1, step: 0.01 },
-    distortionScale: { value: 0.3, min: 0.01, max: 1, step: 0.01 },
-    temporalDistortion: { value: 0.5, min: 0, max: 1, step: 0.01 },
-    clearcoat: { value: 0, min: 0, max: 1 },
-    attenuationDistance: { value: 0.28, min: 0, max: 10, step: 0.01 },
-    attenuationColor: "#ea59ff",
-    color: "#ffffff",
-    bg: "#000000",
-  });
+  const { nodes, materials } = useGLTF(
+    "/assets/models/emojis/emoji01B.glb"
+  ) as any;
+  const meshScale = 300;
   return (
-    <mesh geometry={emojiGeometry} scale={300} rotation-x={Math.PI * 0.5} >
-      <MeshTransmissionMaterial {...config} />
-    </mesh>
+    <group dispose={null}>
+      {/* <MeshTransmissionMaterial {...config} /> */}
+      <mesh
+        castShadow
+        receiveShadow
+        geometry={nodes.part6.geometry}
+        material={materials.Base}
+        rotation={[Math.PI / 2, 0, 0]}
+        scale={meshScale}
+      />
+      <mesh
+        castShadow
+        receiveShadow
+        geometry={nodes.part1.geometry}
+        material={materials.Base}
+        rotation={[Math.PI / 2, 0, 0]}
+        scale={meshScale}
+      />
+      <mesh
+        castShadow
+        receiveShadow
+        geometry={nodes.part2.geometry}
+        material={materials.Base}
+        rotation={[Math.PI / 2, 0, 0]}
+        scale={meshScale}
+      />
+      <mesh
+        castShadow
+        receiveShadow
+        geometry={nodes.part3.geometry}
+        material={materials.Base}
+        rotation={[Math.PI / 2, 0, 0]}
+        scale={meshScale}
+      />
+      <mesh
+        castShadow
+        receiveShadow
+        geometry={nodes.part4.geometry}
+        material={materials.Base}
+        rotation={[Math.PI / 2, 0, 0]}
+        scale={meshScale}
+      />
+      <mesh
+        castShadow
+        receiveShadow
+        geometry={nodes.part5.geometry}
+        material={materials.Base}
+        rotation={[Math.PI / 2, 0, 0]}
+        scale={meshScale}
+      />
+    </group>
   );
 }

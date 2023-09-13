@@ -22,18 +22,6 @@ const Experience = () => {
     opacity: { value: 0.4, min: 0, max: 1 },
     blur: { value: 2.8, min: 0, max: 10 },
   });
-  const canvasConfig = useControls("canvas", {
-    toneMapping: {
-      value: THREE.CustomToneMapping,
-      options: {
-        ACESFilmic: THREE.ACESFilmicToneMapping,
-        Cineon: THREE.CineonToneMapping,
-        Reinhard: THREE.ReinhardToneMapping,
-        Custom: THREE.CustomToneMapping,
-      },
-    },
-    toneMappingExposure: { value: 1.5, min: 0, max: 3, step: 0.01 },
-  });
 
   return (
     <>
